@@ -89,8 +89,10 @@ const App: React.FC = () => {
   // Enable smooth scrolling for all anchor links in the app
   useSmoothScroll();
 
-  // In production, use the base path from Vite config, otherwise use root
-  const basename = import.meta.env.BASE_URL || '';
+  // Get the base path from Vite's environment variables
+  // Remove any trailing slashes for BrowserRouter
+  const basename = (import.meta.env.BASE_URL || '').replace(/\/+$/, '');
+  console.log('Using base path:', basename);
 
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">

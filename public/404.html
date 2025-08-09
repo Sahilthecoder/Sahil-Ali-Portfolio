@@ -9,7 +9,14 @@
   <link rel="icon" type="image/x-icon" href="/Sahil-Ali-Portfolio/favicon/favicon.ico">
   <script>
     // Set the base path for the application
-    window.BASE_PATH = '/Sahil-Ali-Portfolio/';
+    const repoName = 'Sahil-Ali-Portfolio';
+    const isGitHubPages = window.location.hostname === 'sahilthecoder.github.io';
+    const basePath = isGitHubPages ? `/${repoName}/` : '/';
+    window.BASE_PATH = basePath;
+    
+    // Update base href
+    const base = document.querySelector('base');
+    if (base) base.href = basePath;
   </script>
   <style>
     body {
@@ -90,9 +97,8 @@
   <script>
     // Single-page app (SPA) routing for GitHub Pages
     (function() {
-      // Get the base path from the base tag or default to repository name
-      const baseElement = document.querySelector('base');
-      const baseHref = baseElement ? baseElement.getAttribute('href') : '/Sahil-Ali-Portfolio/';
+      // Use the global BASE_PATH or default to '/'
+      const baseHref = window.BASE_PATH || '/';
       
       // Ensure base path starts and ends with a slash
       const basePath = baseHref.endsWith('/') ? baseHref : baseHref + '/';
@@ -125,23 +131,28 @@
       function loadApp() {
         // Try to load the main JavaScript bundle
         const script = document.createElement('script');
-        script.src = getBasePath() + 'assets/index.js';
+        script.src = basePath + 'assets/index.js';
+        
         script.onerror = function() {
+          console.error('Failed to load script with base path, trying root path');
           // If the script fails to load, try the non-base path as a fallback
           script.src = '/assets/index.js';
           script.onerror = function() {
             // If both attempts fail, show an error message
             document.querySelector('.container').innerHTML = `
               <h1>Error Loading Application</h1>
-              <p>Failed to load the application. Please <a href="${newPath}">refresh the page</a> or try again later.</p>
+              <p>Failed to load the application. Please <a href="${window.location.href}">refresh the page</a> or try again later.</p>
               <p>If the problem persists, please check your internet connection or contact support.</p>
+              <p>Debug info: ${window.location.href}</p>
             `;
           };
           document.head.appendChild(script);
         };
+        
         script.onload = function() {
           console.log('Application script loaded successfully');
         };
+        
         document.head.appendChild(script);
       }
       

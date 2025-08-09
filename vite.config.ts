@@ -8,22 +8,27 @@ const env = loadEnv('all', process.cwd(), '');
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   // Always use the base path for GitHub Pages in production
-  const base = mode === 'production' ? '/Sahil-Ali-Portfolio/' : '/';
+  const isProduction = mode === 'production';
+  const base = isProduction ? '/Sahil-Ali-Portfolio/' : '/';
   
   console.log(`Running in ${mode} mode with base URL: ${base}`);
   
-  // Set the base URL as an environment variable for the app to use
+  // Set environment variables for the app to use
   process.env.VITE_BASE_URL = base;
   process.env.BASE_URL = base; // For compatibility with some libraries
+  
+  // For Vite's define
+  const defineVars = {
+    'import.meta.env.VITE_BASE_URL': JSON.stringify(base),
+    'import.meta.env.BASE_URL': JSON.stringify(base),
+    'process.env.NODE_ENV': JSON.stringify(mode),
+    'process.env.BASE_URL': JSON.stringify(base)
+  };
   
   return {
     base,
     plugins: [react()],
-    define: {
-      'process.env': {
-        BASE_URL: JSON.stringify(base)
-      }
-    },
+    define: defineVars,
     envPrefix: ['VITE_', 'NEXT_'],
     resolve: {
       alias: {
