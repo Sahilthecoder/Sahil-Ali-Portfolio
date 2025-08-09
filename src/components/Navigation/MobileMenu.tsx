@@ -12,12 +12,16 @@ interface NavItem {
   path: string;
 }
 
+const getPath = (path: string) => `/${path}`;
+
 const navItems: NavItem[] = [
-  { label: 'Home', path: '/' },
-  { label: 'About', path: '/about' },
-  { label: 'Projects', path: '/projects' },
-  { label: 'Contact', path: '/contact' },
-  { label: 'Blog', path: '/blog' },
+  { label: 'Home', path: getPath('') },
+  { label: 'About', path: getPath('about') },
+  { label: 'Experience', path: getPath('experience') },
+  { label: 'Projects', path: getPath('projects') },
+  { label: 'Blog', path: getPath('blog') },
+  { label: 'Skills', path: getPath('skills') },
+  { label: 'Contact', path: getPath('contact') },
 ];
 
 const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {

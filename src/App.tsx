@@ -11,6 +11,7 @@ import Experience from './pages/Experience';
 import { Projects } from './pages/Projects';
 import Contact from './pages/Contact';
 import Blog from './pages/Blog';
+import Skills from './pages/Skills';
 import NotFound from './pages/NotFound';
 import { lazy } from 'react'; 
 const ProjectDetails = lazy(() => import('./pages/Projects/ProjectDetails'));
@@ -48,6 +49,7 @@ const AnimatedRoutes = () => {
         <Route path="/projects" element={<PageTransition><Projects /></PageTransition>} />
         <Route path="/projects/:id" element={<PageTransition><ProjectDetails /></PageTransition>} />
         <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
+        <Route path="/skills" element={<PageTransition><Skills /></PageTransition>} />
         <Route path="/blog" element={<PageTransition><Blog /></PageTransition>} />
         <Route path="/terms-of-service" element={<PageTransition><TermsOfService /></PageTransition>} />
         <Route path="/privacy-policy" element={<PageTransition><PrivacyPolicy /></PageTransition>} />
@@ -105,7 +107,7 @@ const App: React.FC = () => {
             </main>
             <Footer />
           </div>
-        </BrowserRouter>
+        </HashRouter>
       </ErrorBoundary>
     </ThemeProvider>
   );

@@ -13,6 +13,7 @@ const navItems: NavItem[] = [
   { label: 'About', path: getPath('/about') },
   { label: 'Experience', path: getPath('/experience') },
   { label: 'Projects', path: getPath('/projects') },
+  { label: 'Skills', path: getPath('/skills') },
   { label: 'Blog', path: getPath('/blog') },
   { label: 'Contact', path: getPath('/contact') },
 ];
