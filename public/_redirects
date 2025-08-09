@@ -1,2 +1,6 @@
 # Enable client-side routing in production
 /*    /index.html   200
+
+# Handle all routes for SPA
+/404.html    /index.html   200
+/*    /index.html   200

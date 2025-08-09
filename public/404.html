@@ -7,6 +7,10 @@
   <meta name="description" content="Portfolio of Sahil Ali - Data Generalist">
   <base href="/Sahil-Ali-Portfolio/" />
   <link rel="icon" type="image/x-icon" href="/Sahil-Ali-Portfolio/favicon/favicon.ico">
+  <script>
+    // Set the base path for the application
+    window.BASE_PATH = '/Sahil-Ali-Portfolio/';
+  </script>
   <style>
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -121,7 +125,7 @@
       function loadApp() {
         // Try to load the main JavaScript bundle
         const script = document.createElement('script');
-        script.src = basePath + 'assets/index.js';
+        script.src = getBasePath() + 'assets/index.js';
         script.onerror = function() {
           // If the script fails to load, try the non-base path as a fallback
           script.src = '/assets/index.js';

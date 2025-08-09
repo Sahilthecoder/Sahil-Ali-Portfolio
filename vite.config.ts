@@ -14,6 +14,7 @@ export default defineConfig(({ mode }) => {
   
   // Set the base URL as an environment variable for the app to use
   process.env.VITE_BASE_URL = base;
+  process.env.BASE_URL = base; // For compatibility with some libraries
   
   return {
     base,

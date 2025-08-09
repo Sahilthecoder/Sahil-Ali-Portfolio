@@ -89,8 +89,8 @@ const App: React.FC = () => {
   // Enable smooth scrolling for all anchor links in the app
   useSmoothScroll();
 
-  // Set the basename for GitHub Pages - ensure it starts with a slash and doesn't end with one
-  const basename = process.env.NODE_ENV === 'production' ? '/Sahil-Ali-Portfolio' : '';
+  // In production, use the base path from Vite config, otherwise use root
+  const basename = import.meta.env.BASE_URL || '';
 
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
