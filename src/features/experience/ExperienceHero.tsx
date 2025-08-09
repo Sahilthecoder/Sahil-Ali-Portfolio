@@ -54,7 +54,7 @@ const ExperienceHero: React.FC = () => {
                 View Experience
               </Button>
               <a
-                href="/assets/Sahil_Ali_Cv.pdf"
+                href="/Sahil-Ali-Portfolio/assets/Sahil_Ali_Cv.pdf"
                 download="Sahil_Ali_CV.pdf"
                 target="_blank"
                 rel="noopener noreferrer"

@@ -1,6 +1,7 @@
+'use client';
+
+import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
-import { useRef } from 'react';
-import React from 'react';
 import { FiCode } from 'react-icons/fi';
 import { useExperienceAnimations } from '@/features/experience/hooks/useExperienceAnimations';
 
@@ -11,11 +12,11 @@ interface TechnologiesUsedProps {
 }
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 15 },
   visible: (index: number) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: index * 0.1 },
+    transition: { delay: index * 0.07 }
   }),
 };
 
@@ -27,31 +28,41 @@ export const TechnologiesUsed: React.FC<TechnologiesUsedProps> = ({
   const ref = useRef<HTMLDivElement>(null);
 
   const { controls } = useExperienceAnimations(ref, {
-    yOffset: 10,
-    staggerDelay: 0.1,
-    initialDelay: 0.2,
+    yOffset: 15,
+    staggerDelay: 0.07,
+    initialDelay: 0.15,
   });
 
   if (!technologies || technologies.length === 0) return null;
 
   return (
-    <motion.div ref={ref} initial="hidden" animate={controls} className={`mt-6 ${className}`}>
+    <motion.div
+      ref={ref}
+      initial="hidden"
+      animate={controls}
+      className={`mt-6 ${className}`}
+    >
+      {/* Section Title */}
       <motion.h4
         variants={itemVariants}
         custom={0}
-        className="text-lg font-semibold text-foreground mb-3 flex items-center"
+        className="text-lg sm:text-xl font-semibold text-foreground mb-3 flex items-center"
       >
-        <FiCode className="mr-2 text-primary-500" />
+        <FiCode className="mr-2 text-primary-500 flex-shrink-0" />
         {title}
       </motion.h4>
 
-      <motion.div variants={itemVariants} className="flex flex-wrap gap-2">
+      {/* Badge List */}
+      <motion.div
+        variants={itemVariants}
+        className="flex flex-wrap gap-2"
+      >
         {technologies.map((tech, index) => (
           <motion.span
             key={tech}
             variants={itemVariants}
             custom={index + 1}
-            className="inline-flex items-center rounded-full bg-muted px-3 py-1 text-sm font-medium text-foreground"
+            className="inline-flex items-center rounded-full bg-muted/70 px-3 py-1.5 text-sm font-medium text-foreground border border-border hover:bg-muted/90 transition-colors"
           >
             {tech}
           </motion.span>

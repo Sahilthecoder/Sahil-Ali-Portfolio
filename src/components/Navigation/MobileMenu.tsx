@@ -64,8 +64,8 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
               w-56 text-center rounded-lg py-3 px-6
               transition-colors duration-300
               ${isActive
-                ? 'bg-blue-600 text-white shadow-lg'
-                : 'hover:bg-blue-600 hover:text-white'}
+                ? 'bg-primary text-white shadow-lg'
+                : 'hover:bg-primary hover:text-white'}
             `}
             aria-current={isActive ? 'page' : undefined}
           >

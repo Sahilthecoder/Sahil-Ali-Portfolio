@@ -6,7 +6,7 @@ const experiences: Experience[] = [
     role: 'Field Executive & Accounts Assistant',
     company: 'Deewakar Finance Pvt. Ltd.',
     companyUrl: 'https://www.deewakargroup.com',
-    logo: '/Sahil-Ali-Portfolio/public/Company/Deewakar_logo.png',
+    logo: '/Sahil-Ali-Portfolio/Company/Deewakar_logo.png',
     period: 'Dec 2017 – Nov 2020',
     description: [
       'Visited clients for EMI collections, loan follow-ups, and settlement discussions to ensure timely recoveries',
@@ -37,7 +37,7 @@ const experiences: Experience[] = [
     role: 'Inventory Specialist & Cash Flow',
     company: 'Ekam Indian Groceries',
     companyUrl: '#',
-    logo: '/Sahil-Ali-Portfolio/public/Company/Ekam_logo.png',
+    logo: '/Sahil-Ali-Portfolio/Company/Ekam_logo.png',
     period: 'Dec 2023 – Present',
     description: [
       'Managed daily purchase entries, invoice verification, attendance tracking, and supplier coordination across dual store locations',
@@ -68,7 +68,7 @@ const experiences: Experience[] = [
     role: 'GRN Officer',
     company: 'Bansal Supermarket',
     companyUrl: '#',
-    logo: '/Sahil-Ali-Portfolio/public/Company/Bansal_logo.png',
+    logo: '/Sahil-Ali-Portfolio/Company/Bansal_logo.png',
     period: 'Dec 2022 – Nov 2023',
     description: [
       'Managed GRNs, MRP/offer changes, and 10-item register maintenance with precision',
@@ -98,7 +98,7 @@ const experiences: Experience[] = [
     role: 'Warehouse Supervisor',
     company: 'Arzt Health & Private Limited',
     companyUrl: '#',
-    logo: '/Sahil-Ali-Portfolio/public/Company/Arzt_logo.png',
+    logo: '/Sahil-Ali-Portfolio/Company/Arzt_logo.png',
     period: 'June 2022 – Nov 2022',
     description: [
       'Oversaw stock control, warehouse documentation, and physical inventory across training material storage',
@@ -128,7 +128,7 @@ const experiences: Experience[] = [
     role: 'Data Analyst & Automation Specialist',
     company: 'Self-Employed',
     companyUrl: '#',
-    logo: '/Sahil-Ali-Portfolio/public/Company/AIGernalist_logo.png',
+    logo: '/Sahil-Ali-Portfolio/Company/AIGernalist_logo.png',
     period: '2024 – Present',
     description: [
       'Designed and developed a professional portfolio website to showcase data analytics, automation, and inventory management expertise',

@@ -17,14 +17,14 @@ interface ProjectModalProps {
 }
 
 const modalVariants = {
-  hidden: { opacity: 0, scale: 0.95, y: 30 },
+  hidden: { opacity: 0, scale: 0.95, y: 20 },
   visible: {
     opacity: 1,
     scale: 1,
     y: 0,
-    transition: { type: 'spring', stiffness: 120, damping: 14 }
+    transition: { type: 'spring', stiffness: 120, damping: 16 }
   },
-  exit: { opacity: 0, scale: 0.9, y: 20, transition: { duration: 0.25 } }
+  exit: { opacity: 0, scale: 0.9, y: 15, transition: { duration: 0.25 } }
 };
 
 export default function ProjectModal({
@@ -49,7 +49,7 @@ export default function ProjectModal({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-2 sm:p-4"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-3 sm:p-5"
           style={{ perspective: '1200px' }}
           onClick={onClose}
         >
@@ -59,7 +59,7 @@ export default function ProjectModal({
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="relative w-full max-w-6xl h-[95vh] sm:h-auto bg-background/95 backdrop-blur-lg rounded-lg sm:rounded-2xl overflow-hidden border border-white/10 shadow-xl"
+            className="relative w-full max-w-4xl sm:max-w-5xl max-h-[90vh] bg-background/95 backdrop-blur-lg rounded-lg sm:rounded-2xl overflow-hidden border border-white/10 shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
@@ -71,10 +71,11 @@ export default function ProjectModal({
               <FiX className="h-6 w-6" />
             </button>
 
-            {/* Grid Layout */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 h-full overflow-y-auto">
+            {/* Content Layout */}
+            <div className="flex flex-col lg:grid lg:grid-cols-2 h-full overflow-y-auto">
+              
               {/* Left - Image */}
-              <div className="relative w-full h-48 sm:h-auto overflow-hidden">
+              <div className="relative w-full h-56 sm:h-72 lg:h-full">
                 <motion.img
                   key={project.image.src}
                   src={project.image.src}
@@ -91,10 +92,10 @@ export default function ProjectModal({
               {/* Right - Details */}
               <div className="flex flex-col gap-4 p-4 sm:p-6 lg:p-8 overflow-y-auto">
                 {/* Title & Subtitle */}
-                <div className="sticky top-0 bg-background/95 backdrop-blur-sm pb-2 z-10">
-                  <h2 className="text-xl sm:text-3xl font-bold">{project.title}</h2>
+                <div>
+                  <h2 className="text-xl sm:text-2xl font-bold leading-snug">{project.title}</h2>
                   {project.subtitle && (
-                    <p className="text-sm sm:text-lg text-muted-foreground">
+                    <p className="text-sm sm:text-base text-muted-foreground mt-1">
                       {project.subtitle}
                     </p>
                   )}
@@ -111,8 +112,8 @@ export default function ProjectModal({
 
                 {/* Overview */}
                 <section>
-                  <h3 className="font-semibold">Project Overview</h3>
-                  <p className="text-muted-foreground text-sm sm:text-base">
+                  <h3 className="font-semibold text-base">Project Overview</h3>
+                  <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
                     {project.description}
                   </p>
                 </section>
@@ -120,11 +121,11 @@ export default function ProjectModal({
                 {/* Highlights */}
                 {project.highlights?.length > 0 && (
                   <section>
-                    <h3 className="font-semibold">Key Highlights</h3>
+                    <h3 className="font-semibold text-base">Key Highlights</h3>
                     <ul className="space-y-2">
                       {project.highlights.map((highlight, idx) => (
                         <li key={idx} className="flex items-start gap-2 text-muted-foreground text-sm sm:text-base">
-                          <FaRegLightbulb className="mt-1 h-4 w-4 text-yellow-400" />
+                          <FaRegLightbulb className="mt-1 h-4 w-4 text-yellow-400 flex-shrink-0" />
                           <span>{highlight}</span>
                         </li>
                       ))}
