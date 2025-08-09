@@ -1,8 +1,6 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { cn } from '@/utils/cn';
-import { Button } from '@/components/ui/Button';
-import type { Project, ProjectLink } from './types';
+import type { Project } from './types';
 
 interface ProjectCardProps {
   project: Project;
@@ -74,7 +72,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick, className }
               {technologies.map((tech) => (
                 <span
                   key={tech}
-                  className="bg-primary/10 text-primary-contrast px-2 py-0.5 sm:py-1 rounded text-[10px] sm:text-xs font-medium whitespace-nowrap"
+                  className="bg-primary/10 text-primary-contrast/90 px-2 py-0.5 sm:py-1 rounded text-[10px] sm:text-xs font-medium whitespace-nowrap"
                 >
                   {tech}
                 </span>
@@ -126,24 +124,12 @@ export const ProjectList: React.FC<ProjectListProps> = ({
   return (
     <div className={cn('grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6', className)}>
       {projects.map((project) => (
-        <motion.div
-          key={project.id}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.3 }}
-        >
+        <div key={project.id}>
           <ProjectCard
-            project={{
-              ...project,
-              image: project.image || { src: '', alt: project.title },
-              links: project.links || [],
-              technologies: project.technologies || [],
-              highlights: project.highlights || [],
-            }}
+            project={project}
             onClick={() => onProjectClick(project)}
           />
-        </motion.div>
+        </div>
       ))}
     </div>
   );

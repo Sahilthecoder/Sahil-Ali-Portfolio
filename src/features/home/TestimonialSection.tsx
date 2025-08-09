@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { cn } from '@/lib/utils';
 import LazyImage from '@/components/LazyImage';
 import testimonials from '../../data/testimonialsData'; // Adjust path if needed
 import { SectionHeader } from '@/components/ui/AnimatedSection';
@@ -110,19 +109,11 @@ const TestimonialSection = () => {
                 </div>
               </div>
 
-              <div 
-                className="mb-3" 
-                role="img"
-                aria-label={`Rating: ${rating} out of 5 stars`}
-                aria-valuenow={rating}
-                aria-valuemin={1}
-                aria-valuemax={5}
-                aria-valuetext={`${rating} out of 5`}
-              >
-                <div role="presentation">
+              <div className="mb-3">
+                <div aria-hidden="true">
                   {stars(rating)}
                 </div>
-                <span className="sr-only">Rating: {rating} out of 5 stars</span>
+                <div className="sr-only">Rating: {rating} out of 5 stars</div>
               </div>
 
               {project && (

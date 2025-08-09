@@ -1,5 +1,5 @@
 {
-  "generated": "2025-08-09T23:19:07.492Z",
+  "generated": "2025-08-09T23:32:46.264Z",
   "images": [
     {
       "original": "public\\images\\profile\\profile.webp",
@@ -912,6 +912,318 @@
       ]
     },
     {
+      "original": "public\\images\\projects\\Attendance_Project3\\Project3_Cover.webp",
+      "optimized": "public\\optimized-images\\projects\\Attendance_Project3\\Project3_Cover.webp",
+      "responsive": [
+        {
+          "width": 640,
+          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Project3_Cover-640w.webp"
+        },
+        {
+          "width": 768,
+          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Project3_Cover-768w.webp"
+        },
+        {
+          "width": 1024,
+          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Project3_Cover-1024w.webp"
+        },
+        {
+          "width": 1280,
+          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Project3_Cover-1280w.webp"
+        },
+        {
+          "width": 1536,
+          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Project3_Cover-1536w.webp"
+        }
+      ]
+    },
+    {
+      "original": "public\\images\\projects\\Attendance_Project3\\Project3_Cover-600w.webp",
+      "optimized": "public\\optimized-images\\projects\\Attendance_Project3\\Project3_Cover-600w.webp",
+      "responsive": [
+        {
+          "width": 640,
+          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Project3_Cover-600w-640w.webp"
+        },
+        {
+          "width": 768,
+          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Project3_Cover-600w-768w.webp"
+        },
+        {
+          "width": 1024,
+          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Project3_Cover-600w-1024w.webp"
+        },
+        {
+          "width": 1280,
+          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Project3_Cover-600w-1280w.webp"
+        },
+        {
+          "width": 1536,
+          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Project3_Cover-600w-1536w.webp"
+        }
+      ]
+    },
+    {
+      "original": "public\\images\\projects\\Attendance_Project3\\Project3_Cover-300w.webp",
+      "optimized": "public\\optimized-images\\projects\\Attendance_Project3\\Project3_Cover-300w.webp",
+      "responsive": [
+        {
+          "width": 640,
+          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Project3_Cover-300w-640w.webp"
+        },
+        {
+          "width": 768,
+          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Project3_Cover-300w-768w.webp"
+        },
+        {
+          "width": 1024,
+          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Project3_Cover-300w-1024w.webp"
+        },
+        {
+          "width": 1280,
+          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Project3_Cover-300w-1280w.webp"
+        },
+        {
+          "width": 1536,
+          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Project3_Cover-300w-1536w.webp"
+        }
+      ]
+    },
+    {
+      "original": "public\\images\\projects\\Attendance_Project3\\Project3_Cover-1200w.webp",
+      "optimized": "public\\optimized-images\\projects\\Attendance_Project3\\Project3_Cover-1200w.webp",
+      "responsive": [
+        {
+          "width": 640,
+          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Project3_Cover-1200w-640w.webp"
+        },
+        {
+          "width": 768,
+          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Project3_Cover-1200w-768w.webp"
+        },
+        {
+          "width": 1024,
+          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Project3_Cover-1200w-1024w.webp"
+        },
+        {
+          "width": 1280,
+          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Project3_Cover-1200w-1280w.webp"
+        },
+        {
+          "width": 1536,
+          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Project3_Cover-1200w-1536w.webp"
+        }
+      ]
+    },
+    {
+      "original": "public\\images\\projects\\Attendance_Project3\\Attendance_before.webp",
+      "optimized": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_before.webp",
+      "responsive": [
+        {
+          "width": 640,
+          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_before-640w.webp"
+        },
+        {
+          "width": 768,
+          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_before-768w.webp"
+        },
+        {
+          "width": 1024,
+          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_before-1024w.webp"
+        },
+        {
+          "width": 1280,
+          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_before-1280w.webp"
+        },
+        {
+          "width": 1536,
+          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_before-1536w.webp"
+        }
+      ]
+    },
+    {
+      "original": "public\\images\\projects\\Attendance_Project3\\Attendance_before-600w.webp",
+      "optimized": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_before-600w.webp",
+      "responsive": [
+        {
+          "width": 640,
+          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_before-600w-640w.webp"
+        },
+        {
+          "width": 768,
+          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_before-600w-768w.webp"
+        },
+        {
+          "width": 1024,
+          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_before-600w-1024w.webp"
+        },
+        {
+          "width": 1280,
+          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_before-600w-1280w.webp"
+        },
+        {
+          "width": 1536,
+          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_before-600w-1536w.webp"
+        }
+      ]
+    },
+    {
+      "original": "public\\images\\projects\\Attendance_Project3\\Attendance_before-300w.webp",
+      "optimized": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_before-300w.webp",
+      "responsive": [
+        {
+          "width": 640,
+          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_before-300w-640w.webp"
+        },
+        {
+          "width": 768,
+          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_before-300w-768w.webp"
+        },
+        {
+          "width": 1024,
+          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_before-300w-1024w.webp"
+        },
+        {
+          "width": 1280,
+          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_before-300w-1280w.webp"
+        },
+        {
+          "width": 1536,
+          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_before-300w-1536w.webp"
+        }
+      ]
+    },
+    {
+      "original": "public\\images\\projects\\Attendance_Project3\\Attendance_before-1200w.webp",
+      "optimized": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_before-1200w.webp",
+      "responsive": [
+        {
+          "width": 640,
+          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_before-1200w-640w.webp"
+        },
+        {
+          "width": 768,
+          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_before-1200w-768w.webp"
+        },
+        {
+          "width": 1024,
+          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_before-1200w-1024w.webp"
+        },
+        {
+          "width": 1280,
+          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_before-1200w-1280w.webp"
+        },
+        {
+          "width": 1536,
+          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_before-1200w-1536w.webp"
+        }
+      ]
+    },
+    {
+      "original": "public\\images\\projects\\Attendance_Project3\\Attendance_after.webp",
+      "optimized": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_after.webp",
+      "responsive": [
+        {
+          "width": 640,
+          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_after-640w.webp"
+        },
+        {
+          "width": 768,
+          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_after-768w.webp"
+        },
+        {
+          "width": 1024,
+          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_after-1024w.webp"
+        },
+        {
+          "width": 1280,
+          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_after-1280w.webp"
+        },
+        {
+          "width": 1536,
+          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_after-1536w.webp"
+        }
+      ]
+    },
+    {
+      "original": "public\\images\\projects\\Attendance_Project3\\Attendance_after-600w.webp",
+      "optimized": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_after-600w.webp",
+      "responsive": [
+        {
+          "width": 640,
+          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_after-600w-640w.webp"
+        },
+        {
+          "width": 768,
+          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_after-600w-768w.webp"
+        },
+        {
+          "width": 1024,
+          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_after-600w-1024w.webp"
+        },
+        {
+          "width": 1280,
+          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_after-600w-1280w.webp"
+        },
+        {
+          "width": 1536,
+          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_after-600w-1536w.webp"
+        }
+      ]
+    },
+    {
+      "original": "public\\images\\projects\\Attendance_Project3\\Attendance_after-300w.webp",
+      "optimized": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_after-300w.webp",
+      "responsive": [
+        {
+          "width": 640,
+          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_after-300w-640w.webp"
+        },
+        {
+          "width": 768,
+          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_after-300w-768w.webp"
+        },
+        {
+          "width": 1024,
+          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_after-300w-1024w.webp"
+        },
+        {
+          "width": 1280,
+          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_after-300w-1280w.webp"
+        },
+        {
+          "width": 1536,
+          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_after-300w-1536w.webp"
+        }
+      ]
+    },
+    {
+      "original": "public\\images\\projects\\Attendance_Project3\\Attendance_after-1200w.webp",
+      "optimized": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_after-1200w.webp",
+      "responsive": [
+        {
+          "width": 640,
+          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_after-1200w-640w.webp"
+        },
+        {
+          "width": 768,
+          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_after-1200w-768w.webp"
+        },
+        {
+          "width": 1024,
+          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_after-1200w-1024w.webp"
+        },
+        {
+          "width": 1280,
+          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_after-1200w-1280w.webp"
+        },
+        {
+          "width": 1536,
+          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_after-1200w-1536w.webp"
+        }
+      ]
+    },
+    {
       "original": "public\\images\\projects\\CommingSoon_Project6\\Project6_Cover.webp",
       "optimized": "public\\optimized-images\\projects\\CommingSoon_Project6\\Project6_Cover.webp",
       "responsive": [
@@ -1584,318 +1896,6 @@
         {
           "width": 1536,
           "path": "public\\optimized-images\\projects\\Bansal_Project2\\bs-saleVSpft-300w-1536w.webp"
-        }
-      ]
-    },
-    {
-      "original": "public\\images\\projects\\Attendance_Project3\\Project3_Cover.webp",
-      "optimized": "public\\optimized-images\\projects\\Attendance_Project3\\Project3_Cover.webp",
-      "responsive": [
-        {
-          "width": 640,
-          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Project3_Cover-640w.webp"
-        },
-        {
-          "width": 768,
-          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Project3_Cover-768w.webp"
-        },
-        {
-          "width": 1024,
-          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Project3_Cover-1024w.webp"
-        },
-        {
-          "width": 1280,
-          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Project3_Cover-1280w.webp"
-        },
-        {
-          "width": 1536,
-          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Project3_Cover-1536w.webp"
-        }
-      ]
-    },
-    {
-      "original": "public\\images\\projects\\Attendance_Project3\\Project3_Cover-600w.webp",
-      "optimized": "public\\optimized-images\\projects\\Attendance_Project3\\Project3_Cover-600w.webp",
-      "responsive": [
-        {
-          "width": 640,
-          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Project3_Cover-600w-640w.webp"
-        },
-        {
-          "width": 768,
-          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Project3_Cover-600w-768w.webp"
-        },
-        {
-          "width": 1024,
-          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Project3_Cover-600w-1024w.webp"
-        },
-        {
-          "width": 1280,
-          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Project3_Cover-600w-1280w.webp"
-        },
-        {
-          "width": 1536,
-          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Project3_Cover-600w-1536w.webp"
-        }
-      ]
-    },
-    {
-      "original": "public\\images\\projects\\Attendance_Project3\\Project3_Cover-300w.webp",
-      "optimized": "public\\optimized-images\\projects\\Attendance_Project3\\Project3_Cover-300w.webp",
-      "responsive": [
-        {
-          "width": 640,
-          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Project3_Cover-300w-640w.webp"
-        },
-        {
-          "width": 768,
-          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Project3_Cover-300w-768w.webp"
-        },
-        {
-          "width": 1024,
-          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Project3_Cover-300w-1024w.webp"
-        },
-        {
-          "width": 1280,
-          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Project3_Cover-300w-1280w.webp"
-        },
-        {
-          "width": 1536,
-          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Project3_Cover-300w-1536w.webp"
-        }
-      ]
-    },
-    {
-      "original": "public\\images\\projects\\Attendance_Project3\\Project3_Cover-1200w.webp",
-      "optimized": "public\\optimized-images\\projects\\Attendance_Project3\\Project3_Cover-1200w.webp",
-      "responsive": [
-        {
-          "width": 640,
-          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Project3_Cover-1200w-640w.webp"
-        },
-        {
-          "width": 768,
-          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Project3_Cover-1200w-768w.webp"
-        },
-        {
-          "width": 1024,
-          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Project3_Cover-1200w-1024w.webp"
-        },
-        {
-          "width": 1280,
-          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Project3_Cover-1200w-1280w.webp"
-        },
-        {
-          "width": 1536,
-          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Project3_Cover-1200w-1536w.webp"
-        }
-      ]
-    },
-    {
-      "original": "public\\images\\projects\\Attendance_Project3\\Attendance_before.webp",
-      "optimized": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_before.webp",
-      "responsive": [
-        {
-          "width": 640,
-          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_before-640w.webp"
-        },
-        {
-          "width": 768,
-          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_before-768w.webp"
-        },
-        {
-          "width": 1024,
-          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_before-1024w.webp"
-        },
-        {
-          "width": 1280,
-          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_before-1280w.webp"
-        },
-        {
-          "width": 1536,
-          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_before-1536w.webp"
-        }
-      ]
-    },
-    {
-      "original": "public\\images\\projects\\Attendance_Project3\\Attendance_before-600w.webp",
-      "optimized": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_before-600w.webp",
-      "responsive": [
-        {
-          "width": 640,
-          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_before-600w-640w.webp"
-        },
-        {
-          "width": 768,
-          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_before-600w-768w.webp"
-        },
-        {
-          "width": 1024,
-          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_before-600w-1024w.webp"
-        },
-        {
-          "width": 1280,
-          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_before-600w-1280w.webp"
-        },
-        {
-          "width": 1536,
-          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_before-600w-1536w.webp"
-        }
-      ]
-    },
-    {
-      "original": "public\\images\\projects\\Attendance_Project3\\Attendance_before-300w.webp",
-      "optimized": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_before-300w.webp",
-      "responsive": [
-        {
-          "width": 640,
-          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_before-300w-640w.webp"
-        },
-        {
-          "width": 768,
-          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_before-300w-768w.webp"
-        },
-        {
-          "width": 1024,
-          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_before-300w-1024w.webp"
-        },
-        {
-          "width": 1280,
-          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_before-300w-1280w.webp"
-        },
-        {
-          "width": 1536,
-          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_before-300w-1536w.webp"
-        }
-      ]
-    },
-    {
-      "original": "public\\images\\projects\\Attendance_Project3\\Attendance_before-1200w.webp",
-      "optimized": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_before-1200w.webp",
-      "responsive": [
-        {
-          "width": 640,
-          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_before-1200w-640w.webp"
-        },
-        {
-          "width": 768,
-          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_before-1200w-768w.webp"
-        },
-        {
-          "width": 1024,
-          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_before-1200w-1024w.webp"
-        },
-        {
-          "width": 1280,
-          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_before-1200w-1280w.webp"
-        },
-        {
-          "width": 1536,
-          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_before-1200w-1536w.webp"
-        }
-      ]
-    },
-    {
-      "original": "public\\images\\projects\\Attendance_Project3\\Attendance_after.webp",
-      "optimized": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_after.webp",
-      "responsive": [
-        {
-          "width": 640,
-          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_after-640w.webp"
-        },
-        {
-          "width": 768,
-          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_after-768w.webp"
-        },
-        {
-          "width": 1024,
-          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_after-1024w.webp"
-        },
-        {
-          "width": 1280,
-          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_after-1280w.webp"
-        },
-        {
-          "width": 1536,
-          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_after-1536w.webp"
-        }
-      ]
-    },
-    {
-      "original": "public\\images\\projects\\Attendance_Project3\\Attendance_after-600w.webp",
-      "optimized": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_after-600w.webp",
-      "responsive": [
-        {
-          "width": 640,
-          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_after-600w-640w.webp"
-        },
-        {
-          "width": 768,
-          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_after-600w-768w.webp"
-        },
-        {
-          "width": 1024,
-          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_after-600w-1024w.webp"
-        },
-        {
-          "width": 1280,
-          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_after-600w-1280w.webp"
-        },
-        {
-          "width": 1536,
-          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_after-600w-1536w.webp"
-        }
-      ]
-    },
-    {
-      "original": "public\\images\\projects\\Attendance_Project3\\Attendance_after-300w.webp",
-      "optimized": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_after-300w.webp",
-      "responsive": [
-        {
-          "width": 640,
-          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_after-300w-640w.webp"
-        },
-        {
-          "width": 768,
-          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_after-300w-768w.webp"
-        },
-        {
-          "width": 1024,
-          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_after-300w-1024w.webp"
-        },
-        {
-          "width": 1280,
-          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_after-300w-1280w.webp"
-        },
-        {
-          "width": 1536,
-          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_after-300w-1536w.webp"
-        }
-      ]
-    },
-    {
-      "original": "public\\images\\projects\\Attendance_Project3\\Attendance_after-1200w.webp",
-      "optimized": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_after-1200w.webp",
-      "responsive": [
-        {
-          "width": 640,
-          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_after-1200w-640w.webp"
-        },
-        {
-          "width": 768,
-          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_after-1200w-768w.webp"
-        },
-        {
-          "width": 1024,
-          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_after-1200w-1024w.webp"
-        },
-        {
-          "width": 1280,
-          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_after-1200w-1280w.webp"
-        },
-        {
-          "width": 1536,
-          "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_after-1200w-1536w.webp"
         }
       ]
     },

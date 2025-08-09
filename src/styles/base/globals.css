@@ -20,11 +20,12 @@
     --popover-foreground: 311 54% 15%;
 
     /* Primary Accent (Deeper Gold → Orange) */
-    --primary: 38 100% 45%;  /* Darker gold for better contrast */
+    --primary: 38 100% 40%;  /* Even darker gold for better contrast */
     --primary-foreground: 0 0% 100%;
-    --accent: 11 100% 50%;   /* Brighter orange for better contrast */
+    --primary-contrast: 38 100% 15%;  /* Darker text color for better contrast on light backgrounds */
+    --accent: 11 100% 45%;   /* Slightly darker orange for better contrast */
     --accent-foreground: 0 0% 100%;
-    --gradient-primary: linear-gradient(to right, hsl(38 100% 45%), hsl(11 100% 50%));
+    --gradient-primary: linear-gradient(to right, hsl(38 100% 40%), hsl(11 100% 45%));
 
     /* Secondary Accent (Crimson → Wine → Plum) */
     --secondary: 343 100% 39%;

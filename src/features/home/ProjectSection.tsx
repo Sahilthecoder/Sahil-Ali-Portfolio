@@ -3,7 +3,6 @@
 import React from 'react';
 import projects from '../../data/projects';
 import { Project } from '../../data/projects';
-import { motion } from 'framer-motion';
 import { SectionHeader } from '@/components/ui/AnimatedSection';
 
 const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
@@ -35,7 +34,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
               {project.technologies.map((tech) => (
                 <span
                   key={tech}
-                  className="bg-primary/10 text-primary-contrast px-2 py-1 rounded text-xs font-medium"
+                  className="bg-primary/10 text-primary-contrast/90 px-2 py-1 rounded text-xs font-medium"
                 >
                   {tech}
                 </span>
