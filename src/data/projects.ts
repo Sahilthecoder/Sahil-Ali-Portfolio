@@ -4,6 +4,8 @@ interface ProjectImage {
   src: string;
   alt: string;
   caption?: string;
+  srcSet?: string;
+  sizes?: string;
 }
 
 interface ProjectLink {
@@ -42,8 +44,10 @@ export const projects: Project[] = [
       'Uncovered key market trends leading to optimized marketing spend allocation'
     ],
     image: {
-      src: '/images/projects/Zomto_Project1/Project1_Cover.webp',
+      src: '/images/projects/Zomto_Project1/Project1_Cover-600w.webp',
       alt: 'Zomato Expansion Dashboard showing city-wise performance metrics',
+      srcSet: '/images/projects/Zomto_Project1/Project1_Cover-300w.webp 300w, /images/projects/Zomto_Project1/Project1_Cover-600w.webp 600w',
+      sizes: '(max-width: 640px) 300px, 600px'
     },
     links: [
       { label: 'View Dashboard', url: '/projects/zomato-dashboard' },
@@ -63,9 +67,11 @@ export const projects: Project[] = [
     role: 'Data Analyst | Led the data collection, analysis, and visualization efforts. Collaborated with business stakeholders to define key metrics and translate business questions into analytical solutions.',
     gallery: [
       {
-        src: '/images/projects/Zomto_Project1/Project1_Cover.webp',
+        src: '/images/projects/Zomto_Project1/Project1_Cover-600w.webp',
         alt: 'Dashboard overview showing city performance metrics',
-        caption: 'City Performance Overview'
+        caption: 'City Performance Overview',
+        srcSet: '/images/projects/Zomto_Project1/Project1_Cover-300w.webp 300w, /images/projects/Zomto_Project1/Project1_Cover-600w.webp 600w',
+        sizes: '(max-width: 640px) 300px, 600px'
       },
       // Additional screenshots can be added here
     ],
@@ -87,8 +93,10 @@ export const projects: Project[] = [
       'Improved decision-making with real-time sales and performance metrics'
     ],
     image: {
-      src: '/images/projects/Bansal_Project2/Project2_Cover.webp',
+      src: '/images/projects/Bansal_Project2/Project2_Cover-600w.webp',
       alt: 'Bansal Supermarket Analytics Dashboard showing sales performance metrics',
+      srcSet: '/images/projects/Bansal_Project2/Project2_Cover-300w.webp 300w, /images/projects/Bansal_Project2/Project2_Cover-600w.webp 600w',
+      sizes: '(max-width: 640px) 300px, 600px'
     },
     links: [
       { label: 'View Dashboard', url: '/projects/bansal-dashboard' },
@@ -141,8 +149,10 @@ export const projects: Project[] = [
       'Enabled real-time attendance tracking and reporting'
     ],
     image: {
-      src: '/images/projects/Attendance_Project3/Project3_Cover.webp',
-      alt: 'Ekam Attendance Tracker Dashboard',
+      src: '/images/projects/Attendance_Project3/Project3_Cover-600w.webp',
+      alt: 'Attendance and Payroll Automation Dashboard',
+      srcSet: '/images/projects/Attendance_Project3/Project3_Cover-300w.webp 300w, /images/projects/Attendance_Project3/Project3_Cover-600w.webp 600w',
+      sizes: '(max-width: 640px) 300px, 600px'
     },
     links: [
       { label: 'View Project', url: '/projects/ekam-attendance' },
@@ -189,8 +199,10 @@ export const projects: Project[] = [
       'Streamlined financial reporting across 5+ store locations'
     ],
     image: {
-      src: '/images/projects/RetailCashFlow_Project4/Project4_Cover.webp',
+      src: '/images/projects/RetailCashFlow_Project4/Project4_Cover-600w.webp',
       alt: 'Multi-Store Financial Dashboard showing cash flow metrics',
+      srcSet: '/images/projects/RetailCashFlow_Project4/Project4_Cover-300w.webp 300w, /images/projects/RetailCashFlow_Project4/Project4_Cover-600w.webp 600w',
+      sizes: '(max-width: 640px) 300px, 600px'
     },
     links: [
       { label: 'View Dashboard', url: '/projects/powerbi-cashflow' },
@@ -210,9 +222,11 @@ export const projects: Project[] = [
     role: 'Business Intelligence Developer | Led the design and implementation of the financial analytics platform, including data modeling, visualization, and user training.',
     gallery: [
       {
-        src: '/images/projects/RetailCashFlow_Project4/Project4_Cover.webp',
+        src: '/images/projects/RetailCashFlow_Project4/Project4_Cover-600w.webp',
         alt: 'Financial Overview Dashboard',
-        caption: 'Financial Performance Overview'
+        caption: 'Financial Performance Overview',
+        srcSet: '/images/projects/RetailCashFlow_Project4/Project4_Cover-300w.webp 300w, /images/projects/RetailCashFlow_Project4/Project4_Cover-600w.webp 600w',
+        sizes: '(max-width: 640px) 300px, 600px'
       },
       // Additional dashboard views can be added here
     ],
@@ -234,8 +248,10 @@ export const projects: Project[] = [
       'Created a seamless integration between Notion, Google Calendar, and task management'
     ],
     image: {
-      src: '/images/projects/AIautomation_Project5/Project5_Cover.webp',
+      src: '/images/projects/AIautomation_Project5/Project5_Cover-600w.webp',
       alt: 'AI-Powered Productivity System Dashboard',
+      srcSet: '/images/projects/AIautomation_Project5/Project5_Cover-300w.webp 300w, /images/projects/AIautomation_Project5/Project5_Cover-600w.webp 600w',
+      sizes: '(max-width: 640px) 300px, 600px'
     },
     links: [
       { label: 'Explore the System', url: '/projects/ai-decision-system' },
@@ -254,9 +270,11 @@ export const projects: Project[] = [
     role: 'Product Developer & AI Specialist | Designed and implemented the entire system, including AI model integration, API connections, and user interface.',
     gallery: [
       {
-        src: '/images/projects/AIautomation_Project5/Project5_Cover.webp',
+        src: '/images/projects/AIautomation_Project5/Project5_Cover-600w.webp',
         alt: 'AI Task Management Dashboard',
-        caption: 'AI-Powered Task Management Interface'
+        caption: 'AI-Powered Task Management Interface',
+        srcSet: '/images/projects/AIautomation_Project5/Project5_Cover-300w.webp 300w, /images/projects/AIautomation_Project5/Project5_Cover-600w.webp 600w',
+        sizes: '(max-width: 640px) 300px, 600px'
       },
       // Additional screenshots can be added here
     ],
@@ -274,8 +292,10 @@ export const projects: Project[] = [
       'Designed AI + Zapier automations for Excel and emails—auto-generating reports, syncing data, and streamlining ops for daily business use.',
     highlights: ['Saved 15+ hours/month by eliminating repetitive manual work.'],
     image: {
-      src: '/images/projects/CommingSoon_Project6/Project6_Cover.webp',
+      src: '/images/projects/CommingSoon_Project6/Project6_Cover-600w.webp',
       alt: 'GPT Automation Suite',
+      srcSet: '/images/projects/CommingSoon_Project6/Project6_Cover-300w.webp 300w, /images/projects/CommingSoon_Project6/Project6_Cover-600w.webp 600w',
+      sizes: '(max-width: 640px) 300px, 600px'
     },
     links: [{ label: 'See the Project', url: '/projects/gpt-automation' }],
     technologies: ['GPT', 'Zapier', 'Automation'],
@@ -297,8 +317,10 @@ export const projects: Project[] = [
       'Modern UI/UX',
     ],
     image: {
-      src: '/images/projects/Mahira_Portfolio_Web+AI/Project7_Cover.webp',
+      src: '/images/projects/Mahira_Portfolio_Web+AI/Project7_Cover-600w.webp',
       alt: 'AI-Powered Portfolio Creation',
+      srcSet: '/images/projects/Mahira_Portfolio_Web+AI/Project7_Cover-300w.webp 300w, /images/projects/Mahira_Portfolio_Web+AI/Project7_Cover-600w.webp 600w',
+      sizes: '(max-width: 640px) 300px, 600px'
     },
     links: [{ label: 'View Project', url: '/projects/portfolio-creation' }],
     technologies: ['AI Tools', 'React', 'TypeScript', 'Tailwind CSS', 'Responsive Design'],

@@ -338,21 +338,25 @@ def forecast_sales(data, periods=7):
     ],
     images: [
       {
-        src: '/images/projects/AIautomation_Project5/Project5_Cover.webp',
-        alt: 'AI Daily Decision System Dashboard',
-        caption:
-          'Dashboard showing AI-powered insights and data visualization from Notion and Google Sheets integration.',
-      },
-      {
-        src: '/images/projects/AIautomation_Project5/Project5_Cover-1200w.webp',
-        alt: 'Data Flow Architecture',
-        caption:
-          'Architecture diagram showing the data flow between Notion, Google Sheets, and AI processing layer.',
-      },
-      {
         src: '/images/projects/AIautomation_Project5/Project5_Cover-600w.webp',
+        alt: 'AI Daily Decision System Dashboard',
+        caption: 'Dashboard showing AI-powered insights and data visualization from Notion and Google Sheets integration.',
+        srcSet: '/images/projects/AIautomation_Project5/Project5_Cover-300w.webp 300w, /images/projects/AIautomation_Project5/Project5_Cover-600w.webp 600w, /images/projects/AIautomation_Project5/Project5_Cover-1200w.webp 1200w',
+        sizes: '(max-width: 640px) 300px, (max-width: 1024px) 600px, 1200px'
+      },
+      {
+        src: '/images/projects/AIautomation_Project5/Project5_Architecture-600w.webp',
+        alt: 'Data Flow Architecture',
+        caption: 'Architecture diagram showing the data flow between Notion, Google Sheets, and AI processing layer.',
+        srcSet: '/images/projects/AIautomation_Project5/Project5_Architecture-300w.webp 300w, /images/projects/AIautomation_Project5/Project5_Architecture-600w.webp 600w',
+        sizes: '(max-width: 640px) 300px, 600px'
+      },
+      {
+        src: '/images/projects/AIautomation_Project5/Project5_Analytics-600w.webp',
         alt: 'AI Analytics in Action',
         caption: 'Example of AI-generated insights and predictions from the integrated data.',
+        srcSet: '/images/projects/AIautomation_Project5/Project5_Analytics-300w.webp 300w, /images/projects/AIautomation_Project5/Project5_Analytics-600w.webp 600w',
+        sizes: '(max-width: 640px) 300px, 600px'
       },
     ],
   };

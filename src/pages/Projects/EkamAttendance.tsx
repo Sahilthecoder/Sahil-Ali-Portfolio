@@ -318,19 +318,25 @@ GROUP BY e.name;`}
     ],
     images: [
       {
-        src: '/images/projects/Attendance_Project3/Attendance_before.webp',
+        src: '/images/projects/Attendance_Project3/Attendance_before-600w.webp',
         alt: 'Legacy Attendance System',
         caption: 'Manual attendance tracking system with potential for errors',
+        srcSet: '/images/projects/Attendance_Project3/Attendance_before-300w.webp 300w, /images/projects/Attendance_Project3/Attendance_before-600w.webp 600w',
+        sizes: '(max-width: 640px) 300px, 600px'
       },
       {
-        src: '/images/projects/Attendance_Project3/Attendance_after.webp',
+        src: '/images/projects/Attendance_Project3/Attendance_after-600w.webp',
         alt: 'AI-Powered Attendance System',
         caption: 'Automated attendance system with real-time validation',
+        srcSet: '/images/projects/Attendance_Project3/Attendance_after-300w.webp 300w, /images/projects/Attendance_Project3/Attendance_after-600w.webp 600w',
+        sizes: '(max-width: 640px) 300px, 600px'
       },
       {
-        src: '/images/projects/Attendance_Project3/Project3_Cover.webp',
+        src: '/images/projects/Attendance_Project3/Project3_Cover-600w.webp',
         alt: 'Dashboard Overview',
         caption: 'Comprehensive dashboard showing attendance analytics',
+        srcSet: '/images/projects/Attendance_Project3/Project3_Cover-300w.webp 300w, /images/projects/Attendance_Project3/Project3_Cover-600w.webp 600w',
+        sizes: '(max-width: 640px) 300px, 600px'
       },
     ],
   };

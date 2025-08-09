@@ -139,25 +139,28 @@ const BansalSupermarket: React.FC<{
     ],
     images: [
       {
-        src: '/images/projects/Bansal_Project2/Project2_Cover.webp',
+        src: '/images/projects/Bansal_Project2/Project2_Cover-600w.webp',
         alt: 'Bansal Supermarket Sales Dashboard',
-        caption:
-          'Dashboard overview: Top selling items, profitability, and key metrics visualized from Bansal Supermarket sales data.',
+        caption: 'Dashboard overview: Top selling items, profitability, and key metrics visualized from Bansal Supermarket sales data.',
+        srcSet: '/images/projects/Bansal_Project2/Project2_Cover-300w.webp 300w, /images/projects/Bansal_Project2/Project2_Cover-600w.webp 600w',
+        sizes: '(max-width: 640px) 300px, 600px'
       },
       {
-        src: '/images/projects/Bansal_Project2/bs-saleVSpft.webp',
+        src: '/images/projects/Bansal_Project2/bs-saleVSpft-600w.webp',
         alt: 'Sales vs Profit Analysis',
-        caption:
-          'Scatter plot showing the relationship between sales volume and profit margin across product categories.',
+        caption: 'Scatter plot showing the relationship between sales volume and profit margin across product categories.',
+        srcSet: '/images/projects/Bansal_Project2/bs-saleVSpft-300w.webp 300w, /images/projects/Bansal_Project2/bs-saleVSpft-600w.webp 600w',
+        sizes: '(max-width: 640px) 300px, 600px'
       },
       {
-        src: '/images/projects/Bansal_Project2/bs-stockTO.webp',
+        src: '/images/projects/Bansal_Project2/bs-stockTO-600w.webp',
         alt: 'Stock Turnover Analysis',
-        caption:
-          'Visualization of stock turnover rates by product category to optimize inventory management.',
+        caption: 'Visualization of stock turnover rates by product category to optimize inventory management.',
+        srcSet: '/images/projects/Bansal_Project2/bs-stockTO-300w.webp 300w, /images/projects/Bansal_Project2/bs-stockTO-600w.webp 600w',
+        sizes: '(max-width: 640px) 300px, 600px'
       },
       {
-        src: '/images/projects/Bansal_Project2/bs-top10.webp',
+        src: '/images/projects/Bansal_Project2/bs-top10-600w.webp',
         alt: 'Top 10 Products by Sales',
         caption: 'Bar chart displaying the top 10 best-selling products by total sales value.',
       },

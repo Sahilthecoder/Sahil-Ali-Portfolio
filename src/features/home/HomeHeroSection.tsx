@@ -225,10 +225,12 @@ const HomeHeroSection = () => {
             <div className="relative">
               <div className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-3xl overflow-hidden border-4 border-white/20 shadow-2xl bg-white/5 backdrop-blur-sm">
                 <img
-                  src="/images/profile/profile.webp"
+                  src="/images/profile/profile-600w.webp"
                   alt="Sahil Ali"
                   className="w-full h-full object-cover"
                   loading="eager"
+                  srcSet="/images/profile/profile-300w.webp 300w, /images/profile/profile-600w.webp 600w"
+                  sizes="(max-width: 640px) 300px, 600px"
                 />
               </div>
               
