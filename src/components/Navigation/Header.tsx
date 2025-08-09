@@ -36,7 +36,7 @@ const Header: React.FC<HeaderProps> = ({ onMenuToggle, isScrolled = false }) => 
           {/* Logo & Title */}
           <div className="flex items-center space-x-4">
             <LazyImage
-              src="/favicon-192x192.png"
+              src="/Sahil-Ali-Portfolio/favicon/favicon-192x192.png"
               alt="Logo"
               width={40}
               height={40}
