@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes backgroundAnimation {
+  0% { background-position: 0% 0%, 100% 0%, 50% 100%; }
+  100% { background-position: 100% 100%, 0% 100%, 50% 0%; }
+}
+
+@layer base {
+  :root {
+    /* Light Mode */
+    --background: 48 100% 98%;
+    --foreground: 311 54% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 311 54% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 311 54% 15%;
+
+    /* Primary Accent (Gold → Orange) */
+    --primary: 48 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --accent: 11 100% 60%;
+    --accent-foreground: 0 0% 100%;
+    --gradient-primary: linear-gradient(to right, hsl(48 100% 50%), hsl(11 100% 60%));
+
+    /* Secondary Accent (Crimson → Wine → Plum) */
+    --secondary: 343 100% 39%;
+    --secondary-foreground: 0 0% 100%;
+    --gradient-secondary: linear-gradient(135deg, hsl(343 100% 39%), hsl(336 84% 31%), hsl(311 54% 21%));
+
+    --muted: 48 10% 92%;
+    --muted-foreground: 311 30% 40%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 311 20% 80%;
+    --input: 311 20% 80%;
+    --ring: 48 100% 50%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    /* Dark Mode */
+    --background: 311 54% 12%;
+    --foreground: 48 100% 95%;
+
+    --card: 311 54% 15%;
+    --card-foreground: 48 100% 95%;
+
+    --popover: 311 54% 15%;
+    --popover-foreground: 48 100% 95%;
+
+    --primary: 48 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --accent: 11 100% 60%;
+    --accent-foreground: 0 0% 100%;
+    --gradient-primary: linear-gradient(to right, hsl(48 100% 50%), hsl(11 100% 60%));
+
+    --secondary: 343 100% 39%;
+    --secondary-foreground: 0 0% 100%;
+    --gradient-secondary: linear-gradient(135deg, hsl(343 100% 39%), hsl(336 84% 31%), hsl(311 54% 21%));
+
+    --muted: 311 30% 25%;
+    --muted-foreground: 48 20% 80%;
+
+    --destructive: 0 62% 40%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 311 20% 30%;
+    --input: 311 20% 30%;
+    --ring: 48 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-background;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-muted-foreground/20 rounded-full hover:bg-muted-foreground/30;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection */
+::selection {
+  @apply bg-primary/40 text-primary-foreground;
+}
+
+/* Buttons */
+button {
+  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2;
+}
+
+/* Transition effects */
+* {
+  @apply transition-colors duration-200;
+}
