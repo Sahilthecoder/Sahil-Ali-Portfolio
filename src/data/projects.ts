@@ -73,6 +73,27 @@ export const projects: Project[] = [
         srcSet: '/images/projects/Zomto_Project1/Project1_Cover-300w.webp 300w, /images/projects/Zomto_Project1/Project1_Cover-600w.webp 600w',
         sizes: '(max-width: 640px) 300px, 600px'
       },
+      {
+        src: '/images/projects/Zomto_Project1/zometo-ds-600w.webp',
+        alt: 'Data Analysis',
+        caption: 'Data Analysis',
+        srcSet: '/images/projects/Zomto_Project1/zometo-ds-300w.webp 300w, /images/projects/Zomto_Project1/zometo-ds-600w.webp 600w',
+        sizes: '(max-width: 640px) 300px, 600px'
+      },
+      {
+        src: '/images/projects/Zomto_Project1/zt1-600w.webp',
+        alt: 'Performance Metrics',
+        caption: 'Performance Metrics',
+        srcSet: '/images/projects/Zomto_Project1/zt1-300w.webp 300w, /images/projects/Zomto_Project1/zt1-600w.webp 600w',
+        sizes: '(max-width: 640px) 300px, 600px'
+      },
+      {
+        src: '/images/projects/Zomto_Project1/zt2-600w.webp',
+        alt: 'City-wise Analysis',
+        caption: 'City-wise Analysis',
+        srcSet: '/images/projects/Zomto_Project1/zt2-300w.webp 300w, /images/projects/Zomto_Project1/zt2-600w.webp 600w',
+        sizes: '(max-width: 640px) 300px, 600px'
+      }
       // Additional screenshots can be added here
     ],
     metrics: [
@@ -116,19 +137,39 @@ export const projects: Project[] = [
     role: 'Data Analyst | Led the end-to-end development of the analytics solution, from data collection and cleaning to visualization and stakeholder training.',
     gallery: [
       {
-        src: '/images/projects/Bansal_Project2/bs-saleVSpft.webp',
+        src: '/images/projects/Bansal_Project2/bs-saleVSpft-600w.webp',
         alt: 'Sales vs Profit Analysis',
-        caption: 'Sales vs. Profit Analysis'
+        caption: 'Sales vs. Profit Analysis',
+        srcSet: '/images/projects/Bansal_Project2/bs-saleVSpft-300w.webp 300w, /images/projects/Bansal_Project2/bs-saleVSpft-600w.webp 600w',
+        sizes: '(max-width: 640px) 300px, 600px'
       },
       {
-        src: '/images/projects/Bansal_Project2/bs-stockTO.webp',
+        src: '/images/projects/Bansal_Project2/bs-stockTO-600w.webp',
         alt: 'Stock Turnover Dashboard',
-        caption: 'Inventory Turnover Analysis'
+        caption: 'Inventory Turnover Analysis',
+        srcSet: '/images/projects/Bansal_Project2/bs-stockTO-300w.webp 300w, /images/projects/Bansal_Project2/bs-stockTO-600w.webp 600w',
+        sizes: '(max-width: 640px) 300px, 600px'
       },
       {
-        src: '/images/projects/Bansal_Project2/bs-top10.webp',
+        src: '/images/projects/Bansal_Project2/bs-top10-600w.webp',
         alt: 'Top Performing Products',
-        caption: 'Top 10 Products by Revenue'
+        caption: 'Top 10 Products by Revenue',
+        srcSet: '/images/projects/Bansal_Project2/bs-top10-300w.webp 300w, /images/projects/Bansal_Project2/bs-top10-600w.webp 600w',
+        sizes: '(max-width: 640px) 300px, 600px'
+      },
+      {
+        src: '/images/projects/Bansal_Project2/bs2-600w.webp',
+        alt: 'Sales Dashboard',
+        caption: 'Sales Performance Dashboard',
+        srcSet: '/images/projects/Bansal_Project2/bs2-300w.webp 300w, /images/projects/Bansal_Project2/bs2-600w.webp 600w',
+        sizes: '(max-width: 640px) 300px, 600px'
+      },
+      {
+        src: '/images/projects/Bansal_Project2/bs3-600w.webp',
+        alt: 'Inventory Dashboard',
+        caption: 'Inventory Management Dashboard',
+        srcSet: '/images/projects/Bansal_Project2/bs3-300w.webp 300w, /images/projects/Bansal_Project2/bs3-600w.webp 600w',
+        sizes: '(max-width: 640px) 300px, 600px'
       }
     ],
     metrics: [
@@ -171,14 +212,25 @@ export const projects: Project[] = [
     role: 'Automation Specialist | Designed and implemented the end-to-end solution, including database design, automation scripts, and user training.',
     gallery: [
       {
-        src: '/images/projects/Attendance_Project3/Attendance_before.webp',
+        src: '/images/projects/Attendance_Project3/Attendance_before-600w.webp',
         alt: 'Before Automation - Manual Process',
-        caption: 'Manual Process - Before Automation'
+        caption: 'Manual Process - Before Automation',
+        srcSet: '/images/projects/Attendance_Project3/Attendance_before-300w.webp 300w, /images/projects/Attendance_Project3/Attendance_before-600w.webp 600w',
+        sizes: '(max-width: 640px) 300px, 600px'
       },
       {
-        src: '/images/projects/Attendance_Project3/Attendance_after.webp',
+        src: '/images/projects/Attendance_Project3/Attendance_after-600w.webp',
         alt: 'After Automation - Digital Dashboard',
-        caption: 'Automated Dashboard - After Implementation'
+        caption: 'Automated Dashboard - After Implementation',
+        srcSet: '/images/projects/Attendance_Project3/Attendance_after-300w.webp 300w, /images/projects/Attendance_Project3/Attendance_after-600w.webp 600w',
+        sizes: '(max-width: 640px) 300px, 600px'
+      },
+      {
+        src: '/images/projects/Attendance_Project3/Project3_Cover-600w.webp',
+        alt: 'Attendance System Dashboard',
+        caption: 'Attendance System Dashboard',
+        srcSet: '/images/projects/Attendance_Project3/Project3_Cover-300w.webp 300w, /images/projects/Attendance_Project3/Project3_Cover-600w.webp 600w',
+        sizes: '(max-width: 640px) 300px, 600px'
       }
     ],
     metrics: [
@@ -228,7 +280,20 @@ export const projects: Project[] = [
         srcSet: '/images/projects/RetailCashFlow_Project4/Project4_Cover-300w.webp 300w, /images/projects/RetailCashFlow_Project4/Project4_Cover-600w.webp 600w',
         sizes: '(max-width: 640px) 300px, 600px'
       },
-      // Additional dashboard views can be added here
+      {
+        src: '/images/projects/RetailCashFlow_Project4/CashFlow1-600w.webp',
+        alt: 'Cash Flow Analysis',
+        caption: 'Cash Flow Analysis Dashboard',
+        srcSet: '/images/projects/RetailCashFlow_Project4/CashFlow1-300w.webp 300w, /images/projects/RetailCashFlow_Project4/CashFlow1-600w.webp 600w',
+        sizes: '(max-width: 640px) 300px, 600px'
+      },
+      {
+        src: '/images/projects/RetailCashFlow_Project4/CashFlow2-600w.webp',
+        alt: 'Financial Metrics',
+        caption: 'Financial Metrics Overview',
+        srcSet: '/images/projects/RetailCashFlow_Project4/CashFlow2-300w.webp 300w, /images/projects/RetailCashFlow_Project4/CashFlow2-600w.webp 600w',
+        sizes: '(max-width: 640px) 300px, 600px'
+      }
     ],
     metrics: [
       { label: 'Discrepancy Reduction', value: '90%' },
@@ -273,10 +338,16 @@ export const projects: Project[] = [
         src: '/images/projects/AIautomation_Project5/Project5_Cover-600w.webp',
         alt: 'AI Task Management Dashboard',
         caption: 'AI-Powered Task Management Interface',
+        srcSet: '/images/projects/AIautomation_Project5/Project5_Cover-300w.webp 300w, /images/projects/AIautomation_Project5/Project5_Cover-600w.webp 600w, /images/projects/AIautomation_Project5/Project5_Cover-1200w.webp 1200w',
+        sizes: '(max-width: 640px) 300px, (max-width: 1024px) 600px, 1200px'
+      },
+      {
+        src: '/images/projects/AIautomation_Project5/Project5_Cover-600w.webp',
+        alt: 'AI Integration',
+        caption: 'AI Integration with Productivity Tools',
         srcSet: '/images/projects/AIautomation_Project5/Project5_Cover-300w.webp 300w, /images/projects/AIautomation_Project5/Project5_Cover-600w.webp 600w',
         sizes: '(max-width: 640px) 300px, 600px'
-      },
-      // Additional screenshots can be added here
+      }
     ],
     metrics: [
       { label: 'Daily Time Saved', value: '2+ hours' },
@@ -319,9 +390,25 @@ export const projects: Project[] = [
     image: {
       src: '/images/projects/Mahira_Portfolio_Web+AI/Project7_Cover-600w.webp',
       alt: 'AI-Powered Portfolio Creation',
-      srcSet: '/images/projects/Mahira_Portfolio_Web+AI/Project7_Cover-300w.webp 300w, /images/projects/Mahira_Portfolio_Web+AI/Project7_Cover-600w.webp 600w',
-      sizes: '(max-width: 640px) 300px, 600px'
+      srcSet: '/images/projects/Mahira_Portfolio_Web+AI/Project7_Cover-300w.webp 300w, /images/projects/Mahira_Portfolio_Web+AI/Project7_Cover-600w.webp 600w, /images/projects/Mahira_Portfolio_Web+AI/Project7_Cover-1200w.webp 1200w',
+      sizes: '(max-width: 640px) 300px, (max-width: 1024px) 600px, 1200px'
     },
+    gallery: [
+      {
+        src: '/images/projects/Mahira_Portfolio_Web+AI/Project7_Cover-600w.webp',
+        alt: 'Portfolio Showcase',
+        caption: 'Modern Portfolio Showcase',
+        srcSet: '/images/projects/Mahira_Portfolio_Web+AI/Project7_Cover-300w.webp 300w, /images/projects/Mahira_Portfolio_Web+AI/Project7_Cover-600w.webp 600w',
+        sizes: '(max-width: 640px) 300px, 600px'
+      },
+      {
+        src: '/images/projects/Mahira_Portfolio_Web+AI/Project7_Cover-600w.webp',
+        alt: 'Responsive Design',
+        caption: 'Fully Responsive Layout',
+        srcSet: '/images/projects/Mahira_Portfolio_Web+AI/Project7_Cover-300w.webp 300w, /images/projects/Mahira_Portfolio_Web+AI/Project7_Cover-600w.webp 600w',
+        sizes: '(max-width: 640px) 300px, 600px'
+      }
+    ],
     links: [{ label: 'View Project', url: '/projects/portfolio-creation' }],
     technologies: ['AI Tools', 'React', 'TypeScript', 'Tailwind CSS', 'Responsive Design'],
     date: '2024-08-01',

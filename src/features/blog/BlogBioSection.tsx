@@ -11,7 +11,7 @@ const MiniBio = () => (
         className="w-16 h-16 rounded-full object-cover border-2 border-primary/20"
         width={64}
         height={64}
-        srcSet="/images/profile/profile-150w.webp 150w, /images/profile/profile-300w.webp 300w"
+        srcSet="/images/profile/profile-300w.webp 300w"
         sizes="(max-width: 640px) 150px, 300px"
       />
       <div>
