@@ -89,7 +89,7 @@ const App: React.FC = () => {
   // Enable smooth scrolling for all anchor links in the app
   useSmoothScroll();
 
-  // Set the basename for GitHub Pages
+  // Set the basename for GitHub Pages - ensure it starts with a slash and doesn't end with one
   const basename = process.env.NODE_ENV === 'production' ? '/Sahil-Ali-Portfolio' : '';
 
   return (

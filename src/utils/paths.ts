@@ -1,15 +1,8 @@
-// Utility function to handle GitHub Pages base path
+// Utility function to handle paths in the application
+// Note: The base path is now handled by BrowserRouter's basename
+// This function is kept for consistency and future use
+// but doesn't add the base path to prevent duplication
 export const getPath = (path: string): string => {
-  // In development, use the path as is
-  if (process.env.NODE_ENV === 'development') {
-    return path;
-  }
-  
-  // In production, prepend the base path
-  const basePath = '/Sahil-Ali-Portfolio';
-  
-  // Ensure there's exactly one slash between basePath and path
-  const normalizedPath = path.startsWith('/') ? path : `/${path}`;
-  
-  return `${basePath}${normalizedPath}`;
+  // Ensure the path starts with a single slash
+  return path.startsWith('/') ? path : `/${path}`;
 };
