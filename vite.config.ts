@@ -7,7 +7,7 @@ const env = loadEnv('all', process.cwd(), '');
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: mode === 'production' ? '/Sahil-Ali-Portfolio/' : '/',
+  base: process.env.NODE_ENV === 'production' ? '/Sahil-Ali-Portfolio/' : '/',
   plugins: [react()],
   define: {
     'process.env': {}
@@ -34,8 +34,5 @@ export default defineConfig(({ mode }) => ({
       allow: ['..']
     }
   },
-  build: {
-    outDir: 'dist',
-    assetsDir: 'assets'
-  }
+  
 }));
