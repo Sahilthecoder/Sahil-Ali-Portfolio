@@ -3,130 +3,147 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Page Not Found | Sahil Ali</title>
-  <meta name="description" content="The page you're looking for doesn't exist or has been moved.">
+  <title>Sahil Ali - Portfolio</title>
+  <meta name="description" content="Portfolio of Sahil Ali - Data Generalist">
+  <base href="/Sahil-Ali-Portfolio/" />
+  <link rel="icon" type="image/x-icon" href="/Sahil-Ali-Portfolio/favicon/favicon.ico">
   <style>
-    :root {
-      --primary: #7c3aed;
-      --primary-dark: #6d28d9;
-      --text: #1f2937;
-      --text-light: #6b7280;
-      --bg: #f9fafb;
-      --white: #ffffff;
-      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    }
-    
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-      line-height: 1.6;
-      color: var(--text);
-      background-color: var(--bg);
-      min-height: 100vh;
+      margin: 0;
+      padding: 0;
       display: flex;
-      flex-direction: column;
-      align-items: center;
       justify-content: center;
-      padding: 2rem;
-      text-align: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f8fafc;
+      color: #1e293b;
     }
-    
     .container {
+      text-align: center;
+      padding: 2rem;
       max-width: 600px;
-      padding: 2.5rem;
-      background: var(--white);
-      border-radius: 0.75rem;
-      box-shadow: var(--shadow);
+      margin: 0 auto;
     }
-    
     h1 {
-      font-size: 3rem;
-      font-weight: 800;
-      color: var(--primary);
       margin-bottom: 1rem;
-      line-height: 1.2;
+      color: #4f46e5;
     }
-    
     p {
-      font-size: 1.125rem;
-      color: var(--text-light);
       margin-bottom: 2rem;
+      color: #64748b;
+      line-height: 1.6;
     }
-    
-    .btn {
-      display: inline-block;
-      background-color: var(--primary);
-      color: white;
+    .loader {
+      border: 4px solid #e2e8f0;
+      border-top: 4px solid #4f46e5;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 1.5rem;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    a {
+      color: #4f46e5;
+      text-decoration: none;
       font-weight: 500;
-      padding: 0.75rem 1.5rem;
-      border-radius: 0.5rem;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      border: none;
-      cursor: pointer;
-      font-size: 1rem;
     }
-    
-    .btn:hover {
-      background-color: var(--primary-dark);
-      transform: translateY(-2px);
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    a:hover {
+      text-decoration: underline;
     }
-    
-    .logo {
-      margin-bottom: 2rem;
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--primary);
-      text-decoration: none;
-    }
-    
-    .error-code {
-      font-size: 6rem;
-      font-weight: 800;
-      color: var(--primary);
-      line-height: 1;
-      margin-bottom: 1rem;
-      opacity: 0.9;
-    }
-    
-    .emoji {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      display: block;
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: #0f172a;
+        color: #e2e8f0;
+      }
+      h1 {
+        color: #818cf8;
+      }
+      p {
+        color: #94a3b8;
+      }
+      .loader {
+        border-color: #334155;
+        border-top-color: #818cf8;
+      }
+      a {
+        color: #818cf8;
+      }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="error-code">404</div>
-    <div class="emoji">😕</div>
-    <h1>Page Not Found</h1>
-    <p>Oops! The page you're looking for doesn't exist or has been moved. Let's get you back on track.</p>
-    <a href="/Sahil-Ali-Portfolio/" class="btn">Return to Homepage</a>
+    <div class="loader"></div>
+    <h1>Loading Portfolio...</h1>
+    <p>If you're not redirected automatically, <a href="/Sahil-Ali-Portfolio/" id="redirect-link">click here</a>.</p>
   </div>
-  
+
   <script>
-    // Redirect to the main application with the correct base path
-    const basePath = '/Sahil-Ali-Portfolio';
-    const path = window.location.pathname;
-    
-    // If we're not already at the base path, redirect after a delay
-    if (!path.startsWith(basePath)) {
-      setTimeout(() => {
-        window.location.href = `${basePath}${path}`;
-      }, 5000); // 5 second delay before redirect
-    } else {
-      // If we're at the base path but still got a 404, redirect to home after a delay
-      setTimeout(() => {
-        window.location.href = `${basePath}/`;
-      }, 5000); // 5 second delay before redirect
-    }
+    // Single-page app (SPA) routing for GitHub Pages
+    (function() {
+      // Get the base path from the base tag or default to repository name
+      const baseElement = document.querySelector('base');
+      const baseHref = baseElement ? baseElement.getAttribute('href') : '/Sahil-Ali-Portfolio/';
+      
+      // Ensure base path starts and ends with a slash
+      const basePath = baseHref.endsWith('/') ? baseHref : baseHref + '/';
+      const basePathNoTrailingSlash = basePath.endsWith('/') ? basePath.slice(0, -1) : basePath;
+      
+      // Get the current path and remove the base path if present
+      let path = window.location.pathname;
+      if (path.startsWith(basePathNoTrailingSlash)) {
+        path = path.slice(basePathNoTrailingSlash.length);
+      }
+      
+      // Remove any leading slashes and the 404.html part if present
+      path = path.replace(/^\/+/, '').replace(/404\.html$/, '');
+      
+      // Build the new URL with the correct base path
+      const newPath = basePathNoTrailingSlash + 
+                    (path ? '/' + path : '') + 
+                    window.location.search + 
+                    window.location.hash;
+      
+      // Update the redirect link
+      document.getElementById('redirect-link').href = newPath;
+      
+      // If we're not already at the correct path, redirect
+      if (window.location.pathname !== newPath) {
+        window.history.replaceState({}, '', newPath);
+      }
+      
+      // Function to load the main application
+      function loadApp() {
+        // Try to load the main JavaScript bundle
+        const script = document.createElement('script');
+        script.src = basePath + 'assets/index.js';
+        script.onerror = function() {
+          // If the script fails to load, try the non-base path as a fallback
+          script.src = '/assets/index.js';
+          script.onerror = function() {
+            // If both attempts fail, show an error message
+            document.querySelector('.container').innerHTML = `
+              <h1>Error Loading Application</h1>
+              <p>Failed to load the application. Please <a href="${newPath}">refresh the page</a> or try again later.</p>
+              <p>If the problem persists, please check your internet connection or contact support.</p>
+            `;
+          };
+          document.head.appendChild(script);
+        };
+        script.onload = function() {
+          console.log('Application script loaded successfully');
+        };
+        document.head.appendChild(script);
+      }
+      
+      // Load the application after a short delay to show the loading message
+      setTimeout(loadApp, 100);
+    })();
   </script>
 </body>
 </html>
