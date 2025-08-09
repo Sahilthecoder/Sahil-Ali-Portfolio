@@ -11,7 +11,7 @@ Disallow: /wp-admin/
 Disallow: /wp-includes/
 
 # Sitemap location
-Sitemap: https://sahilthecoder.github.io/Sahil-Portfolio/sitemap.xml
+Sitemap: https://sahilthecoder.github.io/Sahil-Ali-Portfolio/sitemap.xml
 
 # Crawl-delay: 10  # Uncomment if needed to limit crawl rate
 
@@ -20,11 +20,12 @@ Sitemap: https://sahilthecoder.github.io/Sahil-Portfolio/sitemap.xml
 # User-agent: BadBot
 # Disallow: /
 
-# Sitemap location
-Sitemap: https://sahilthecoder.github.io/Sahil-Portfolio/sitemap.xml
+# Modern directives for search engines
+Host: https://sahilthecoder.github.io
+Clean-param: ref /search*  # Remove tracking parameters from URLs
 
-# Crawl-delay: 10
-# Uncomment the above line if you're experiencing heavy server load
+# Allow all search engines to crawl the website
+# No need to disallow anything specific for a portfolio site
 
 # Additional directives for specific search engines
 User-agent: Googlebot

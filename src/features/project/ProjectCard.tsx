@@ -34,14 +34,28 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick, className }
         }}
       >
         <div className="relative w-full h-56 sm:h-64 md:h-72 overflow-hidden">
-          <img
-            src={image.src}
-            alt={image.alt || `${title} preview`}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-            loading="lazy"
-            decoding="async"
-            sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
-          />
+          <picture>
+            <source
+              srcSet={`${image.src.replace(/\.(jpg|jpeg|png)$/, '.webp')} 1x,
+                      ${image.src.replace(/\.(jpg|jpeg|png)$/, '@2x.webp')} 2x`}
+              type="image/webp"
+            />
+            <source
+              srcSet={`${image.src} 1x,
+                      ${image.src.replace(/\.(jpg|jpeg|png)$/, '@2x$&')} 2x`}
+              type={`image/${image.src.split('.').pop() === 'jpg' ? 'jpeg' : image.src.split('.').pop()}`}
+            />
+            <img
+              src={image.src}
+              alt={image.alt || `${title} preview`}
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+              decoding="async"
+              width="400"
+              height="300"
+              sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
+            />
+          </picture>
         </div>
         <div className="p-4 sm:p-5 flex-1 flex flex-col">
           <h3 className="text-lg sm:text-xl font-semibold text-foreground mb-1 sm:mb-1.5">
@@ -57,10 +71,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick, className }
           </p>
           {technologies.length > 0 && (
             <div className="flex flex-wrap gap-2 mb-3">
-              {technologies.slice(0, 3).map((tech) => (
+              {technologies.map((tech) => (
                 <span
                   key={tech}
-                  className="bg-primary/10 text-primary px-2 py-0.5 sm:py-1 rounded text-[10px] sm:text-xs font-medium whitespace-nowrap"
+                  className="bg-primary/10 text-primary-contrast px-2 py-0.5 sm:py-1 rounded text-[10px] sm:text-xs font-medium whitespace-nowrap"
                 >
                   {tech}
                 </span>

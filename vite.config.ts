@@ -1,9 +1,6 @@
-import { defineConfig, loadEnv } from 'vite';
+import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
-
-// Load environment variables
-const env = loadEnv('all', process.cwd(), '');
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
@@ -13,23 +10,14 @@ export default defineConfig(({ mode }) => {
   
   console.log(`Running in ${mode} mode with base URL: ${base}`);
   
-  // Set environment variables for the app to use
-  process.env.VITE_BASE_URL = base;
-  process.env.BASE_URL = base;
-  
-  // For Vite's define
-  const defineVars = {
-    'import.meta.env.VITE_BASE_URL': JSON.stringify(base),
-    'import.meta.env.BASE_URL': JSON.stringify(base),
-    'process.env.NODE_ENV': JSON.stringify(mode),
-    'process.env.BASE_URL': JSON.stringify(base)
-  };
-  
   return {
     base,
     plugins: [react()],
-    define: defineVars,
-    envPrefix: ['VITE_', 'NEXT_'],
+    define: {
+      'process.env.NODE_ENV': JSON.stringify(mode),
+      'process.env.BASE_URL': JSON.stringify(base),
+      'import.meta.env.BASE_URL': JSON.stringify(base)
+    },
     resolve: {
       alias: {
         '@': path.resolve(__dirname, './src'),
@@ -41,34 +29,42 @@ export default defineConfig(({ mode }) => {
     },
     build: {
       outDir: 'dist',
-      sourcemap: true,
+      sourcemap: mode === 'development',
+      minify: 'terser',
+      terserOptions: {
+        compress: {
+          drop_console: mode === 'production',
+        },
+      },
       rollupOptions: {
         output: {
           manualChunks: {
-            react: ['react', 'react-dom', 'react-router-dom'],
-            vendor: ['framer-motion', 'react-icons'],
+            react: ['react', 'react-dom'],
+            framer: ['framer-motion'],
+            icons: ['react-icons']
           },
-          entryFileNames: 'assets/[name].[hash].js',
-          chunkFileNames: 'assets/[name].[hash].js',
-          assetFileNames: 'assets/[name].[hash][extname]',
-        },
+          chunkFileNames: 'assets/[name]-[hash].js',
+          entryFileNames: 'assets/[name]-[hash].js',
+          assetFileNames: (assetInfo) => {
+            const ext = assetInfo.name?.split('.').pop()?.toLowerCase() || '';
+            if (ext === 'css') return 'assets/css/[name]-[hash][extname]';
+            if (['png', 'jpg', 'jpeg', 'gif', 'svg', 'webp'].includes(ext)) {
+              return 'assets/images/[name]-[hash][extname]';
+            }
+            if (['woff2', 'woff', 'ttf', 'eot'].includes(ext)) {
+              return 'assets/fonts/[name]-[hash][extname]';
+            }
+            return 'assets/[name]-[hash][extname]';
+          }
+        }
       },
+      copyPublicDir: true
     },
     server: {
       port: 3000,
       open: true,
       fs: {
         allow: ['..']
-      },
-      proxy: {
-        // Add any API proxies here if needed
-      }
-    },
-    preview: {
-      port: 5000,
-      open: true,
-      proxy: {
-        // Same as dev server proxy if needed
       }
     }
   };

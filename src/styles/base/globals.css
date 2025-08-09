@@ -19,12 +19,12 @@
     --popover: 0 0% 100%;
     --popover-foreground: 311 54% 15%;
 
-    /* Primary Accent (Gold → Orange) */
-    --primary: 48 100% 50%;
+    /* Primary Accent (Deeper Gold → Orange) */
+    --primary: 38 100% 45%;  /* Darker gold for better contrast */
     --primary-foreground: 0 0% 100%;
-    --accent: 11 100% 60%;
+    --accent: 11 100% 50%;   /* Brighter orange for better contrast */
     --accent-foreground: 0 0% 100%;
-    --gradient-primary: linear-gradient(to right, hsl(48 100% 50%), hsl(11 100% 60%));
+    --gradient-primary: linear-gradient(to right, hsl(38 100% 45%), hsl(11 100% 50%));
 
     /* Secondary Accent (Crimson → Wine → Plum) */
     --secondary: 343 100% 39%;
@@ -32,7 +32,7 @@
     --gradient-secondary: linear-gradient(135deg, hsl(343 100% 39%), hsl(336 84% 31%), hsl(311 54% 21%));
 
     --muted: 48 10% 92%;
-    --muted-foreground: 311 30% 40%;
+    --muted-foreground: 311 30% 30%;  /* Darker text for better contrast */
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
@@ -74,6 +74,21 @@
     --border: 311 20% 30%;
     --input: 311 20% 30%;
     --ring: 48 100% 50%;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  /* Enhanced contrast for text on light backgrounds */
+  .text-primary-contrast {
+    color: hsl(38 100% 35%);
+  }
+  
+  .dark .text-primary-contrast {
+    color: hsl(48 100% 60%);
   }
 }
 

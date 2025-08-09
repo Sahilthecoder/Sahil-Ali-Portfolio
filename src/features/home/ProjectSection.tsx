@@ -35,7 +35,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
               {project.technologies.map((tech) => (
                 <span
                   key={tech}
-                  className="bg-primary/10 text-primary px-2 py-1 rounded text-xs font-medium"
+                  className="bg-primary/10 text-primary-contrast px-2 py-1 rounded text-xs font-medium"
                 >
                   {tech}
                 </span>

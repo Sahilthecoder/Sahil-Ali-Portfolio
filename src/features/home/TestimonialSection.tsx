@@ -110,8 +110,19 @@ const TestimonialSection = () => {
                 </div>
               </div>
 
-              <div className="mb-3" aria-label={`Rating: ${rating} out of 5 stars`}>
-                {stars(rating)}
+              <div 
+                className="mb-3" 
+                role="img"
+                aria-label={`Rating: ${rating} out of 5 stars`}
+                aria-valuenow={rating}
+                aria-valuemin={1}
+                aria-valuemax={5}
+                aria-valuetext={`${rating} out of 5`}
+              >
+                <div role="presentation">
+                  {stars(rating)}
+                </div>
+                <span className="sr-only">Rating: {rating} out of 5 stars</span>
               </div>
 
               {project && (
