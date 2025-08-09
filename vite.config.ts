@@ -7,15 +7,14 @@ const env = loadEnv('all', process.cwd(), '');
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
-  // Always use the base path for GitHub Pages in production
-  const isProduction = mode === 'production';
-  const base = isProduction ? '/Sahil-Ali-Portfolio/' : '/';
+  // For HashRouter, we can simplify the base path
+  const base = '/';
   
-  console.log(`Running in ${mode} mode with base URL: ${base}`);
+  console.log(`Running in ${mode} mode with HashRouter`);
   
   // Set environment variables for the app to use
   process.env.VITE_BASE_URL = base;
-  process.env.BASE_URL = base; // For compatibility with some libraries
+  process.env.BASE_URL = base;
   
   // For Vite's define
   const defineVars = {

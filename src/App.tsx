@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Routes, Route, useLocation, BrowserRouter } from 'react-router-dom';
+import { Routes, Route, useLocation, HashRouter } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useSmoothScroll } from './hooks/useSmoothScroll';
 import { ThemeProvider } from './components/ThemeProvider';
@@ -89,15 +89,14 @@ const App: React.FC = () => {
   // Enable smooth scrolling for all anchor links in the app
   useSmoothScroll();
 
-  // Get the base path from Vite's environment variables
-  // Remove any trailing slashes for BrowserRouter
-  const basename = (import.meta.env.BASE_URL || '').replace(/\/+$/, '');
-  console.log('Using base path:', basename);
+  // Using HashRouter for GitHub Pages compatibility
+  // No need for basename with HashRouter
+  console.log('Using HashRouter for GitHub Pages');
 
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
       <ErrorBoundary>
-        <BrowserRouter basename={basename}>
+        <HashRouter>
           <div className="flex flex-col min-h-screen">
             <Navigation />
             <main className="flex-grow pt-20">
