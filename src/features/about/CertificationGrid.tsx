@@ -8,7 +8,6 @@ import LazyImage from '@/components/LazyImage';
 import { AnimatedSection, SectionHeader } from '@/components/ui/AnimatedSection';
 import { Button } from '@/components/ui/Button';
 import { ThemeCard } from '@/components/ui/ThemeCard';
-import { getPath } from '@/utils/paths';
 import certificationsData from '@/data/certifications';
 
 type Certification = {
@@ -25,25 +24,16 @@ const CertificationsGrid = () => {
   const [activeFilter, setActiveFilter] = useState('all');
   const [expandedId, setExpandedId] = useState<string | null>(null);
 
-  const certifications: Certification[] = certificationsData.map((cert) => {
-    // Convert relative paths to absolute for production
-    let imageUrl = cert.imageUrl;
-    if (imageUrl && !imageUrl.startsWith('http') && !imageUrl.startsWith('data:')) {
-      // Remove leading slash if present to prevent double slashes
-      imageUrl = getPath(imageUrl.replace(/^\//, ''));
-    }
-    
-    return {
-      id: cert.id,
-      title: cert.fieldOfStudy || 'Professional Certification',
-      issuer: cert.institution,
-      issueDate: cert.period?.split('–')[0]?.trim() || '',
-      credentialUrl: cert.institutionUrl,
-      imageUrl: imageUrl || getPath('images/certifications/default-cert.jpg'),
-      tags: ['professional', 'certification', cert.fieldOfStudy?.toLowerCase().includes('warehouse') ? 'warehouse' : '']
-        .filter(Boolean) as string[]
-    };
-  });
+  const certifications: Certification[] = certificationsData.map((cert) => ({
+    id: cert.id,
+    title: cert.fieldOfStudy || 'Professional Certification',
+    issuer: cert.institution,
+    issueDate: cert.period?.split('–')[0]?.trim() || '',
+    credentialUrl: cert.institutionUrl,
+    imageUrl: cert.imageUrl || '/Sahil-Ali-Portfolio/images/certifications/default-cert.jpg',
+    tags: ['professional', 'certification', cert.fieldOfStudy?.toLowerCase().includes('warehouse') ? 'warehouse' : '']
+      .filter(Boolean) as string[]
+  }));
 
   const allTags = ['all', ...new Set(certifications.flatMap(cert => cert.tags))];
   const filteredCerts = activeFilter === 'all' 
