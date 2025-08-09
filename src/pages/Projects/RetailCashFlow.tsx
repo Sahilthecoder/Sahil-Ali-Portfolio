@@ -264,23 +264,23 @@ Variance =
     ],
     images: [
       {
-        src: '/images/projects/RetailCashFlow_Project4/Project4_Cover-600w.webp',
+        src: '/Sahil-Ali-Portfolio/images/projects/RetailCashFlow_Project4/Project4_Cover-600w.webp',
         alt: 'Retail Cash Flow Dashboard Overview',
         caption: 'Dashboard: High-level daily cash inflows and outflows for both stores, enabling quick financial insights and decisions.',
-        srcSet: '/images/projects/RetailCashFlow_Project4/Project4_Cover-300w.webp 300w, /images/projects/RetailCashFlow_Project4/Project4_Cover-600w.webp 600w',
+        srcSet: '/Sahil-Ali-Portfolio/images/projects/RetailCashFlow_Project4/Project4_Cover-300w.webp 300w, /Sahil-Ali-Portfolio/images/projects/RetailCashFlow_Project4/Project4_Cover-600w.webp 600w',
         sizes: '(max-width: 640px) 300px, 600px'
       },
       {
-        src: '/images/projects/RetailCashFlow_Project4/CashFlow1-600w.webp',
+        src: '/Sahil-Ali-Portfolio/images/projects/RetailCashFlow_Project4/CashFlow1-600w.webp',
         alt: 'Store-wise Cash Summary',
         caption: 'Store summary: Compare cash performance by location, monitor trends, and ensure accuracy across outlets',
-        srcSet: '/images/projects/RetailCashFlow_Project4/CashFlow1-300w.webp 300w, /images/projects/RetailCashFlow_Project4/CashFlow1-600w.webp 600w',
+        srcSet: '/Sahil-Ali-Portfolio/images/projects/RetailCashFlow_Project4/CashFlow1-300w.webp 300w, /Sahil-Ali-Portfolio/images/projects/RetailCashFlow_Project4/CashFlow1-600w.webp 600w',
         sizes: '(max-width: 640px) 300px, 600px'
       },
       {
-        src: '/images/projects/RetailCashFlow_Project4/CashFlow2-600w.webp',
+        src: '/Sahil-Ali-Portfolio/images/projects/RetailCashFlow_Project4/CashFlow2-600w.webp',
         alt: 'Detailed Transaction Analysis',
-        srcSet: '/images/projects/RetailCashFlow_Project4/CashFlow2-300w.webp 300w, /images/projects/RetailCashFlow_Project4/CashFlow2-600w.webp 600w',
+        srcSet: '/Sahil-Ali-Portfolio/images/projects/RetailCashFlow_Project4/CashFlow2-300w.webp 300w, /Sahil-Ali-Portfolio/images/projects/RetailCashFlow_Project4/CashFlow2-600w.webp 600w',
         sizes: '(max-width: 640px) 300px, 600px',
         caption: 'Detailed transaction analysis showing daily cash flow patterns and anomalies',
       },
