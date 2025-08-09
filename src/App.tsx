@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation, BrowserRouter } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useSmoothScroll } from './hooks/useSmoothScroll';
 import { ThemeProvider } from './components/ThemeProvider';
@@ -88,19 +88,24 @@ const PageTransition: React.FC<{ children: React.ReactNode }> = ({ children }) =
 const App: React.FC = () => {
   // Enable smooth scrolling for all anchor links in the app
   useSmoothScroll();
-  
+
+  // Set the basename for GitHub Pages
+  const basename = process.env.NODE_ENV === 'production' ? '/Sahil-Ali-Portfolio' : '';
+
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      <div className="flex flex-col min-h-screen">
-        <Navigation />
-        <main className="flex-grow pt-20">
-          <ErrorBoundary>
-            <ScrollToTop />
-            <AnimatedRoutes />
-          </ErrorBoundary>
-        </main>
-        <Footer />
-      </div>
+      <ErrorBoundary>
+        <BrowserRouter basename={basename}>
+          <div className="flex flex-col min-h-screen">
+            <Navigation />
+            <main className="flex-grow pt-20">
+              <ScrollToTop />
+              <AnimatedRoutes />
+            </main>
+            <Footer />
+          </div>
+        </BrowserRouter>
+      </ErrorBoundary>
     </ThemeProvider>
   );
 };

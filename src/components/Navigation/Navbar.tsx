@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { getPath } from '../../utils/paths';
 
 interface NavItem {
   label: string;
@@ -8,12 +9,12 @@ interface NavItem {
 }
 
 const navItems: NavItem[] = [
-  { label: 'Home', path: '/' },
-  { label: 'About', path: '/about' },
-  { label: 'Experience', path: '/experience' },
-  { label: 'Projects', path: '/projects' },
-  { label: 'Blog', path: '/blog' },
-  { label: 'Contact', path: '/contact' },
+  { label: 'Home', path: getPath('/') },
+  { label: 'About', path: getPath('/about') },
+  { label: 'Experience', path: getPath('/experience') },
+  { label: 'Projects', path: getPath('/projects') },
+  { label: 'Blog', path: getPath('/blog') },
+  { label: 'Contact', path: getPath('/contact') },
 ];
 
 const Navbar: React.FC = () => {
