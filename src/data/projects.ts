@@ -44,10 +44,10 @@ export const projects: Project[] = [
       'Uncovered key market trends leading to optimized marketing spend allocation'
     ],
     image: {
-      src: '/images/projects/Zomto_Project1/Project1_Cover-600w.webp',
+      src: '/Sahil-Ali-Portfolio/images/projects/Zomto_Project1/Project1_Cover-600w.webp',
       alt: 'Zomato Expansion Dashboard showing city-wise performance metrics',
-      srcSet: '/images/projects/Zomto_Project1/Project1_Cover-300w.webp 300w, /images/projects/Zomto_Project1/Project1_Cover-600w.webp 600w',
-      sizes: '(max-width: 640px) 300px, 600px'
+      srcSet: '/Sahil-Ali-Portfolio/images/projects/Zomto_Project1/Project1_Cover-300w.webp 300w, /Sahil-Ali-Portfolio/images/projects/Zomto_Project1/Project1_Cover-600w.webp 600w, /Sahil-Ali-Portfolio/images/projects/Zomto_Project1/Project1_Cover-1200w.webp 1200w',
+      sizes: '(max-width: 640px) 300px, (max-width: 1024px) 600px, 1200px'
     },
     links: [
       { label: 'View Dashboard', url: '/projects/zomato-dashboard' },
@@ -114,10 +114,10 @@ export const projects: Project[] = [
       'Improved decision-making with real-time sales and performance metrics'
     ],
     image: {
-      src: '/images/projects/Bansal_Project2/Project2_Cover-600w.webp',
-      alt: 'Bansal Supermarket Analytics Dashboard showing sales performance metrics',
-      srcSet: '/images/projects/Bansal_Project2/Project2_Cover-300w.webp 300w, /images/projects/Bansal_Project2/Project2_Cover-600w.webp 600w',
-      sizes: '(max-width: 640px) 300px, 600px'
+      src: '/Sahil-Ali-Portfolio/images/projects/Bansal_Project2/Project2_Cover-600w.webp',
+      alt: 'Bansal Supermarket Inventory Management Dashboard',
+      srcSet: '/Sahil-Ali-Portfolio/images/projects/Bansal_Project2/Project2_Cover-300w.webp 300w, /Sahil-Ali-Portfolio/images/projects/Bansal_Project2/Project2_Cover-600w.webp 600w, /Sahil-Ali-Portfolio/images/projects/Bansal_Project2/Project2_Cover-1200w.webp 1200w',
+      sizes: '(max-width: 640px) 300px, (max-width: 1024px) 600px, 1200px'
     },
     links: [
       { label: 'View Dashboard', url: '/projects/bansal-dashboard' },
@@ -190,10 +190,10 @@ export const projects: Project[] = [
       'Enabled real-time attendance tracking and reporting'
     ],
     image: {
-      src: '/images/projects/Attendance_Project3/Project3_Cover-600w.webp',
-      alt: 'Attendance and Payroll Automation Dashboard',
-      srcSet: '/images/projects/Attendance_Project3/Project3_Cover-300w.webp 300w, /images/projects/Attendance_Project3/Project3_Cover-600w.webp 600w',
-      sizes: '(max-width: 640px) 300px, 600px'
+      src: '/Sahil-Ali-Portfolio/images/projects/Attendance_Project3/Project3_Cover-600w.webp',
+      alt: 'Ekam Attendance Management System',
+      srcSet: '/Sahil-Ali-Portfolio/images/projects/Attendance_Project3/Project3_Cover-300w.webp 300w, /Sahil-Ali-Portfolio/images/projects/Attendance_Project3/Project3_Cover-600w.webp 600w, /Sahil-Ali-Portfolio/images/projects/Attendance_Project3/Project3_Cover-1200w.webp 1200w',
+      sizes: '(max-width: 640px) 300px, (max-width: 1024px) 600px, 1200px'
     },
     links: [
       { label: 'View Project', url: '/projects/ekam-attendance' },
@@ -251,10 +251,10 @@ export const projects: Project[] = [
       'Streamlined financial reporting across 5+ store locations'
     ],
     image: {
-      src: '/images/projects/RetailCashFlow_Project4/Project4_Cover-600w.webp',
-      alt: 'Multi-Store Financial Dashboard showing cash flow metrics',
-      srcSet: '/images/projects/RetailCashFlow_Project4/Project4_Cover-300w.webp 300w, /images/projects/RetailCashFlow_Project4/Project4_Cover-600w.webp 600w',
-      sizes: '(max-width: 640px) 300px, 600px'
+      src: '/Sahil-Ali-Portfolio/images/projects/RetailCashFlow_Project4/Project4_Cover-600w.webp',
+      alt: 'Retail Cash Flow Analysis Dashboard',
+      srcSet: '/Sahil-Ali-Portfolio/images/projects/RetailCashFlow_Project4/Project4_Cover-300w.webp 300w, /Sahil-Ali-Portfolio/images/projects/RetailCashFlow_Project4/Project4_Cover-600w.webp 600w, /Sahil-Ali-Portfolio/images/projects/RetailCashFlow_Project4/Project4_Cover-1200w.webp 1200w',
+      sizes: '(max-width: 640px) 300px, (max-width: 1024px) 600px, 1200px'
     },
     links: [
       { label: 'View Dashboard', url: '/projects/powerbi-cashflow' },
@@ -313,10 +313,10 @@ export const projects: Project[] = [
       'Created a seamless integration between Notion, Google Calendar, and task management'
     ],
     image: {
-      src: '/images/projects/AIautomation_Project5/Project5_Cover-600w.webp',
+      src: '/Sahil-Ali-Portfolio/images/projects/AIautomation_Project5/Project5_Cover-600w.webp',
       alt: 'AI-Powered Productivity System Dashboard',
-      srcSet: '/images/projects/AIautomation_Project5/Project5_Cover-300w.webp 300w, /images/projects/AIautomation_Project5/Project5_Cover-600w.webp 600w',
-      sizes: '(max-width: 640px) 300px, 600px'
+      srcSet: '/Sahil-Ali-Portfolio/images/projects/AIautomation_Project5/Project5_Cover-300w.webp 300w, /Sahil-Ali-Portfolio/images/projects/AIautomation_Project5/Project5_Cover-600w.webp 600w, /Sahil-Ali-Portfolio/images/projects/AIautomation_Project5/Project5_Cover-1200w.webp 1200w',
+      sizes: '(max-width: 640px) 300px, (max-width: 1024px) 600px, 1200px'
     },
     links: [
       { label: 'Explore the System', url: '/projects/ai-decision-system' },
@@ -388,24 +388,24 @@ export const projects: Project[] = [
       'Modern UI/UX',
     ],
     image: {
-      src: '/images/projects/Mahira_Portfolio_Web+AI/Project7_Cover-600w.webp',
+      src: '/Sahil-Ali-Portfolio/images/projects/Mahira_Portfolio_Web+AI/Project7_Cover-600w.webp',
       alt: 'AI-Powered Portfolio Creation',
-      srcSet: '/images/projects/Mahira_Portfolio_Web+AI/Project7_Cover-300w.webp 300w, /images/projects/Mahira_Portfolio_Web+AI/Project7_Cover-600w.webp 600w, /images/projects/Mahira_Portfolio_Web+AI/Project7_Cover-1200w.webp 1200w',
+      srcSet: '/Sahil-Ali-Portfolio/images/projects/Mahira_Portfolio_Web+AI/Project7_Cover-300w.webp 300w, /Sahil-Ali-Portfolio/images/projects/Mahira_Portfolio_Web+AI/Project7_Cover-600w.webp 600w, /Sahil-Ali-Portfolio/images/projects/Mahira_Portfolio_Web+AI/Project7_Cover-1200w.webp 1200w',
       sizes: '(max-width: 640px) 300px, (max-width: 1024px) 600px, 1200px'
     },
     gallery: [
       {
-        src: '/images/projects/Mahira_Portfolio_Web+AI/Project7_Cover-600w.webp',
+        src: '/Sahil-Ali-Portfolio/images/projects/Mahira_Portfolio_Web+AI/Project7_Cover-600w.webp',
         alt: 'Portfolio Showcase',
         caption: 'Modern Portfolio Showcase',
-        srcSet: '/images/projects/Mahira_Portfolio_Web+AI/Project7_Cover-300w.webp 300w, /images/projects/Mahira_Portfolio_Web+AI/Project7_Cover-600w.webp 600w',
+        srcSet: '/Sahil-Ali-Portfolio/images/projects/Mahira_Portfolio_Web+AI/Project7_Cover-300w.webp 300w, /Sahil-Ali-Portfolio/images/projects/Mahira_Portfolio_Web+AI/Project7_Cover-600w.webp 600w',
         sizes: '(max-width: 640px) 300px, 600px'
       },
       {
-        src: '/images/projects/Mahira_Portfolio_Web+AI/Project7_Cover-600w.webp',
+        src: '/Sahil-Ali-Portfolio/images/projects/Mahira_Portfolio_Web+AI/Project7_Cover-600w.webp',
         alt: 'Responsive Design',
         caption: 'Fully Responsive Layout',
-        srcSet: '/images/projects/Mahira_Portfolio_Web+AI/Project7_Cover-300w.webp 300w, /images/projects/Mahira_Portfolio_Web+AI/Project7_Cover-600w.webp 600w',
+        srcSet: '/Sahil-Ali-Portfolio/images/projects/Mahira_Portfolio_Web+AI/Project7_Cover-300w.webp 300w, /Sahil-Ali-Portfolio/images/projects/Mahira_Portfolio_Web+AI/Project7_Cover-600w.webp 600w',
         sizes: '(max-width: 640px) 300px, 600px'
       }
     ],
