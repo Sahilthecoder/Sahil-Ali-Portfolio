@@ -8,6 +8,7 @@ import LazyImage from '@/components/LazyImage';
 import { AnimatedSection, SectionHeader } from '@/components/ui/AnimatedSection';
 import { Button } from '@/components/ui/Button';
 import { ThemeCard } from '@/components/ui/ThemeCard';
+import { getPath } from '@/utils/paths';
 import certificationsData from '@/data/certifications';
 
 type Certification = {
@@ -30,7 +31,7 @@ const CertificationsGrid = () => {
     issuer: cert.institution,
     issueDate: cert.period?.split('–')[0]?.trim() || '',
     credentialUrl: cert.institutionUrl,
-    imageUrl: cert.imageUrl || '/images/certifications/default-cert.jpg',
+    imageUrl: cert.imageUrl || getPath('/images/certifications/default-cert.jpg'),
     tags: ['professional', 'certification', cert.fieldOfStudy?.toLowerCase().includes('warehouse') ? 'warehouse' : '']
       .filter(Boolean) as string[]
   }));

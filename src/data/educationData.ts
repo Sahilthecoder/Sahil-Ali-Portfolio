@@ -1,4 +1,5 @@
 import type { Education } from '@/types/experience.types';
+import { getPath } from '@/utils/paths';
 
 const educationData: Education[] = [
   {
@@ -9,7 +10,7 @@ const educationData: Education[] = [
     period: 'January 2018 – January 2021',
     fieldOfStudy: 'Physics, Chemistry, Mathematics',
     location: 'Rajasthan, India',
-    imageUrl: '/images/education/mdsu-university.jpg',
+    imageUrl: `${getPath('/images/education/mdsu-university.jpg')}`,
     description: [
       'Built a strong academic foundation in analytical thinking, problem-solving, and data interpretation through core science subjects.',
       'Developed logical reasoning and quantitative analysis skills, which later supported my transition into data analytics and AI automation.',
@@ -21,7 +22,7 @@ const educationData: Education[] = [
     institution: 'Online Learning Platforms',
     period: '2023 – Present',
     fieldOfStudy: 'AI, Automation & Data Analysis',
-    imageUrl: '/images/education/online-learning.jpg',
+    imageUrl: `${getPath('/images/education/online-learning.jpg')}`,
     description: [
       'Passionately transitioned into tech by self-learning AI tools, automation platforms, and data analysis techniques.',
       'Gained hands-on experience in ChatGPT, Notion AI, Make.com (Integromat), Google Sheets automation, and other AI-powered workflows.',
