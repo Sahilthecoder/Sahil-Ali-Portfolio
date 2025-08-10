@@ -29,7 +29,7 @@ const CertificationsGrid = () => {
     issuer: cert.institution,
     issueDate: cert.period?.split('–')[0]?.trim() || '',
     credentialUrl: cert.institutionUrl,
-    imageUrl: cert.imageUrl || '/optimized-images/certifications/default-cert.jpg',
+    imageUrl: cert.imageUrl || '/Sahil-Ali-Portfolio/images/certifications/warehouse.jpg',
     tags: ['professional', 'certification', cert.fieldOfStudy?.toLowerCase().includes('warehouse') ? 'warehouse' : '']
       .filter(Boolean) as string[]
   }));
