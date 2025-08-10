@@ -1,10 +1,10 @@
+
 import React, { useState, useEffect } from 'react';
 import { Routes, Route, useLocation, HashRouter } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useSmoothScroll } from './hooks/useSmoothScroll';
 import { ThemeProvider } from './components/ThemeProvider';
 import Navigation from './components/Navigation/Navigation';
-import Footer from './components/Navigation/Footer';
 import Home from './pages/Home';
 import About from './pages/About';
 import Experience from './pages/Experience';
@@ -101,11 +101,10 @@ const App: React.FC = () => {
         <HashRouter>
           <div className="flex flex-col min-h-screen">
             <Navigation />
-            <main className="flex-grow pt-20">
+            <main className="flex-grow">
               <ScrollToTop />
               <AnimatedRoutes />
             </main>
-            <Footer />
           </div>
         </HashRouter>
       </ErrorBoundary>
