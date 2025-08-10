@@ -203,36 +203,33 @@ const Hero: React.FC<HeroProps> = ({
     <section
       ref={containerRef}
       className={cn(
-        'relative flex h-[40vh] min-h-[350px] items-center justify-center overflow-hidden bg-gray-50 dark:bg-gray-900',
+        'relative flex min-h-[50vh] sm:min-h-[60vh] items-center justify-center overflow-hidden bg-gray-50 dark:bg-gray-900',
         className
       )}
     >
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-black/70 dark:via-black/60 dark:to-black/80" />
-        {backgroundImages?.map((image, index) => (
+        {backgroundImage && (
           <div
-            key={`bg-${index}`}
-            className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${
-              index === 0 ? 'opacity-100' : 'opacity-0'
-            }`}
+            className="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-100"
             style={{
-              backgroundImage: `url(${image})`,
+              backgroundImage: `url(${backgroundImage})`,
               backgroundPosition: 'center',
               backgroundSize: 'cover',
               transition: 'opacity 1s ease-in-out',
               filter: 'brightness(0.7) contrast(1.1)',
             }}
           />
-        ))}
+        )}
       </div>
 
       <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/70 to-background dark:from-dark-background/50 dark:via-dark-background/80 dark:to-dark-background" />
 
-      <div className="relative z-10 max-w-4xl px-4 text-center">
+      <div className="relative z-10 w-full max-w-6xl px-4 sm:px-6 lg:px-8 text-center">
         {title && (
           <h1
             ref={titleRef}
-            className="mb-4 text-4xl font-bold tracking-tight text-white dark:text-gray-100 sm:text-5xl lg:text-6xl drop-shadow-md"
+            className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-3 sm:mb-4 md:mb-6 opacity-0 translate-y-8 transition-all duration-700 leading-tight sm:leading-snug drop-shadow-md"
           >
             {title}
           </h1>
@@ -240,7 +237,7 @@ const Hero: React.FC<HeroProps> = ({
         {subtitle && (
           <p
             ref={subtitleRef}
-            className="mx-auto mb-8 max-w-2xl text-lg text-gray-100 dark:text-gray-200 sm:text-xl md:mb-12 drop-shadow"
+            className="text-base sm:text-lg md:text-xl lg:text-xl text-gray-200 mb-6 sm:mb-8 md:mb-10 lg:mb-12 max-w-2xl sm:max-w-3xl mx-auto px-2 sm:px-4 opacity-0 translate-y-5 transition-all duration-700 delay-100 leading-relaxed drop-shadow"
           >
             {subtitle}
           </p>
@@ -251,14 +248,21 @@ const Hero: React.FC<HeroProps> = ({
             type="button"
             ref={ctaRef}
             onClick={onCtaClick}
-            className="group relative bg-accent hover:bg-accent/90 dark:bg-dark-accent dark:hover:bg-dark-accent/90 text-white font-semibold py-3 px-8 rounded-full transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-accent/40 dark:focus:ring-dark-accent/40 flex items-center mx-auto shadow-lg hover:shadow-accent/30 dark:hover:shadow-dark-accent/30 opacity-0 translate-y-5 scale-95"
+            className="group relative bg-accent hover:bg-accent/90 dark:bg-dark-accent dark:hover:bg-dark-accent/90 text-white font-medium py-2.5 px-6 sm:py-3 sm:px-8 rounded-full transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-accent/40 dark:focus:ring-dark-accent/40 flex items-center mx-auto shadow-lg hover:shadow-accent/30 dark:hover:shadow-dark-accent/30 opacity-0 translate-y-5 scale-95 active:scale-95 hover:scale-105 touch-manipulation"
+            style={{
+              minWidth: '160px',
+              WebkitTapHighlightColor: 'transparent',
+              WebkitTouchCallout: 'none',
+              userSelect: 'none',
+            }}
           >
-            <span className="relative z-10">{ctaText}</span>
+            <span className="relative z-10 text-sm sm:text-base md:text-lg">{ctaText}</span>
             <svg
-              className="ml-2 -mr-1 w-5 h-5 inline-block transition-transform duration-300 group-hover:translate-x-1"
+              className="ml-2 -mr-1 w-4 h-4 sm:w-5 sm:h-5 inline-block transition-transform duration-300 group-hover:translate-x-1"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
               fill="currentColor"
+              aria-hidden="true"
             >
               <path
                 fillRule="evenodd"
