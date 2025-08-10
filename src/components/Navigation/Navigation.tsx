@@ -2,7 +2,6 @@ import React, { useState, useCallback, FC, ReactNode, useEffect, useRef } from '
 import { AnimatePresence, motion } from 'framer-motion';
 import Header from './Header';
 import MobileMenu from './MobileMenu';
-import Footer from './Footer';
 
 interface NavigationProps {
   children?: ReactNode;
@@ -61,77 +60,48 @@ const Navigation: FC<NavigationProps> = ({ children }) => {
   const headerVariants = {
     visible: { 
       y: 0,
-      opacity: 1,
       transition: { 
         type: 'spring',
-        damping: 20,
-        stiffness: 300,
-        mass: 0.5
+        damping: 25,
+        stiffness: 300
       }
     },
     hidden: { 
       y: '-100%',
-      opacity: 0,
       transition: { 
         type: 'spring',
-        damping: 20,
-        stiffness: 300,
-        mass: 0.5
+        damping: 25,
+        stiffness: 300
       }
     },
   };
 
   // Only hide header when scrolling down, show when scrolling up
-  // Add a small delay before hiding to prevent flickering on small scrolls
-  const [shouldShowHeader, setShouldShowHeader] = useState(true);
-  
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShouldShowHeader(scrollDirection === 'up' || !isScrolled);
-    }, 50);
-    
-    return () => clearTimeout(timer);
-  }, [scrollDirection, isScrolled]);
+  const shouldShowHeader = scrollDirection === 'up' || !isScrolled;
 
   return (
-    <div className="min-h-screen flex flex-col">
-      {/* Fixed Header */}
+    <>
       <motion.div
         ref={headerRef}
         className="fixed top-0 left-0 right-0 z-50"
         initial="visible"
         animate={shouldShowHeader ? 'visible' : 'hidden'}
         variants={headerVariants}
+        transition={{ type: 'tween', duration: 0.3 }}
       >
-        <Header 
-          onMenuToggle={toggleMobileMenu} 
-          isScrolled={isScrolled} 
-        />
+        <Header onMenuToggle={toggleMobileMenu} isScrolled={isScrolled} />
       </motion.div>
       
-      {/* Mobile Menu */}
       <AnimatePresence>
-        {mobileMenuOpen && (
-          <MobileMenu 
-            isOpen={mobileMenuOpen} 
-            onClose={handleCloseMenu} 
-          />
-        )}
+        <MobileMenu isOpen={mobileMenuOpen} onClose={handleCloseMenu} />
       </AnimatePresence>
       
-      {/* Main Content Area */}
-      <div className="flex-1 flex flex-col pt-16 sm:pt-20">
-        {/* Page Content */}
-        <div className="flex-1">
+      {children && (
+        <div className="pt-16">
           {children}
         </div>
-        
-        {/* Footer - Pushed to bottom */}
-        <div className="mt-auto">
-          <Footer />
-        </div>
-      </div>
-    </div>
+      )}
+    </>
   )
 };
 

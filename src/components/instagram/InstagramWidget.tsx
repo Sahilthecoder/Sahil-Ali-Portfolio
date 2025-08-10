@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { cn } from '../../utils/cn';
 
 const InstagramWidget: React.FC = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);

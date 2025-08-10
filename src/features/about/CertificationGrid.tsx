@@ -22,7 +22,6 @@ type Certification = {
 
 const CertificationsGrid = () => {
   const [activeFilter, setActiveFilter] = useState('all');
-  const [expandedId, setExpandedId] = useState<string | null>(null);
 
   const certifications: Certification[] = certificationsData.map((cert) => ({
     id: cert.id,
@@ -30,7 +29,7 @@ const CertificationsGrid = () => {
     issuer: cert.institution,
     issueDate: cert.period?.split('–')[0]?.trim() || '',
     credentialUrl: cert.institutionUrl,
-    imageUrl: cert.imageUrl || '/Sahil-Ali-Portfolio/images/certifications/default-cert.jpg',
+    imageUrl: cert.imageUrl || '/optimized-images/certifications/default-cert.jpg',
     tags: ['professional', 'certification', cert.fieldOfStudy?.toLowerCase().includes('warehouse') ? 'warehouse' : '']
       .filter(Boolean) as string[]
   }));

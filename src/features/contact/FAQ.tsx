@@ -1,4 +1,5 @@
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FiInfo, FiDollarSign } from 'react-icons/fi';
 import { ChevronDown, ChevronUp, HelpCircle } from 'lucide-react';
 import { useState } from 'react';
 
@@ -129,9 +130,9 @@ const FAQ = () => {
   const [activeCategory, setActiveCategory] = useState('general');
 
   const categories = [
-    { id: 'general', name: 'General', icon: '💡' },
+    { id: 'general', name: 'General', icon: <FiInfo className="w-5 h-5" /> },
     { id: 'technical', name: 'Technical', icon: '⚙️' },
-    { id: 'pricing', name: 'Pricing', icon: '💰' },
+    { id: 'pricing', name: 'Pricing', icon: <FiDollarSign className="w-5 h-5" /> },
   ];
 
   // Filter FAQ items by active category

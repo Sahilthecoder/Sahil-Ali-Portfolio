@@ -1,4 +1,5 @@
 import React from 'react';
+import { FiBookOpen, FiTool, FiZap } from 'react-icons/fi';
 
 export const BlogWhyIWriteSection = () => (
   <section className="py-12 md:py-16 bg-background">
@@ -17,17 +18,17 @@ export const BlogWhyIWriteSection = () => (
           <div className="grid md:grid-cols-3 gap-6 mb-8">
             {[
               {
-                icon: '🧠',
+                icon: <FiBookOpen className="w-8 h-8 text-primary" />,
                 title: 'Demystify',
                 description: 'Breaking down complex data concepts into understandable insights'
               },
               {
-                icon: '🛠️',
+                icon: <FiTool className="w-8 h-8 text-primary" />,
                 title: 'Empower',
                 description: 'Providing practical tools and techniques for real-world challenges'
               },
               {
-                icon: '🚀',
+                icon: <FiZap className="w-8 h-8 text-primary" />,
                 title: 'Inspire',
                 description: 'Encouraging continuous learning and growth in data & AI'
               }
@@ -41,7 +42,7 @@ export const BlogWhyIWriteSection = () => (
           </div>
           
           <p className="text-muted-foreground">
-            Whether you're a data professional, business leader, or tech enthusiast, I hope my writing helps you on your journey. Let's learn and grow together in this exciting field of data and AI.
+            Whether you&apos;re a data professional, business leader, or tech enthusiast, I hope my writing helps you on your journey. Let&apos;s learn and grow together in this exciting field of data and AI.
           </p>
         </div>
       </div>

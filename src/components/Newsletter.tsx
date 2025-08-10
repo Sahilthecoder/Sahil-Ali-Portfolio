@@ -143,7 +143,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ className = '' }) => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
             >
-              <FiCheckCircle /> Thank you for subscribing! 🎉
+              <FiCheckCircle className="inline mr-1" /> Thank you for subscribing!
             </motion.div>
           )}
         </AnimatePresence>

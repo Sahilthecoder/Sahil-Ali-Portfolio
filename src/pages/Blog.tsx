@@ -16,7 +16,7 @@ const Blog = () => {
   const sectionRefs = {
     hero: useRef(null),
     bio: useRef(null),
-    whyIWrite: useRef(null),
+    whyIWrite: useRef(null),  
     about: useRef(null),
     videos: useRef(null),
     instagram: useRef(null),

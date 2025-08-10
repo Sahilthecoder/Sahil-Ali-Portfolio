@@ -27,26 +27,28 @@ export const FAQ_ITEMS = [
   },
 ];
 
+import { FiCode, FiLayers, FiSmartphone, FiHelpCircle } from 'react-icons/fi';
+
 export const SERVICES = [
   {
     title: 'Web Development',
     description: 'Custom websites and web applications built with modern technologies.',
-    icon: '💻',
+    icon: FiCode,
   },
   {
     title: 'UI/UX Design',
     description: 'Beautiful and intuitive user interfaces with great user experience.',
-    icon: '🎨',
+    icon: FiLayers,
   },
   {
     title: 'Mobile Apps',
     description: 'Cross-platform mobile applications for iOS and Android.',
-    icon: '📱',
+    icon: FiSmartphone,
   },
   {
     title: 'Consulting',
     description: 'Expert advice on software architecture and development strategies.',
-    icon: '💡',
+    icon: FiHelpCircle,
   },
 ];
 
