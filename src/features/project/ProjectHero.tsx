@@ -1,5 +1,6 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useEffect, useRef } from 'react';
 import Hero from '@/components/common/Hero';
+import { Button } from '@/components/ui/Button';
 
 // Collection of high-quality project-related images from Unsplash, Pexels, and Kaboompics
 const PROJECT_IMAGES = [
@@ -22,26 +23,45 @@ interface ProjectHeroProps {
 }
 
 const ProjectHero: React.FC<ProjectHeroProps> = ({ metrics }) => {
+  const buttonRef = useRef<HTMLAnchorElement>(null);
+  
   // Randomly select 2 different images from the collection
   const randomImages = useMemo(() => {
     const shuffled = [...PROJECT_IMAGES].sort(() => 0.5 - Math.random());
     return shuffled.slice(0, 2);
   }, []);
 
-  const scrollToProjects = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    const projectsSection = document.getElementById('all-projects');
-    if (projectsSection) {
-      const headerOffset = window.innerWidth < 640 ? 80 : 100; // Smaller offset on mobile
-      const elementPosition = projectsSection.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+  useEffect(() => {
+    const button = buttonRef.current;
+    if (!button) return;
+
+    const handleClick = (e: MouseEvent) => {
+      e.preventDefault();
+      const targetId = button.getAttribute('href');
+      if (!targetId || !targetId.startsWith('#')) return;
+
+      const targetElement = document.querySelector(targetId);
+      if (!targetElement) return;
+
+      const header = document.querySelector('header');
+      const headerHeight = header?.offsetHeight || 80;
+      const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - headerHeight - 20;
 
       window.scrollTo({
         top: offsetPosition,
         behavior: 'smooth'
       });
-    }
-  };
+
+      // Update URL
+      window.history.pushState(null, '', targetId);
+    };
+
+    button.addEventListener('click', handleClick);
+    return () => {
+      button.removeEventListener('click', handleClick);
+    };
+  }, []);
 
   return (
     <div className="relative bg-white dark:bg-gray-900">
@@ -68,12 +88,20 @@ const ProjectHero: React.FC<ProjectHeroProps> = ({ metrics }) => {
             </p>
             <div className="flex justify-center">
               <a
-                href="#all-projects"
-                onClick={scrollToProjects}
-                className="inline-flex items-center justify-center px-5 sm:px-6 py-2.5 sm:py-3 text-base sm:text-lg font-medium text-white bg-primary-600 border border-transparent rounded-lg shadow-sm hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 dark:focus:ring-offset-gray-900 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+                ref={buttonRef}
+                href="#projects"
+                className="inline-flex items-center justify-center w-full sm:w-auto"
                 aria-label="View all projects"
               >
-                View All Projects
+                <Button
+                  variant="primary"
+                  size="lg"
+                  icon="arrow-right"
+                  iconPosition="right"
+                  className="px-5 sm:px-6 py-2.5 sm:py-3 text-base sm:text-lg w-full sm:w-auto transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+                >
+                  View All Projects
+                </Button>
               </a>
             </div>
           </div>

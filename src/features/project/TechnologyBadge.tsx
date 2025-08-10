@@ -18,9 +18,9 @@ export const TechnologyBadge: React.FC<TechnologyBadgeProps> = ({
     'inline-flex items-center font-medium rounded-full transition-colors whitespace-nowrap';
 
   const variantStyles = {
-    default: 'bg-primary/10 text-primary hover:bg-primary/20',
-    outline: 'border border-border text-foreground hover:bg-accent/50',
-    secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
+    default: 'bg-background/80 dark:bg-card/90 backdrop-blur-sm text-foreground/90 dark:text-foreground hover:bg-background/90 dark:hover:bg-card/80 border border-border/30',
+    outline: 'border border-border bg-background/50 dark:bg-card/60 backdrop-blur-sm text-foreground/90 hover:bg-background/70 dark:hover:bg-card/70',
+    secondary: 'bg-primary/10 dark:bg-primary/20 backdrop-blur-sm text-primary-foreground hover:bg-primary/20 dark:hover:bg-primary/30',
   };
 
   const sizeStyles = {

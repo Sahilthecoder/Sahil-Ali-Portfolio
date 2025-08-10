@@ -50,11 +50,11 @@ export default function ProjectModal({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 bg-black/50 backdrop-blur-sm"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 bg-black/70 backdrop-blur-md"
           onClick={onClose}
         >
           <motion.div
-            className="relative w-full max-w-6xl max-h-[90vh] bg-white/10 dark:bg-gray-900/50 backdrop-blur-lg rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row border border-white/20 dark:border-gray-700/50"
+            className="relative w-full max-w-6xl max-h-[90vh] bg-white/20 dark:bg-gray-900/80 backdrop-blur-xl rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row border border-white/30 dark:border-gray-700/70"
             initial="hidden"
             animate="visible"
             exit="exit"
