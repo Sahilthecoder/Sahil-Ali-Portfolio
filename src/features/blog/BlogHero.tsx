@@ -22,50 +22,53 @@ const BlogHero: React.FC = () => {
     return shuffled.slice(0, 2);
   }, []);
 
+  const scrollToLatestPost = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const latestSection = document.getElementById('about');
+    if (latestSection) {
+      // Calculate the position to scroll to (accounting for fixed header)
+      const headerOffset = window.innerWidth < 640 ? 70 : 80; // Smaller offset on mobile
+      const elementPosition = latestSection.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <div className="relative bg-white dark:bg-gray-900">
       <Hero
         title=""
         subtitle=""
         backgroundImages={randomImages}
-        className="min-h-[40vh]"
+        className="min-h-[50vh] sm:min-h-[60vh]"
       />
       {/* Gradient overlay for better text visibility */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60 dark:from-black/80 dark:via-black/60 dark:to-black/80">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center px-4">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white dark:text-white mb-4">
-              Blog & Articles
+        <div className="absolute inset-0 flex items-center justify-center px-4 sm:px-6">
+          <div className="text-center w-full max-w-5xl mx-auto">
+            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-bold text-white dark:text-white mb-3 sm:mb-4 leading-tight">
+              Blog & <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-500">Articles</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-200 dark:text-gray-200 mb-8 max-w-2xl mx-auto">
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-200 dark:text-gray-200 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed">
               Sharing insights, tutorials, and thoughts on technology and beyond
             </p>
             <div className="flex justify-center">
               <a
                 href="#about"
-                onClick={(e) => {
-                  e.preventDefault();
-                  const latestSection = document.getElementById('about');
-                  if (latestSection) {
-                    // Calculate the position to scroll to (accounting for fixed header)
-                    const headerOffset = 80;
-                    const elementPosition = latestSection.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                    
-                    window.scrollTo({
-                      top: offsetPosition,
-                      behavior: 'smooth'
-                    });
-                  }
-                }}
+                onClick={scrollToLatestPost}
                 className="inline-flex items-center justify-center w-full sm:w-auto"
+                aria-label="Read the latest blog post"
               >
                 <Button
                   variant="primary"
                   size="lg"
                   icon="arrow-right"
                   iconPosition="right"
-                  className="px-8 py-3 text-lg w-full sm:w-auto"
+                  className="px-5 sm:px-6 py-2.5 sm:py-3 text-base sm:text-lg w-full sm:w-auto transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
                 >
                   Read Latest Post
                 </Button>

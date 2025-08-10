@@ -30,25 +30,30 @@ const SOCIAL_LINKS: SocialLink[] = [
 
 // Reusable link list
 const LinkList: React.FC<{ title: string; links: LinkItem[]; ariaLabel: string }> = ({ title, links, ariaLabel }) => (
-  <nav aria-label={ariaLabel} className="space-y-4">
-    <h3 className="text-lg font-semibold text-foreground">{title}</h3>
-    <ul className="space-y-2">
+  <nav aria-label={ariaLabel} className="space-y-3 sm:space-y-4">
+    <h3 className="text-base sm:text-lg font-semibold text-foreground">{title}</h3>
+    <ul className="space-y-1.5 sm:space-y-2">
       {links.map(({ name, href }) => (
-        <li key={href}>
+        <motion.li 
+          key={href}
+          whileHover={{ x: 2 }}
+          whileTap={{ scale: 0.98 }}
+          transition={{ type: 'spring', stiffness: 400, damping: 15 }}
+        >
           <Link
             to={href}
-            className="text-muted-foreground hover:text-primary transition-colors duration-200"
+            className="text-sm sm:text-base text-muted-foreground hover:text-primary transition-colors duration-200 block py-1"
           >
             {name}
           </Link>
-        </li>
+        </motion.li>
       ))}
     </ul>
   </nav>
 );
 
 const SocialIcons: React.FC = () => (
-  <div className="flex space-x-5">
+  <div className="flex flex-wrap justify-center sm:justify-start gap-4 sm:gap-5">
     {SOCIAL_LINKS.map(({ name, href, icon }) => (
       <motion.a
         key={name}
@@ -56,9 +61,10 @@ const SocialIcons: React.FC = () => (
         target="_blank"
         rel="noopener noreferrer"
         aria-label={name}
-        className="text-2xl text-muted-foreground hover:text-primary transition-colors duration-200"
-        whileHover={{ y: -4 }}
-        whileTap={{ scale: 0.95 }}
+        className="text-xl sm:text-2xl text-muted-foreground hover:text-primary transition-colors duration-200 p-1.5 sm:p-2 rounded-full hover:bg-primary/5"
+        whileHover={{ y: -3, scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        title={name}
       >
         {icon}
       </motion.a>
@@ -67,35 +73,32 @@ const SocialIcons: React.FC = () => (
 );
 
 const Footer: React.FC = () => {
-  const currentYear = new Date().getFullYear();
-
   return (
-    <footer className="bg-background border-t border-border pt-16">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        
+    <footer className="bg-background border-t border-border pt-12 sm:pt-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top newsletter section */}
         <motion.section
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: '-50px 0px' }}
           transition={{ duration: 0.6 }}
-          className="bg-primary/5 rounded-2xl p-8 mb-16 text-center"
+          className="bg-primary/5 rounded-xl sm:rounded-2xl p-6 sm:p-8 mb-12 sm:mb-16 text-center"
         >
-          <h2 className="text-2xl font-bold mb-3 text-foreground">Stay in the Loop</h2>
-          <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+          <h2 className="text-xl sm:text-2xl font-bold mb-2 sm:mb-3 text-foreground">Stay in the Loop</h2>
+          <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6 max-w-2xl mx-auto">
             Subscribe to get updates on my latest projects, insights, and resources — directly to your inbox.
           </p>
-          <div className="max-w-md mx-auto">
+          <div className="max-w-md mx-auto w-full">
             <Newsletter />
           </div>
         </motion.section>
 
         {/* Main footer grid */}
-        <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-12 gap-12">
-          <div className="md:col-span-3">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-12 gap-8 sm:gap-10">
+          <div className="col-span-2 sm:col-span-1 md:col-span-3">
             <LinkList title="Navigation" links={NAV_LINKS} ariaLabel="Footer navigation" />
           </div>
-          <div className="md:col-span-2">
+          <div className="col-span-2 sm:col-span-1 md:col-span-2">
             <LinkList title="Legal" links={LEGAL_LINKS} ariaLabel="Legal links" />
           </div>
           <div className="md:col-span-4 space-y-5">
@@ -104,12 +107,6 @@ const Footer: React.FC = () => {
             <p className="text-muted-foreground">
               Got a project or idea? Let’s bring it to life together.
             </p>
-            <a
-              href="mailto:sahilkhan36985@gmail.com"
-              className="inline-flex items-center text-primary font-semibold hover:underline"
-            >
-              Get in touch
-            </a>
           </div>
           <div className="md:col-span-3">
             <h3 className="text-lg font-semibold text-foreground">About Me</h3>
@@ -121,7 +118,6 @@ const Footer: React.FC = () => {
 
         {/* Bottom bar */}
         <div className="mt-16 pt-8 border-t border-border flex flex-col sm:flex-row justify-between items-center text-muted-foreground text-sm">
-          <p>&copy; {currentYear} Sahil Ali. All rights reserved.</p>
           <p className="mt-3 sm:mt-0">
             Built with <span className="text-primary font-semibold">React</span>,{' '}
             <span className="text-primary font-semibold">TypeScript</span>, &{' '}

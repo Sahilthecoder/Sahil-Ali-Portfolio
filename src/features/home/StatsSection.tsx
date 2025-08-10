@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion';
 
 const stats = [
-  { value: '4+', label: 'Experience' },
+  { value: '4+', label: 'Years Experience' },
   { value: '15+', label: 'Projects' },
-  { value: '10+', label: 'Clients' },
-  { value: '20+', label: 'Tech' },
+  { value: '10+', label: 'Happy Clients' },
+  { value: '20+', label: 'Technologies' },
 ];
 
 // Animation variants
@@ -35,26 +35,28 @@ const StatsSection = () => {
   return (
     <section
       id="stats"
-      className="relative overflow-hidden bg-gradient-to-br from-primary to-primary/80 py-5 px-3 text-background shadow-inner"
+      className="relative overflow-hidden bg-gradient-to-br from-primary to-primary/80 py-6 sm:py-8 text-background shadow-inner"
     >
       <div className="absolute inset-0 -z-10 bg-gradient-to-br from-primary to-primary/70 opacity-80" />
       
-      <div className="container mx-auto max-w-4xl relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl relative z-10">
         <motion.div
-          className="grid grid-cols-2 md:grid-cols-4 gap-3"
+          className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 md:gap-6"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-20px' }}
+          viewport={{ once: true, margin: '-50px' }}
         >
           {stats.map(({ value, label }, i) => (
             <motion.div
               key={i}
               variants={itemVariants}
-              className="text-center rounded-lg bg-white/10 border border-white/20 p-2.5 transition-all duration-200 hover:bg-white/20 hover:scale-105 hover:shadow-md"
+              className="text-center rounded-lg bg-white/10 border border-white/20 p-3 sm:p-4 transition-all duration-300 hover:bg-white/20 hover:scale-[1.02] hover:shadow-lg active:scale-95"
+              whileHover={{ y: -4 }}
+              whileTap={{ scale: 0.98 }}
             >
-              <div className="text-xl md:text-2xl font-extrabold text-white drop-shadow-md">{value}</div>
-              <div className="text-[0.7rem] font-medium text-white/90 uppercase tracking-wider mt-1">{label}</div>
+              <div className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white drop-shadow-md">{value}</div>
+              <div className="text-xs sm:text-sm font-medium text-white/90 uppercase tracking-wider mt-1 sm:mt-2">{label}</div>
             </motion.div>
           ))}
         </motion.div>

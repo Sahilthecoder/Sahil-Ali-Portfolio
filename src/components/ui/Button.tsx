@@ -49,35 +49,35 @@ const iconMap = {
 };
 
 const baseStyles =
-  'inline-flex items-center justify-center rounded-lg font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all duration-200 disabled:opacity-50 disabled:pointer-events-none';
+  'inline-flex items-center justify-center rounded-lg font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 transition-all duration-200 disabled:opacity-50 disabled:pointer-events-none touch-manipulation active:scale-95';
 
 // Using your new palette & gradients from globals.css
 const variantStyles: Record<ButtonVariant, string> = {
   primary:
-    'bg-gradient-primary text-primary-foreground hover:brightness-110 focus:ring-primary/50 shadow-lg hover:shadow-xl transition-all duration-300',
+    'bg-gradient-primary text-primary-foreground hover:brightness-110 focus-visible:ring-primary/50 shadow-lg hover:shadow-xl active:brightness-95 transition-all duration-300',
   secondary:
-    'bg-gradient-secondary text-secondary-foreground hover:brightness-110 focus:ring-secondary/50 shadow-lg hover:shadow-xl transition-all duration-300',
+    'bg-gradient-secondary text-secondary-foreground hover:brightness-110 focus-visible:ring-secondary/50 shadow-lg hover:shadow-xl active:brightness-95 transition-all duration-300',
   outline:
-    'border-2 border-primary text-primary hover:bg-primary/10 focus:ring-primary/30 transition-all duration-300',
+    'border-2 border-primary text-primary hover:bg-primary/10 focus-visible:ring-primary/30 active:bg-primary/20 transition-all duration-300',
   ghost:
-    'text-foreground hover:bg-muted/50 focus:ring-muted/40 transition-all duration-300',
-  link: 'text-primary hover:underline p-0 h-auto transition-colors duration-300',
+    'text-foreground hover:bg-muted/50 focus-visible:ring-muted/40 active:bg-muted/70 transition-all duration-300',
+  link: 'text-primary hover:underline p-0 h-auto transition-colors duration-300 active:opacity-80',
   white:
-    'bg-white text-foreground hover:bg-gray-100 focus:ring-primary/40 shadow-md hover:shadow-lg transition-all duration-300',
+    'bg-white text-foreground hover:bg-gray-100 focus-visible:ring-primary/40 shadow-md hover:shadow-lg active:bg-gray-200 transition-all duration-300',
   dark:
-    'bg-foreground text-background hover:brightness-90 focus:ring-primary/40 shadow-md hover:shadow-lg transition-all duration-300'
+    'bg-foreground text-background hover:brightness-90 focus-visible:ring-primary/40 shadow-md hover:shadow-lg active:brightness-80 transition-all duration-300'
 };
 
 const sizeStyles: Record<ButtonSize, string> = {
-  sm: 'text-sm px-3 py-1.5',
-  md: 'text-base px-4 py-2',
-  lg: 'text-lg px-6 py-3'
+  sm: 'text-xs sm:text-sm px-3 py-1.5',
+  md: 'text-sm sm:text-base px-4 py-2',
+  lg: 'text-base sm:text-lg px-6 py-3'
 };
 
 const iconSizeStyles: Record<ButtonSize, string> = {
-  sm: 'w-4 h-4',
-  md: 'w-5 h-5',
-  lg: 'w-6 h-6'
+  sm: 'w-3.5 h-3.5 sm:w-4 sm:h-4',
+  md: 'w-4 h-4 sm:w-5 sm:h-5',
+  lg: 'w-5 h-5 sm:w-6 sm:h-6'
 };
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(

@@ -30,7 +30,6 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
   // Close menu on route change (nice UX)
   useEffect(() => {
     onClose();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.pathname]);
 
   if (!isOpen) return null;
@@ -39,40 +38,46 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
     <div
       role="dialog"
       aria-modal="true"
-      className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black bg-opacity-95 backdrop-blur-sm text-white text-2xl space-y-10 p-8"
+      className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-gray-900/95 backdrop-blur-sm text-white p-4 sm:p-6"
     >
       {/* Close Button */}
       <button
         onClick={onClose}
         aria-label="Close menu"
-        className="absolute top-6 right-6 p-3 text-gray-200 bg-gray-800/90 hover:bg-gray-700 rounded-full border border-gray-600/50 shadow-lg 
-                   hover:scale-110 transition-transform duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+        className="absolute top-4 right-4 p-2 text-gray-200 bg-gray-800/90 hover:bg-gray-700 rounded-full border border-gray-600/50 shadow-lg 
+                 hover:scale-110 active:scale-95 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
       >
-        <FiX className="w-7 h-7" />
+        <FiX className="w-6 h-6 sm:w-7 sm:h-7" />
       </button>
 
       {/* Navigation Links */}
-      {navItems.map(({ label, path }) => {
-        const isActive = location.pathname === path;
+      <nav className="w-full max-w-md space-y-3 sm:space-y-4">
+        {navItems.map(({ label, path }) => {
+          const isActive = location.pathname === path;
 
-        return (
-          <Link
-            key={path}
-            to={path}
-            onClick={onClose}
-            className={`
-              w-56 text-center rounded-lg py-3 px-6
-              transition-colors duration-300
-              ${isActive
-                ? 'bg-primary text-white shadow-lg'
-                : 'hover:bg-primary hover:text-white'}
-            `}
-            aria-current={isActive ? 'page' : undefined}
-          >
-            {label}
-          </Link>
-        );
-      })}
+          return (
+            <Link
+              key={path}
+              to={path}
+              onClick={onClose}
+              className={`
+                block w-full text-center rounded-lg py-3 px-4 sm:py-4 sm:px-6
+                transition-all duration-300 text-lg sm:text-xl font-medium
+                ${isActive
+                  ? 'bg-primary text-white shadow-lg transform -translate-y-0.5'
+                  : 'bg-white/5 hover:bg-white/10 active:bg-white/15'}
+                active:scale-95
+              `}
+              aria-current={isActive ? 'page' : undefined}
+            >
+              {label}
+              {isActive && (
+                <span className="block w-1/3 h-0.5 bg-white/80 mx-auto mt-1.5 rounded-full" />
+              )}
+            </Link>
+          );
+        })}
+      </nav>
     </div>
   );
 };

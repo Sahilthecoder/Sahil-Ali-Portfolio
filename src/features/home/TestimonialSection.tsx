@@ -50,10 +50,10 @@ const TestimonialSection = () => {
     <section
       id="testimonials"
       aria-label="Testimonials"
-      className="py-16 bg-background"
+      className="py-12 sm:py-16 bg-background"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="w-full mb-16 lg:mb-20">
+        <div className="w-full mb-12 sm:mb-16 lg:mb-20">
           <SectionHeader
             title="What People Say"
             subtitle="Client testimonials and feedback"
@@ -63,7 +63,7 @@ const TestimonialSection = () => {
 
       {/* Testimonials Grid */}
       <motion.div
-        className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto"
+        className="grid gap-6 sm:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
@@ -84,7 +84,7 @@ const TestimonialSection = () => {
             <motion.article
               key={id}
               variants={itemVariants}
-              className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col"
+              className="bg-white dark:bg-gray-800 p-5 sm:p-6 rounded-xl shadow-sm sm:shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col h-full"
               tabIndex={0} // for keyboard accessibility
             >
               <p className="text-gray-700 dark:text-gray-300 mb-6 flex-grow leading-relaxed">
@@ -97,13 +97,13 @@ const TestimonialSection = () => {
                   alt={`${name}'s avatar`}
                   width={56}
                   height={56}
-                  className="w-14 h-14 rounded-full object-cover border-2 border-primary"
+                  className="w-12 h-12 sm:w-14 sm:h-14 rounded-full object-cover border-2 border-primary"
                 />
-                <div className="ml-4">
+                <div className="ml-3 sm:ml-4">
                   <p className="font-semibold text-gray-900 dark:text-white">
                     {name}
                   </p>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">
+                  <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">
                     {role} @ {company}
                   </p>
                 </div>

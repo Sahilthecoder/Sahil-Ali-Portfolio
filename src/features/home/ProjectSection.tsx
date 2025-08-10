@@ -7,7 +7,7 @@ import { SectionHeader } from '@/components/ui/AnimatedSection';
 
 const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
   return (
-    <article className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden border border-border">
+    <article className="bg-white dark:bg-gray-800 rounded-xl shadow-sm sm:shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden border border-border h-full flex flex-col">
       <a
         href={project.links[0]?.url ?? '#'}
         className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
@@ -18,16 +18,17 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
           <img
             src={project.image.src}
             alt={project.image.alt}
-            className="w-full h-48 object-cover"
+            className="w-full h-40 sm:h-48 object-cover"
             loading="lazy"
             decoding="async"
+            sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
           />
-          <div className="p-5">
+          <div className="p-4 sm:p-5 flex-1 flex flex-col">
             <h3 className="text-xl font-semibold text-foreground mb-1">
               {project.title}
             </h3>
             <p className="text-muted-foreground mb-3 text-sm">{project.subtitle}</p>
-            <p className="text-sm text-gray-600 dark:text-gray-300 mb-3 line-clamp-3">
+            <p className="text-sm text-gray-600 dark:text-gray-300 mb-3 line-clamp-3 flex-grow">
               {project.description}
             </p>
             <div className="flex flex-wrap gap-2 mb-3">
@@ -63,16 +64,16 @@ const ProjectSection: React.FC = () => {
     <section
       id="projects"
       aria-labelledby="projects-heading"
-      className="py-16 px-4 max-w-7xl mx-auto scroll-mt-16"
+      className="py-12 sm:py-16 px-4 sm:px-6 max-w-7xl mx-auto scroll-mt-16"
     >
-      <div className="w-full mb-16 lg:mb-20">
+      <div className="w-full mb-12 sm:mb-16 lg:mb-20">
         <SectionHeader
           title="Featured Projects"
           subtitle="Showcasing my best work and technical capabilities"
           className="text-left"
         />
       </div>
-      <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-6 sm:gap-8 lg:gap-10 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         {featuredProjects.map((project) => (
           <ProjectCard key={project.id} project={project} />
         ))}

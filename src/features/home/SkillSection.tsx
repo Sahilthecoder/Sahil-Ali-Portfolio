@@ -1,7 +1,7 @@
 import { motion, Variants } from 'framer-motion';
 import React from 'react';
 import { FiBarChart2, FiBox, FiCode, FiCpu, FiChevronRight } from 'react-icons/fi';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../../components/ui/Card';
+import { CardContent, CardDescription, CardHeader } from '../../components/ui/Card';
 import { SectionHeader } from '@/components/ui/AnimatedSection';
 
 type CategoryKey = 'inventory' | 'data' | 'ai' | 'tech';
@@ -115,7 +115,7 @@ const SkillsSection = () => {
   // Animation variants are defined at the top of the file
 
   return (
-    <section className="py-16 bg-background">
+    <section id="skills" className="py-12 sm:py-16 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="w-full mb-16 lg:mb-20">
           <SectionHeader
@@ -126,7 +126,7 @@ const SkillsSection = () => {
 
         {/* Skills Grid */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8"
+          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6"
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: '-10% 0px -10% 0px' }}
@@ -144,7 +144,7 @@ const SkillsSection = () => {
                 {/* Card Glow Effect */}
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-primary/40 via-primary/20 to-primary/5 rounded-2xl opacity-0 group-hover:opacity-100 blur transition duration-300 group-hover:duration-300" />
                 
-                <Card className="h-full border border-border/30 bg-card/90 backdrop-blur-sm transition-all duration-300 group-hover:border-primary/40 group-hover:shadow-xl group-hover:shadow-primary/10 relative overflow-hidden hover:bg-card/95 group">
+                <div className="flex flex-col items-center p-3 sm:p-4 md:p-5 rounded-xl bg-card border border-border hover:border-primary/20 transition-all duration-200 hover:shadow-sm h-full">
                   {/* Subtle gradient overlay */}
                   <div className="absolute inset-0 bg-gradient-to-br from-background/70 to-background/20 pointer-events-none" />
                   
@@ -153,9 +153,9 @@ const SkillsSection = () => {
                       <Icon className="w-6 h-6 transition-transform duration-300 group-hover:scale-110" />
                     </div>
                     <div className="space-y-1">
-                      <CardTitle className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
+                      <h3 className="text-xs xs:text-sm sm:text-base font-medium text-foreground text-center">
                         {category.title}
-                      </CardTitle>
+                      </h3>
                       <CardDescription className="text-sm text-muted-foreground/90">
                         {category.description}
                       </CardDescription>
@@ -166,7 +166,7 @@ const SkillsSection = () => {
                       {category.skills.map((skill, index) => (
                         <motion.span
                           key={index}
-                          className="inline-flex items-center text-xs font-medium px-3.5 py-1.5 rounded-full bg-muted/30 text-muted-foreground group-hover:bg-primary/10 group-hover:text-foreground group-hover:border-primary/30 transition-all duration-200 border border-border/30 group-hover:shadow-sm group/skill hover:bg-primary/20 hover:border-primary/40"
+                          className="inline-flex items-center text-xs font-medium px-3.5 py-1.5 rounded-full bg-muted/30 text-muted-foreground group-hover:bg-primary/10 group-hover:text-foreground group-hover:border-primary/30 transition-all duration-200 border border-border/30 group-hover:shadow-sm"
                           initial={{ opacity: 0, y: 5 }}
                           whileInView={{ opacity: 1, y: 0 }}
                           viewport={{ once: true, margin: "-10% 0px -10% 0px" }}
@@ -184,8 +184,8 @@ const SkillsSection = () => {
                   </CardContent>
                   
                   {/* Subtle hover effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-                </Card>
+                  <div className="w-10 h-10 xs:w-12 xs:h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 flex items-center justify-center rounded-lg bg-primary/5 mb-2 sm:mb-3" />
+                </div>
               </motion.div>
             );
           })}

@@ -28,26 +28,29 @@ const ExperienceHero: React.FC = () => {
         title=""
         subtitle=""
         backgroundImages={randomImages}
-        className="min-h-[40vh] dark:brightness-100"
+        className="min-h-[50vh] sm:min-h-[60vh] dark:brightness-100"
       />
       {/* Gradient overlay for better text visibility */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60 dark:from-black/70 dark:via-black/50 dark:to-black/70">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center px-4">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white dark:text-white mb-4">
-              Professional Journey
+        <div className="absolute inset-0 flex items-center justify-center px-4 sm:px-6">
+          <div className="text-center w-full max-w-5xl mx-auto">
+            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-bold text-white dark:text-white mb-3 sm:mb-4 leading-tight">
+              Professional <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-500">Journey</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-200 dark:text-gray-200 mb-8 max-w-2xl mx-auto">
-              Exploring my career path, roles, and the impact I've made along the way
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-200 dark:text-gray-200 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed">
+              Exploring my career path, roles, and the impact I&apos;ve made along the way
             </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <div className="flex flex-col xs:flex-row justify-center gap-3 sm:gap-4 max-w-md mx-auto">
               <Button
                 onClick={() => {
                   const experienceSection = document.getElementById('experience-timeline');
-                  experienceSection?.scrollIntoView({ behavior: 'smooth' });
+                  if (experienceSection) {
+                    experienceSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
                 }}
                 variant="primary"
                 size="lg"
+                className="w-full xs:w-auto px-4 sm:px-6 py-2.5 sm:py-3 text-base sm:text-lg font-medium transition-all duration-200 ease-out hover:scale-[1.02] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary/50"
                 icon="view"
                 iconPosition="right"
               >
@@ -58,14 +61,14 @@ const ExperienceHero: React.FC = () => {
                 download="Sahil_Ali_CV.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center"
+                className="w-full xs:w-auto inline-flex items-center justify-center"
               >
                 <Button
                   variant="outline"
                   size="lg"
                   icon="download"
                   iconPosition="right"
-                  className="text-white border-white hover:bg-white hover:text-gray-900"
+                  className="w-full px-4 sm:px-6 py-2.5 sm:py-3 text-base sm:text-lg border-white text-white hover:bg-white hover:text-gray-900 dark:border-gray-200 dark:text-gray-200 dark:hover:bg-gray-800 dark:hover:text-white transition-colors"
                 >
                   Download CV
                 </Button>

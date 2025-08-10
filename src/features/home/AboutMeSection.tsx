@@ -5,7 +5,7 @@ import { FiCode, FiBriefcase, FiTrendingUp } from 'react-icons/fi';
 
 const AboutMeSection = () => {
   return (
-    <section id="about" className="py-16 bg-background">
+    <section id="about" className="py-12 sm:py-16 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="w-full mb-16 lg:mb-20">
           <SectionHeader
@@ -33,13 +33,13 @@ const AboutMeSection = () => {
               </div>
             </div>
 
-            <p className="text-lg text-muted-foreground leading-relaxed">
+            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
               With a strong background in data analysis and automation, I specialize in creating efficient solutions that drive business growth. My journey from inventory management to data analytics has equipped me with unique insights into optimizing processes and extracting meaningful insights from complex data sets.
             </p>
 
-            <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="mt-6 sm:mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
               {/* Key Strength */}
-              <div className="flex flex-col items-center p-6 border rounded-lg border-border hover:border-primary/20 transition-colors">
+              <div className="flex flex-col items-center p-4 sm:p-5 md:p-6 border rounded-lg border-border hover:border-primary/20 transition-colors h-full">
                 <FiBriefcase className="h-8 w-8 text-primary mb-4" />
                 <h4 className="text-xl font-semibold text-foreground mb-2">Business Solutions</h4>
                 <p className="text-center text-muted-foreground">
@@ -48,7 +48,7 @@ const AboutMeSection = () => {
               </div>
 
               {/* Key Strength */}
-              <div className="flex flex-col items-center p-6 border rounded-lg border-border hover:border-primary/20 transition-colors">
+              <div className="flex flex-col items-center p-4 sm:p-5 md:p-6 border rounded-lg border-border hover:border-primary/20 transition-colors h-full">
                 <FiCode className="h-8 w-8 text-primary mb-4" />
                 <h4 className="text-xl font-semibold text-foreground mb-2">Technical Expertise</h4>
                 <p className="text-center text-muted-foreground">
@@ -57,7 +57,7 @@ const AboutMeSection = () => {
               </div>
 
               {/* Key Strength */}
-              <div className="flex flex-col items-center p-6 border rounded-lg border-border hover:border-primary/20 transition-colors">
+              <div className="flex flex-col items-center p-4 sm:p-5 md:p-6 border rounded-lg border-border hover:border-primary/20 transition-colors h-full">
                 <FiTrendingUp className="h-8 w-8 text-primary mb-4" />
                 <h4 className="text-xl font-semibold text-foreground mb-2">Process Optimization</h4>
                 <p className="text-center text-muted-foreground">

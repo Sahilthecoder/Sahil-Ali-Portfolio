@@ -65,9 +65,9 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-16 bg-background">
+    <section id="contact" className="py-12 sm:py-16 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="w-full mb-16 lg:mb-20">
+        <div className="w-full mb-12 sm:mb-16 lg:mb-20">
           <SectionHeader
             title="Get in Touch"
             subtitle="I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions."
@@ -79,7 +79,7 @@ const ContactSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="max-w-3xl mx-auto"
+          className="max-w-3xl mx-auto px-4 sm:px-6"
         >
           <AnimatePresence>
             {isSuccess ? (
@@ -101,25 +101,19 @@ const ContactSection = () => {
                 </motion.div>
                 <h3 className="text-xl font-semibold">Message Sent Successfully!</h3>
                 <p className="text-muted-foreground">
-                  Thank you for your message! I'll get back to you soon.
+                  Thank you for your message! I&apos;ll get back to you soon.
                 </p>
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => setIsSuccess(false)}
-                  className="bg-primary text-white py-2 px-6 rounded-lg shadow hover:bg-primary/90 transition-colors"
+                  className="bg-primary text-white py-2 px-6 rounded-lg shadow hover:bg-primary/90 transition-colors text-sm sm:text-base"
                 >
                   Send Another Message
                 </motion.button>
               </motion.div>
             ) : (
-              <motion.form
-                key="form"
-                onSubmit={handleSubmit}
-                className="space-y-4"
-                initial="hidden"
-                animate="visible"
-              >
+              <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6">
                 {['name', 'email', 'message'].map((field, i) => (
                   <motion.div key={field} custom={i} variants={fieldVariants}>
                     {field !== 'message' ? (
@@ -127,48 +121,48 @@ const ContactSection = () => {
                         type={field === 'email' ? 'email' : 'text'}
                         name={field}
                         placeholder={`Your ${field.charAt(0).toUpperCase() + field.slice(1)}`}
-                        className={`w-full px-4 py-2 rounded-lg border ${
+                        className={`w-full px-4 py-2.5 sm:py-3 rounded-lg border text-sm sm:text-base ${
                           formErrors[field] ? 'border-red-500' : 'border-border'
-                        } focus:outline-none focus:ring-2 focus:ring-primary`}
+                        } focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-transparent transition-all bg-white dark:bg-gray-900 text-gray-900 dark:text-white`}
                       />
                     ) : (
                       <textarea
                         name={field}
                         placeholder="Your Message"
                         rows={4}
-                        className={`w-full px-4 py-2 rounded-lg border ${
+                        className={`w-full px-4 py-2.5 sm:py-3 rounded-lg border text-sm sm:text-base ${
                           formErrors[field] ? 'border-red-500' : 'border-border'
-                        } focus:outline-none focus:ring-2 focus:ring-primary`}
+                        } focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-transparent transition-all bg-white dark:bg-gray-900 text-gray-900 dark:text-white`}
                       />
                     )}
                     {formErrors[field] && (
-                      <p className="text-red-500 text-sm mt-1">{formErrors[field]}</p>
+                      <p className="text-red-500 text-xs sm:text-sm mt-1">{formErrors[field]}</p>
                     )}
                   </motion.div>
                 ))}
-
                 <motion.button
-                  whileHover={{ scale: isSubmitting ? 1 : 1.03 }}
-                  whileTap={{ scale: isSubmitting ? 1 : 0.97 }}
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full flex items-center justify-center gap-2 bg-primary text-white py-2 px-4 rounded-lg hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  whileHover={{ scale: isSubmitting ? 1 : 1.03 }}
+                  whileTap={{ scale: isSubmitting ? 1 : 0.97 }}
+                  className={`w-full flex items-center justify-center gap-2 bg-primary text-white py-2.5 sm:py-3 px-5 sm:px-6 rounded-lg hover:bg-primary/90 transition-colors text-sm sm:text-base disabled:opacity-50 disabled:cursor-not-allowed`}
                 >
                   {isSubmitting ? (
-                    <motion.div
+                    <motion.span
                       animate={{ rotate: 360 }}
                       transition={{ repeat: Infinity, duration: 1, ease: 'linear' }}
+                      className="flex items-center justify-center"
                     >
-                      <FiLoader className="w-5 h-5" />
-                    </motion.div>
+                      <FiLoader className="w-4 h-4 sm:w-5 sm:h-5" />
+                    </motion.span>
                   ) : (
                     <>
-                      <FiSend className="w-5 h-5" />
-                      Send Message
+                      <FiSend className="w-4 h-4 sm:w-5 sm:h-5" />
+                      <span>Send Message</span>
                     </>
                   )}
                 </motion.button>
-              </motion.form>
+              </form>
             )}
           </AnimatePresence>
         </motion.div>

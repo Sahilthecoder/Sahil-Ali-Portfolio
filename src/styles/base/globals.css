@@ -97,6 +97,30 @@
   * {
     @apply border-border;
   }
+  
+  /* Smooth scrolling for anchor links */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Better text rendering */
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  
+  /* Custom focus styles that work with dark/light mode */
+  *:focus-visible {
+    outline: 2px solid hsl(38 100% 40%);
+    outline-offset: 2px;
+    border-radius: 0.25rem;
+  }
+  
+  .dark *:focus-visible {
+    outline-color: hsl(48 100% 50%);
+  }
+  
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;

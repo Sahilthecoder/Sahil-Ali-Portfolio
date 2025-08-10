@@ -2,6 +2,7 @@ import React, { useState, useCallback, FC, ReactNode, useEffect, useRef } from '
 import { AnimatePresence, motion } from 'framer-motion';
 import Header from './Header';
 import MobileMenu from './MobileMenu';
+import Footer from './Footer';
 
 interface NavigationProps {
   children?: ReactNode;
@@ -28,7 +29,6 @@ const Navigation: FC<NavigationProps> = ({ children }) => {
 
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      const scrollThreshold = 10; // Pixels to scroll before showing/hiding
       const headerHeight = header.offsetHeight;
 
       // Show/hide based on scroll direction
@@ -61,24 +61,37 @@ const Navigation: FC<NavigationProps> = ({ children }) => {
   const headerVariants = {
     visible: { 
       y: 0,
+      opacity: 1,
       transition: { 
         type: 'spring',
-        damping: 25,
-        stiffness: 300
+        damping: 20,
+        stiffness: 300,
+        mass: 0.5
       }
     },
     hidden: { 
       y: '-100%',
+      opacity: 0,
       transition: { 
         type: 'spring',
-        damping: 25,
-        stiffness: 300
+        damping: 20,
+        stiffness: 300,
+        mass: 0.5
       }
     },
   };
 
   // Only hide header when scrolling down, show when scrolling up
-  const shouldShowHeader = scrollDirection === 'up' || !isScrolled;
+  // Add a small delay before hiding to prevent flickering on small scrolls
+  const [shouldShowHeader, setShouldShowHeader] = useState(true);
+  
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShouldShowHeader(scrollDirection === 'up' || !isScrolled);
+    }, 50);
+    
+    return () => clearTimeout(timer);
+  }, [scrollDirection, isScrolled]);
 
   return (
     <>
@@ -87,24 +100,31 @@ const Navigation: FC<NavigationProps> = ({ children }) => {
         className="fixed top-0 left-0 right-0 z-50"
         initial="visible"
         animate={shouldShowHeader ? 'visible' : 'hidden'}
-        variants={{
-          visible: { y: 0 },
-          hidden: { y: '-100%' }
-        }}
-        transition={{ type: 'tween', duration: 0.3 }}
+        variants={headerVariants}
       >
-        <Header onMenuToggle={toggleMobileMenu} isScrolled={isScrolled} />
+        <Header 
+          onMenuToggle={toggleMobileMenu} 
+          isScrolled={isScrolled} 
+        />
       </motion.div>
       
       <AnimatePresence>
-        <MobileMenu isOpen={mobileMenuOpen} onClose={handleCloseMenu} />
+        {mobileMenuOpen && (
+          <MobileMenu 
+            isOpen={mobileMenuOpen} 
+            onClose={handleCloseMenu} 
+          />
+        )}
       </AnimatePresence>
       
-      {children && (
-        <div className="pt-16">
-          {children}
-        </div>
-      )}
+      {/* Main content wrapper with responsive padding for fixed header */}
+      <div className="pt-16 sm:pt-20">
+        {children}
+      </div>
+      
+      <Footer />
+      
+      {/* Global styles are now handled in index.css */}
     </>
   )
 };
