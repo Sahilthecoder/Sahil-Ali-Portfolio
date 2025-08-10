@@ -94,7 +94,8 @@ const Navigation: FC<NavigationProps> = ({ children }) => {
   }, [scrollDirection, isScrolled]);
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="min-h-screen flex flex-col">
+      {/* Fixed Header */}
       <motion.div
         ref={headerRef}
         className="fixed top-0 left-0 right-0 z-50"
@@ -108,6 +109,7 @@ const Navigation: FC<NavigationProps> = ({ children }) => {
         />
       </motion.div>
       
+      {/* Mobile Menu */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <MobileMenu 
@@ -117,12 +119,18 @@ const Navigation: FC<NavigationProps> = ({ children }) => {
         )}
       </AnimatePresence>
       
-      {/* Main content wrapper with responsive padding for fixed header */}
-      <main className="flex-grow pt-16 sm:pt-20 pb-8">
-        {children}
-      </main>
-      
-      <Footer />
+      {/* Main Content Area */}
+      <div className="flex-1 flex flex-col pt-16 sm:pt-20">
+        {/* Page Content */}
+        <div className="flex-1">
+          {children}
+        </div>
+        
+        {/* Footer - Pushed to bottom */}
+        <div className="mt-auto">
+          <Footer />
+        </div>
+      </div>
     </div>
   )
 };

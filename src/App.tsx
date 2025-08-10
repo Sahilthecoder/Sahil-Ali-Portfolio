@@ -99,12 +99,11 @@ const App: React.FC = () => {
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
       <ErrorBoundary>
         <HashRouter>
-          <div className="flex flex-col min-h-screen">
-            <Navigation />
-            <main className="flex-grow">
+          <div className="app-container">
+            <Navigation>
               <ScrollToTop />
               <AnimatedRoutes />
-            </main>
+            </Navigation>
           </div>
         </HashRouter>
       </ErrorBoundary>
