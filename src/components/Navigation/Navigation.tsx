@@ -94,7 +94,7 @@ const Navigation: FC<NavigationProps> = ({ children }) => {
   }, [scrollDirection, isScrolled]);
 
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
       <motion.div
         ref={headerRef}
         className="fixed top-0 left-0 right-0 z-50"
@@ -118,14 +118,12 @@ const Navigation: FC<NavigationProps> = ({ children }) => {
       </AnimatePresence>
       
       {/* Main content wrapper with responsive padding for fixed header */}
-      <div className="pt-16 sm:pt-20">
+      <main className="flex-grow pt-16 sm:pt-20 pb-8">
         {children}
-      </div>
+      </main>
       
       <Footer />
-      
-      {/* Global styles are now handled in index.css */}
-    </>
+    </div>
   )
 };
 

@@ -72,9 +72,13 @@ const SocialIcons: React.FC = () => (
   </div>
 );
 
-const Footer: React.FC = () => {
+interface FooterProps {
+  className?: string;
+}
+
+const Footer: React.FC<FooterProps> = ({ className = '' }) => {
   return (
-    <footer className="bg-background border-t border-border pt-12 sm:pt-16">
+    <footer className={`bg-background/95 backdrop-blur-sm border-t border-border/30 pt-12 sm:pt-16 ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top newsletter section */}
         <motion.section
