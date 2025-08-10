@@ -50,11 +50,11 @@ export default function ProjectModal({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 bg-black/70 backdrop-blur-md"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 bg-black/50 dark:bg-black/80 backdrop-blur-lg"
           onClick={onClose}
         >
           <motion.div
-            className="relative w-full max-w-6xl max-h-[90vh] bg-white/20 dark:bg-gray-900/80 backdrop-blur-xl rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row border border-white/30 dark:border-gray-700/70"
+            className="relative w-full max-w-6xl max-h-[90vh] bg-white/80 dark:bg-gray-900/90 backdrop-blur-2xl rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row border-2 border-white/40 dark:border-gray-700/50"
             initial="hidden"
             animate="visible"
             exit="exit"
@@ -64,7 +64,7 @@ export default function ProjectModal({
             {/* Close Button */}
             <button
               onClick={onClose}
-              className="absolute top-3 right-3 p-2 rounded-full bg-white/20 hover:bg-white/30 dark:bg-gray-800/80 dark:hover:bg-gray-700/80 transition-colors shadow-lg z-20 backdrop-blur-sm"
+              className="absolute top-4 right-4 p-2.5 rounded-full bg-white/60 hover:bg-white/80 dark:bg-gray-800/90 dark:hover:bg-gray-700/90 transition-all duration-200 shadow-lg z-20 backdrop-blur-md border border-white/30 dark:border-gray-600/50 hover:scale-110"
               aria-label="Close modal"
             >
               <FiX className="h-5 w-5" />
@@ -92,11 +92,11 @@ export default function ProjectModal({
                 <div className="space-y-6">
                   {/* Title & Subtitle */}
                   <div>
-                    <h2 className="text-2xl font-bold leading-tight text-gray-900 dark:text-white">
+                    <h2 className="text-3xl font-bold leading-tight text-gray-900 dark:text-white">
                       {project.title}
                     </h2>
                     {project.subtitle && (
-                      <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
+                      <p className="mt-2 text-base text-gray-700 dark:text-gray-300">
                         {project.subtitle}
                       </p>
                     )}
@@ -116,7 +116,7 @@ export default function ProjectModal({
                     <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
                       Project Overview
                     </h3>
-                    <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                    <p className="text-gray-800 dark:text-gray-200 text-base leading-relaxed">
                       {project.description}
                     </p>
                   </section>
@@ -131,7 +131,7 @@ export default function ProjectModal({
                         {project.highlights.map((highlight, idx) => (
                           <li 
                             key={idx} 
-                            className="flex items-start gap-3 text-gray-600 dark:text-gray-300 text-sm"
+                            className="flex items-start gap-3 text-gray-700 dark:text-gray-200 text-base"
                           >
                             <FaRegLightbulb className="mt-0.5 h-4 w-4 text-yellow-400 flex-shrink-0" />
                             <span>{highlight}</span>
@@ -146,7 +146,7 @@ export default function ProjectModal({
                     <Link to={`/projects/${projectId}`}>
                       <Button
                         variant="outline"
-                        className="w-full sm:w-auto hover:scale-105 transition-transform gap-2 bg-white/20 hover:bg-white/30 dark:bg-gray-800/50 dark:hover:bg-gray-700/50 border-white/20 dark:border-gray-700/50"
+                        className="w-full sm:w-auto hover:scale-105 transition-transform gap-2 bg-white/70 hover:bg-white/90 text-gray-900 dark:bg-gray-800/80 dark:hover:bg-gray-700/90 dark:text-white border border-gray-300/50 dark:border-gray-600/50 shadow-md hover:shadow-lg"
                       >
                         <FiExternalLink className="h-4 w-4" />
                         Explore Complete Project

@@ -18,15 +18,15 @@ export const TechnologyBadge: React.FC<TechnologyBadgeProps> = ({
     'inline-flex items-center font-medium rounded-full transition-colors whitespace-nowrap';
 
   const variantStyles = {
-    default: 'bg-background/80 dark:bg-card/90 backdrop-blur-sm text-foreground/90 dark:text-foreground hover:bg-background/90 dark:hover:bg-card/80 border border-border/30',
-    outline: 'border border-border bg-background/50 dark:bg-card/60 backdrop-blur-sm text-foreground/90 hover:bg-background/70 dark:hover:bg-card/70',
-    secondary: 'bg-primary/10 dark:bg-primary/20 backdrop-blur-sm text-primary-foreground hover:bg-primary/20 dark:hover:bg-primary/30',
+    default: 'bg-white/90 dark:bg-gray-800/90 backdrop-blur-lg text-gray-900 dark:text-white hover:bg-white dark:hover:bg-gray-700/90 border border-gray-200/60 dark:border-gray-600/40 shadow-sm hover:shadow-md transition-all duration-200',
+    outline: 'bg-white/70 dark:bg-gray-800/80 backdrop-blur-lg text-gray-800 dark:text-gray-100 hover:bg-white/90 dark:hover:bg-gray-700/80 border-2 border-gray-200/50 dark:border-gray-600/40 shadow-sm hover:shadow-md transition-all duration-200',
+    secondary: 'bg-primary-100/90 dark:bg-primary-900/80 backdrop-blur-lg text-primary-800 dark:text-primary-100 hover:bg-primary-200/90 dark:hover:bg-primary-800/90 border border-primary-200/70 dark:border-primary-700/50 shadow-sm hover:shadow-md transition-all duration-200',
   };
 
   const sizeStyles = {
-    sm: 'px-2 py-0.5 text-xs',
-    md: 'px-2.5 py-1 text-xs',
-    lg: 'px-3 py-1 text-sm',
+    sm: 'px-2.5 py-0.5 text-xs font-medium',
+    md: 'px-3 py-1 text-sm font-medium',
+    lg: 'px-4 py-1.5 text-base font-medium',
   };
 
   return (

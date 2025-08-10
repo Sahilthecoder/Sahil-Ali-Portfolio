@@ -11,6 +11,7 @@ interface ProjectImage {
 interface ProjectLink {
   label: string;
   url: string;
+  target?: string;
 }
 
 export interface Project {
@@ -50,8 +51,10 @@ export const projects: Project[] = [
       sizes: '(max-width: 640px) 300px, (max-width: 1024px) 600px, 1200px'
     },
     links: [
-      { label: 'View Dashboard', url: '/projects/zomato-dashboard' },
-      { label: 'Case Study', url: '/projects/zomato-dashboard/case-study' }
+      { label: '📊 View Dashboard', url: '/projects/zomato-dashboard' },
+      { label: '📝 Task Document', url: '/projects/zomato/Zomato%20Tasks.docx', target: '_blank' },
+      { label: '📊 Excel Workbook', url: '/projects/zomato/Zomato%20Working%20%26%20Dashboard.xlsx', target: '_blank' },
+      { label: '📊 Project Presentation', url: '/projects/zomato/Zomato%20PPT.pptx', target: '_blank' }
     ],
     technologies: [
       'Excel',
