@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { FaRegLightbulb } from 'react-icons/fa';
 import { FiExternalLink, FiX } from 'react-icons/fi';
@@ -33,11 +33,12 @@ export default function ProjectModal({
   onClose,
   projectId
 }: ProjectModalProps) {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-  useEffect(() => {
-    if (project?.image) setCurrentImageIndex(0);
-  }, [project]);
+  // Commenting out unused state for future image gallery functionality
+  // const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  
+  // useEffect(() => {
+  //   if (project?.image) setCurrentImageIndex(0);
+  // }, [project]);
 
   if (!isOpen || !project) return null;
 
@@ -49,31 +50,28 @@ export default function ProjectModal({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-3 sm:p-5"
-          style={{ perspective: '1200px' }}
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 bg-black/50 backdrop-blur-sm"
           onClick={onClose}
         >
           <motion.div
-            key="modal-content"
-            variants={modalVariants}
+            className="relative w-full max-w-6xl max-h-[90vh] bg-white/10 dark:bg-gray-900/50 backdrop-blur-lg rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row border border-white/20 dark:border-gray-700/50"
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="relative w-full max-w-4xl sm:max-w-5xl max-h-[90vh] bg-background/95 backdrop-blur-lg rounded-lg sm:rounded-2xl overflow-hidden border border-white/10 shadow-2xl"
+            variants={modalVariants}
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
             <button
               onClick={onClose}
-              className="absolute top-3 right-3 p-2 rounded-full bg-background/90 hover:bg-background/70 transition-colors shadow-md z-20"
+              className="absolute top-3 right-3 p-2 rounded-full bg-white/20 hover:bg-white/30 dark:bg-gray-800/80 dark:hover:bg-gray-700/80 transition-colors shadow-lg z-20 backdrop-blur-sm"
               aria-label="Close modal"
             >
-              <FiX className="h-6 w-6" />
+              <FiX className="h-5 w-5" />
             </button>
 
             {/* Content Layout */}
             <div className="flex flex-col lg:grid lg:grid-cols-2 h-full overflow-y-auto">
-              
               {/* Left - Image */}
               <div className="relative w-full h-56 sm:h-72 lg:h-full">
                 <motion.img
@@ -90,60 +88,71 @@ export default function ProjectModal({
               </div>
 
               {/* Right - Details */}
-              <div className="flex flex-col gap-4 p-4 sm:p-6 lg:p-8 overflow-y-auto">
-                {/* Title & Subtitle */}
-                <div>
-                  <h2 className="text-xl sm:text-2xl font-bold leading-snug">{project.title}</h2>
-                  {project.subtitle && (
-                    <p className="text-sm sm:text-base text-muted-foreground mt-1">
-                      {project.subtitle}
-                    </p>
-                  )}
-                </div>
-
-                {/* Technologies */}
-                {project.technologies?.length > 0 && (
-                  <div className="flex flex-wrap gap-2">
-                    {project.technologies.map((tech) => (
-                      <TechnologyBadge key={tech} name={tech} />
-                    ))}
+              <div className="flex-1 p-6 md:p-8 overflow-y-auto">
+                <div className="space-y-6">
+                  {/* Title & Subtitle */}
+                  <div>
+                    <h2 className="text-2xl font-bold leading-tight text-gray-900 dark:text-white">
+                      {project.title}
+                    </h2>
+                    {project.subtitle && (
+                      <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
+                        {project.subtitle}
+                      </p>
+                    )}
                   </div>
-                )}
 
-                {/* Overview */}
-                <section>
-                  <h3 className="font-semibold text-base">Project Overview</h3>
-                  <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                    {project.description}
-                  </p>
-                </section>
-
-                {/* Highlights */}
-                {project.highlights?.length > 0 && (
-                  <section>
-                    <h3 className="font-semibold text-base">Key Highlights</h3>
-                    <ul className="space-y-2">
-                      {project.highlights.map((highlight, idx) => (
-                        <li key={idx} className="flex items-start gap-2 text-muted-foreground text-sm sm:text-base">
-                          <FaRegLightbulb className="mt-1 h-4 w-4 text-yellow-400 flex-shrink-0" />
-                          <span>{highlight}</span>
-                        </li>
+                  {/* Technologies */}
+                  {project.technologies?.length > 0 && (
+                    <div className="flex flex-wrap gap-2">
+                      {project.technologies.map((tech) => (
+                        <TechnologyBadge key={tech} name={tech} />
                       ))}
-                    </ul>
-                  </section>
-                )}
+                    </div>
+                  )}
 
-                {/* Explore Button */}
-                <div className="mt-auto">
-                  <Link to={`/projects/${projectId}`}>
-                    <Button
-                      variant="outline"
-                      className="w-full sm:w-auto hover:scale-105 transition-transform gap-2"
-                    >
-                      <FiExternalLink className="h-4 w-4" />
-                      Explore Complete Project
-                    </Button>
-                  </Link>
+                  {/* Overview */}
+                  <section>
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                      Project Overview
+                    </h3>
+                    <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                      {project.description}
+                    </p>
+                  </section>
+
+                  {/* Highlights */}
+                  {project.highlights?.length > 0 && (
+                    <section>
+                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                        Key Highlights
+                      </h3>
+                      <ul className="space-y-3">
+                        {project.highlights.map((highlight, idx) => (
+                          <li 
+                            key={idx} 
+                            className="flex items-start gap-3 text-gray-600 dark:text-gray-300 text-sm"
+                          >
+                            <FaRegLightbulb className="mt-0.5 h-4 w-4 text-yellow-400 flex-shrink-0" />
+                            <span>{highlight}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </section>
+                  )}
+
+                  {/* Explore Button */}
+                  <div className="pt-4">
+                    <Link to={`/projects/${projectId}`}>
+                      <Button
+                        variant="outline"
+                        className="w-full sm:w-auto hover:scale-105 transition-transform gap-2 bg-white/20 hover:bg-white/30 dark:bg-gray-800/50 dark:hover:bg-gray-700/50 border-white/20 dark:border-gray-700/50"
+                      >
+                        <FiExternalLink className="h-4 w-4" />
+                        Explore Complete Project
+                      </Button>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>

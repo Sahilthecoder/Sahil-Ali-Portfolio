@@ -39,9 +39,9 @@ export const ThemeCard = ({
   children,
 }: ThemeCardProps) => {
   const variantClasses = {
-    default: 'bg-background/50 border-border hover:border-primary/30',
-    outline: 'border border-border/50 bg-transparent hover:border-primary/50',
-    elevated: 'bg-background/80 shadow-sm border border-border/20 hover:shadow-md',
+    default: 'bg-white/10 dark:bg-gray-900/30 backdrop-blur-md border-white/20 dark:border-gray-700/50 shadow-lg hover:shadow-xl hover:shadow-primary/10 hover:border-primary/40',
+    outline: 'backdrop-blur-md border border-white/10 dark:border-gray-700/50 bg-white/5 dark:bg-gray-900/10 hover:border-primary/50',
+    elevated: 'backdrop-blur-lg bg-white/20 dark:bg-gray-900/40 shadow-xl border-white/30 dark:border-gray-600/50 hover:shadow-2xl hover:shadow-primary/20',
   };
 
   return (

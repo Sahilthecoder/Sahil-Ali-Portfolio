@@ -3,15 +3,15 @@ import { HTMLAttributes, forwardRef } from 'react';
 import { cn } from '../../lib/utils';
 
 const cardVariants = cva(
-  'rounded-lg border bg-card text-card-foreground shadow-sm transition-shadow duration-300 ease-in-out',
+  'rounded-lg border backdrop-blur-md transition-all duration-300 ease-in-out',
   {
     variants: {
       variant: {
-        default: 'border-border',
+        default: 'bg-white/10 dark:bg-gray-900/30 border-white/20 dark:border-gray-700/50 shadow-lg hover:shadow-xl hover:shadow-primary/10',
         elevated:
-          'border-border shadow-md hover:shadow-xl hover:scale-[1.02] active:scale-100 transition-transform',
-        outline: 'border-border',
-        secondary: 'bg-secondary/20 border-secondary/30',
+          'bg-white/20 dark:bg-gray-900/40 border-white/30 dark:border-gray-600/50 shadow-xl hover:shadow-2xl hover:shadow-primary/20 hover:scale-[1.02] active:scale-100 transition-transform',
+        outline: 'bg-white/5 dark:bg-gray-900/10 border-white/10 dark:border-gray-700/30 hover:border-primary/50',
+        secondary: 'bg-secondary/10 dark:bg-secondary/5 border-secondary/20 hover:border-secondary/40',
       },
       size: {
         default: 'p-6',

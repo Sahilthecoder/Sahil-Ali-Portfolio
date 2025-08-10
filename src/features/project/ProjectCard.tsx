@@ -14,8 +14,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick, className }
   return (
     <article 
       className={cn(
-        'bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden border border-border',
-        'group h-full flex flex-col',
+        'backdrop-blur-md bg-white/10 dark:bg-gray-900/30 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden',
+        'border border-white/20 dark:border-gray-700/50 hover:border-primary/40 group h-full flex flex-col',
+        'transform hover:-translate-y-1 hover:scale-[1.02] transition-transform duration-300',
         className
       )}
       onClick={onClick}

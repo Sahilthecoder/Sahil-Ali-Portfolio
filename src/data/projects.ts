@@ -335,17 +335,17 @@ export const projects: Project[] = [
     role: 'Product Developer & AI Specialist | Designed and implemented the entire system, including AI model integration, API connections, and user interface.',
     gallery: [
       {
-        src: '/images/projects/AIautomation_Project5/Project5_Cover-600w.webp',
+        src: '/Sahil-Ali-Portfolio/images/projects/AIautomation_Project5/Project5_Cover-600w.webp',
         alt: 'AI Task Management Dashboard',
         caption: 'AI-Powered Task Management Interface',
-        srcSet: '/images/projects/AIautomation_Project5/Project5_Cover-300w.webp 300w, /images/projects/AIautomation_Project5/Project5_Cover-600w.webp 600w, /images/projects/AIautomation_Project5/Project5_Cover-1200w.webp 1200w',
+        srcSet: '/Sahil-Ali-Portfolio/images/projects/AIautomation_Project5/Project5_Cover-300w.webp 300w, /Sahil-Ali-Portfolio/images/projects/AIautomation_Project5/Project5_Cover-600w.webp 600w, /Sahil-Ali-Portfolio/images/projects/AIautomation_Project5/Project5_Cover-1200w.webp 1200w',
         sizes: '(max-width: 640px) 300px, (max-width: 1024px) 600px, 1200px'
       },
       {
-        src: '/images/projects/AIautomation_Project5/Project5_Cover-600w.webp',
+        src: '/Sahil-Ali-Portfolio/images/projects/AIautomation_Project5/Project5_Cover-600w.webp',
         alt: 'AI Integration',
         caption: 'AI Integration with Productivity Tools',
-        srcSet: '/images/projects/AIautomation_Project5/Project5_Cover-300w.webp 300w, /images/projects/AIautomation_Project5/Project5_Cover-600w.webp 600w',
+        srcSet: '/Sahil-Ali-Portfolio/images/projects/AIautomation_Project5/Project5_Cover-300w.webp 300w, /Sahil-Ali-Portfolio/images/projects/AIautomation_Project5/Project5_Cover-600w.webp 600w',
         sizes: '(max-width: 640px) 300px, 600px'
       }
     ],
@@ -363,9 +363,9 @@ export const projects: Project[] = [
       'Designed AI + Zapier automations for Excel and emails—auto-generating reports, syncing data, and streamlining ops for daily business use.',
     highlights: ['Saved 15+ hours/month by eliminating repetitive manual work.'],
     image: {
-      src: '/images/projects/CommingSoon_Project6/Project6_Cover-600w.webp',
+      src: '/Sahil-Ali-Portfolio/images/projects/CommingSoon_Project6/Project6_Cover-600w.webp',
       alt: 'GPT Automation Suite',
-      srcSet: '/images/projects/CommingSoon_Project6/Project6_Cover-300w.webp 300w, /images/projects/CommingSoon_Project6/Project6_Cover-600w.webp 600w',
+      srcSet: '/Sahil-Ali-Portfolio/images/projects/CommingSoon_Project6/Project6_Cover-300w.webp 300w, /Sahil-Ali-Portfolio/images/projects/CommingSoon_Project6/Project6_Cover-600w.webp 600w',
       sizes: '(max-width: 640px) 300px, 600px'
     },
     links: [{ label: 'See the Project', url: '/projects/gpt-automation' }],
