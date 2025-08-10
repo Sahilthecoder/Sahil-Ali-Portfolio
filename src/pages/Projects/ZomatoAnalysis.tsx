@@ -14,7 +14,7 @@ const ZomatoAnalysis: React.FC<{
         <div className="prose max-w-none text-gray-700 dark:text-gray-300">
           <p className="text-lg">
             Strategic market identification leveraging restaurant data to guide expansion decisions.
-            Analyzed Zomato's restaurant data across multiple countries using Excel to identify
+            Analyzed Zomato&apos;s restaurant data across multiple countries using Excel to identify
             optimal markets for expansion. Evaluated key metrics including restaurant counts,
             average ratings, cuisine diversity, and price ranges to inform strategic decisions.
           </p>
@@ -65,7 +65,7 @@ const ZomatoAnalysis: React.FC<{
               Prioritize expansion in the Philippines and Indonesia for quality-focused growth.
             </li>
             <li>Target Qatar for premium market positioning.</li>
-            <li>Leverage Turkey's volume-driven market with diverse cuisine offerings.</li>
+            <li>Leverage Turkey&apos;s volume-driven market with diverse cuisine offerings.</li>
             <li>Maintain high service and food quality to sustain customer satisfaction.</li>
             <li>Customize menus to local tastes while introducing trending cuisines.</li>
           </ul>
@@ -82,11 +82,11 @@ const ZomatoAnalysis: React.FC<{
             <li>Implemented slicers for dynamic country filtering to enhance interactivity.</li>
             <li>Designed a KPI-focused dashboard for quick, actionable insights.</li>
             <li className="bg-gray-100 dark:bg-gray-800 p-3 rounded-md font-mono text-sm mt-3">
-              <span className="text-gray-500">// Sample Excel Formula</span>
+              <span className="text-gray-500">&apos; Sample Excel Formula</span>
               <br />
-              <span className="text-blue-600 dark:text-blue-400">=AVERAGEIFS</span>(RatingColumn,
+              <span className ="text-blue-600 dark:text-blue-400">=AVERAGEIFS</span>(RatingColumn,
               CountryColumn,{' '}
-              <span className="text-green-600 dark:text-green-400">"Philippines"</span>)
+              <span className="text-green-600 dark:text-green-400">&quot;Philippines&quot;</span>)
             </li>
           </ul>
         ),
@@ -95,8 +95,8 @@ const ZomatoAnalysis: React.FC<{
         title: 'Impact',
         content: (
           <p className="text-gray-700 dark:text-gray-300">
-            Enabled Zomato's team to identify priority regions swiftly, reducing reporting time by
-            70% and improving market opportunity accuracy.
+            Enabled Zomato&apos;s team to identify priority regions swiftly, reducing reporting time
+            by 70% and improving market opportunity accuracy.
           </p>
         ),
       },

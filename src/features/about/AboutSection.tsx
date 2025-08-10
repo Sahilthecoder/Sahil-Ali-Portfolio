@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { FiAward, FiBriefcase, FiCode, FiUsers } from 'react-icons/fi';
 
-import { AnimatedSection, SectionHeader } from '@/components/ui/AnimatedSection';
+import { AnimatedSection } from '@/components/ui/AnimatedSection';
 import { SkillBadge } from '@/components/ui/SkillBadge';
 import { ThemeCard } from '@/components/ui/ThemeCard';
 
@@ -52,16 +52,16 @@ const AboutSection = () => {
           >
             <div className="prose prose-lg dark:prose-invert max-w-none">
               <p>
-                Hey there! I'm a multi-disciplinary professional with expertise in Data Analysis,
+                Hey there! I&apos;m a multi-disciplinary professional with expertise in Data Analysis,
                 Inventory Management, and Artificial Intelligence research.
               </p>
               <p>
-                With over 4+ years of experience, I've optimized inventory systems, delivered
+                With over 4+ years of experience, I&apos;ve optimized inventory systems, delivered
                 insights through data, and explored cutting-edge AI applications to streamline
                 operations across industries.
               </p>
               <p>
-                I'm a lifelong learner who thrives on solving real-world problems. Outside of work,
+                I&apos;m a lifelong learner who thrives on solving real-world problems. Outside of work,
                 I enjoy tech blogging, nerdy podcasts, and the occasional game of chess.
               </p>
             </div>

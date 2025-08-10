@@ -1,12 +1,9 @@
 import { motion } from 'framer-motion';
 import React from 'react';
-import Link from 'next/link';
 import {
   FiArrowRight,
-  FiExternalLink,
   FiLinkedin,
   FiGithub,
-  FiYoutube,
 } from 'react-icons/fi';
 
 /* ==============================
@@ -193,7 +190,7 @@ export const BlogAboutMe: React.FC<Partial<BlogAboutMeProps>> = ({
 const MiniBio: React.FC = () => (
   <div className="bg-card rounded-xl p-6 shadow-sm">
     <h2 className="text-2xl font-bold mb-4 text-foreground">
-      Hi, I'm Sahil Ali
+      Hi, I&apos;m Sahil Ali
     </h2>
     <p className="text-muted-foreground mb-4">
       Data Analyst & AI Specialist | Turning complex data into actionable
