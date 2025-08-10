@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
 import { FiLoader } from 'react-icons/fi';
 
 interface LazyImageProps {
@@ -7,9 +7,9 @@ interface LazyImageProps {
   alt?: string;
   className?: string;
   background?: boolean;
-  width?: number;
-  height?: number;
-  placeholder?: string; // Optional placeholder image URL
+  width?: number | string;
+  height?: number | string;
+  placeholder?: string;
 }
 
 const LazyImage: React.FC<LazyImageProps> = ({
@@ -24,146 +24,133 @@ const LazyImage: React.FC<LazyImageProps> = ({
   const [isVisible, setIsVisible] = useState(false);
   const [hasLoaded, setHasLoaded] = useState(false);
   const [error, setError] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const imageRef = useRef<HTMLDivElement>(null);
+  const observerRef = useRef<IntersectionObserver | null>(null);
 
-  // Set mounted to true after initial render
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  const imageRef = React.useRef<HTMLDivElement>(null);
-
+  // Set up Intersection Observer
   useEffect(() => {
     if (!imageRef.current) return;
+
+    const options = {
+      root: null,
+      rootMargin: '200px',
+      threshold: 0.01
+    };
+
+    const handleIntersect = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          // Stop observing once the image is in view
+          if (observerRef.current && imageRef.current) {
+            observerRef.current.unobserve(imageRef.current);
+          }
+        }
+      });
+    };
+
+    // Create new observer
+    observerRef.current = new IntersectionObserver(handleIntersect, options);
     
-    // Small delay to ensure the component is properly mounted
-    const timer = setTimeout(() => {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              setIsVisible(true);
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        { 
-          root: null,
-          rootMargin: '100px', // Start loading when within 100px of viewport
-          threshold: 0.01
-        }
-      );
+    // Start observing
+    observerRef.current.observe(imageRef.current);
 
-      observer.observe(imageRef.current!);
+    // Cleanup
+    return () => {
+      if (observerRef.current && imageRef.current) {
+        observerRef.current.unobserve(imageRef.current);
+      }
+    };
+  }, []);
 
-      return () => {
-        if (imageRef.current) {
-          observer.unobserve(imageRef.current);
-        }
-      };
-    }, 100);
+  // Handle image loading when it becomes visible
+  useEffect(() => {
+    if (!isVisible) return;
 
-    return () => clearTimeout(timer);
-  }, [src]); // Re-run effect if src changes
+    const img = new Image();
+    img.src = src;
+    
+    img.onload = () => setHasLoaded(true);
+    img.onerror = () => setError(true);
+  }, [isVisible, src]);
 
-  const handleLoad = () => {
-    setHasLoaded(true);
-  };
-
-  const handleError = () => {
-    setError(true);
-  };
-
+  // Background image variant
   if (background) {
     return (
-      <div
+      <div 
         ref={imageRef}
-        className={`relative ${className}`}
+        className={`relative overflow-hidden ${className}`}
         style={{
-          width: width ? `${width}px` : '100%',
-          height: height ? `${height}px` : 'auto',
-          position: 'relative',
-          overflow: 'hidden',
+          width: width || '100%',
+          height: height || '100%',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundImage: isVisible && !error 
+            ? `url(${src})` 
+            : placeholder 
+              ? `url(${placeholder})` 
+              : 'none',
+          backgroundColor: '#f3f4f6',
         }}
       >
-        <AnimatePresence>
-          {!hasLoaded && !error && (
-            <motion.div
-              key="placeholder"
-              className="absolute inset-0 bg-gray-200 dark:bg-gray-800"
-              initial={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-            />
-          )}
-        </AnimatePresence>
-
-        <motion.div
-          key="image"
-          className="absolute inset-0"
-          style={{
-            backgroundImage: hasLoaded ? `url(${src})` : 'none',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            opacity: hasLoaded ? 1 : 0,
-            transition: 'opacity 0.3s ease-in-out',
-          }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: hasLoaded ? 1 : 0 }}
-        />
-
-        {error && (
-          <div className="absolute inset-0 flex items-center justify-center text-red-500">
-            <FiLoader className="animate-spin" />
+        {!hasLoaded && isVisible && !error && (
+          <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
+            <FiLoader className="w-6 h-6 text-gray-400 animate-spin" />
           </div>
         )}
       </div>
     );
   }
 
+  // Regular image variant
   return (
-    <div
+    <div 
       ref={imageRef}
       className={`relative ${className}`}
       style={{
-        width: width ? `${width}px` : '100%',
-        height: height ? `${height}px` : 'auto',
+        width: width || '100%',
+        height: height || 'auto',
+        minHeight: height ? '1px' : undefined,
       }}
     >
-      <AnimatePresence>
-        {!hasLoaded && !error && (
-          <motion.div
-            key="placeholder"
-            className="absolute inset-0 flex items-center justify-center bg-gray-200 dark:bg-gray-800"
-            initial={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            <FiLoader className="animate-spin" />
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {mounted && isVisible && (
-        <motion.img
-          key={`img-${src}`}
-          src={src}
-          alt={alt}
-          onLoad={handleLoad}
-          onError={handleError}
-          className={`absolute inset-0 object-cover ${className}`}
-          style={{
-            opacity: hasLoaded ? 1 : 0,
-            transition: 'opacity 0.3s ease-in-out',
-          }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: hasLoaded ? 1 : 0 }}
-        />
-      )}
-
-      {error && (
-        <div className="absolute inset-0 flex items-center justify-center text-red-500">
-          <FiLoader className="animate-spin" />
+      {isVisible ? (
+        <>
+          {!error ? (
+            <motion.img
+              src={src}
+              alt={alt}
+              className={`w-full h-full object-cover transition-opacity duration-300 ${
+                hasLoaded ? 'opacity-100' : 'opacity-0'
+              }`}
+              onLoad={() => setHasLoaded(true)}
+              onError={() => setError(true)}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: hasLoaded ? 1 : 0 }}
+              transition={{ duration: 0.3 }}
+              width={typeof width === 'number' ? width : undefined}
+              height={typeof height === 'number' ? height : undefined}
+            />
+          ) : placeholder ? (
+            <img 
+              src={placeholder} 
+              alt="Placeholder" 
+              className="w-full h-full object-cover"
+            />
+          ) : (
+            <div className="w-full h-full flex items-center justify-center bg-gray-100">
+              <span className="text-gray-400 text-sm">Image not available</span>
+            </div>
+          )}
+          
+          {!hasLoaded && !error && (
+            <div className="absolute inset-0 flex items-center justify-center bg-gray-50">
+              <FiLoader className="w-6 h-6 text-gray-400 animate-spin" />
+            </div>
+          )}
+        </>
+      ) : (
+        <div className="w-full h-full flex items-center justify-center bg-gray-100">
+          <FiLoader className="w-6 h-6 text-gray-400 animate-spin" />
         </div>
       )}
     </div>
