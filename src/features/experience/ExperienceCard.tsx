@@ -3,7 +3,7 @@ import React, { useRef } from 'react';
 import { cn } from '@/utils/cn';
 import LazyImage from '@/components/LazyImage';
 import { useExperienceAnimations } from '@/features/experience/hooks/useExperienceAnimations';
-import { FiExternalLink, FiAward, FiTrendingUp, FiMapPin, FiBriefcase, FiCode } from 'react-icons/fi';
+import { FiExternalLink, FiAward, FiTrendingUp, FiMapPin, FiCode } from 'react-icons/fi';
 
 export interface Experience {
   id: string;
@@ -90,8 +90,10 @@ export const ExperienceCard: React.FC<ExperienceCardProps> = ({
                 />
               </div>
             ) : (
-              <div className="flex-shrink-0 w-13 h-13 rounded-lg bg-gradient-to-br from-primary/10 to-primary/5 border border-border/20 flex items-center justify-center">
-                <FiBriefcase className="h-6 w-6 text-primary" />
+              <div className="flex-shrink-0 w-13 h-13 rounded-full bg-gradient-to-br from-primary/10 to-primary/5 border border-border/20 flex items-center justify-center">
+                <span className="text-xl font-semibold text-primary">
+                  {experience.company.charAt(0).toUpperCase()}
+                </span>
               </div>
             )}
             <div className="space-y-0.5">
