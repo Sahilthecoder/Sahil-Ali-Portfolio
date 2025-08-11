@@ -127,99 +127,105 @@ const EducationSection: React.FC<EducationSectionProps> = ({
               }}
               className="h-full"
             >
-              <ThemeCard 
-                className="h-full flex flex-col bg-background/50 
-                border border-border/20 
-                shadow-[0_4px_0px_0px_rgba(0,0,0,0.1),0_2px_8px_rgba(0,0,0,0.05)] 
-                dark:shadow-[0_4px_0px_0px_rgba(255,255,255,0.1),0_2px_8px_rgba(0,0,0,0.2)]
-                hover:shadow-[0_8px_0px_0px_rgba(59,130,246,0.4),0_4px_12px_rgba(59,130,246,0.1)] 
-                dark:hover:shadow-[0_8px_0px_0px_rgba(59,130,246,0.6),0_4px_12px_rgba(59,130,246,0.2)]
-                transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.01]" 
-                variant="outline" 
-                hoverEffect="grow"
+              <motion.div
+                className="h-full"
                 style={{
                   transformStyle: 'preserve-3d',
                   transform: 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)',
                 }}
               >
-                <div className="flex justify-between items-start">
-                  <div>
-                    <h3 className="text-lg font-semibold text-foreground">{edu.degree}</h3>
-                    <h4 className="text-md font-medium text-muted-foreground">{edu.institution}</h4>
-                  </div>
-                  {edu.institutionUrl && (
-                    <a
-                      href={edu.institutionUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-muted-foreground hover:text-foreground transition-colors"
-                      aria-label={`Visit ${edu.institution} website`}
-                    >
-                      <FiExternalLink className="h-5 w-5" />
-                    </a>
-                  )}
-                </div>
-
-                <div className="mt-4 space-y-2 text-sm">
-                  <div className="flex items-center text-muted-foreground">
-                    <FiAward className="h-4 w-4 mr-2 text-primary" />
-                    <span>{edu.fieldOfStudy}</span>
-                  </div>
-                  <div className="flex items-center text-muted-foreground">
-                    <FiCalendar className="h-4 w-4 mr-2 text-primary" />
-                    <span>
-                      {edu.startDate} - {edu.endDate}
-                    </span>
-                  </div>
-                  {edu.location && (
-                    <div className="flex items-center text-muted-foreground">
-                      <FiMapPin className="h-4 w-4 mr-2 text-primary" />
-                      <span>{edu.location}</span>
+                <ThemeCard 
+                  className="h-full flex flex-col bg-background/50 
+                  border border-border/20 
+                  shadow-[0_4px_0px_0px_rgba(0,0,0,0.1),0_2px_8px_rgba(0,0,0,0.05)] 
+                  dark:shadow-[0_4px_0px_0px_rgba(255,255,255,0.1),0_2px_8px_rgba(0,0,0,0.2)]
+                  hover:shadow-[0_8px_0px_0px_rgba(59,130,246,0.4),0_4px_12px_rgba(59,130,246,0.1)] 
+                  dark:hover:shadow-[0_8px_0px_0px_rgba(59,130,246,0.6),0_4px_12px_rgba(59,130,246,0.2)]
+                  transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.01]" 
+                  variant="outline" 
+                  hoverEffect="grow"
+                >
+                  <div className="h-full flex flex-col">
+                    <div className="flex justify-between items-start">
+                      <div>
+                        <h3 className="text-lg font-semibold text-foreground">{edu.degree}</h3>
+                        <h4 className="text-md font-medium text-muted-foreground">{edu.institution}</h4>
+                      </div>
+                      {edu.institutionUrl && (
+                        <a
+                          href={edu.institutionUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-muted-foreground hover:text-foreground transition-colors"
+                          aria-label={`Visit ${edu.institution} website`}
+                        >
+                          <FiExternalLink className="h-5 w-5" />
+                        </a>
+                      )}
                     </div>
-                  )}
-                </div>
 
-                {edu.description && (
-                  <div className="mt-4 text-sm text-muted-foreground">
-                    {Array.isArray(edu.description) ? (
-                      <ul className="space-y-2">
-                        {edu.description.map((desc, i) => (
-                          <li key={i} className="flex items-start">
-                            <span className="text-primary mr-2">•</span>
-                            <span>{desc}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    ) : (
-                      <p>{edu.description}</p>
+                    <div className="mt-4 space-y-2 text-sm">
+                      <div className="flex items-center text-muted-foreground">
+                        <FiAward className="h-4 w-4 mr-2 text-primary" />
+                        <span>{edu.fieldOfStudy}</span>
+                      </div>
+                      <div className="flex items-center text-muted-foreground">
+                        <FiCalendar className="h-4 w-4 mr-2 text-primary" />
+                        <span>
+                          {edu.startDate} - {edu.endDate}
+                        </span>
+                      </div>
+                      {edu.location && (
+                        <div className="flex items-center text-muted-foreground">
+                          <FiMapPin className="h-4 w-4 mr-2 text-primary" />
+                          <span>{edu.location}</span>
+                        </div>
+                      )}
+                    </div>
+
+                    {edu.description && (
+                      <div className="mt-4 text-sm text-muted-foreground">
+                        {Array.isArray(edu.description) ? (
+                          <ul className="space-y-2">
+                            {edu.description.map((desc, i) => (
+                              <li key={i} className="flex items-start">
+                                <span className="text-primary mr-2">•</span>
+                                <span>{desc}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        ) : (
+                          <p>{edu.description}</p>
+                        )}
+                      </div>
+                    )}
+
+                    {edu.achievements && edu.achievements.length > 0 && (
+                      <div className="mt-4 pt-4 border-t border-border">
+                        <h5 className="text-sm font-medium text-muted-foreground mb-2">
+                          Key Achievements:
+                        </h5>
+                        <ul className="space-y-1.5 text-sm">
+                          {edu.achievements.map((achievement, i) => (
+                            <li key={i} className="flex items-start">
+                              <span className="text-primary mr-2">•</span>
+                              <span className="text-muted-foreground">{achievement}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+
+                    {edu.gpa && (
+                      <div className="mt-4 pt-4 border-t border-border">
+                        <p className="text-sm font-medium text-muted-foreground">
+                          GPA: <span className="text-foreground">{edu.gpa}</span>
+                        </p>
+                      </div>
                     )}
                   </div>
-                )}
-
-                {edu.achievements && edu.achievements.length > 0 && (
-                  <div className="mt-4 pt-4 border-t border-border">
-                    <h5 className="text-sm font-medium text-muted-foreground mb-2">
-                      Key Achievements:
-                    </h5>
-                    <ul className="space-y-1.5 text-sm">
-                      {edu.achievements.map((achievement, i) => (
-                        <li key={i} className="flex items-start">
-                          <span className="text-primary mr-2">•</span>
-                          <span className="text-muted-foreground">{achievement}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-
-                 {edu.gpa && (
-                  <div className="mt-4 pt-4 border-t border-border">
-                    <p className="text-sm font-medium text-muted-foreground">
-                      GPA: <span className="text-foreground">{edu.gpa}</span>
-                    </p>
-                  </div>
-                )}
-              </ThemeCard>
+                </ThemeCard>
+              </motion.div>
             </motion.div>
           ))}
         </motion.div>
