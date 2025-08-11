@@ -15,9 +15,10 @@ interface NavItem {
 const navItems: NavItem[] = [
   { label: 'Home', path: '/' },
   { label: 'About', path: '/about' },
+  { label: 'Experience', path: '/experience' },
   { label: 'Projects', path: '/projects' },
-  { label: 'Contact', path: '/contact' },
   { label: 'Blog', path: '/blog' },
+  { label: 'Contact', path: '/contact' },
 ];
 
 const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
