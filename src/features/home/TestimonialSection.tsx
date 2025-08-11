@@ -94,8 +94,9 @@ const TestimonialSection = () => {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm hover:shadow-xl transition-shadow duration-300 h-full flex flex-col mx-2 sm:mx-0"
+                className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 h-full flex flex-col mx-2 sm:mx-0 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-900"
                 tabIndex={0}
+                aria-label={`Testimonial from ${name} about ${project || 'their experience'}`}
               >
                 <p className="text-gray-800 dark:text-gray-200 mb-6 flex-grow leading-relaxed text-base">
                   &ldquo;{content}&rdquo;
@@ -132,7 +133,7 @@ const TestimonialSection = () => {
                 )}
                 <time
                   dateTime={date}
-                  className="mt-auto text-xs text-gray-400 dark:text-gray-500"
+                  className="mt-auto text-xs text-gray-600 dark:text-gray-300"
                 >
                   {new Date(date).toLocaleDateString(undefined, {
                     year: 'numeric',
@@ -155,8 +156,9 @@ const TestimonialSection = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm hover:shadow-xl transition-shadow duration-300 flex flex-col h-full"
+            className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-900"
             tabIndex={0}
+            aria-label={`Testimonial from ${name} about ${project || 'their experience'}`}
           >
             <p className="text-gray-700 dark:text-gray-300 mb-6 flex-grow leading-relaxed">
               &ldquo;{content}&rdquo;
@@ -193,7 +195,7 @@ const TestimonialSection = () => {
             )}
             <time
               dateTime={date}
-              className="mt-auto text-xs text-gray-400 dark:text-gray-500"
+              className="mt-auto text-xs text-gray-600 dark:text-gray-300"
             >
               {new Date(date).toLocaleDateString(undefined, {
                 year: 'numeric',
