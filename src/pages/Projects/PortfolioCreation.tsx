@@ -16,7 +16,7 @@ const PortfolioCreation: React.FC<{
         <div className="prose max-w-none text-gray-700 dark:text-gray-300">
           <p className="text-lg">
             A showcase of how I leveraged AI tools as a non-developer to create professional
-            portfolios, including this one and others like Mahira's portfolio. This project
+            portfolios, including this one and others like Mahira&apos;s portfolio. This project
             demonstrates the power of AI in modern web development for non-coders.
           </p>
         </div>
@@ -64,7 +64,7 @@ const PortfolioCreation: React.FC<{
         content: (
           <div className="space-y-6">
             <p className="text-gray-700 dark:text-gray-300">
-              As an AI generalist with no formal web development background, I've successfully
+              As an AI generalist with no formal web development background, I&apos;ve successfully
               created multiple professional portfolios using a combination of AI tools and no-code
               platforms. This project documents my journey and the tools that made it possible.
             </p>
@@ -88,7 +88,7 @@ const PortfolioCreation: React.FC<{
                     rel="noopener noreferrer"
                     className="text-blue-600 dark:text-blue-400 hover:underline"
                   >
-                    Mahira's Portfolio
+                    Mahira&apos;s Portfolio
                   </a>
                   <p className="text-gray-600 dark:text-gray-300 text-sm mt-1">
                     A creative portfolio showcasing design work, built with similar AI-assisted
@@ -356,20 +356,7 @@ const PortfolioCreation: React.FC<{
         srcSet: '/images/projects/Mahira_Portfolio_Web+AI/Project7_Cover-300w.webp 300w, /images/projects/Mahira_Portfolio_Web+AI/Project7_Cover-600w.webp 600w',
         sizes: '(max-width: 640px) 300px, 600px'
       },
-      {
-        src: '/images/projects/Mahira_Portfolio_Web+AI/Project7_Workflow-600w.webp',
-        alt: 'Development Workflow',
-        caption: 'My development workflow using various AI tools',
-        srcSet: '/images/projects/Mahira_Portfolio_Web+AI/Project7_Workflow-300w.webp 300w, /images/projects/Mahira_Portfolio_Web+AI/Project7_Workflow-600w.webp 600w',
-        sizes: '(max-width: 640px) 300px, 600px'
-      },
-      {
-        src: '/images/projects/Mahira_Portfolio_Web+AI/Project7_Showcase-600w.webp',
-        alt: 'Final Portfolio Showcase',
-        caption: 'Showcasing the final portfolio with AI-assisted design',
-        srcSet: '/images/projects/Mahira_Portfolio_Web+AI/Project7_Showcase-300w.webp 300w, /images/projects/Mahira_Portfolio_Web+AI/Project7_Showcase-600w.webp 600w',
-        sizes: '(max-width: 640px) 300px, 600px'
-      },
+      
     ],
   };
 

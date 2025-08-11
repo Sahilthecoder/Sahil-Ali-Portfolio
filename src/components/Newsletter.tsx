@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiMail, FiCheckCircle, FiXCircle, FiLoader } from 'react-icons/fi';
+import { FiCheckCircle, FiXCircle, FiLoader } from 'react-icons/fi';
 
 interface NewsletterProps {
   className?: string;
@@ -83,11 +83,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ className = '' }) => {
           style={{ backgroundSize: '200% 200%' }}
         />
 
-        {/* Header */}
-        <div className="flex items-center mb-5 relative z-10">
-          <FiMail className="h-6 w-6 text-primary mr-2" />
-          <h3 className="text-xl font-semibold text-foreground">Stay Updated</h3>
-        </div>
+
 
         {/* Content */}
         <AnimatePresence>
@@ -110,15 +106,20 @@ const Newsletter: React.FC<NewsletterProps> = ({ className = '' }) => {
                   required
                   aria-label="Email address"
                 />
-                <motion.button
+                <button
                   type="submit"
                   disabled={status === 'loading'}
-                  className="absolute right-2 top-1/2 -translate-y-1/2 bg-muted text-foreground px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-muted/80 focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:opacity-50 disabled:cursor-not-allowed transition-all text-sm"
-                  whileTap={{ scale: 0.96 }}
+                  className="absolute right-1 top-1/2 -translate-y-1/2 h-[calc(100%-0.5rem)] bg-primary text-white px-5 rounded-md flex items-center justify-center gap-2 hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:ring-offset-2 focus:ring-offset-background disabled:opacity-70 disabled:cursor-not-allowed transition-colors text-sm font-medium w-32"
                 >
-                  {status === 'loading' && <FiLoader className="animate-spin" />}
-                  {status === 'loading' ? 'Sending...' : 'Subscribe'}
-                </motion.button>
+                  {status === 'loading' ? (
+                    <>
+                      <FiLoader className="animate-spin h-4 w-4" />
+                      Sending...
+                    </>
+                  ) : (
+                    'Subscribe'
+                  )}
+                </button>
               </div>
 
               {status === 'error' && (

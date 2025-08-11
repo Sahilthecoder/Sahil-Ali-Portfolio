@@ -3,9 +3,11 @@
 import React from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { FaRegLightbulb } from 'react-icons/fa';
-import { FiExternalLink, FiX } from 'react-icons/fi';
+import { FiExternalLink, FiX, FiLock } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
+import { usePasswordProtection } from '@/contexts/PasswordProtectionContext';
 import { Button } from '@/components/ui/Button';
+import { PasswordModal } from '@/components/ui/PasswordModal';
 import { TechnologyBadge } from './TechnologyBadge';
 import type { Project } from './types';
 
@@ -33,12 +35,23 @@ export default function ProjectModal({
   onClose,
   projectId
 }: ProjectModalProps) {
-  // Commenting out unused state for future image gallery functionality
-  // const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  
-  // useEffect(() => {
-  //   if (project?.image) setCurrentImageIndex(0);
-  // }, [project]);
+  const { isAuthenticated } = usePasswordProtection();
+  const [showPasswordModal, setShowPasswordModal] = React.useState(false);
+  const isPortfolioProject = projectId === 'portfolio-creation';
+  const shouldLock = !isAuthenticated || isPortfolioProject;
+
+  const handleExploreClick = (e: React.MouseEvent) => {
+    if (shouldLock) {
+      e.preventDefault();
+      setShowPasswordModal(true);
+    }
+  };
+
+  const handlePasswordSuccess = () => {
+    setShowPasswordModal(false);
+    // Navigate to the project page using hash-based URL
+    window.location.hash = `#/projects/${projectId}`;
+  };
 
   if (!isOpen || !project) return null;
 
@@ -144,13 +157,23 @@ export default function ProjectModal({
 
                   {/* Explore Button */}
                   <div className="pt-4">
-                    <Link to={`/projects/${projectId}`}>
+                    <Link 
+                      to={!shouldLock ? `/projects/${projectId}` : '#'}
+                      onClick={handleExploreClick}
+                      className={`inline-block w-full sm:w-auto ${shouldLock ? 'opacity-70' : ''}`}
+                    >
                       <Button
                         variant="outline"
-                        className="w-full sm:w-auto hover:scale-105 transition-transform gap-2 bg-white/70 hover:bg-white/90 text-gray-900 dark:bg-gray-800/80 dark:hover:bg-gray-700/90 dark:text-white border border-gray-300/50 dark:border-gray-600/50 shadow-md hover:shadow-lg"
+                        className="w-full sm:w-auto hover:scale-105 transition-transform gap-2 bg-white/70 hover:bg-white/90 text-gray-900 dark:bg-gray-800/80 dark:hover:bg-gray-700/90 dark:text-white border border-gray-300/50 dark:border-gray-600/50 shadow-md hover:shadow-lg relative"
                       >
+                        {shouldLock && (
+                          <div className="absolute inset-0 flex items-center justify-center gap-2 bg-black/50 text-white rounded-md">
+                            <FiLock className="h-4 w-4" />
+                            <span>Locked</span>
+                          </div>
+                        )}
                         <FiExternalLink className="h-4 w-4" />
-                        Explore Complete Project
+                        {!shouldLock ? 'Explore Complete Project' : 'Project Locked'}
                       </Button>
                     </Link>
                   </div>
@@ -159,6 +182,10 @@ export default function ProjectModal({
             </div>
           </motion.div>
         </motion.div>
+      )}
+      
+      {showPasswordModal && (
+        <PasswordModal onClose={handlePasswordSuccess} />
       )}
     </AnimatePresence>
   );

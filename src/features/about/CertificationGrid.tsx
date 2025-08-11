@@ -1,23 +1,35 @@
 'use client';
 
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
-import { FiAward, FiExternalLink } from 'react-icons/fi';
+import { FiAward, FiExternalLink, FiLock } from 'react-icons/fi';
 
 import certificationsData from '@/data/certifications';
 import type { Education } from '@/types/experience.types';
 import { AnimatedSection, SectionHeader } from '@/components/ui/AnimatedSection';
 import { ThemeCard } from '@/components/ui/ThemeCard';
 import LazyImage from '@/components/LazyImage';
+import { PasswordModal } from '@/components/ui/PasswordModal';
+import { usePasswordProtection } from '@/contexts/PasswordProtectionContext';
 
 type CertificationData = Omit<Education, 'degree'> & {
   credentialUrl?: string;
 };
 const CertificationsGrid = () => {
+  const [showPasswordModal, setShowPasswordModal] = useState(false);
+  const { isAuthenticated } = usePasswordProtection();
+  
   // Process certifications data
   const certifications = useMemo<CertificationData[]>(() => 
     certificationsData as CertificationData[]
   , [certificationsData]);
+
+  const handleImageClick = (e: React.MouseEvent) => {
+    if (!isAuthenticated) {
+      e.preventDefault();
+      setShowPasswordModal(true);
+    }
+  };
 
   return (
     <AnimatedSection className="py-10 sm:py-14">
@@ -38,12 +50,29 @@ const CertificationsGrid = () => {
             >
               <ThemeCard className="h-full" variant="elevated">
                 {cert.imageUrl && (
-                  <div className="mb-4 overflow-hidden rounded-lg">
-                    <LazyImage
-                      src={cert.imageUrl}
-                      alt={`${cert.fieldOfStudy} certificate`}
-                      className="w-full h-auto max-h-80 object-contain rounded-lg"
-                    />
+                  <div className="mb-4 overflow-hidden rounded-lg relative group">
+                    {isAuthenticated ? (
+                      <LazyImage
+                        src={cert.imageUrl}
+                        alt={`${cert.fieldOfStudy} certificate`}
+                        className="w-full h-auto max-h-80 object-contain rounded-lg"
+                      />
+                    ) : (
+                      <div 
+                        className="w-full h-64 bg-gray-100 dark:bg-gray-800 rounded-lg flex flex-col items-center justify-center cursor-pointer"
+                        onClick={handleImageClick}
+                      >
+                        <div className="bg-white/10 dark:bg-black/20 p-4 rounded-full mb-3">
+                          <FiLock className="w-8 h-8 text-gray-600 dark:text-gray-300" />
+                        </div>
+                        <span className="text-sm font-medium text-gray-700 dark:text-gray-200">
+                          Click to view certificate
+                        </span>
+                        <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                          Authentication required
+                        </p>
+                      </div>
+                    )}
                   </div>
                 )}
                 <div className="space-y-4">
@@ -80,6 +109,10 @@ const CertificationsGrid = () => {
           ))}
         </div>
       </div>
+      
+      {showPasswordModal && (
+        <PasswordModal onClose={() => setShowPasswordModal(false)} />
+      )}
     </AnimatedSection>
   );
 };

@@ -10,6 +10,7 @@ interface LazyImageProps {
   width?: number | string;
   height?: number | string;
   placeholder?: string;
+  onClick?: (e: React.MouseEvent<HTMLImageElement>) => void;
 }
 
 const Loader = () => (
@@ -24,7 +25,8 @@ const LazyImage: React.FC<LazyImageProps> = ({
   className = '',
   background = false,
   width,
-  height
+  height,
+  onClick
 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -134,9 +136,11 @@ const LazyImage: React.FC<LazyImageProps> = ({
               height: height || '100%',
               maxWidth: '100%',
               maxHeight: '100%',
+              cursor: onClick ? 'pointer' : 'default'
             }}
             onLoad={() => setHasLoaded(true)}
             onError={handleError}
+            onClick={onClick}
             initial={{ opacity: 0 }}
             animate={{ opacity: hasLoaded ? 1 : 0 }}
             transition={{ duration: 0.3 }}

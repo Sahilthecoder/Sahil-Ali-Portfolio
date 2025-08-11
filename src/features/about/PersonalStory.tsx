@@ -364,10 +364,10 @@ const PersonalStory = () => {
               Want to know more about my professional background?
             </p>
             <a
-              href="/resume.pdf"
+              href="/assets/Sahil_Ali_Cv.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary/50"
+              className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary/50 transition-colors duration-200"
             >
               Download My Resume
             </a>

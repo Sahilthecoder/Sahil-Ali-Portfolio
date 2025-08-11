@@ -412,7 +412,9 @@ export const projects: Project[] = [
         sizes: '(max-width: 640px) 300px, 600px'
       }
     ],
-    links: [{ label: 'View Project', url: '/projects/portfolio-creation' }],
+    links: [
+      { label: 'View Project', url: 'https://mahiradesignhub.github.io/mahira-portfolio/', target: '_blank' }
+    ],
     technologies: ['AI Tools', 'React', 'TypeScript', 'Tailwind CSS', 'Responsive Design'],
     date: '2024-08-01',
     featured: true,

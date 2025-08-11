@@ -1,7 +1,8 @@
 'use client';
 
 import { motion, Variants } from 'framer-motion';
-import { FiGithub, FiLinkedin, FiMail, FiMessageSquare } from 'react-icons/fi';
+import { FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
+import { FaWhatsapp } from 'react-icons/fa';
 import { Button } from '../../components/ui/Button';
 
 const containerVariants: Variants = {
@@ -54,7 +55,7 @@ const SocialIcons = () => {
       mobileLabel: 'Send Email'
     },
     { 
-      icon: <FiMessageSquare />, 
+      icon: <FaWhatsapp />, 
       href: 'https://wa.me/919875771550',
       label: 'WhatsApp',
       color: 'hover:text-green-500 dark:hover:text-green-400',

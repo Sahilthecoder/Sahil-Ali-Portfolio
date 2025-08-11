@@ -127,7 +127,21 @@ const EducationSection: React.FC<EducationSectionProps> = ({
               }}
               className="h-full"
             >
-              <ThemeCard className="h-full flex flex-col" variant="outline" hoverEffect="grow">
+              <ThemeCard 
+                className="h-full flex flex-col bg-background/50 
+                border border-border/20 
+                shadow-[0_4px_0px_0px_rgba(0,0,0,0.1),0_2px_8px_rgba(0,0,0,0.05)] 
+                dark:shadow-[0_4px_0px_0px_rgba(255,255,255,0.1),0_2px_8px_rgba(0,0,0,0.2)]
+                hover:shadow-[0_8px_0px_0px_rgba(59,130,246,0.4),0_4px_12px_rgba(59,130,246,0.1)] 
+                dark:hover:shadow-[0_8px_0px_0px_rgba(59,130,246,0.6),0_4px_12px_rgba(59,130,246,0.2)]
+                transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.01]" 
+                variant="outline" 
+                hoverEffect="grow"
+                style={{
+                  transformStyle: 'preserve-3d',
+                  transform: 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)',
+                }}
+              >
                 <div className="flex justify-between items-start">
                   <div>
                     <h3 className="text-lg font-semibold text-foreground">{edu.degree}</h3>

@@ -12,7 +12,6 @@ const NAV_LINKS: LinkItem[] = [
   { name: 'About', href: '/about' },
   { name: 'Experience', href: '/experience' },
   { name: 'Projects', href: '/projects' },
-  { name: 'Blog', href: '/blog' },
   { name: 'Contact', href: '/contact' },
 ];
 
@@ -80,52 +79,51 @@ const Footer: React.FC<FooterProps> = ({ className = '' }) => {
   return (
     <footer className={`bg-background/95 backdrop-blur-sm border-t border-border/30 pt-12 sm:pt-16 ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Top newsletter section */}
-        <motion.section
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-50px 0px' }}
-          transition={{ duration: 0.6 }}
-          className="bg-primary/5 rounded-xl sm:rounded-2xl p-6 sm:p-8 mb-12 sm:mb-16 text-center"
-        >
-          <h2 className="text-xl sm:text-2xl font-bold mb-2 sm:mb-3 text-foreground">Stay in the Loop</h2>
-          <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6 max-w-2xl mx-auto">
-            Subscribe to get updates on my latest projects, insights, and resources — directly to your inbox.
-          </p>
-          <div className="max-w-md mx-auto w-full">
-            <Newsletter />
-          </div>
-        </motion.section>
-
         {/* Main footer grid */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-12 gap-8 sm:gap-10">
-          <div className="col-span-2 sm:col-span-1 md:col-span-3">
+          <div className="col-span-2 sm:col-span-1 md:col-span-2">
             <LinkList title="Navigation" links={NAV_LINKS} ariaLabel="Footer navigation" />
           </div>
           <div className="col-span-2 sm:col-span-1 md:col-span-2">
             <LinkList title="Legal" links={LEGAL_LINKS} ariaLabel="Legal links" />
           </div>
-          <div className="md:col-span-4 space-y-5">
-            <h3 className="text-lg font-semibold text-foreground">Let’s Connect</h3>
+          <div className="md:col-span-3 space-y-5">
+            <h3 className="text-lg font-semibold text-foreground">Let&apos;s Connect</h3>
             <SocialIcons />
             <p className="text-muted-foreground">
-              Got a project or idea? Let’s bring it to life together.
+              Got a project or idea? Let&apos;s bring it to life together.
             </p>
           </div>
-          <div className="md:col-span-3">
-            <h3 className="text-lg font-semibold text-foreground">About Me</h3>
-            <p className="text-muted-foreground">
-              I’m a data analyst & developer passionate about turning data into actionable insights and building creative tech solutions.
-            </p>
+          <div className="md:col-span-5">
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4 }}
+              className="bg-primary/5 rounded-xl p-6 h-full"
+            >
+              <h3 className="text-lg font-semibold text-foreground mb-3">Stay Updated</h3>
+              <p className="text-sm text-muted-foreground mb-4">
+                Get the latest updates on my projects and insights.
+              </p>
+              <Newsletter className="max-w-full" />
+            </motion.div>
           </div>
         </div>
 
         {/* Bottom bar */}
         <div className="mt-16 pt-8 border-t border-border flex flex-col sm:flex-row justify-between items-center text-muted-foreground text-sm">
           <p className="mt-3 sm:mt-0">
-            Built with <span className="text-primary font-semibold">React</span>,{' '}
-            <span className="text-primary font-semibold">TypeScript</span>, &{' '}
-            <span className="text-primary font-semibold">Tailwind CSS</span>.
+            Built with{' '}
+            <a href="https://react.dev/" target="_blank" rel="noopener noreferrer" className="text-primary font-semibold hover:underline">
+              React
+            </a>,{' '}
+            <a href="https://www.typescriptlang.org/" target="_blank" rel="noopener noreferrer" className="text-primary font-semibold hover:underline">
+              TypeScript
+            </a>, &{' '}
+            <a href="https://tailwindcss.com/" target="_blank" rel="noopener noreferrer" className="text-primary font-semibold hover:underline">
+              Tailwind CSS
+            </a>.
           </p>
         </div>
       </div>
