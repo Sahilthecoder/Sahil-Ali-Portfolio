@@ -1,13 +1,13 @@
 import React from 'react';
-import Head from 'next/head';
+import { Helmet } from 'react-helmet-async';
 
 const TermsOfService: React.FC = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <Head>
+      <Helmet>
         <title>Terms of Service | Sahil Ali</title>
         <meta name="description" content="Terms of Service for Sahil Ali's professional portfolio website." />
-      </Head>
+      </Helmet>
 
       <main className="container mx-auto px-6 py-20 max-w-4xl">
         <h1 className="text-4xl md:text-5xl font-extrabold mb-10 text-foreground">

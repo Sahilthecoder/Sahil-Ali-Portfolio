@@ -1,10 +1,8 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Check } from 'lucide-react';
-import Link from 'next/link';
+import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import * as React from 'react';
 
-import { Button } from '@/components/ui/Button';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/Card';
 import { cn } from '@/utils/cn';
 import { colorVariants, services, type Service } from '@/features/contact/config/services-new';
@@ -81,15 +79,12 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         </CardContent>
 
         <CardFooter className="pt-0">
-          <Link href="#contact" className="relative z-10 w-full">
-            <Button 
-              variant="outline" 
-              className="w-full group border-border/50 hover:border-primary/50 hover:bg-accent/20 transition-all duration-300 overflow-hidden"
-            >
-              <span className="relative">Get Started</span>
-              <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-              <span className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
-            </Button>
+          <Link 
+            to="contact" 
+            className="relative z-10 w-full group border border-border/50 hover:border-primary/50 hover:bg-accent/20 transition-all duration-300 overflow-hidden inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md"
+          >
+            <span className="relative">Get Started</span>
+            <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
         </CardFooter>
       </Card>
@@ -125,7 +120,7 @@ const ContactServices: React.FC = () => {
             Our Services
           </h2>
           <p className="max-w-[700px] text-muted-foreground md:text-lg">
-            We offer a comprehensive suite of services designed to elevate your digital presence and drive business growth.
+            Don&apos;t see what you&apos;re looking for? Let&apos;s chat about your unique project needs to elevate your digital presence and drive business growth.
           </p>
         </motion.div>
 
@@ -169,7 +164,7 @@ const ContactServices: React.FC = () => {
           className="mt-12 text-center"
         >
           <p className="text-muted-foreground">
-            Let's optimize your operations and drive efficiency through data-driven solutions.
+            Let&apos;s optimize your operations and drive efficiency through data-driven solutions.
           </p>
         </motion.div>
       </div>

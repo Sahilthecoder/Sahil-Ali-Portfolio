@@ -1,11 +1,9 @@
 import { motion } from 'framer-motion';
 import { ExternalLink, MapPin, Navigation } from 'lucide-react';
-import Link from 'next/link';
+// External links don't need React Router's Link
 import { useEffect, useState } from 'react';
 
 import { cn } from '@/utils/cn';
-
-import { Button } from '@/components/ui/Button';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/Card';
 import {
   getGoogleMapsDirectionsUrl,
@@ -101,7 +99,7 @@ const ContactLocation: React.FC<ContactLocationProps> = ({
 
         {showDirectionsButton && (
           <CardFooter className="pt-2">
-            <Link 
+            <a 
               href={directionsUrl} 
               target="_blank" 
               rel="noopener noreferrer" 
@@ -111,7 +109,7 @@ const ContactLocation: React.FC<ContactLocationProps> = ({
               <Navigation className="w-3.5 h-3.5 mr-2" />
               Get Directions
               <ExternalLink className="w-3 h-3 ml-2 opacity-0 group-hover:opacity-100 transition-opacity" />
-            </Link>
+            </a>
           </CardFooter>
         )}
       </Card>
