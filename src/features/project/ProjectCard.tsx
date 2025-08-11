@@ -46,13 +46,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick, className }
             />
             <img
               src={image.src}
-              alt={image.alt || `${title} preview`}
+              alt={image.alt || `Screenshot of ${title} project`}
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               loading="lazy"
               decoding="async"
               width="400"
               height="300"
               sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
+              aria-hidden={!image.alt}
             />
           </picture>
         </div>

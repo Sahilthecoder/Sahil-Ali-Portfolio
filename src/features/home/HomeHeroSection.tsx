@@ -245,10 +245,10 @@ Let&apos;s Work Together
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <div className="relative">
-              <div className="relative w-48 h-48 xs:w-56 xs:h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-3xl overflow-hidden border-4 border-white/20 shadow-2xl bg-white/5 backdrop-blur-sm">
+              <div className="relative w-48 h-48 xs:w-56 xs:h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-3xl overflow-hidden border-4 border-white/30 shadow-2xl bg-white/10 backdrop-blur-sm">
                 <img
                   src="/Sahil-Ali-Portfolio/images/profile/profile-600w.webp"
-                  alt="Sahil Ali"
+                  alt="Sahil Ali - Professional Profile Photo"
                   className="w-full h-full object-cover"
                   loading="eager"
                   srcSet="/Sahil-Ali-Portfolio/images/profile/profile-300w.webp 300w, /Sahil-Ali-Portfolio/images/profile/profile-600w.webp 600w"
@@ -256,6 +256,7 @@ Let&apos;s Work Together
                   width="600"
                   height="600"
                   decoding="async"
+                  aria-hidden="false"
                 />
               </div>
               
@@ -319,12 +320,18 @@ Let&apos;s Work Together
             Trusted by innovative teams at
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 md:gap-8 lg:gap-12 opacity-70">
-            {['Zomato', 'Ekam', 'Bansal'].map((company) => (
+            {[
+              { name: 'Zomato', color: 'text-red-500' },
+              { name: 'Ekam', color: 'text-blue-500' },
+              { name: 'Bansal', color: 'text-green-600' },
+              { name: 'Arzt', color: 'text-purple-600' },
+              { name: 'AI Generalist', color: 'text-pink-500' }
+            ].map((company) => (
               <div 
-                key={company} 
-                className="text-base sm:text-lg md:text-xl font-medium text-gray-700 dark:text-gray-300"
+                key={company.name} 
+                className={`text-base sm:text-lg md:text-xl font-medium ${company.color} dark:text-opacity-90`}
               >
-                {company}
+                {company.name}
               </div>
             ))}
           </div>

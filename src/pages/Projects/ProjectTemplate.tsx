@@ -1,5 +1,5 @@
 import React from 'react';
-import { FiArrowLeft, FiBarChart2, FiCalendar, FiCode, FiExternalLink, FiImage, FiTag, FiX, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+import { FiBarChart2, FiCalendar, FiCode, FiExternalLink, FiImage, FiTag, FiX, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import LazyImage from '@/components/LazyImage';
 
@@ -243,10 +243,19 @@ const ProjectTemplate: React.FC<ProjectTemplateProps> = ({
                       <div className="relative overflow-hidden rounded-xl shadow-md transition-transform duration-300 group-hover:shadow-xl">
                         <img
                           src={image.src}
-                          alt={image.alt}
+                          alt={image.alt || `Screenshot of ${project.title} project`}
                           className="w-full h-auto object-cover rounded-xl transition-transform duration-500 group-hover:scale-105"
                           loading="lazy"
+                          width="800"
+                          height="600"
+                          decoding="async"
+                          aria-describedby={image.caption ? `caption-${index}` : undefined}
                         />
+                        {image.caption && (
+                          <div id={`caption-${index}`} className="sr-only">
+                            {image.caption}
+                          </div>
+                        )}
                         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                           <div className="text-card-foreground">
                             <div className="flex items-center text-sm mb-1">
