@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Check } from 'lucide-react';
-import { Link } from 'react-router-dom';
 
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/Card';
 import { cn } from '@/utils/cn';
@@ -79,13 +78,19 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         </CardContent>
 
         <CardFooter className="pt-0">
-          <Link 
-            to="contact" 
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              const target = document.getElementById('contact-form');
+              if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }
+            }}
             className="relative z-10 w-full group border border-border/50 hover:border-primary/50 hover:bg-accent/20 transition-all duration-300 overflow-hidden inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md"
           >
             <span className="relative">Get Started</span>
             <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-          </Link>
+          </button>
         </CardFooter>
       </Card>
     </div>

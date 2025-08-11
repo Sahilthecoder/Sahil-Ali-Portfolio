@@ -31,15 +31,6 @@ export const Contact = () => {
 
 
 
-  // Structured data for SEO
-  const structuredData = {
-    '@context': 'https://schema.org',
-    '@type': 'ContactPage',
-    name: 'Contact Sahil Ali',
-    description:
-      'Get in touch with Sahil Ali for professional collaborations, project discussions, and technical consultations.',
-  };
-
   return (
     <div className="min-h-screen w-full bg-background">
       <title>Contact | Sahil Ali</title>
@@ -57,14 +48,14 @@ export const Contact = () => {
       <section className="py-12 md:py-16 px-4 sm:px-6 text-center">
         <div className="max-w-4xl mx-auto">
           <span className="inline-block px-4 py-1.5 text-xs font-medium rounded-full bg-primary/10 text-primary mb-4">
-            Let's Connect
+            Let&apos;s Connect
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-4">
             Start a <span className={gradientText}>Conversation</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Whether it's a project, consultation, or collaboration – I'd love to hear from you! 
-            Let's create something amazing together.
+            Whether it&apos;s a project, consultation, or collaboration – I&apos;d love to hear from you! 
+            Let&apos;s create something amazing together.
           </p>
         </div>
       </section>
@@ -83,7 +74,7 @@ export const Contact = () => {
                       Send Me a Message
                     </h2>
                     <p className="text-muted-foreground">
-                      Fill out the form and I'll get back to you as soon as possible
+                      Fill out the form and I&apos;ll get back to you as soon as possible
                     </p>
                   </div>
                   <ContactForm />

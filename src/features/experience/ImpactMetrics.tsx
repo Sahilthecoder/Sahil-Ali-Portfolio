@@ -1,9 +1,8 @@
 import { motion } from 'framer-motion';
 import { useRef } from 'react';
 import React from 'react';
-import { FiAward } from 'react-icons/fi';
+import { FiAward, FiBookOpen, FiBriefcase, FiCode, FiTrendingUp } from 'react-icons/fi';
 import { SectionHeader } from '@/components/ui/AnimatedSection';
-
 import { useExperienceAnimations } from '@/features/experience/hooks/useExperienceAnimations';
 
 export interface MetricItem {
@@ -14,17 +13,56 @@ export interface MetricItem {
   description?: string;
 }
 
+// Default metrics data
+export const defaultImpactMetrics: MetricItem[] = [
+  {
+    id: '1',
+    value: '4+',
+    label: 'Years of Experience',
+    description: 'Building scalable web applications',
+    icon: <FiBriefcase className="h-6 w-6" />,
+  },
+  {
+    id: '2',
+    value: '15+',
+    label: 'Projects Completed',
+    description: 'For clients across various industries',
+    icon: <FiCode className="h-6 w-6" />,
+  },
+  {
+    id: '3',
+    value: '20+',
+    label: 'Technologies',
+    description: 'In my development stack',
+    icon: <FiTrendingUp className="h-6 w-6" />,
+  },
+  {
+    id: '4',
+    value: '8+',
+    label: 'Awards Won',
+    description: 'For technical excellence',
+    icon: <FiAward className="h-6 w-6" />,
+  },
+  {
+    id: '5',
+    value: '100%',
+    label: 'Client Satisfaction',
+    description: 'Consistently positive feedback',
+    icon: <FiBookOpen className="h-6 w-6" />,
+  },
+];
+
 interface ImpactMetricsProps {
-  metrics: MetricItem[];
+  metrics?: MetricItem[];
   title?: string;
   description?: string;
   className?: string;
 }
 
 export const ImpactMetrics: React.FC<ImpactMetricsProps> = ({
-  metrics,
-  title = 'Impact Metrics',
-  description = 'Key achievements and professional growth',
+  metrics = defaultImpactMetrics,
+  title = 'By The Numbers',
+  description = 'Key metrics that highlight my professional journey and impact',
   className = '',
 }) => {
   const ref = useRef<HTMLDivElement>(null);

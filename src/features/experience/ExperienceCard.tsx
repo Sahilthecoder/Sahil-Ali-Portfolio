@@ -4,6 +4,7 @@ import { cn } from '@/utils/cn';
 import LazyImage from '@/components/LazyImage';
 import { useExperienceAnimations } from '@/features/experience/hooks/useExperienceAnimations';
 import { FiExternalLink, FiAward, FiTrendingUp, FiMapPin, FiCode } from 'react-icons/fi';
+import { experiences as workExperiences } from '@/data/experience';
 
 export interface Experience {
   id: string;
@@ -21,6 +22,7 @@ export interface Experience {
   logo?: string;
   location?: string;
   employmentType?: string;
+  isCurrent?: boolean;
 }
 
 interface ExperienceCardProps {
@@ -28,6 +30,43 @@ interface ExperienceCardProps {
   className?: string;
   isCurrent?: boolean;
 }
+
+// Format experiences data to match Experience type
+export const formatExperiences = () => {
+  return workExperiences.map<Experience>((exp) => ({
+    id: exp.id,
+    role: exp.role,
+    company: exp.company,
+    period: exp.period,
+    description: exp.description || [],
+    technologies: exp.technologies || [],
+    achievements: (exp.achievements || []).map(achievement => ({
+      title: achievement
+    })),
+    logo: exp.logo || '',
+    companyUrl: exp.companyUrl || '',
+    startDate: exp.startDate || '',
+    endDate: exp.endDate || undefined,
+    isCurrent: exp.isCurrent || false,
+    location: exp.location,
+  }));
+};
+
+export const ExperienceList: React.FC = () => {
+  const formattedExperiences = formatExperiences();
+  
+  return (
+    <div className="space-y-8">
+      {formattedExperiences.map((experience) => (
+        <ExperienceCard 
+          key={experience.id} 
+          experience={experience} 
+          isCurrent={experience.isCurrent}
+        />
+      ))}
+    </div>
+  );
+};
 
 export const ExperienceCard: React.FC<ExperienceCardProps> = ({ 
   experience, 
