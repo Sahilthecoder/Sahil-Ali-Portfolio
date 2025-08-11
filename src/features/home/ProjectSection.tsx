@@ -106,8 +106,8 @@ const ProjectSection: React.FC = () => {
             '--swiper-pagination-color': '#3B82F6',
             '--swiper-pagination-bullet-width': '24px',
             '--swiper-pagination-bullet-height': '6px',
-            '--swiper-pagination-bullet-border-radius': '3px',
-          }}
+            '--swiper-pagination-bullet-border-radius': '3px'
+          } as React.CSSProperties}
         >
           {featuredProjects.map((project) => (
             <SwiperSlide key={project.id}>

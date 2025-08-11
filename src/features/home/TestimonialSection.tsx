@@ -84,8 +84,8 @@ const TestimonialSection = () => {
             '--swiper-pagination-color': '#3B82F6',
             '--swiper-pagination-bullet-width': '24px',
             '--swiper-pagination-bullet-height': '6px',
-            '--swiper-pagination-bullet-border-radius': '3px',
-          }}
+            '--swiper-pagination-bullet-border-radius': '3px'
+          } as React.CSSProperties}
         >
           {testimonials.map(({ id, name, role, company, avatar, content, rating, date, project }) => (
             <SwiperSlide key={id}>
