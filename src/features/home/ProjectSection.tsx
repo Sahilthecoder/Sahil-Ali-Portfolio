@@ -29,19 +29,19 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
             decoding="async"
             sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
           />
-          <div className="p-4 sm:p-5 flex-1 flex flex-col">
-            <h3 className="text-xl font-semibold text-foreground mb-1">
+          <div className="p-5 sm:p-6 flex-1 flex flex-col">
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
               {project.title}
             </h3>
-            <p className="text-muted-foreground mb-3 text-sm">{project.subtitle}</p>
-            <p className="text-sm text-gray-600 dark:text-gray-300 mb-3 line-clamp-3 flex-grow">
+            <p className="text-gray-700 dark:text-gray-300 mb-4 text-sm">{project.subtitle}</p>
+            <p className="text-base text-gray-800 dark:text-gray-200 mb-4 line-clamp-3 flex-grow leading-relaxed">
               {project.description}
             </p>
             <div className="flex flex-wrap gap-2 mb-3">
               {project.technologies.map((tech) => (
                 <span
                   key={tech}
-                  className="bg-primary/10 text-primary-contrast/90 px-2 py-1 rounded text-xs font-medium"
+                  className="bg-primary/15 text-primary dark:bg-primary/20 dark:text-primary-light px-2.5 py-1.5 rounded-md text-xs sm:text-sm font-medium whitespace-nowrap"
                 >
                   {tech}
                 </span>
@@ -49,7 +49,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
             </div>
             <time
               dateTime={project.date}
-              className="text-xs text-muted-foreground"
+              className="text-sm text-gray-600 dark:text-gray-400"
             >
               {new Date(project.date).toLocaleDateString(undefined, {
                 year: 'numeric',
@@ -90,8 +90,23 @@ const ProjectSection: React.FC = () => {
           pagination={{
             clickable: true,
             dynamicBullets: true,
+            bulletClass: 'swiper-pagination-bullet',
+            bulletActiveClass: 'swiper-pagination-bullet-active',
+            renderBullet: function (index, className) {
+              return `<span class="${className}" role="button" aria-label="Go to project ${index + 1}" tabindex="0"></span>`;
+            }
           }}
-          className="pb-12 px-1"
+          className="pb-16 px-1"
+          style={{
+            '--swiper-pagination-bullet-size': '12px',
+            '--swiper-pagination-bullet-horizontal-gap': '8px',
+            '--swiper-pagination-bullet-inactive-color': '#9CA3AF',
+            '--swiper-pagination-bullet-inactive-opacity': '0.8',
+            '--swiper-pagination-color': '#3B82F6',
+            '--swiper-pagination-bullet-width': '24px',
+            '--swiper-pagination-bullet-height': '6px',
+            '--swiper-pagination-bullet-border-radius': '3px',
+          }}
         >
           {featuredProjects.map((project) => (
             <SwiperSlide key={project.id}>

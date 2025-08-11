@@ -8,11 +8,7 @@ interface BlogHeroProps {
 }
 
 const BlogHero: React.FC<BlogHeroProps> = ({ postCount = 0 }) => {
-  const title = (
-    <span className="bg-gradient-to-r from-white via-primary-foreground to-accent-foreground bg-clip-text text-transparent">
-      Blog & <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">Articles</span>
-    </span>
-  );
+  const title = 'Blog & Articles';
   
   const subtitle = `Thoughts, tutorials, and insights${postCount > 0 ? ` (${postCount} articles)` : ''}`;
 
@@ -41,7 +37,11 @@ const BlogHero: React.FC<BlogHeroProps> = ({ postCount = 0 }) => {
         title={title}
         subtitle={subtitle}
         ctaText=""
-        className="min-h-[40vh] sm:min-h-[50vh] dark:brightness-100"
+        className="min-h-[40vh] sm:min-h-[50vh]"
+        titleVariant="gradient"
+        height="md"
+        overlay="dark"
+        align="center"
       >
         {ctaContent}
       </Hero>

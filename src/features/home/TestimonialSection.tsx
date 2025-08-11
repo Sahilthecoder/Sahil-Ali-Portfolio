@@ -69,8 +69,23 @@ const TestimonialSection = () => {
           pagination={{
             clickable: true,
             dynamicBullets: true,
+            bulletClass: 'swiper-pagination-bullet',
+            bulletActiveClass: 'swiper-pagination-bullet-active',
+            renderBullet: function (index, className) {
+              return `<span class="${className}" role="button" aria-label="Go to slide ${index + 1}" tabindex="0"></span>`;
+            }
           }}
-          className="pb-12 px-1"
+          className="pb-16 px-1"
+          style={{
+            '--swiper-pagination-bullet-size': '12px',
+            '--swiper-pagination-bullet-horizontal-gap': '8px',
+            '--swiper-pagination-bullet-inactive-color': '#9CA3AF',
+            '--swiper-pagination-bullet-inactive-opacity': '0.8',
+            '--swiper-pagination-color': '#3B82F6',
+            '--swiper-pagination-bullet-width': '24px',
+            '--swiper-pagination-bullet-height': '6px',
+            '--swiper-pagination-bullet-border-radius': '3px',
+          }}
         >
           {testimonials.map(({ id, name, role, company, avatar, content, rating, date, project }) => (
             <SwiperSlide key={id}>
@@ -82,7 +97,7 @@ const TestimonialSection = () => {
                 className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm hover:shadow-xl transition-shadow duration-300 h-full flex flex-col mx-2 sm:mx-0"
                 tabIndex={0}
               >
-                <p className="text-gray-700 dark:text-gray-300 mb-6 flex-grow leading-relaxed">
+                <p className="text-gray-800 dark:text-gray-200 mb-6 flex-grow leading-relaxed text-base">
                   &ldquo;{content}&rdquo;
                 </p>
                 <div className="flex items-center mb-4">
@@ -111,7 +126,7 @@ const TestimonialSection = () => {
                   <div className="sr-only">Rating: {rating} out of 5 stars</div>
                 </div>
                 {project && (
-                  <p className="text-xs text-primary dark:text-blue-400 font-medium mb-2">
+                  <p className="text-sm text-primary-700 dark:text-blue-400 font-medium mb-2">
                     Project: <span className="italic">{project}</span>
                   </p>
                 )}

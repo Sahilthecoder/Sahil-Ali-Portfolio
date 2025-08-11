@@ -7,11 +7,7 @@ import { useSmoothScroll } from '@/hooks/useSmoothScroll';
 const ExperienceHero: React.FC = () => {
   useSmoothScroll();
 
-  const title = (
-    <span className="bg-gradient-to-r from-white via-primary-foreground to-accent-foreground bg-clip-text text-transparent">
-      My <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">Journey</span>
-    </span>
-  );
+  const title = 'My Journey';
 
   const subtitle = 'Exploring the path of growth, learning, and professional development.';
 
@@ -50,11 +46,15 @@ const ExperienceHero: React.FC = () => {
         title={title}
         subtitle={subtitle}
         ctaText=""
-        className="min-h-[40vh] sm:min-h-[50vh] dark:brightness-100"
+        className="min-h-[40vh] sm:min-h-[50vh]"
+        titleVariant="gradient"
+        height="md"
+        overlay="dark"
+        align="center"
       >
         {ctaContent}
       </Hero>
-   </div>
+    </div>
   );
 };
 

@@ -27,12 +27,7 @@ interface ProjectHeroProps {
 const ProjectHero: React.FC<ProjectHeroProps> = ({ metrics }) => {
   useSmoothScroll();
 
-  const title = (
-    <span className="bg-gradient-to-r from-white via-primary-foreground to-accent-foreground bg-clip-text text-transparent">
-      My <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">Projects</span>
-    </span>
-  );
-  
+  const title = 'My Projects';
   const subtitle = metrics ? `A collection of my work and contributions. Showing ${metrics.total} projects.` : 'A collection of my work and contributions.';
 
   const ctaContent = (
@@ -55,13 +50,16 @@ const ProjectHero: React.FC<ProjectHeroProps> = ({ metrics }) => {
   );
 
   return (
-    <div className="relative bg-white dark:bg-gray-900">
+    <div className="relative dark:bg-gray-900">
       <Hero
         title={title}
         subtitle={subtitle}
-        backgroundImages={PROJECT_IMAGES}
         ctaText=""
-        className="min-h-[40vh] sm:min-h-[50vh] dark:brightness-100"
+        backgroundImages={PROJECT_IMAGES}
+        className="min-h-[40vh] sm:min-h-[50vh]"
+        titleVariant="gradient"
+        height="md"
+        overlay="dark"
       >
         {ctaContent}
       </Hero>

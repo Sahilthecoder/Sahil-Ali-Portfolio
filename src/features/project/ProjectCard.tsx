@@ -14,17 +14,18 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick, className }
   return (
     <article 
       className={cn(
-        'backdrop-blur-md bg-white/10 dark:bg-gray-900/30 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 overflow-hidden',
-        'border border-white/20 dark:border-gray-700/50 hover:border-primary/40 group h-full flex flex-col',
+        'backdrop-blur-md bg-white/10 dark:bg-gray-900/50 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 overflow-hidden',
+        'border border-white/30 dark:border-gray-600/70 hover:border-primary/70 group h-full flex flex-col',
         'transform hover:-translate-y-0.5 hover:scale-[1.01] transition-transform duration-200',
         className
       )}
       onClick={onClick}
     >
       <div 
-        className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+        className="block w-full h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
         role="button"
         tabIndex={0}
+        aria-label={`View details for ${title} project`}
         onKeyDown={(e) => {
           if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
@@ -66,7 +67,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick, className }
               {subtitle}
             </p>
           )}
-          <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 mb-3 sm:mb-4 line-clamp-3 leading-relaxed">
+          <p className="text-sm sm:text-base text-gray-700 dark:text-gray-200 mb-3 sm:mb-4 line-clamp-3 leading-relaxed">
             {description}
           </p>
           {technologies.length > 0 && (
@@ -74,13 +75,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick, className }
               {technologies.map((tech) => (
                 <span
                   key={tech}
-                  className="bg-primary/10 text-primary-contrast/90 px-2 py-0.5 sm:py-1 rounded text-[10px] sm:text-xs font-medium whitespace-nowrap"
+                  className="bg-primary/15 text-primary dark:bg-primary/20 dark:text-primary-light px-2.5 py-1 sm:py-1.5 rounded-md text-xs sm:text-sm font-medium whitespace-nowrap"
                 >
                   {tech}
                 </span>
               ))}
               {technologies.length > 3 && (
-                <span className="bg-muted text-muted-foreground px-2 py-0.5 sm:py-1 rounded text-[10px] sm:text-xs font-medium">
+                <span className="bg-muted text-muted-foreground px-2.5 py-1 sm:py-1.5 rounded-md text-xs sm:text-sm font-medium">
                   +{technologies.length - 3}
                 </span>
               )}

@@ -30,44 +30,6 @@ const itemVariants: Variants = {
   },
 };
 
-// RoleCard component is not currently used but kept for future use
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const RoleCard = ({
-  icon: Icon,
-  title,
-  description,
-  iconBg,
-  iconColor,
-}: {
-  icon: React.ElementType;
-  title: string;
-  description: string;
-  iconBg: string;
-  iconColor: string;
-}) => (
-  <motion.div
-    variants={itemVariants}
-    whileHover={{ y: -8, scale: 1.05 }}
-    whileTap={{ scale: 0.98 }}
-    className="group relative p-4 sm:p-6 bg-card border border-border/30 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:border-primary/40 overflow-hidden cursor-pointer active:scale-[0.98]"
-  >
-    <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 group-active:opacity-50 transition-opacity duration-300 pointer-events-none rounded-2xl" />
-
-    <div
-      className={`w-12 h-12 sm:w-16 sm:h-16 ${iconBg} rounded-xl flex items-center justify-center mb-4 sm:mb-6 mx-auto transition-transform duration-300 group-hover:scale-110 group-active:scale-105`}
-    >
-      <Icon className={`w-6 h-6 sm:w-8 sm:h-8 ${iconColor} transition-transform duration-300 group-hover:scale-110`} />
-    </div>
-
-    <div className="relative z-10 text-center">
-      <h3 className="text-xl sm:text-2xl font-semibold text-foreground mb-2 sm:mb-3 group-hover:text-primary transition-colors duration-300">
-        {title}
-      </h3>
-      <p className="text-muted-foreground/90 text-sm sm:text-base leading-relaxed">{description}</p>
-    </div>
-  </motion.div>
-);
-
 const SocialIcons = () => {
   const socialLinks = [
     { 
@@ -134,8 +96,8 @@ const SocialIcons = () => {
 
 const HomeHeroSection = () => {
   return (
-    <section className="relative py-12 sm:py-16 px-4 sm:px-6 bg-gradient-to-br from-slate-50 to-slate-100 dark:from-gray-900 dark:to-gray-950 text-foreground overflow-hidden">
-      {/* Background elements */}
+    <section className="relative py-10 sm:py-16 px-4 sm:px-6 bg-gradient-to-br from-slate-50 to-slate-100 dark:from-gray-900 dark:to-gray-950 text-foreground overflow-hidden">
+      {/* Background shapes */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute -top-1/3 -left-1/4 w-2/3 h-full bg-gradient-to-br from-primary/5 via-primary/10 to-transparent rounded-full filter blur-3xl" />
         <div className="absolute top-1/4 -right-1/4 w-1/2 h-1/2 bg-gradient-to-br from-blue-500/5 to-purple-500/5 rounded-full filter blur-3xl" />
@@ -143,10 +105,10 @@ const HomeHeroSection = () => {
       </div>
 
       <div className="container mx-auto max-w-7xl relative px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-8 sm:gap-10 lg:gap-8">
-          {/* Text Content */}
-          <motion.div 
-            className="w-full lg:w-1/2 text-center lg:text-left"
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-10 sm:gap-14 lg:gap-16">
+          {/* Text content */}
+          <motion.div
+            className="w-full lg:w-1/2 text-center lg:text-left max-w-2xl mx-auto lg:mx-0"
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -156,186 +118,135 @@ const HomeHeroSection = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: '-10% 0px -10% 0px' }}
-              className="max-w-2xl mx-auto lg:mx-0"
             >
-              <motion.div 
-                className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 mb-4 sm:mb-6 text-xs sm:text-sm font-medium text-primary bg-primary/10 rounded-full"
+              <motion.div
+                className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 mb-5 text-xs sm:text-sm font-medium text-primary bg-primary/10 rounded-full"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
               >
                 Welcome to my portfolio
               </motion.div>
-              
+
               <motion.h1
                 variants={itemVariants}
-                className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight tracking-tight text-gray-900 dark:text-white mb-4 sm:mb-6 px-2 sm:px-0"
+                className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight tracking-tight text-gray-900 dark:text-white mb-6"
               >
-                <span className="bg-gradient-to-r from-gray-900 via-gray-800 to-foreground dark:from-white dark:via-primary-foreground dark:to-accent-foreground bg-clip-text text-transparent">
-                  Transforming Data into <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">Business Value</span>
-                </span>
+                Transforming Data into <span className="text-primary">Business Intelligence</span>
               </motion.h1>
-              
+
               <motion.p
                 variants={itemVariants}
-                className="text-lg sm:text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-6 sm:mb-8 max-w-2xl leading-relaxed"
+                className="text-lg sm:text-xl text-gray-700 dark:text-gray-300 mb-8"
               >
-                I&apos;m <span className="font-semibold text-primary">Sahil Ali</span>, a results-driven professional specializing in AI, Data Analytics, and Business Intelligence solutions that drive growth and efficiency.
+                I&apos;m <strong className="text-primary">Sahil Ali</strong>, delivering AI-powered insights that drive growth and efficiency.
               </motion.p>
-              
-              <motion.div 
-                className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8"
+
+              <motion.div
+                className="flex flex-col sm:flex-row gap-4 mb-10"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
               >
-                <Button 
-                  variant="primary" 
-                  size="lg" 
-                  className="w-full sm:w-auto"
+                <Button
+                  variant="primary"
+                  size="lg"
+                  className="w-full sm:w-auto hover:scale-105 transition-transform duration-300"
+                  aria-label="Contact Sahil Ali"
                   onClick={() => {
                     const contactSection = document.getElementById('contact');
-                    if (contactSection) {
-                      contactSection.scrollIntoView({ behavior: 'smooth' });
-                    }
+                    if (contactSection) contactSection.scrollIntoView({ behavior: 'smooth' });
                   }}
                 >
-Let&apos;s Work Together
+                  Let&apos;s Work Together
                 </Button>
-                <Button 
-                  variant="outline" 
-                  size="lg" 
+
+                <Button
+                  variant="outline"
+                  size="lg"
                   className="w-full sm:w-auto"
+                  aria-label="View Sahil Ali's projects"
                   onClick={() => {
                     const projectsSection = document.getElementById('projects');
-                    if (projectsSection) {
-                      projectsSection.scrollIntoView({ behavior: 'smooth' });
-                    }
+                    if (projectsSection) projectsSection.scrollIntoView({ behavior: 'smooth' });
                   }}
                 >
                   View My Work
                 </Button>
               </motion.div>
-              
-              <motion.div 
-                className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-2 sm:gap-4 text-xs sm:text-sm text-gray-500 dark:text-gray-400"
+
+              <motion.div
+                className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 text-xs sm:text-sm text-gray-500 dark:text-gray-400"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
               >
                 <span className="flex items-center">
-                  <span className="w-2 h-2 rounded-full bg-green-500 mr-2"></span>
+                  <span className="w-2 h-2 rounded-full bg-green-500 mr-2" />
                   Available for opportunities
                 </span>
                 <span className="hidden sm:inline">•</span>
                 <span>4+ Years Experience</span>
               </motion.div>
-              
-              <div className="mt-8">
+
+              <div className="mt-10">
                 <SocialIcons />
               </div>
             </motion.div>
           </motion.div>
 
-          {/* Profile Image - Hidden on mobile */}
-          <motion.div 
-            className="hidden md:block w-full lg:w-1/2 relative mt-8 sm:mt-10 lg:mt-0"
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
+          {/* Profile Image */}
+          <motion.div
+            className="hidden lg:flex w-full lg:w-1/2 relative mt-14 sm:mt-20 lg:mt-0 px-4 sm:px-8 lg:px-0 justify-center lg:justify-end"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="relative">
-              <div className="relative w-48 h-48 xs:w-56 xs:h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-3xl overflow-hidden border-4 border-white/30 shadow-2xl bg-white/10 backdrop-blur-sm">
+            <div className="relative max-w-md w-full">
+              <motion.div
+                className="relative mx-auto w-56 h-56 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-3xl overflow-hidden border-4 border-white/30 dark:border-white/20 shadow-lg bg-white/10 dark:bg-gray-800/20 backdrop-blur-sm transition-all duration-300 hover:border-primary/50 hover:shadow-primary/30 hover:shadow-lg"
+                whileHover={{ scale: 1.02 }}
+                transition={{ type: 'spring', stiffness: 300, damping: 15 }}
+              >
                 <img
                   src="/Sahil-Ali-Portfolio/images/profile/profile-600w.webp"
                   alt="Sahil Ali - Professional Profile Photo"
-                  className="w-full h-full object-cover"
-                  loading="eager"
-                  srcSet="/Sahil-Ali-Portfolio/images/profile/profile-300w.webp 300w, /Sahil-Ali-Portfolio/images/profile/profile-600w.webp 600w"
-                  sizes="(max-width: 640px) 300px, 600px"
-                  width="600"
-                  height="600"
+                  className="w-full h-full object-cover transition-transform duration-700 ease-out hover:scale-105"
+                  loading="lazy"
                   decoding="async"
-                  aria-hidden="false"
                 />
-              </div>
-              
-              {/* Decorative elements */}
-              <motion.div 
-                className="absolute -z-10 -top-6 -right-6 w-32 h-32 bg-blue-500/10 rounded-full filter blur-xl"
-                animate={{ 
-                  scale: [1, 1.1, 1],
-                  opacity: [0.2, 0.3, 0.2]
+              </motion.div>
+
+              {/* Subtle floating blobs */}
+              <motion.div
+                className="absolute -z-10 -top-8 -right-8 w-36 h-36 bg-blue-500/10 rounded-full filter blur-xl"
+                animate={{
+                  scale: [1, 1.15, 1],
+                  opacity: [0.15, 0.25, 0.15],
                 }}
-                transition={{ 
+                transition={{
                   duration: 8,
                   repeat: Infinity,
-                  ease: "easeInOut"
+                  ease: 'easeInOut',
                 }}
               />
-              
-              <motion.div 
-                className="absolute -bottom-6 -left-6 w-40 h-40 bg-purple-500/10 rounded-full filter blur-xl -z-10"
-                animate={{ 
+
+              <motion.div
+                className="absolute -z-10 -bottom-8 -left-8 w-44 h-44 bg-purple-500/10 rounded-full filter blur-xl"
+                animate={{
                   scale: [1, 1.2, 1],
-                  opacity: [0.2, 0.3, 0.2]
+                  opacity: [0.15, 0.25, 0.15],
                 }}
-                transition={{ 
+                transition={{
                   duration: 10,
                   repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 1
+                  ease: 'easeInOut',
+                  delay: 1,
                 }}
               />
-              
-              {/* Tech stack badges */}
-              <motion.div 
-                className="absolute -bottom-3 sm:-bottom-4 left-1/2 -translate-x-1/2 flex flex-wrap justify-center gap-1 sm:gap-2 px-1 sm:px-2 w-full"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6 }}
-              >
-                {['AI/ML', 'Data Analytics', 'Business Intelligence'].map((tech) => (
-                  <span 
-                    key={tech}
-                    className="px-2.5 sm:px-3 py-0.5 sm:py-1 text-[10px] xs:text-xs sm:text-xs font-medium bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-full shadow-md border border-gray-100 dark:border-gray-700 whitespace-nowrap"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </motion.div>
             </div>
           </motion.div>
         </div>
-
-        {/* Trusted by section */}
-        <motion.div 
-          className="mt-16 sm:mt-20 md:mt-24 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true, margin: '0px 0px -10% 0px' }}
-        >
-          <p className="text-xs sm:text-sm font-medium text-gray-500 dark:text-gray-400 mb-4 sm:mb-6 uppercase tracking-wider">
-            Trusted by innovative teams at
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 md:gap-8 lg:gap-12 opacity-70">
-            {[
-              { name: 'Zomato', color: 'text-red-500' },
-              { name: 'Ekam', color: 'text-blue-500' },
-              { name: 'Bansal', color: 'text-green-600' },
-              { name: 'Arzt', color: 'text-purple-600' },
-              { name: 'AI Generalist', color: 'text-pink-500' }
-            ].map((company) => (
-              <div 
-                key={company.name} 
-                className={`text-base sm:text-lg md:text-xl font-medium ${company.color} dark:text-opacity-90`}
-              >
-                {company.name}
-              </div>
-            ))}
-          </div>
-        </motion.div>
       </div>
     </section>
   );

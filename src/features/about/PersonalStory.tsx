@@ -154,7 +154,7 @@ const PersonalStory = () => {
         <SectionHeader
           title="Professional Journey"
           subtitle="From finance to data: A story of continuous growth and transformation"
-          className="mb-12 sm:mb-16 text-center"
+          className=""
         />
 
         <div className="relative mt-12 max-w-5xl mx-auto">
@@ -270,8 +270,8 @@ const PersonalStory = () => {
                             animate="open"
                             exit="collapsed"
                             variants={{
-                              open: { opacity: 1, height: 'auto', marginBottom: '1.5rem' },
-                              collapsed: { opacity: 0, height: 0, marginBottom: 0 },
+                              open: { opacity: 1, height: 'auto' },
+                              collapsed: { opacity: 0, height: 0 },
                             }}
                             transition={{ duration: 0.3, ease: 'easeInOut' }}
                             className="px-6 pb-6 -mt-2"
