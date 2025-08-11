@@ -84,7 +84,7 @@ const Experience: React.FC<ExperiencePageProps> = ({ className = '' }) => {
     achievements: (exp.achievements || []).map(achievement => ({
       title: achievement
     })),
-    logo: exp.logo || '/images/company-logo.png',
+    logo: exp.logo || '', // Empty string will trigger text-based fallback in ExperienceCard
     companyUrl: exp.companyUrl || '',
     startDate: exp.startDate || '',
     endDate: exp.endDate || undefined,
