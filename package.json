@@ -8,7 +8,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "dev": "vite",
-    "build": "npm run optimize-images && npm run generate-sitemap && tsc --skipLibCheck && vite build",
+    "build": "npm run optimize-images || echo 'Image optimization failed, continuing with build...' && npm run generate-sitemap && tsc --skipLibCheck && vite build",
     "preview": "vite preview",
     "optimize-images": "node scripts/optimize.mjs",
     "optimize:watch": "nodemon --watch public/images --ext jpg,jpeg,png,webp --exec 'npm run optimize-images'",
