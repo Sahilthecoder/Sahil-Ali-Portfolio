@@ -35,7 +35,7 @@ const StatsSection = () => {
   return (
     <section
       id="stats"
-      className="relative overflow-hidden bg-gradient-to-br from-primary to-primary/80 py-6 sm:py-8 text-background shadow-inner"
+      className="relative overflow-hidden bg-gradient-to-br from-primary to-primary/80 py-8 sm:py-10 text-background shadow-inner"
     >
       <div className="absolute inset-0 -z-10 bg-gradient-to-br from-primary to-primary/70 opacity-80" />
       

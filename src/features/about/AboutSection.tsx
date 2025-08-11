@@ -29,14 +29,14 @@ const skills = [
 
 const AboutSection = () => {
   return (
-    <div className="container mx-auto px-4 py-12 max-w-7xl">
-      <AnimatedSection className="py-16 md:py-24 bg-background">
+    <div className="container mx-auto px-4 max-w-7xl">
+      <AnimatedSection className="py-10 sm:py-14 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div id="about-content">
+          <div id="about-content" className="mb-8 sm:mb-10">
             <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
               About Me
             </h2>
-            <p className="mt-2 text-muted-foreground max-w-2xl">
+            <p className="mt-3 text-muted-foreground max-w-2xl">
               A passionate professional with expertise in data analysis, inventory management, and AI research
             </p>
           </div>

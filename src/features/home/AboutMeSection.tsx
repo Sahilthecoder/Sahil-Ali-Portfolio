@@ -5,7 +5,7 @@ import { FiCode, FiBriefcase, FiTrendingUp } from 'react-icons/fi';
 
 const AboutMeSection = () => {
   return (
-    <section id="about" className="py-12 sm:py-16 bg-background">
+    <section id="about" className="py-10 sm:py-14 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="w-full mb-16 lg:mb-20">
           <SectionHeader

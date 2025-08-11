@@ -20,11 +20,12 @@ const CertificationsGrid = () => {
   , [certificationsData]);
 
   return (
-    <AnimatedSection className="py-16">
+    <AnimatedSection className="py-10 sm:py-14">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           title="Certifications"
           subtitle="Professional credentials and achievements"
+          className="mb-8 sm:mb-10"
         />
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">

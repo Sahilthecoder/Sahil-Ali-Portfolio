@@ -1,6 +1,12 @@
 'use client';
 
 import React from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, A11y } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/autoplay';
 import projects from '../../data/projects';
 import { Project } from '../../data/projects';
 import { SectionHeader } from '@/components/ui/AnimatedSection';
@@ -57,14 +63,16 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
 };
 
 const ProjectSection: React.FC = () => {
-  // Show only featured projects on homepage
-  const featuredProjects = projects.filter((p) => p.featured);
+  // Show only top 3 featured projects on homepage
+  const featuredProjects = projects
+    .filter((p) => p.featured)
+    .slice(0, 3); // Limit to 3 projects
 
   return (
     <section
       id="projects"
       aria-labelledby="projects-heading"
-      className="py-12 sm:py-16 px-4 sm:px-6 max-w-7xl mx-auto scroll-mt-16"
+      className="py-8 sm:py-12 px-4 sm:px-6 max-w-7xl mx-auto scroll-mt-16"
     >
       <div className="w-full mb-12 sm:mb-16 lg:mb-20">
         <SectionHeader
@@ -73,7 +81,29 @@ const ProjectSection: React.FC = () => {
           className="text-left"
         />
       </div>
-      <div className="grid gap-6 sm:gap-8 lg:gap-10 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+
+      <div className="md:hidden">
+        <Swiper
+          modules={[Pagination, A11y]}
+          spaceBetween={24}
+          slidesPerView={1}
+          pagination={{
+            clickable: true,
+            dynamicBullets: true,
+          }}
+          className="pb-12 px-1"
+        >
+          {featuredProjects.map((project) => (
+            <SwiperSlide key={project.id}>
+              <div className="h-full px-2 py-1">
+                <ProjectCard project={project} />
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+      
+      <div className="hidden md:grid gap-6 sm:gap-8 lg:gap-10 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         {featuredProjects.map((project) => (
           <ProjectCard key={project.id} project={project} />
         ))}

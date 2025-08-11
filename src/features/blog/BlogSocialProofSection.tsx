@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { FiStar } from 'react-icons/fi';
 
 export const BlogSocialProofSection = () => {
@@ -24,37 +25,41 @@ export const BlogSocialProofSection = () => {
   ];
 
   return (
-    <section className="py-12 md:py-16 bg-muted/30">
+    <section className="py-10 sm:py-14 bg-muted/30">
       <div className="container mx-auto px-4 max-w-6xl">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-foreground mb-3">What People Are Saying</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Don't just take my word for it. Here's what colleagues and clients have to say about working with me.
+        <div className="text-center mb-8 sm:mb-10">
+          <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-2">What People Are Saying</h2>
+          <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto">
+            Don&apos;t just take my word for it. Here&apos;s what colleagues and clients have to say about working with me.
           </p>
         </div>
         
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-4 sm:gap-5">
           {testimonials.map((testimonial, index) => (
-            <div 
+            <motion.div 
               key={index} 
-              className="bg-card rounded-xl p-6 border border-border hover:shadow-md transition-shadow duration-300"
+              className="bg-card rounded-xl p-4 sm:p-5 border border-border hover:shadow-sm transition-all duration-200"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
             >
-              <div className="flex mb-4">
+              <div className="flex mb-3">
                 {[...Array(testimonial.rating)].map((_, i) => (
                   <FiStar key={i} className="text-yellow-400 w-5 h-5" />
                 ))}
               </div>
-              <p className="text-muted-foreground italic mb-6">"{testimonial.quote}"</p>
-              <div className="flex items-center justify-between pt-4 border-t border-border">
+              <p className="text-sm sm:text-base text-muted-foreground italic mb-4 sm:mb-5">&ldquo;{testimonial.quote}&rdquo;</p>
+              <div className="flex items-center justify-between pt-3 border-t border-border">
                 <div>
                   <p className="font-medium text-foreground">{testimonial.author}</p>
                   <p className="text-sm text-muted-foreground">{testimonial.role}</p>
                 </div>
-                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-primary/10 flex items-center justify-center text-primary text-sm sm:text-base">
                   {testimonial.author.charAt(0)}
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

@@ -134,7 +134,7 @@ const SocialIcons = () => {
 
 const HomeHeroSection = () => {
   return (
-    <section className="relative py-12 sm:py-16 md:py-24 lg:py-32 px-4 sm:px-6 bg-gradient-to-br from-slate-50 to-slate-100 dark:from-gray-900 dark:to-gray-950 text-foreground overflow-hidden">
+    <section className="relative py-12 sm:py-16 px-4 sm:px-6 bg-gradient-to-br from-slate-50 to-slate-100 dark:from-gray-900 dark:to-gray-950 text-foreground overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute -top-1/3 -left-1/4 w-2/3 h-full bg-gradient-to-br from-primary/5 via-primary/10 to-transparent rounded-full filter blur-3xl" />
@@ -171,7 +171,9 @@ const HomeHeroSection = () => {
                 variants={itemVariants}
                 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight tracking-tight text-gray-900 dark:text-white mb-4 sm:mb-6 px-2 sm:px-0"
               >
-                Transforming Data into <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-600">Business Value</span>
+                <span className="bg-gradient-to-r from-gray-900 via-gray-800 to-foreground dark:from-white dark:via-primary-foreground dark:to-accent-foreground bg-clip-text text-transparent">
+                  Transforming Data into <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">Business Value</span>
+                </span>
               </motion.h1>
               
               <motion.p

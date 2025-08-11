@@ -14,9 +14,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick, className }
   return (
     <article 
       className={cn(
-        'backdrop-blur-md bg-white/10 dark:bg-gray-900/30 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden',
+        'backdrop-blur-md bg-white/10 dark:bg-gray-900/30 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 overflow-hidden',
         'border border-white/20 dark:border-gray-700/50 hover:border-primary/40 group h-full flex flex-col',
-        'transform hover:-translate-y-1 hover:scale-[1.02] transition-transform duration-300',
+        'transform hover:-translate-y-0.5 hover:scale-[1.01] transition-transform duration-200',
         className
       )}
       onClick={onClick}
@@ -32,7 +32,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick, className }
           }
         }}
       >
-        <div className="relative w-full h-56 sm:h-64 md:h-72 overflow-hidden">
+        <div className="relative w-full h-48 sm:h-56 md:h-64 overflow-hidden">
           <picture>
             <source
               srcSet={`${image.src.replace(/\.(jpg|jpeg|png)$/, '.webp')} 1x,

@@ -50,7 +50,9 @@ const ContactHero: React.FC = () => {
         <div className="absolute inset-0 flex items-center justify-center px-4 sm:px-6">
           <div className="text-center w-full max-w-5xl mx-auto">
             <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-bold text-white dark:text-white mb-3 sm:mb-4 leading-tight">
-              Get In <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-500">Touch</span>
+              <span className="bg-gradient-to-r from-white via-primary-foreground to-accent-foreground bg-clip-text text-transparent">
+                Get In <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">Touch</span>
+              </span>
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-gray-200 dark:text-gray-200 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed">
               I&apos;m always open to discussing new projects, creative ideas, or opportunities

@@ -31,10 +31,10 @@ export const BlogPortfolioSection = () => {
   const { fadeInUp, staggerContainer, hoverScale } = useBlogAnimation();
 
   return (
-    <section className="py-12 md:py-16 bg-background">
+    <section className="py-10 sm:py-14 bg-background">
       <div className="container mx-auto px-4 max-w-4xl">
         <motion.h2 
-          className="text-3xl font-bold text-center mb-12 text-foreground"
+          className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-10 text-foreground"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -43,23 +43,23 @@ export const BlogPortfolioSection = () => {
           Featured Projects
         </motion.h2>
         <motion.div 
-          className="space-y-6"
+          className="space-y-4 sm:space-y-5"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           variants={staggerContainer}
         >
-          {projects.map((project, index) => (
+          {projects.map((project) => (
             <motion.div 
               key={project.id} 
-              className="group relative p-6 bg-card rounded-lg border border-border hover:border-primary/30 transition-colors duration-300"
+              className="group relative p-4 sm:p-5 bg-card rounded-lg border border-border hover:border-primary/30 transition-colors duration-200"
               variants={fadeInUp}
               whileHover={hoverScale}
               transition={{ duration: 0.3 }}
             >
-              <div className="flex flex-col md:flex-row md:items-start justify-between gap-4">
+              <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
                 <div className="flex-1">
-                  <h3 className="text-xl font-semibold text-foreground mb-2 flex items-center">
+                  <h3 className="text-lg sm:text-xl font-semibold text-foreground mb-1.5 flex items-center">
                     {project.title}
                     <a 
                       href={project.projectUrl}
@@ -69,7 +69,7 @@ export const BlogPortfolioSection = () => {
                       <FiExternalLink size={18} />
                     </a>
                   </h3>
-                  <p className="text-muted-foreground mb-4">{project.description}</p>
+                  <p className="text-muted-foreground mb-3 text-sm sm:text-base">{project.description}</p>
                   <div className="flex flex-wrap gap-2">
                     {project.tags.map((tag) => (
                       <span 

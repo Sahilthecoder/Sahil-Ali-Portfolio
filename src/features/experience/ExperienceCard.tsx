@@ -56,7 +56,7 @@ export const ExperienceCard: React.FC<ExperienceCardProps> = ({ experience, clas
         className
       )}
     >
-      <div className="p-6">
+      <div className="p-5 sm:p-6">
         <motion.header variants={itemVariants} custom={0} className="flex items-start justify-between">
           <div className="flex items-start space-x-4">
             {experience.logo && (

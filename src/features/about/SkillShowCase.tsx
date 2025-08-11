@@ -95,11 +95,12 @@ const SkillsShowcase = () => {
   };
 
   return (
-    <AnimatedSection className="py-16 bg-muted/30">
+    <AnimatedSection className="py-10 sm:py-14">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           title="My Expertise Areas"
           subtitle="Specialized skills and knowledge across multiple domains"
+          className="mb-8 sm:mb-10"
         />
 
         <motion.div
@@ -157,7 +158,7 @@ const SkillsShowcase = () => {
                 And many more skills...
               </h3>
               <p className="text-muted-foreground max-w-2xl mx-auto mb-6">
-                I'm constantly learning and expanding my skill set. Here are some additional tools
+                I&apos;m constantly learning and expanding my skill set. Here are some additional tools
                 and technologies I work with:
               </p>
               <div className="flex flex-wrap justify-center gap-2">

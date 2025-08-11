@@ -28,14 +28,16 @@ const ExperienceHero: React.FC = () => {
         title=""
         subtitle=""
         backgroundImages={randomImages}
-        className="min-h-[50vh] sm:min-h-[60vh] dark:brightness-100"
+        className="min-h-[40vh] sm:min-h-[50vh] dark:brightness-100"
       />
       {/* Gradient overlay for better text visibility */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60 dark:from-black/70 dark:via-black/50 dark:to-black/70">
         <div className="absolute inset-0 flex items-center justify-center px-4 sm:px-6">
           <div className="text-center w-full max-w-5xl mx-auto">
             <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-bold text-white dark:text-white mb-3 sm:mb-4 leading-tight">
-              Professional <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-500">Journey</span>
+              <span className="bg-gradient-to-r from-white via-primary-foreground to-accent-foreground bg-clip-text text-transparent">
+                Professional <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">Journey</span>
+              </span>
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-gray-200 dark:text-gray-200 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed">
               Exploring my career path, roles, and the impact I&apos;ve made along the way

@@ -30,24 +30,31 @@ export function useContactForm(): UseContactFormReturn {
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [formError, setFormError] = useState<string | null>(null);
 
-  const handleFormSubmit = async (): Promise<void> => {
+  const handleFormSubmit = async (values: ContactFormState): Promise<void> => {
     try {
       setFormError(null);
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      
+      const response = await fetch('https://formspree.io/f/xpwrjjqj', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: values.name,
+          email: values.email,
+          subject: values.subject,
+          message: values.message
+        }),
+      });
 
-      // If you have an actual API endpoint, replace the above with:
-      // const response = await fetch('/api/contact', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify(values),
-      // });
-      // if (!response.ok) throw new Error('Failed to submit form');
+      if (!response.ok) {
+        throw new Error('Failed to submit form');
+      }
 
       setSubmitSuccess(true);
     } catch (error) {
       console.error('Form submission error:', error);
-      setFormError('Failed to send message. Please try again later.');
+      setFormError('Failed to send message. Please try again later or contact me directly at sahilsheikhali12@gmail.com');
       throw error;
     }
   };

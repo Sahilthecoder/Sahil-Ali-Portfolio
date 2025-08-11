@@ -46,7 +46,7 @@ export const Projects: React.FC<ProjectPageProps> = ({ className }) => {
         <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
           <ProjectHero />
 
-          <main className="container mx-auto px-4 py-12 space-y-12">
+          <main className="container mx-auto px-4 py-10 sm:py-14 space-y-10">
             {/* Header & Filters */}
             <div id="projects" className="scroll-mt-20">
               <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-8">

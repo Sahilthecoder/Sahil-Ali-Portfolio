@@ -106,11 +106,11 @@ const LazyImage: React.FC<LazyImageProps> = ({
   return (
     <div
       ref={imageRef}
-      className={`relative ${className}`}
+      className={`relative inline-block ${className}`}
       style={{
-        width: width || '100%',
+        width: width || 'auto',
         height: height || 'auto',
-        minHeight: height ? '1px' : undefined
+        lineHeight: 0, // Removes extra space below the image
       }}
     >
       {isVisible ? (
@@ -119,9 +119,15 @@ const LazyImage: React.FC<LazyImageProps> = ({
             src={!error ? src : placeholder || randomFallback}
             alt={alt}
             loading="lazy"
-            className={`w-full h-full object-cover transition-opacity duration-300 ${
+            className={`block w-full h-full object-cover transition-opacity duration-300 ${
               hasLoaded ? 'opacity-100' : 'opacity-0'
             }`}
+            style={{
+              width: width || '100%',
+              height: height || '100%',
+              maxWidth: '100%',
+              maxHeight: '100%',
+            }}
             onLoad={() => setHasLoaded(true)}
             onError={() => setError(true)}
             initial={{ opacity: 0 }}
@@ -133,7 +139,9 @@ const LazyImage: React.FC<LazyImageProps> = ({
           {!hasLoaded && <Loader />}
         </>
       ) : (
-        <Loader />
+        <div className="w-full h-full">
+          <Loader />
+        </div>
       )}
     </div>
   );

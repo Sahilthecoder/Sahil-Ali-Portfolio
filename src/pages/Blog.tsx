@@ -36,7 +36,7 @@ const Blog = () => {
 
   return (
     <motion.main 
-      className="w-full" 
+      className="w-full py-6 sm:py-8" 
       initial="hidden"
       animate="visible"
       exit="exit"
@@ -44,7 +44,7 @@ const Blog = () => {
         hidden: { opacity: 0 },
         visible: { 
           opacity: 1,
-          transition: { staggerChildren: 0.1 }
+          transition: { staggerChildren: 0.08 }
         },
         exit: { opacity: 0 }
       }}

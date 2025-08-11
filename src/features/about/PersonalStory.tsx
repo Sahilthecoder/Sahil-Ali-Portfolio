@@ -89,11 +89,12 @@ const PersonalStory = () => {
   };
 
   return (
-    <AnimatedSection className="py-16 bg-muted/10">
+    <AnimatedSection className="py-10 sm:py-14">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
-          title="My Professional Journey"
-          subtitle="Key milestones and experiences that shaped my career"
+          title="My Journey"
+          subtitle="A timeline of my professional growth and key milestones"
+          className="mb-8 sm:mb-10"
         />
 
         <div className="mt-12 max-w-3xl mx-auto">

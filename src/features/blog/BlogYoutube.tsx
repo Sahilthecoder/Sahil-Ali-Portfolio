@@ -155,34 +155,33 @@ const BlogYoutube: React.FC<BlogYoutubeProps> = ({
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          className="text-center mb-12"
-          variants={fadeIn('up', 0.2)}
+          className="text-center mb-8 sm:mb-10"
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-50px" }}
+          variants={fadeIn('down', 0.1)}
         >
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-red-500 to-red-700 text-primary-foreground mb-4">
-            <FaYoutube className="w-7 h-7" />
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
+          <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-2 sm:mb-3">
             {title}
           </h2>
           {subtitle && (
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">{subtitle}</p>
+            <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto">
+              {subtitle}
+            </p>
           )}
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12"
-          variants={staggerContainer(0.1, 0.2)}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 mb-8 sm:mb-10"
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, margin: "-50px" }}
+          variants={staggerContainer(0.2, 0.1)}
         >
           {videos.map((video, index) => (
             <motion.article
               key={video.id}
-              className="overflow-hidden rounded-xl shadow-lg bg-card text-card-foreground transition-all duration-300 hover:shadow-xl hover:-translate-y-1 h-full flex flex-col border border-border"
+              className="group relative overflow-hidden rounded-lg shadow-sm hover:shadow-md transition-all duration-200"
               variants={fadeIn('up', 0.1 * index)}
               whileHover={{ y: -5 }}
             >
@@ -212,22 +211,17 @@ const BlogYoutube: React.FC<BlogYoutubeProps> = ({
                 </span>
               </div>
 
-              <div className="p-4 flex-1 flex flex-col">
-                <h3 className="text-lg font-semibold text-foreground mb-2 line-clamp-2">
+              <div className="p-4 sm:p-5">
+                <h3 className="text-base sm:text-lg font-semibold text-foreground mb-1.5 line-clamp-2">
                   {video.title}
                 </h3>
-                <div className="flex items-center justify-between text-xs text-muted-foreground mb-3">
+                <p className="text-sm text-muted-foreground mb-3 line-clamp-2">
+                  {video.description}
+                </p>
+                <div className="flex items-center justify-between text-xs text-muted-foreground mb-2">
                   <span>{formatViewCount(video.viewCount)}</span>
-                  <span className="mx-2">•</span>
                   <span>{formatDate(video.publishedAt)}</span>
                 </div>
-
-                {video.description && (
-                  <p className="text-sm text-muted-foreground mb-4 line-clamp-2 flex-grow">
-                    {video.description}
-                  </p>
-                )}
-
                 <a
                   href={video.videoUrl}
                   target="_blank"

@@ -96,17 +96,14 @@ export const BlogAboutMe: React.FC<Partial<BlogAboutMeProps>> = ({
   imageAlt = aboutMeData.imageAlt,
 }) => {
   return (
-    <section 
-      id={id}
-      className={`py-12 md:py-16 bg-background ${className}`}
-    >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+    <section id={id} className={`py-12 sm:py-16 ${className}`}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-center text-center lg:text-left"
-          variants={staggerContainer(0.1, 0.2)}
+          variants={staggerContainer(0.08, 0.15)}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, margin: '-80px' }}
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center"
         >
           {/* Image Section */}
           {imageUrl && (

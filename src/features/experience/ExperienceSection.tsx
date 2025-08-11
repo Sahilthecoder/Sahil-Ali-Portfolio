@@ -48,9 +48,9 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = ({
   if (!experiences || experiences.length === 0) return null;
 
   return (
-    <section className="py-12 bg-background">
+    <section className="py-10 sm:py-14 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div ref={ref} initial="hidden" animate={controls} className={`mt-16 ${className}`}>
+        <motion.div ref={ref} initial="hidden" animate={controls} className={`mt-8 sm:mt-10 ${className}`}>
           <SectionHeader
             title={title}
             subtitle={subtitle}

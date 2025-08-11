@@ -9,13 +9,13 @@ import educationData from '@/data/educationData';
 
 interface EducationItem {
   id: string;
-  degree: string;
   institution: string;
   fieldOfStudy: string;
   startDate: string;
   endDate: string;
   location: string;
-  description?: string | string[];
+  description: string[];
+  degree?: string;
   gpa?: string;
   achievements?: string[];
   logo?: string;
@@ -29,8 +29,19 @@ interface EducationSectionProps {
   useDefaultData?: boolean;
 }
 
+// Import the Education type from experience.types
+import type { Education } from '@/types/experience.types';
+
+// Alias the Education type for clarity
+interface EducationDataItem extends Omit<Education, 'description'> {
+  description: string | string[];
+  gpa?: string;
+  achievements?: string[];
+  logo?: string;
+}
+
 // Map the education data to match the EducationItem interface
-const mapEducationData = (data: any[]): EducationItem[] => {
+const mapEducationData = (data: EducationDataItem[]): EducationItem[] => {
   return data.map((edu) => {
     // Extract start and end years from the period string
     const periodMatch = edu.period.match(/(\d{4})/g);
@@ -40,17 +51,25 @@ const mapEducationData = (data: any[]): EducationItem[] => {
     // Handle description which could be a string or array of strings
     const description = Array.isArray(edu.description) ? edu.description : [edu.description];
 
-    return {
+    // Create the base education item
+    const educationItem: EducationItem = {
       id: edu.id,
-      degree: edu.degree,
       institution: edu.institution,
       fieldOfStudy: edu.fieldOfStudy,
       startDate: startDate,
       endDate: endDate,
       location: edu.location || '',
-      description,
-      institutionUrl: edu.institutionUrl,
+      description: description as string[],
     };
+
+    // Add optional fields if they exist
+    if (edu.degree) educationItem.degree = edu.degree;
+    if (edu.institutionUrl) educationItem.institutionUrl = edu.institutionUrl;
+    if ('gpa' in edu) educationItem.gpa = edu.gpa;
+    if ('achievements' in edu) educationItem.achievements = edu.achievements;
+    if ('logo' in edu) educationItem.logo = edu.logo;
+
+    return educationItem;
   });
 };
 
@@ -69,11 +88,12 @@ const EducationSection: React.FC<EducationSectionProps> = ({
   }
 
   return (
-    <AnimatedSection className={`py-16 ${className}`}>
+    <AnimatedSection className={`py-10 sm:py-14 ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           title={title}
           subtitle="My academic background and professional certifications"
+          className="mb-8 sm:mb-10"
         />
 
         <motion.div
