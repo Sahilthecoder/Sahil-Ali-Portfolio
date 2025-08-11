@@ -237,9 +237,9 @@ Let&apos;s Work Together
             </motion.div>
           </motion.div>
 
-          {/* Profile Image */}
+          {/* Profile Image - Hidden on mobile */}
           <motion.div 
-            className="w-full lg:w-1/2 flex justify-center relative mt-8 sm:mt-10 lg:mt-0"
+            className="hidden md:block w-full lg:w-1/2 relative mt-8 sm:mt-10 lg:mt-0"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}

@@ -43,11 +43,23 @@ export default defineConfig(({ mode }) => {
             framer: ['framer-motion'],
             icons: ['react-icons']
           },
-          chunkFileNames: 'assets/[name]-[hash].js',
-          entryFileNames: 'assets/[name]-[hash].js',
+          entryFileNames: 'assets/[name].[hash].js',
+          chunkFileNames: 'assets/[name].[hash].js',
           assetFileNames: (assetInfo) => {
-            const ext = assetInfo.name?.split('.').pop()?.toLowerCase() || '';
-            if (ext === 'css') return 'assets/css/[name]-[hash][extname]';
+            const info = assetInfo.name?.split('.');
+            const ext = (info?.[info.length - 1] || '').toLowerCase();
+            
+            // Keep service worker at the root with its exact name
+            if (assetInfo.name === 'service-worker.js') {
+              return '[name][extname]';
+            }
+            
+            if (ext === 'css') {
+              return 'assets/css/[name]-[hash][extname]';
+            }
+            if (ext === 'js') {
+              return 'assets/[name].[hash].js';
+            }
             if (['png', 'jpg', 'jpeg', 'gif', 'svg', 'webp'].includes(ext)) {
               return 'assets/images/[name]-[hash][extname]';
             }

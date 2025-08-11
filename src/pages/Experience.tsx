@@ -1,5 +1,4 @@
 import React, { lazy, Suspense } from 'react';
-import { motion } from 'framer-motion';
 import {
   FiAward,
   FiBookOpen,
@@ -11,6 +10,7 @@ import { experiences as workExperiences } from '../data/experience';
 import { skills } from '../data/skills';
 import { ImpactMetrics } from '../features/experience/ImpactMetrics';
 import { SkillsMatrix } from '../features/skills';
+import type { Experience } from '../features/experience/ExperienceCard';
 
 // Lazy load components
 const ExperienceSection = lazy(() => import('../features/experience/ExperienceSection'));
@@ -72,20 +72,24 @@ const ErrorBoundary: React.FC<{ children: React.ReactNode }> = ({ children }) =>
 };
 
 const Experience: React.FC<ExperiencePageProps> = ({ className = '' }) => {
-  // Format experiences data to match expected schema
-  const formattedExperiences = workExperiences.map((exp) => ({
+  // Format experiences data to match Experience type
+  const formattedExperiences = workExperiences.map<Experience>((exp) => ({
     id: exp.id,
     role: exp.role,
     company: exp.company,
     period: exp.period,
-    description: Array.isArray(exp.description) ? exp.description : [exp.description || ''],
+    description: exp.description || [],
     technologies: exp.technologies || [],
-    achievements: exp.achievements || [],
+    // Convert string[] achievements to the expected object format
+    achievements: (exp.achievements || []).map(achievement => ({
+      title: achievement
+    })),
     logo: exp.logo || '/images/company-logo.png',
     companyUrl: exp.companyUrl || '',
-    startDate: exp.startDate,
-    endDate: exp.endDate,
+    startDate: exp.startDate || '',
+    endDate: exp.endDate || undefined,
     isCurrent: exp.isCurrent || false,
+    location: exp.location,
   }));
 
   const impactMetrics = [
@@ -143,41 +147,32 @@ description: 'In my development stack',
             <ExperienceHeroSection />
           </ErrorBoundary>
 
-          <main className="container mx-auto px-4 py-12 max-w-7xl space-y-20">
-            <section>
+          <main className="container mx-auto px-4 max-w-7xl">
+            <section className="pt-8 pb-12">
               <ImpactMetrics
                 metrics={impactMetrics}
                 title="By The Numbers"
                 description="Key metrics that highlight my professional journey and impact"
-                className="mb-16"
               />
             </section>
 
-            <section id="experience-timeline">
+            <section id="experience-timeline" className="py-8 border-t border-border/50">
               <ErrorBoundary>
                 <ExperienceSection
                   experiences={formattedExperiences}
                   title="Work Experience"
                   subtitle="My professional work history and key contributions"
                   showAchievements={false}
-                  className="mb-16"
                 />
               </ErrorBoundary>
             </section>
 
-            <section id="skills-matrix" className="py-12">
-              <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
-                  Technical Skills
-                </h2>
-                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                  A visual representation of my technical expertise across various domains
-                </p>
-              </div>
+            <section id="experience-timeline" className="py-8 border-t border-border/50">
               <ErrorBoundary>
-                <SkillsMatrix 
-                  skills={skills} 
-                  className="max-w-6xl mx-auto"
+                <SkillsMatrix
+                  skills={skills}
+                  title="Technical Skills"
+                  subtitle="A visual representation of my technical expertise across various domains"
                 />
               </ErrorBoundary>
             </section>

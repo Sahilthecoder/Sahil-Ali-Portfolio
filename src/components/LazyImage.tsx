@@ -24,8 +24,7 @@ const LazyImage: React.FC<LazyImageProps> = ({
   className = '',
   background = false,
   width,
-  height,
-  placeholder
+  height
 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -33,10 +32,8 @@ const LazyImage: React.FC<LazyImageProps> = ({
   const imageRef = useRef<HTMLDivElement>(null);
   const observerRef = useRef<IntersectionObserver | null>(null);
 
-  // Generate random Unsplash fallback image
-  const randomFallback = `https://source.unsplash.com/random/800x600?sig=${Math.floor(
-    Math.random() * 1000
-  )}`;
+  // Simple fallback to a solid color
+  const fallbackSrc = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MDAiIGhlaWdodD0iNjAwIiB2aWV3Qm94PSIwIDAgODAwIDYwMCI+CiAgPHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iI2YzZjRmNiIvPgogIDx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiA2YzcyOGQiPkltYWdlIG5vdCBhdmFpbGFibGU8L3RleHQ+Cjwvc3ZnPg==';
 
   // Intersection Observer setup
   useEffect(() => {
@@ -62,6 +59,15 @@ const LazyImage: React.FC<LazyImageProps> = ({
     };
   }, []);
 
+  // Handle image load error
+  const handleError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    const img = e.target as HTMLImageElement;
+    if (!img.src.startsWith('data:')) {
+      img.src = fallbackSrc;
+      setError(true);
+    }
+  };
+
   // Preload image when visible
   useEffect(() => {
     let isMounted = true;
@@ -77,6 +83,9 @@ const LazyImage: React.FC<LazyImageProps> = ({
     };
   }, [isVisible, src]);
 
+  // Use the fallback source if there was an error
+  const imageSource = error ? fallbackSrc : src;
+
   // Background image variant
   if (background) {
     return (
@@ -88,13 +97,11 @@ const LazyImage: React.FC<LazyImageProps> = ({
         style={{
           width: width || '100%',
           height: height || '100%',
+          backgroundImage: `url(${isVisible && !error ? src : fallbackSrc})`,
+          backgroundColor: isVisible && !error ? 'transparent' : '#f3f4f6',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          backgroundImage:
-            isVisible && !error
-              ? `url(${src})`
-              : `url(${placeholder || randomFallback})`,
-          backgroundColor: '#f3f4f6'
+          backgroundRepeat: 'no-repeat'
         }}
       >
         {!hasLoaded && isVisible && !error && <Loader />}
@@ -116,7 +123,7 @@ const LazyImage: React.FC<LazyImageProps> = ({
       {isVisible ? (
         <>
           <motion.img
-            src={!error ? src : placeholder || randomFallback}
+            src={imageSource}
             alt={alt}
             loading="lazy"
             className={`block w-full h-full object-cover transition-opacity duration-300 ${
@@ -129,7 +136,7 @@ const LazyImage: React.FC<LazyImageProps> = ({
               maxHeight: '100%',
             }}
             onLoad={() => setHasLoaded(true)}
-            onError={() => setError(true)}
+            onError={handleError}
             initial={{ opacity: 0 }}
             animate={{ opacity: hasLoaded ? 1 : 0 }}
             transition={{ duration: 0.3 }}

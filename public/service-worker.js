@@ -1,9 +1,11 @@
 const CACHE_NAME = 'portfolio-cache-v1';
+const BASE_URL = self.location.pathname.replace(/\/service-worker\.js$/, '');
+
 const ASSETS_TO_CACHE = [
-  '/',
-  '/index.html',
-  '/assets/index.css',
-  '/assets/index.js',
+  `${BASE_URL}/`,
+  `${BASE_URL}/index.html`,
+  `${BASE_URL}/assets/index.css`,
+  `${BASE_URL}/assets/index.js`,
   // Add other critical assets here
 ];
 

@@ -40,7 +40,8 @@ export interface Skill {
   name: string;
   level: number;
   category: string;
-  icon?: string;
+  icon: string;
+  iconClass?: string;
 }
 
 export interface Project {

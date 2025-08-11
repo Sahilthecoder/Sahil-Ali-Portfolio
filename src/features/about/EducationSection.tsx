@@ -3,7 +3,6 @@ import { useRef } from 'react';
 import { FiAward, FiCalendar, FiExternalLink, FiMapPin } from 'react-icons/fi';
 
 import { AnimatedSection, SectionHeader } from '@/components/ui/AnimatedSection';
-import { Button } from '@/components/ui/Button';
 import { ThemeCard } from '@/components/ui/ThemeCard';
 import educationData from '@/data/educationData';
 
@@ -199,7 +198,7 @@ const EducationSection: React.FC<EducationSectionProps> = ({
                   </div>
                 )}
 
-                {edu.gpa && (
+                 {edu.gpa && (
                   <div className="mt-4 pt-4 border-t border-border">
                     <p className="text-sm font-medium text-muted-foreground">
                       GPA: <span className="text-foreground">{edu.gpa}</span>
@@ -209,27 +208,6 @@ const EducationSection: React.FC<EducationSectionProps> = ({
               </ThemeCard>
             </motion.div>
           ))}
-        </motion.div>
-
-        <motion.div
-          className="mt-12 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-          <p className="text-muted-foreground mb-6">
-            Want to see more details about my education and certifications?
-          </p>
-          <Button
-            variant="outline"
-            onClick={() => {
-              // Scroll to certifications section
-              document.getElementById('certifications')?.scrollIntoView({ behavior: 'smooth' });
-            }}
-          >
-            View My Certifications
-          </Button>
         </motion.div>
       </div>
     </AnimatedSection>

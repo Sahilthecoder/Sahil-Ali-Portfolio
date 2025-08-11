@@ -2,10 +2,13 @@
 export function registerServiceWorker() {
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
+      const baseUrl = import.meta.env.BASE_URL || '/';
+      const swUrl = `${baseUrl}service-worker.js`;
+      
       navigator.serviceWorker
-        .register('/service-worker.js')
+        .register(swUrl, { scope: baseUrl })
         .then((registration) => {
-          console.log('ServiceWorker registration successful');
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
         })
         .catch((error) => {
           console.error('ServiceWorker registration failed: ', error);

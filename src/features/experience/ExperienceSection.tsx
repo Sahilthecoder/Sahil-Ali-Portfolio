@@ -110,7 +110,7 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = ({
                         {experience.achievements.map((achievement, idx) => (
                           <li key={idx} className="flex items-start gap-3">
                             <FiCheckCircle className="text-primary-500 w-5 h-5 mt-1" />
-                            <p className="text-muted-foreground">{achievement}</p>
+                            <p className="text-muted-foreground">{achievement.title}</p>
                           </li>
                         ))}
                       </ul>
