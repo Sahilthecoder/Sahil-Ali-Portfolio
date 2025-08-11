@@ -54,7 +54,7 @@ export default function ProjectModal({
           onClick={onClose}
         >
           <motion.div
-            className="relative w-full max-w-6xl max-h-[90vh] bg-white/80 dark:bg-gray-900/90 backdrop-blur-2xl rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row border-2 border-white/40 dark:border-gray-700/50"
+            className="relative w-full max-w-7xl max-h-[90vh] bg-white/80 dark:bg-gray-900/90 backdrop-blur-2xl rounded-3xl shadow-2xl overflow-hidden flex flex-col lg:flex-row border-2 border-white/40 dark:border-gray-700/50"
             initial="hidden"
             animate="visible"
             exit="exit"
@@ -73,17 +73,18 @@ export default function ProjectModal({
             {/* Content Layout */}
             <div className="flex flex-col lg:grid lg:grid-cols-2 h-full overflow-y-auto">
               {/* Left - Image */}
-              <div className="relative w-full h-56 sm:h-72 lg:h-full">
+              <div className="relative w-full lg:w-1/2 h-64 sm:h-80 lg:h-auto overflow-hidden">
                 <motion.img
                   key={project.image.src}
                   src={project.image.src}
                   alt={project.image.alt || project.title}
-                  className="w-full h-full object-cover"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.4 }}
+                  className="w-full h-full object-cover object-center"
+                  initial={{ opacity: 0, scale: 1.05 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, ease: 'easeOut' }}
                   loading="lazy"
                   decoding="async"
+                  sizes="(max-width: 1023px) 100vw, 50vw"
                 />
               </div>
 

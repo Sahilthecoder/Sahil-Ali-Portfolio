@@ -11,15 +11,16 @@ import projects from '../../data/projects';
 import { Project } from '../../data/projects';
 import { SectionHeader } from '@/components/ui/AnimatedSection';
 
+// Base URL for GitHub Pages deployment
+const baseUrl = process.env.NODE_ENV === 'production' ? '/Sahil-Ali-Portfolio' : '';
+
 const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
   return (
     <article className="bg-white dark:bg-gray-800 rounded-xl shadow-sm sm:shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden border border-border h-full flex flex-col">
       <a
-        href={project.links[0]?.url ?? '#'}
+        href={`${baseUrl}/#/projects/${project.id}`}
         className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
         aria-label={`View details of project ${project.title}`}
-        target="_blank"
-        rel="noopener noreferrer"
       >
           <img
             src={project.image.src}
