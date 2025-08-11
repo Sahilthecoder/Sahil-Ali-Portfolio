@@ -1,6 +1,8 @@
-import React, { useMemo, useEffect, useRef } from 'react';
+import React from 'react';
 import Hero from '@/components/common/Hero';
 import { Button } from '@/components/ui/Button';
+import { FiArrowRight } from 'react-icons/fi';
+import { useSmoothScroll } from '@/hooks/useSmoothScroll';
 
 // Collection of high-quality project-related images from Unsplash, Pexels, and Kaboompics
 const PROJECT_IMAGES = [
@@ -23,92 +25,46 @@ interface ProjectHeroProps {
 }
 
 const ProjectHero: React.FC<ProjectHeroProps> = ({ metrics }) => {
-  const buttonRef = useRef<HTMLAnchorElement>(null);
+  useSmoothScroll();
+
+  const title = (
+    <span className="bg-gradient-to-r from-white via-primary-foreground to-accent-foreground bg-clip-text text-transparent">
+      My <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">Projects</span>
+    </span>
+  );
   
-  // Randomly select 2 different images from the collection
-  const randomImages = useMemo(() => {
-    const shuffled = [...PROJECT_IMAGES].sort(() => 0.5 - Math.random());
-    return shuffled.slice(0, 2);
-  }, []);
+  const subtitle = metrics ? `A collection of my work and contributions. Showing ${metrics.total} projects.` : 'A collection of my work and contributions.';
 
-  useEffect(() => {
-    const button = buttonRef.current;
-    if (!button) return;
-
-    const handleClick = (e: MouseEvent) => {
-      e.preventDefault();
-      const targetId = button.getAttribute('href');
-      if (!targetId || !targetId.startsWith('#')) return;
-
-      const targetElement = document.querySelector(targetId);
-      if (!targetElement) return;
-
-      const header = document.querySelector('header');
-      const headerHeight = header?.offsetHeight || 80;
-      const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-      const offsetPosition = elementPosition - headerHeight - 20;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-
-      // Update URL
-      window.history.pushState(null, '', targetId);
-    };
-
-    button.addEventListener('click', handleClick);
-    return () => {
-      button.removeEventListener('click', handleClick);
-    };
-  }, []);
+  const ctaContent = (
+    <div className="flex flex-col xs:flex-row justify-center gap-3 sm:gap-4 max-w-md mx-auto">
+      <Button
+        variant="primary"
+        size="lg"
+        className="w-full xs:w-auto px-4 sm:px-6 py-2.5 sm:py-3 text-base sm:text-lg font-medium transition-all duration-200 ease-out hover:scale-[1.02] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary/50"
+        onClick={() => {
+          const target = document.getElementById('projects-grid');
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }}
+      >
+        View Projects
+        <FiArrowRight className="ml-1.5 sm:ml-2 w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform duration-200 group-hover:translate-x-1" />
+      </Button>
+    </div>
+  );
 
   return (
     <div className="relative bg-white dark:bg-gray-900">
       <Hero
-        title=""
-        subtitle=""
-        backgroundImages={randomImages}
+        title={title}
+        subtitle={subtitle}
+        backgroundImages={PROJECT_IMAGES}
+        ctaText=""
         className="min-h-[40vh] sm:min-h-[50vh] dark:brightness-100"
-      />
-      {/* Gradient overlay for better text visibility */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60 dark:from-black/70 dark:via-black/50 dark:to-black/70">
-        <div className="absolute inset-0 flex items-center justify-center px-4 sm:px-6">
-          <div className="text-center w-full max-w-5xl mx-auto">
-            <h1 className="text-3xl xs:text-4xl sm:text-5xl font-bold text-white dark:text-white mb-2 sm:mb-3 leading-tight">
-              <span className="bg-gradient-to-r from-white via-primary-foreground to-accent-foreground bg-clip-text text-transparent">
-                My <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">Projects</span>
-              </span>
-            </h1>
-            <p className="text-base sm:text-lg text-gray-200 dark:text-gray-200 mb-4 sm:mb-6 max-w-3xl mx-auto leading-relaxed">
-              A collection of my work, side projects, and contributions
-            </p>
-            {metrics && (
-              <span className="block mt-2 sm:mt-3 text-sm sm:text-base text-gray-300 dark:text-gray-400">
-                {metrics.total} total projects • {metrics.featured} featured
-              </span>
-            )}
-            <div className="flex justify-center">
-              <a
-                ref={buttonRef}
-                href="#projects"
-                className="inline-flex items-center justify-center w-full sm:w-auto"
-                aria-label="View all projects"
-              >
-                <Button
-                  variant="primary"
-                  size="lg"
-                  icon="arrow-right"
-                  iconPosition="right"
-                  className="px-5 sm:px-6 py-2.5 sm:py-3 text-base sm:text-lg w-full sm:w-auto transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
-                >
-                  View All Projects
-                </Button>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
+      >
+        {ctaContent}
+      </Hero>
     </div>
   );
 };

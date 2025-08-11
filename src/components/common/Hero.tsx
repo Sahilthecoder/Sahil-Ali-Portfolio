@@ -1,14 +1,22 @@
-import gsap from 'gsap';
 import * as React from 'react';
+import { motion } from 'framer-motion';
+
+// Professional, fast-loading Unsplash images with quality & crop params
+const DEFAULT_BACKGROUNDS = [
+  'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=70',
+  'https://images.unsplash.com/photo-1521747116042-5a810fda9664?auto=format&fit=crop&w=1920&q=70',
+  'https://images.unsplash.com/photo-1508923567004-3a6b8004f3d3?auto=format&fit=crop&w=1920&q=70',
+  'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1920&q=70'
+];
 
 interface HeroProps {
-  title: string;
-  subtitle?: string;
+  title: React.ReactNode;
+  subtitle?: string | React.ReactNode;
   ctaText?: string;
   onCtaClick?: () => void;
   backgroundImages?: string[];
   className?: string;
-  // No children prop needed
+  children?: React.ReactNode;
 }
 
 const Hero: React.FC<HeroProps> = ({
@@ -18,265 +26,96 @@ const Hero: React.FC<HeroProps> = ({
   onCtaClick,
   backgroundImages = [],
   className = '',
+  children,
 }) => {
-  const backgroundImage = React.useMemo(() => {
-    if (!backgroundImages.length) return undefined;
-    const index = Math.floor(Math.random() * backgroundImages.length);
-    return backgroundImages[index];
-  }, [backgroundImages]);
-
-  const containerRef = React.useRef<HTMLDivElement>(null);
-  const titleRef = React.useRef<HTMLHeadingElement>(null);
-  const subtitleRef = React.useRef<HTMLParagraphElement>(null);
-  const ctaRef = React.useRef<HTMLButtonElement>(null);
-  const animationTimelineRef = React.useRef<gsap.core.Tween | null>(null);
+  const [bgImage, setBgImage] = React.useState<string | undefined>();
+  const [lowResImage, setLowResImage] = React.useState<string | undefined>();
 
   React.useEffect(() => {
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReducedMotion) return;
+    const images = backgroundImages.length > 0 ? backgroundImages : DEFAULT_BACKGROUNDS;
+    const selectedImage = images[Math.floor(Math.random() * images.length)];
 
-    // Store refs in variables for cleanup
-    const titleElement = titleRef.current;
-    const subtitleElement = subtitleRef.current;
-    const ctaElement = ctaRef.current;
-    const container = containerRef.current;
+    // Load low-res first
+    const lowRes = `${selectedImage}&w=20&q=10&blur=50`;
+    setLowResImage(lowRes);
 
-    // Define event handlers with cleanup
-    const handleMouseEnter = (): void => {
-      if (!ctaElement) return;
+    // Then preload high-res
+    const img = new Image();
+    img.src = selectedImage;
+    img.onload = () => setBgImage(selectedImage);
+  }, [backgroundImages]);
 
-      gsap.to(ctaElement, {
-        scale: 1.03,
-        duration: 0.3,
-        ease: 'power2.out',
-      });
-    };
-
-    const handleMouseLeave = (): void => {
-      if (!ctaElement) return;
-
-      gsap.to(ctaElement, {
-        scale: 1,
-        duration: 0.3,
-        ease: 'power2.out',
-      });
-    };
-
-    // Set up animations
-    const setupTitleAnimation = (): void => {
-      if (!titleElement) return;
-
-      // Remove initial transform and opacity classes that were added for SSR/initial render
-      titleElement.classList.remove('opacity-0', 'translate-y-8');
-
-      gsap.to(titleElement, {
-        duration: 0.8,
-        delay: 0.2,
-        onComplete: () => {
-          titleElement?.classList.add('animate-float');
-        },
-      });
-    };
-
-    const setupSubtitleAnimation = (): void => {
-      if (!subtitleElement) return;
-
-      // Remove initial transform and opacity classes
-      subtitleElement.classList.remove('opacity-0', 'translate-y-5');
-
-      gsap.to(subtitleElement, {
-        duration: 0.8,
-        delay: 0.4,
-      });
-    };
-
-    const setupCtaAnimation = (): void => {
-      if (!ctaElement) return;
-
-      // Remove initial transform and opacity classes
-      ctaElement.classList.remove('opacity-0', 'translate-y-5', 'scale-95');
-
-      gsap.to(ctaElement, {
-        duration: 0.8,
-        delay: 0.6,
-        scale: 0.95,
-      });
-
-      // Add hover effect for CTA
-      ctaElement.addEventListener('mouseenter', handleMouseEnter);
-      ctaElement.addEventListener('mouseleave', handleMouseLeave);
-    };
-
-    const setupStaggeredAnimations = (): void => {
-      if (!container) return;
-
-      gsap.to(container, {
-        stagger: 0.15,
-        duration: 0.6,
-        delay: 0.3,
-        y: 20,
-        opacity: 0,
-        ease: 'back.out(1.7)',
-      });
-    };
-
-    const setupScrollAnimations = (): void => {
-      if (!container || !titleElement || !subtitleElement || !ctaElement) return;
-
-      // Create a timeline for the scroll animation
-      const scrollAnimation = gsap.timeline({ paused: true });
-
-      // Add animations to the timeline
-      scrollAnimation.to(
-        titleElement,
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          delay: 0.2,
-          ease: 'power2.out',
-        },
-        0
-      );
-
-      scrollAnimation.to(
-        subtitleElement,
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          delay: 0.4,
-          ease: 'power2.out',
-        },
-        0
-      );
-
-      scrollAnimation.to(
-        ctaElement,
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 0.8,
-          delay: 0.6,
-          ease: 'power2.out',
-        },
-        0
-      );
-
-      // Create the scroll trigger with the animation
-      ScrollTrigger.create({
-        trigger: container,
-        start: 'top bottom-=100',
-        onEnter: () => scrollAnimation.play(),
-        onEnterBack: () => scrollAnimation.play(),
-        onLeave: () => scrollAnimation.pause(0),
-        onLeaveBack: () => scrollAnimation.pause(0),
-      });
-    };
-
-    // Execute all animation setups
-    setupTitleAnimation();
-    setupSubtitleAnimation();
-    setupCtaAnimation();
-    setupStaggeredAnimations();
-    setupScrollAnimations();
-
-    // Cleanup function
-    return (): void => {
-      // Remove event listeners
-      ctaElement?.removeEventListener('mouseenter', handleMouseEnter);
-      ctaElement?.removeEventListener('mouseleave', handleMouseLeave);
-
-      // Kill GSAP animations
-      animationTimelineRef.current?.kill();
-      gsap.killTweensOf([titleElement, subtitleElement, ctaElement].filter(Boolean));
-    };
-  }, []);
-
-  // Utility function to conditionally join class names
-  function cn(...classes: (string | undefined)[]): string {
-    return classes.filter(Boolean).join(' ');
-  }
+  const cn = (...classes: (string | undefined)[]): string => classes.filter(Boolean).join(' ');
 
   return (
-    <section
-      ref={containerRef}
+    <div
       className={cn(
-        'relative flex min-h-[50vh] sm:min-h-[60vh] items-center justify-center overflow-hidden bg-gray-50 dark:bg-gray-900',
+        'relative flex min-h-[50vh] w-full flex-col items-center justify-center overflow-hidden px-4 py-12 text-center text-white sm:min-h-[60vh]',
         className
       )}
     >
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-black/70 dark:via-black/60 dark:to-black/80" />
-        {backgroundImage && (
-          <div
-            className="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-100"
+        {/* Gradient Fallback */}
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-black" />
+
+        {/* Blurred low-res placeholder */}
+        {lowResImage && (
+          <motion.div
+            className="absolute inset-0"
             style={{
-              backgroundImage: `url(${backgroundImage})`,
-              backgroundPosition: 'center',
+              backgroundImage: `url(${lowResImage})`,
               backgroundSize: 'cover',
-              transition: 'opacity 1s ease-in-out',
-              filter: 'brightness(0.7) contrast(1.1)',
-            }}
+              backgroundPosition: 'center',
+              filter: 'blur(20px)',
+              transform: 'scale(1.1)',
+            } as React.CSSProperties}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
           />
         )}
+
+        {/* High-res image with fade-in */}
+        {bgImage && (
+          <motion.div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `url(${bgImage})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              filter: 'brightness(0.7) contrast(1.05)',
+            } as React.CSSProperties}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+          />
+        )}
+
+        {/* Overlay gradient */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-black/70" />
       </div>
 
-      <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/70 to-background dark:from-dark-background/50 dark:via-dark-background/80 dark:to-dark-background" />
-
-      <div className="relative z-10 w-full max-w-6xl px-4 sm:px-6 lg:px-8 text-center">
+      {/* Content */}
+      <div className="relative z-10 max-w-4xl mx-auto px-4">
         {title && (
-          <h1
-            ref={titleRef}
-            className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-3 sm:mb-4 md:mb-6 opacity-0 translate-y-8 transition-all duration-700 leading-tight sm:leading-snug drop-shadow-md"
-          >
-            {title}
-          </h1>
+          <h1 className="text-4xl sm:text-5xl font-bold mb-4 drop-shadow-lg">{title}</h1>
         )}
         {subtitle && (
-          <p
-            ref={subtitleRef}
-            className="text-base sm:text-lg md:text-xl lg:text-xl text-gray-200 mb-6 sm:mb-8 md:mb-10 lg:mb-12 max-w-2xl sm:max-w-3xl mx-auto px-2 sm:px-4 opacity-0 translate-y-5 transition-all duration-700 delay-100 leading-relaxed drop-shadow"
-          >
-            {subtitle}
-          </p>
+          <p className="text-lg sm:text-xl text-gray-200 mb-6 drop-shadow">{subtitle}</p>
         )}
 
         {ctaText && onCtaClick && (
           <button
             type="button"
-            ref={ctaRef}
             onClick={onCtaClick}
-            className="group relative bg-accent hover:bg-accent/90 dark:bg-dark-accent dark:hover:bg-dark-accent/90 text-white font-medium py-2.5 px-6 sm:py-3 sm:px-8 rounded-full transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-accent/40 dark:focus:ring-dark-accent/40 flex items-center mx-auto shadow-lg hover:shadow-accent/30 dark:hover:shadow-dark-accent/30 opacity-0 translate-y-5 scale-95 active:scale-95 hover:scale-105 touch-manipulation"
-            style={{
-              minWidth: '160px',
-              WebkitTapHighlightColor: 'transparent',
-              WebkitTouchCallout: 'none',
-              userSelect: 'none',
-            }}
+            className="bg-accent hover:bg-accent/90 text-white font-medium py-3 px-8 rounded-full shadow-lg hover:shadow-accent/30 transition-all"
           >
-            <span className="relative z-10 text-sm sm:text-base md:text-lg">{ctaText}</span>
-            <svg
-              className="ml-2 -mr-1 w-4 h-4 sm:w-5 sm:h-5 inline-block transition-transform duration-300 group-hover:translate-x-1"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              aria-hidden="true"
-            >
-              <path
-                fillRule="evenodd"
-                d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
-                clipRule="evenodd"
-              />
-            </svg>
+            {ctaText}
           </button>
         )}
+        {children}
       </div>
-
-      {/* Animated scroll indicator */}
-      
-    </section>
+    </div>
   );
 };
 

@@ -67,6 +67,7 @@ const Blog = () => {
 
       <motion.div
         ref={sectionRefs.bio}
+        
         variants={staggerContainer}
         initial="hidden"
         animate={isBioInView ? "visible" : "hidden"}
@@ -101,6 +102,7 @@ const Blog = () => {
 
       <motion.div
         ref={sectionRefs.about}
+        id="blog-posts"
         variants={staggerContainer}
         initial="hidden"
         animate={isAboutInView ? "visible" : "hidden"}

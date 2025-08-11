@@ -108,12 +108,14 @@ export interface ProjectListProps {
   projects: Project[];
   onProjectClick: (project: Project) => void;
   className?: string;
+  id?: string;
 }
 
 export const ProjectList: React.FC<ProjectListProps> = ({
   projects,
   onProjectClick,
   className = '',
+  id,
 }) => {
   if (!projects || projects.length === 0) {
     return (
@@ -124,7 +126,7 @@ export const ProjectList: React.FC<ProjectListProps> = ({
   }
 
   return (
-    <div className={cn('grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6', className)}>
+    <div id={id} className={cn('grid gap-6', className)}>
       {projects.map((project) => (
         <div key={project.id}>
           <ProjectCard
