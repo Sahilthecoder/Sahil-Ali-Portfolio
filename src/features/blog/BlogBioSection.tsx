@@ -1,6 +1,5 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
-import { FiArrowRight, FiExternalLink, FiLinkedin, FiGithub } from 'react-icons/fi';
+import { FiArrowRight, FiExternalLink } from 'react-icons/fi';
 
 const MiniBio = () => (
   <div className="bg-card rounded-xl p-6 shadow-sm border border-border hover:shadow-md transition-shadow duration-300">
@@ -40,13 +39,13 @@ const QuickLinks = () => (
     </h3>
     <div className="flex flex-wrap gap-3">
       <Link 
-        href="/about" 
+        to="/about" 
         className="px-4 py-2 bg-card rounded-lg text-sm font-medium text-foreground hover:bg-accent transition-colors flex items-center border border-border hover:border-primary/30"
       >
         About Me <FiExternalLink className="ml-1.5 opacity-70" size={14} />
       </Link>
       <Link 
-        href="/experience" 
+        to="/experience" 
         className="px-4 py-2 bg-card rounded-lg text-sm font-medium text-foreground hover:bg-accent transition-colors flex items-center border border-border hover:border-primary/30"
       >
         Experience <FiExternalLink className="ml-1.5 opacity-70" size={14} />

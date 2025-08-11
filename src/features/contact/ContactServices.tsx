@@ -1,7 +1,7 @@
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Check } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
 
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/Card';
 import { cn } from '@/utils/cn';
