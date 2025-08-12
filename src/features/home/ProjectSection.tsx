@@ -12,7 +12,7 @@ import { Project } from '../../data/projects';
 import { SectionHeader } from '@/components/ui/AnimatedSection';
 
 // Base URL for GitHub Pages deployment
-const baseUrl = process.env.NODE_ENV === 'production' ? '/Sahil-Ali-Portfolio' : '';
+const baseUrl = process.env.NODE_ENV === 'production' ? '/Sahil_Ali-Portfolio' : '';
 
 const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
   return (

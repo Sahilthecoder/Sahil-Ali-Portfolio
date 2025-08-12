@@ -121,24 +121,24 @@ const ZomatoAnalysis: React.FC<{
     ],
     images: [
       {
-        src: '/Sahil-Ali-Portfolio/images/projects/Zomto_Project1/Project1_Cover-1200w.webp',
+        src: '/Sahil_Ali-Portfolio/images/projects/Zomto_Project1/Project1_Cover-1200w.webp',
         alt: 'Zomato Expansion Dashboard Overview',
         caption:
           'Dashboard overview: Visualizing restaurant distribution, ratings, pricing, and cuisine diversity across target countries.',
       },
       {
-        src: '/Sahil-Ali-Portfolio/images/projects/Zomto_Project1/zometo-ds-1200w.webp',
+        src: '/Sahil_Ali-Portfolio/images/projects/Zomto_Project1/zometo-ds-1200w.webp',
         alt: 'Restaurant Evaluation by Country',
         caption:
           'Market evaluation: Highlighting countries with high potential for new restaurant openings.',
       },
       {
-        src: '/Sahil-Ali-Portfolio/images/projects/Zomto_Project1/zt1-1200w.webp',
+        src: '/Sahil_Ali-Portfolio/images/projects/Zomto_Project1/zt1-1200w.webp',
         alt: 'Strategic Insights Dashboard',
         caption: 'Detailed analysis of customer ratings and market potential.',
       },
       {
-        src: '/Sahil-Ali-Portfolio/images/projects/Zomto_Project1/zt2-1200w.webp',
+        src: '/Sahil_Ali-Portfolio/images/projects/Zomto_Project1/zt2-1200w.webp',
         alt: 'Final Dashboard Summary',
         caption: 'Summary dashboard consolidating insights for strategic expansion decisions.',
       },

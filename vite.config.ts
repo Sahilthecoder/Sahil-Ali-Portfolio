@@ -6,7 +6,7 @@ import path from 'path';
 export default defineConfig(({ mode }) => {
   // Set base URL for GitHub Pages in production
   const isProduction = mode === 'production';
-  const base = isProduction ? '/Sahil-Ali-Portfolio/' : '/';
+  const base = isProduction ? '/Sahil_Ali-Portfolio/' : '/';
   
   console.log(`Running in ${mode} mode with base URL: ${base}`);
   

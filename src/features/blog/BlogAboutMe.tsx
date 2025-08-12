@@ -57,7 +57,7 @@ const aboutMeData = {
     { label: 'Happy Readers', value: '10K+' },
   ],
   ctaText: 'Read My Story',
-  imageUrl: '/Sahil-Ali-Portfolio/images/profile/profile.webp',
+  imageUrl: '/Sahil_Ali-Portfolio/images/profile/profile.webp',
   imageAlt: 'Sahil - AI Generalist'
 };
 

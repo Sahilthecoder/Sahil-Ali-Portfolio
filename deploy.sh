@@ -10,7 +10,7 @@ npm run build
 # Create a temporary directory for the deployment
 echo "Preparing deployment..."
 rm -rf deploy
-git clone --single-branch --branch gh-pages https://github.com/sahilthecoder/Sahil-Ali-Portfolio.git deploy
+git clone --single-branch --branch gh-pages https://github.com/sahilthecoder/Sahil_Ali-Portfolio.git deploy
 
 # Remove all files except .git
 cd deploy
@@ -35,7 +35,7 @@ echo "Deploying to GitHub Pages..."
 if [ -n "$GITHUB_TOKEN" ]; then
   git config --global user.email "github-actions[bot]@users.noreply.github.com"
   git config --global user.name "GitHub Actions"
-  git remote set-url origin https://x-access-token:$GITHUB_TOKEN@github.com/sahilthecoder/Sahil-Ali-Portfolio.git
+  git remote set-url origin https://x-access-token:$GITHUB_TOKEN@github.com/sahilthecoder/Sahil_Ali-Portfolio.git
 fi
 
 git commit -m "Deploy to GitHub Pages"
@@ -46,4 +46,4 @@ cd ..
 rm -rf deploy
 
 echo "Deployment successful!"
-echo "Your site should be live at: https://sahilthecoder.github.io/Sahil-Ali-Portfolio/"
+echo "Your site should be live at: https://sahilthecoder.github.io/Sahil_Ali-Portfolio/"

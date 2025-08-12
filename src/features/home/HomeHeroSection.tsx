@@ -210,7 +210,7 @@ const HomeHeroSection = () => {
                 transition={{ type: 'spring', stiffness: 300, damping: 15 }}
               >
                 <img
-                  src="/Sahil-Ali-Portfolio/images/profile/profile-600w.webp"
+                  src="/Sahil_Ali-Portfolio/images/profile/profile-600w.webp"
                   alt="Sahil Ali - Professional Profile Photo"
                   className="w-full h-full object-cover transition-transform duration-700 ease-out hover:scale-105"
                   loading="lazy"

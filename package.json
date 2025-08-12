@@ -1,18 +1,19 @@
 {
-  "name": "sahil-ali-portfolio",
+  "name": "Sahil_Ali-Portfolio",
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "homepage": "https://sahilthecoder.github.io/Sahil-Ali-Portfolio",
+  "homepage": "https://sahilthecoder.github.io/Sahil_Ali-Portfolio",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "dev": "vite",
     "build": "npm run optimize-images || echo 'Image optimization failed, continuing with build...' && npm run generate-sitemap && tsc --skipLibCheck && vite build",
-    "preview": "vite preview",
+    "preview": "vite preview --port 3000",
     "optimize-images": "node scripts/optimize.mjs",
     "optimize:watch": "nodemon --watch public/images --ext jpg,jpeg,png,webp --exec 'npm run optimize-images'",
-    "generate-sitemap": "node scripts/generate-sitemap.mjs"
+    "generate-sitemap": "node scripts/generate-sitemap.mjs",
+    "test-deploy": "vite build --base=/"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",

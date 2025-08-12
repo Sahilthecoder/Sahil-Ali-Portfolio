@@ -32,7 +32,7 @@ const AboutHero: React.FC = () => {
         size="lg"
         icon="download"
         iconPosition="left"
-        onClick={() => window.open('/Sahil-Ali-Portfolio/assets/Sahil_Ali_Cv.pdf', '_blank')}
+        onClick={() => window.open('/Sahil_Ali-Portfolio/assets/Sahil_Ali_Cv.pdf', '_blank')}
         className="w-full xs:w-auto px-4 sm:px-6 py-2.5 sm:py-3 text-base sm:text-lg border-white text-white hover:bg-white hover:text-gray-900 dark:border-gray-300 dark:text-gray-200 dark:hover:bg-gray-800 dark:hover:text-white transition-colors"
       >
         Download CV
