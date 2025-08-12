@@ -5,23 +5,23 @@ import { FiCheckCircle, FiXCircle, FiLoader } from 'react-icons/fi';
 
 interface NewsletterProps {
   className?: string;
+  compact?: boolean;
 }
 
-const Newsletter: React.FC<NewsletterProps> = ({ className = '' }) => {
+const Newsletter: React.FC<NewsletterProps> = ({ className = '', compact = false }) => {
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
-  // Config: Keep all EmailJS env vars here
   const config = {
     serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID,
     templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
     adminTemplateId: import.meta.env.VITE_EMAILJS_ADMIN_TEMPLATE_ID,
     publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
-    toEmail: import.meta.env.VITE_EMAILJS_TO_EMAIL,
     adminEmail: import.meta.env.VITE_EMAILJS_ADMIN_EMAIL
   };
 
-  const isValidEmail = (email: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  const isValidEmail = (email: string) =>
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -38,21 +38,23 @@ const Newsletter: React.FC<NewsletterProps> = ({ className = '' }) => {
         throw new Error('Missing EmailJS environment variables.');
       }
 
-      const emailData = {
-        to_email: config.toEmail,
-        from_email: email,
-        subject: 'Newsletter Subscription',
-        message: `New subscription from ${email}`
+      // 1. Welcome mail to subscriber
+      const subscriberData = {
+        to_email: email,
+        from_email: config.adminEmail,
+        subject: 'Welcome to My Newsletter',
+        message: `Hi there! Thanks for subscribing to my newsletter. Stay tuned for updates.`
       };
+      await emailjs.send(config.serviceId, config.templateId, subscriberData, config.publicKey);
 
-      await emailjs.send(config.serviceId, config.templateId, emailData, config.publicKey);
-
-      await emailjs.send(
-        config.serviceId,
-        config.adminTemplateId,
-        { ...emailData, to_email: config.adminEmail },
-        config.publicKey
-      );
+      // 2. Notification mail to admin
+      const adminData = {
+        to_email: config.adminEmail,
+        from_email: email,
+        subject: 'New Newsletter Subscription',
+        message: `New subscription from: ${email}`
+      };
+      await emailjs.send(config.serviceId, config.adminTemplateId, adminData, config.publicKey);
 
       setStatus('success');
       setEmail('');
@@ -68,24 +70,31 @@ const Newsletter: React.FC<NewsletterProps> = ({ className = '' }) => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
       viewport={{ once: true }}
-      className={`max-w-md w-full ${className}`}
+      className={`relative w-full ${compact ? '' : 'max-w-md mx-auto'} ${className}`}
     >
       <motion.div
-        className="p-6 sm:p-8 bg-background/60 backdrop-blur-sm rounded-xl border border-border relative overflow-hidden shadow-lg"
-        whileHover={{ scale: 1.01 }}
+        className={`${compact ? 'bg-transparent p-0' : 'p-6 sm:p-8 bg-background/60 backdrop-blur-sm rounded-xl border border-border shadow-lg'}`}
+        whileHover={compact ? {} : { scale: 1.01 }}
         transition={{ type: 'spring', stiffness: 150 }}
       >
-        {/* Background effect */}
-        <motion.div
-          className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5"
-          animate={{ backgroundPosition: ['0% 0%', '100% 100%'] }}
-          transition={{ duration: 6, repeat: Infinity, ease: 'linear' }}
-          style={{ backgroundSize: '200% 200%' }}
-        />
+        {!compact && (
+          <div className="mb-4">
+            <h3 className="text-xl font-bold text-foreground mb-2">Stay Updated</h3>
+            <p className="text-muted-foreground text-sm">
+              Subscribe to my newsletter for updates and insights.
+            </p>
+          </div>
+        )}
 
+        {!compact && (
+          <motion.div
+            className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5"
+            animate={{ backgroundPosition: ['0% 0%', '100% 100%'] }}
+            transition={{ duration: 6, repeat: Infinity, ease: 'linear' }}
+            style={{ backgroundSize: '200% 200%' }}
+          />
+        )}
 
-
-        {/* Content */}
         <AnimatePresence>
           {status !== 'success' ? (
             <motion.form
@@ -96,7 +105,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ className = '' }) => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
             >
-              <div className="relative">
+              <div className="space-y-3 w-full">
                 <input
                   type="email"
                   placeholder="Enter your email"
@@ -109,7 +118,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ className = '' }) => {
                 <button
                   type="submit"
                   disabled={status === 'loading'}
-                  className="absolute right-1 top-1/2 -translate-y-1/2 h-[calc(100%-0.5rem)] bg-primary text-white px-5 rounded-md flex items-center justify-center gap-2 hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:ring-offset-2 focus:ring-offset-background disabled:opacity-70 disabled:cursor-not-allowed transition-colors text-sm font-medium w-32"
+                  className="w-full bg-primary text-white py-3 px-5 rounded-md flex items-center justify-center gap-2 hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:ring-offset-2 focus:ring-offset-background disabled:opacity-70 disabled:cursor-not-allowed transition-colors text-sm font-medium"
                 >
                   {status === 'loading' ? (
                     <>
@@ -117,7 +126,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ className = '' }) => {
                       Sending...
                     </>
                   ) : (
-                    'Subscribe'
+                    'Subscribe to Newsletter'
                   )}
                 </button>
               </div>

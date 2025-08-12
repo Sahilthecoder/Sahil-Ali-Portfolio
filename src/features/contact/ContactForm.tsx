@@ -86,7 +86,7 @@ const ContactForm: React.FC = () => {
             >
               <div className="flex items-start">
                 <CheckCircle className="w-4 h-4 mt-0.5 mr-2 flex-shrink-0" />
-                <p>Your message has been sent successfully! I'll get back to you soon.</p>
+                <p>Your message has been sent successfully! I&apos;ll get back to you soon.</p>
               </div>
             </motion.div>
           )}

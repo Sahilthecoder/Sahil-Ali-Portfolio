@@ -24,9 +24,9 @@ export const TechnologyBadge: React.FC<TechnologyBadgeProps> = ({
   };
 
   const sizeStyles = {
-    sm: 'px-2.5 py-0.5 text-xs font-medium',
-    md: 'px-3 py-1 text-sm font-medium',
-    lg: 'px-4 py-1.5 text-base font-medium',
+    sm: 'px-2 py-0.5 text-xs font-medium',
+    md: 'px-2.5 py-0.5 text-xs sm:px-3 sm:py-1 sm:text-sm font-medium',
+    lg: 'px-3 py-1 text-sm sm:px-4 sm:py-1.5 sm:text-base font-medium',
   };
 
   return (

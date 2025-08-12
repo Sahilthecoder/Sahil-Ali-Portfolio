@@ -1,7 +1,3 @@
-/// <reference types="next" />
-/// <reference types="next/navigation" />
-/// <reference types="next/image-types/global" />
-
 // NOTE: This file should not be edited
 // see https://nextjs.org/docs/basic-features/typescript for more information.
 
@@ -10,7 +6,7 @@ declare module '*.module.css' {
   export default classes;
 }
 
-declare module '*.module.scss' {
+declare module '*.module.scss' {  
   const classes: { [key: string]: string };
   export default classes;
 }

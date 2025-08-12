@@ -67,7 +67,7 @@ export default function ProjectModal({
           onClick={onClose}
         >
           <motion.div
-            className="relative w-full max-w-7xl max-h-[90vh] bg-white/80 dark:bg-gray-900/90 backdrop-blur-2xl rounded-3xl shadow-2xl overflow-hidden flex flex-col lg:flex-row border-2 border-white/40 dark:border-gray-700/50"
+            className="relative w-[95vw] max-w-7xl max-h-[90vh] bg-white/80 dark:bg-gray-900/90 backdrop-blur-2xl rounded-3xl shadow-2xl overflow-hidden flex flex-col lg:flex-row border-2 border-white/40 dark:border-gray-700/50 lg:w-[90vw]"
             initial="hidden"
             animate="visible"
             exit="exit"
@@ -84,14 +84,14 @@ export default function ProjectModal({
             </button>
 
             {/* Content Layout */}
-            <div className="flex flex-col lg:grid lg:grid-cols-2 h-full overflow-y-auto">
+            <div className="flex flex-col lg:flex-row h-full overflow-y-auto">
               {/* Left - Image */}
-              <div className="relative w-full lg:w-1/2 h-64 sm:h-80 lg:h-auto overflow-hidden">
+              <div className="relative w-full lg:w-1/2 h-64 sm:h-80 lg:h-auto overflow-hidden flex-shrink-0">
                 <motion.img
                   key={project.image.src}
                   src={project.image.src}
                   alt={project.image.alt || project.title}
-                  className="w-full h-full object-cover object-center"
+                  className="w-full h-full object-cover object-top"
                   initial={{ opacity: 0, scale: 1.05 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5, ease: 'easeOut' }}
@@ -102,7 +102,7 @@ export default function ProjectModal({
               </div>
 
               {/* Right - Details */}
-              <div className="flex-1 p-6 md:p-8 overflow-y-auto">
+              <div className="flex-1 p-6 md:p-8 overflow-y-auto min-w-0">
                 <div className="space-y-6">
                   {/* Title & Subtitle */}
                   <div>
@@ -118,7 +118,7 @@ export default function ProjectModal({
 
                   {/* Technologies */}
                   {project.technologies?.length > 0 && (
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-2 overflow-x-auto pb-1 -mx-1 px-1">
                       {project.technologies.map((tech) => (
                         <TechnologyBadge key={tech} name={tech} />
                       ))}

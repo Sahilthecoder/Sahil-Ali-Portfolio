@@ -33,16 +33,38 @@ jobs:
       - name: Install dependencies
         run: npm ci --legacy-peer-deps
 
-      - name: Build
+      - name: Setup environment
         run: |
-          echo "VITE_EMAILJS_SERVICE_ID=${{ secrets.VITE_EMAILJS_SERVICE_ID }}" >> .env
-          echo "VITE_EMAILJS_TEMPLATE_ID=${{ secrets.VITE_EMAILJS_TEMPLATE_ID }}" >> .env
-          echo "VITE_EMAILJS_PUBLIC_KEY=${{ secrets.VITE_EMAILJS_PUBLIC_KEY }}" >> .env
-          echo "VITE_EMAILJS_ADMIN_TEMPLATE_ID=${{ secrets.VITE_EMAILJS_ADMIN_TEMPLATE_ID }}" >> .env
-          echo "VITE_EMAILJS_TO_EMAIL=${{ secrets.VITE_EMAILJS_TO_EMAIL }}" >> .env
-          echo "VITE_EMAILJS_ADMIN_EMAIL=${{ secrets.VITE_EMAILJS_ADMIN_EMAIL }}" >> .env
-          echo "VITE_GOOGLE_MAPS_API_KEY=${{ secrets.VITE_GOOGLE_MAPS_API_KEY }}" >> .env
-          npm run build
+          # Create .env file with all required variables
+          cat > .env << 'EOL'
+          # EmailJS Configuration
+          VITE_EMAILJS_SERVICE_ID=${{ secrets.VITE_EMAILJS_SERVICE_ID }}
+          VITE_EMAILJS_TEMPLATE_ID=${{ secrets.VITE_EMAILJS_TEMPLATE_ID }}
+          VITE_EMAILJS_PUBLIC_KEY=${{ secrets.VITE_EMAILJS_PUBLIC_KEY }}
+          VITE_EMAILJS_ADMIN_TEMPLATE_ID=${{ secrets.VITE_EMAILJS_ADMIN_TEMPLATE_ID }}
+          VITE_EMAILJS_TO_EMAIL=${{ secrets.VITE_EMAILJS_TO_EMAIL }}
+          VITE_EMAILJS_ADMIN_EMAIL=${{ secrets.VITE_EMAILJS_ADMIN_EMAIL }}
+          
+          # Google Maps Configuration
+          VITE_GOOGLE_MAPS_API_KEY=${{ secrets.VITE_GOOGLE_MAPS_API_KEY }}
+          
+          # Password Protection
+          VITE_PASSWORD_PROTECT_KEY=${{ secrets.VITE_PASSWORD_PROTECT_KEY }}
+          EOL
+          
+          # Verify .env was created (without showing values)
+          if [ -f ".env" ]; then
+            echo "Environment file created successfully"
+            # Print first few characters of each variable to verify (without exposing full values)
+            echo "Environment variables (first 2 chars shown for verification):"
+            grep -v '^#' .env | cut -c1-10
+          else
+            echo "Error: Failed to create .env file"
+            exit 1
+          fi
+          
+      - name: Build
+        run: npm run build
 
       - name: Setup Pages
         uses: actions/configure-pages@v4

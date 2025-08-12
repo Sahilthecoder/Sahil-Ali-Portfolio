@@ -94,7 +94,7 @@ const Footer: React.FC<FooterProps> = ({ className = '' }) => {
               Got a project or idea? Let&apos;s bring it to life together.
             </p>
           </div>
-          <div className="md:col-span-5">
+          <div className="hidden md:block md:col-span-5">
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
