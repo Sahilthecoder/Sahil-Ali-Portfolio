@@ -102,10 +102,6 @@ const Footer: React.FC<FooterProps> = ({ className = '' }) => {
               transition={{ duration: 0.4 }}
               className="bg-primary/5 rounded-xl p-6 h-full"
             >
-              <h3 className="text-lg font-semibold text-foreground mb-3">Stay Updated</h3>
-              <p className="text-sm text-muted-foreground mb-4">
-                Get the latest updates on my projects and insights.
-              </p>
               <Newsletter className="max-w-full" />
             </motion.div>
           </div>

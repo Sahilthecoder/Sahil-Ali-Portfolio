@@ -65,7 +65,7 @@ const SocialIcons = () => {
 
   return (
     <motion.div 
-      className="flex flex-wrap justify-center gap-3 sm:gap-5 mt-6 sm:mt-8"
+      className="flex flex-wrap justify-start gap-3 sm:gap-5 mt-6 sm:mt-8"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.4, staggerChildren: 0.1 }}
@@ -109,7 +109,7 @@ const HomeHeroSection = () => {
         <div className="flex flex-col lg:flex-row items-center justify-between gap-10 sm:gap-14 lg:gap-16">
           {/* Text content */}
           <motion.div
-            className="w-full lg:w-1/2 text-center lg:text-left max-w-2xl mx-auto lg:mx-0"
+            className="w-full lg:w-1/2 text-center md:text-left max-w-2xl mx-auto lg:mx-0"
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}

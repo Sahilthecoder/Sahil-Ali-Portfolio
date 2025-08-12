@@ -96,7 +96,7 @@ const App: React.FC = () => {
   console.log('Using HashRouter for GitHub Pages');
 
   return (
-    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+    <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme" enableSystem={true}>
       <ErrorBoundary>
         <PasswordProtectionProvider>
           <HashRouter>

@@ -10,7 +10,22 @@ interface NewsletterProps {
 
 const Newsletter: React.FC<NewsletterProps> = ({ className = '', compact = false }) => {
   const [email, setEmail] = useState('');
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error' | 'duplicate'>('idle');
+
+  const content = {
+    title: 'Stay Updated',
+    description: 'Subscribe to my newsletter for the latest updates and insights.',
+    welcomeSubject: 'Welcome to My Newsletter',
+    welcomeMessage: 'Hi there! Thanks for subscribing to my newsletter. Stay tuned for updates.',
+    subscribe: 'Subscribe to Newsletter',
+    success: 'Thank you for subscribing!',
+    duplicate: 'You have already subscribed with this email.',
+    error: 'Please enter a valid email or try again later.',
+    sending: 'Sending...',
+    emailPlaceholder: 'Enter your email',
+    newSubscription: 'New Newsletter Subscription',
+    newSubscriptionMessage: 'New subscription from:'
+  };
 
   const config = {
     serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID,
@@ -23,11 +38,44 @@ const Newsletter: React.FC<NewsletterProps> = ({ className = '', compact = false
   const isValidEmail = (email: string) =>
     /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
+  // Check localStorage for subscribed emails
+  const isAlreadySubscribed = (email: string) => {
+    if (typeof window === 'undefined') return false; // SSR safety
+    const subscribed = localStorage.getItem('subscribedEmails');
+    if (!subscribed) return false;
+    try {
+      const emails: string[] = JSON.parse(subscribed);
+      return emails.includes(email.toLowerCase());
+    } catch {
+      return false;
+    }
+  };
+
+  const addSubscribedEmail = (email: string) => {
+    if (typeof window === 'undefined') return;
+    const subscribed = localStorage.getItem('subscribedEmails');
+    let emails: string[] = [];
+    if (subscribed) {
+      try {
+        emails = JSON.parse(subscribed);
+      } catch {
+        emails = [];
+      }
+    }
+    emails.push(email.toLowerCase());
+    localStorage.setItem('subscribedEmails', JSON.stringify(emails));
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!isValidEmail(email)) {
       setStatus('error');
+      return;
+    }
+
+    if (isAlreadySubscribed(email)) {
+      setStatus('duplicate');
       return;
     }
 
@@ -42,8 +90,8 @@ const Newsletter: React.FC<NewsletterProps> = ({ className = '', compact = false
       const subscriberData = {
         to_email: email,
         from_email: config.adminEmail,
-        subject: 'Welcome to My Newsletter',
-        message: `Hi there! Thanks for subscribing to my newsletter. Stay tuned for updates.`
+        subject: content.welcomeSubject,
+        message: content.welcomeMessage
       };
       await emailjs.send(config.serviceId, config.templateId, subscriberData, config.publicKey);
 
@@ -51,10 +99,12 @@ const Newsletter: React.FC<NewsletterProps> = ({ className = '', compact = false
       const adminData = {
         to_email: config.adminEmail,
         from_email: email,
-        subject: 'New Newsletter Subscription',
-        message: `New subscription from: ${email}`
+        subject: content.newSubscription,
+        message: `${content.newSubscriptionMessage} ${email}`
       };
       await emailjs.send(config.serviceId, config.adminTemplateId, adminData, config.publicKey);
+
+      addSubscribedEmail(email);
 
       setStatus('success');
       setEmail('');
@@ -79,10 +129,8 @@ const Newsletter: React.FC<NewsletterProps> = ({ className = '', compact = false
       >
         {!compact && (
           <div className="mb-4">
-            <h3 className="text-xl font-bold text-foreground mb-2">Stay Updated</h3>
-            <p className="text-muted-foreground text-sm">
-              Subscribe to my newsletter for updates and insights.
-            </p>
+            <h3 className="text-xl font-bold text-foreground mb-2">{content.title}</h3>
+            <p className="text-muted-foreground text-sm">{content.description}</p>
           </div>
         )}
 
@@ -108,7 +156,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ className = '', compact = false
               <div className="space-y-3 w-full">
                 <input
                   type="email"
-                  placeholder="Enter your email"
+                  placeholder={content.emailPlaceholder}
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:ring-2 focus:ring-primary/30 focus:border-primary/30 text-foreground placeholder-muted-foreground transition-all"
@@ -123,10 +171,10 @@ const Newsletter: React.FC<NewsletterProps> = ({ className = '', compact = false
                   {status === 'loading' ? (
                     <>
                       <FiLoader className="animate-spin h-4 w-4" />
-                      Sending...
+                      {content.sending}
                     </>
                   ) : (
-                    'Subscribe to Newsletter'
+                    content.subscribe
                   )}
                 </button>
               </div>
@@ -141,7 +189,21 @@ const Newsletter: React.FC<NewsletterProps> = ({ className = '', compact = false
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
                 >
-                  <FiXCircle /> Please enter a valid email or try again later.
+                  <FiXCircle /> {content.error}
+                </motion.p>
+              )}
+
+              {status === 'duplicate' && (
+                <motion.p
+                  key="duplicate"
+                  role="alert"
+                  aria-live="assertive"
+                  className="text-sm text-yellow-500 flex items-center gap-2 mt-2"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                >
+                  <FiXCircle /> {content.duplicate}
                 </motion.p>
               )}
             </motion.form>
@@ -153,7 +215,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ className = '', compact = false
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
             >
-              <FiCheckCircle className="inline mr-1" /> Thank you for subscribing!
+              <FiCheckCircle className="inline mr-1" /> {content.success}
             </motion.div>
           )}
         </AnimatePresence>
