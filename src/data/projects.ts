@@ -45,9 +45,9 @@ export const projects: Project[] = [
       'Uncovered key market trends leading to optimized marketing spend allocation'
     ],
     image: {
-      src: '/Sahil_Ali-Portfolio/images/projects/Zomto_Project1/Project1_Cover-600w.webp',
+      src: '/Sahil-Ali-Portfolio/images/projects/Zomto_Project1/Project1_Cover-600w.webp',
       alt: 'Zomato Expansion Dashboard showing city-wise performance metrics',
-      srcSet: '/Sahil_Ali-Portfolio/images/projects/Zomto_Project1/Project1_Cover-300w.webp 300w, /Sahil_Ali-Portfolio/images/projects/Zomto_Project1/Project1_Cover-600w.webp 600w, /Sahil_Ali-Portfolio/images/projects/Zomto_Project1/Project1_Cover-1200w.webp 1200w',
+      srcSet: '/Sahil-Ali-Portfolio/images/projects/Zomto_Project1/Project1_Cover-300w.webp 300w, /Sahil-Ali-Portfolio/images/projects/Zomto_Project1/Project1_Cover-600w.webp 600w, /Sahil-Ali-Portfolio/images/projects/Zomto_Project1/Project1_Cover-1200w.webp 1200w',
       sizes: '(max-width: 640px) 300px, (max-width: 1024px) 600px, 1200px'
     },
     links: [
@@ -117,9 +117,9 @@ export const projects: Project[] = [
       'Improved decision-making with real-time sales and performance metrics'
     ],
     image: {
-      src: '/Sahil_Ali-Portfolio/images/projects/Bansal_Project2/Project2_Cover-600w.webp',
+      src: '/Sahil-Ali-Portfolio/images/projects/Bansal_Project2/Project2_Cover-600w.webp',
       alt: 'Bansal Supermarket Inventory Management Dashboard',
-      srcSet: '/Sahil_Ali-Portfolio/images/projects/Bansal_Project2/Project2_Cover-300w.webp 300w, /Sahil_Ali-Portfolio/images/projects/Bansal_Project2/Project2_Cover-600w.webp 600w, /Sahil_Ali-Portfolio/images/projects/Bansal_Project2/Project2_Cover-1200w.webp 1200w',
+      srcSet: '/Sahil-Ali-Portfolio/images/projects/Bansal_Project2/Project2_Cover-300w.webp 300w, /Sahil-Ali-Portfolio/images/projects/Bansal_Project2/Project2_Cover-600w.webp 600w, /Sahil-Ali-Portfolio/images/projects/Bansal_Project2/Project2_Cover-1200w.webp 1200w',
       sizes: '(max-width: 640px) 300px, (max-width: 1024px) 600px, 1200px'
     },
     links: [
@@ -193,9 +193,9 @@ export const projects: Project[] = [
       'Enabled real-time attendance tracking and reporting'
     ],
     image: {
-      src: '/Sahil_Ali-Portfolio/images/projects/Attendance_Project3/Project3_Cover-600w.webp',
+      src: '/Sahil-Ali-Portfolio/images/projects/Attendance_Project3/Project3_Cover-600w.webp',
       alt: 'Ekam Attendance Management System',
-      srcSet: '/Sahil_Ali-Portfolio/images/projects/Attendance_Project3/Project3_Cover-300w.webp 300w, /Sahil_Ali-Portfolio/images/projects/Attendance_Project3/Project3_Cover-600w.webp 600w, /Sahil_Ali-Portfolio/images/projects/Attendance_Project3/Project3_Cover-1200w.webp 1200w',
+      srcSet: '/Sahil-Ali-Portfolio/images/projects/Attendance_Project3/Project3_Cover-300w.webp 300w, /Sahil-Ali-Portfolio/images/projects/Attendance_Project3/Project3_Cover-600w.webp 600w, /Sahil-Ali-Portfolio/images/projects/Attendance_Project3/Project3_Cover-1200w.webp 1200w',
       sizes: '(max-width: 640px) 300px, (max-width: 1024px) 600px, 1200px'
     },
     links: [
@@ -254,9 +254,9 @@ export const projects: Project[] = [
       'Streamlined financial reporting across 5+ store locations'
     ],
     image: {
-      src: '/Sahil_Ali-Portfolio/images/projects/RetailCashFlow_Project4/Project4_Cover-600w.webp',
+      src: '/Sahil-Ali-Portfolio/images/projects/RetailCashFlow_Project4/Project4_Cover-600w.webp',
       alt: 'Retail Cash Flow Analysis Dashboard',
-      srcSet: '/Sahil_Ali-Portfolio/images/projects/RetailCashFlow_Project4/Project4_Cover-300w.webp 300w, /Sahil_Ali-Portfolio/images/projects/RetailCashFlow_Project4/Project4_Cover-600w.webp 600w, /Sahil_Ali-Portfolio/images/projects/RetailCashFlow_Project4/Project4_Cover-1200w.webp 1200w',
+      srcSet: '/Sahil-Ali-Portfolio/images/projects/RetailCashFlow_Project4/Project4_Cover-300w.webp 300w, /Sahil-Ali-Portfolio/images/projects/RetailCashFlow_Project4/Project4_Cover-600w.webp 600w, /Sahil-Ali-Portfolio/images/projects/RetailCashFlow_Project4/Project4_Cover-1200w.webp 1200w',
       sizes: '(max-width: 640px) 300px, (max-width: 1024px) 600px, 1200px'
     },
     links: [
@@ -316,9 +316,9 @@ export const projects: Project[] = [
       'Created a seamless integration between Notion, Google Calendar, and task management'
     ],
     image: {
-      src: '/Sahil_Ali-Portfolio/images/projects/AIautomation_Project5/Project5_Cover-600w.webp',
+      src: '/Sahil-Ali-Portfolio/images/projects/AIautomation_Project5/Project5_Cover-600w.webp',
       alt: 'AI-Powered Productivity System Dashboard',
-      srcSet: '/Sahil_Ali-Portfolio/images/projects/AIautomation_Project5/Project5_Cover-300w.webp 300w, /Sahil_Ali-Portfolio/images/projects/AIautomation_Project5/Project5_Cover-600w.webp 600w, /Sahil_Ali-Portfolio/images/projects/AIautomation_Project5/Project5_Cover-1200w.webp 1200w',
+      srcSet: '/Sahil-Ali-Portfolio/images/projects/AIautomation_Project5/Project5_Cover-300w.webp 300w, /Sahil-Ali-Portfolio/images/projects/AIautomation_Project5/Project5_Cover-600w.webp 600w, /Sahil-Ali-Portfolio/images/projects/AIautomation_Project5/Project5_Cover-1200w.webp 1200w',
       sizes: '(max-width: 640px) 300px, (max-width: 1024px) 600px, 1200px'
     },
     links: [
@@ -338,17 +338,17 @@ export const projects: Project[] = [
     role: 'Product Developer & AI Specialist | Designed and implemented the entire system, including AI model integration, API connections, and user interface.',
     gallery: [
       {
-        src: '/Sahil_Ali-Portfolio/images/projects/AIautomation_Project5/Project5_Cover-600w.webp',
+        src: '/Sahil-Ali-Portfolio/images/projects/AIautomation_Project5/Project5_Cover-600w.webp',
         alt: 'AI Task Management Dashboard',
         caption: 'AI-Powered Task Management Interface',
-        srcSet: '/Sahil_Ali-Portfolio/images/projects/AIautomation_Project5/Project5_Cover-300w.webp 300w, /Sahil_Ali-Portfolio/images/projects/AIautomation_Project5/Project5_Cover-600w.webp 600w, /Sahil_Ali-Portfolio/images/projects/AIautomation_Project5/Project5_Cover-1200w.webp 1200w',
+        srcSet: '/Sahil-Ali-Portfolio/images/projects/AIautomation_Project5/Project5_Cover-300w.webp 300w, /Sahil-Ali-Portfolio/images/projects/AIautomation_Project5/Project5_Cover-600w.webp 600w, /Sahil-Ali-Portfolio/images/projects/AIautomation_Project5/Project5_Cover-1200w.webp 1200w',
         sizes: '(max-width: 640px) 300px, (max-width: 1024px) 600px, 1200px'
       },
       {
-        src: '/Sahil_Ali-Portfolio/images/projects/AIautomation_Project5/Project5_Cover-600w.webp',
+        src: '/Sahil-Ali-Portfolio/images/projects/AIautomation_Project5/Project5_Cover-600w.webp',
         alt: 'AI Integration',
         caption: 'AI Integration with Productivity Tools',
-        srcSet: '/Sahil_Ali-Portfolio/images/projects/AIautomation_Project5/Project5_Cover-300w.webp 300w, /Sahil_Ali-Portfolio/images/projects/AIautomation_Project5/Project5_Cover-600w.webp 600w',
+        srcSet: '/Sahil-Ali-Portfolio/images/projects/AIautomation_Project5/Project5_Cover-300w.webp 300w, /Sahil-Ali-Portfolio/images/projects/AIautomation_Project5/Project5_Cover-600w.webp 600w',
         sizes: '(max-width: 640px) 300px, 600px'
       }
     ],
@@ -366,9 +366,9 @@ export const projects: Project[] = [
       'Designed AI + Zapier automations for Excel and emails—auto-generating reports, syncing data, and streamlining ops for daily business use.',
     highlights: ['Saved 15+ hours/month by eliminating repetitive manual work.'],
     image: {
-      src: '/Sahil_Ali-Portfolio/images/projects/CommingSoon_Project6/Project6_Cover-600w.webp',
+      src: '/Sahil-Ali-Portfolio/images/projects/CommingSoon_Project6/Project6_Cover-600w.webp',
       alt: 'GPT Automation Suite',
-      srcSet: '/Sahil_Ali-Portfolio/images/projects/CommingSoon_Project6/Project6_Cover-300w.webp 300w, /Sahil_Ali-Portfolio/images/projects/CommingSoon_Project6/Project6_Cover-600w.webp 600w',
+      srcSet: '/Sahil-Ali-Portfolio/images/projects/CommingSoon_Project6/Project6_Cover-300w.webp 300w, /Sahil-Ali-Portfolio/images/projects/CommingSoon_Project6/Project6_Cover-600w.webp 600w',
       sizes: '(max-width: 640px) 300px, 600px'
     },
     links: [{ label: 'See the Project', url: '/projects/gpt-automation' }],
@@ -391,24 +391,24 @@ export const projects: Project[] = [
       'Modern UI/UX',
     ],
     image: {
-      src: '/Sahil_Ali-Portfolio/images/projects/Mahira_Portfolio_Web+AI/Project7_Cover-600w.webp',
+      src: '/Sahil-Ali-Portfolio/images/projects/Mahira_Portfolio_Web+AI/Project7_Cover-600w.webp',
       alt: 'AI-Powered Portfolio Creation',
-      srcSet: '/Sahil_Ali-Portfolio/images/projects/Mahira_Portfolio_Web+AI/Project7_Cover-300w.webp 300w, /Sahil_Ali-Portfolio/images/projects/Mahira_Portfolio_Web+AI/Project7_Cover-600w.webp 600w, /Sahil_Ali-Portfolio/images/projects/Mahira_Portfolio_Web+AI/Project7_Cover-1200w.webp 1200w',
+      srcSet: '/Sahil-Ali-Portfolio/images/projects/Mahira_Portfolio_Web+AI/Project7_Cover-300w.webp 300w, /Sahil-Ali-Portfolio/images/projects/Mahira_Portfolio_Web+AI/Project7_Cover-600w.webp 600w, /Sahil-Ali-Portfolio/images/projects/Mahira_Portfolio_Web+AI/Project7_Cover-1200w.webp 1200w',
       sizes: '(max-width: 640px) 300px, (max-width: 1024px) 600px, 1200px'
     },
     gallery: [
       {
-        src: '/Sahil_Ali-Portfolio/images/projects/Mahira_Portfolio_Web+AI/Project7_Cover-600w.webp',
+        src: '/Sahil-Ali-Portfolio/images/projects/Mahira_Portfolio_Web+AI/Project7_Cover-600w.webp',
         alt: 'Portfolio Showcase',
         caption: 'Modern Portfolio Showcase',
-        srcSet: '/Sahil_Ali-Portfolio/images/projects/Mahira_Portfolio_Web+AI/Project7_Cover-300w.webp 300w, /Sahil_Ali-Portfolio/images/projects/Mahira_Portfolio_Web+AI/Project7_Cover-600w.webp 600w',
+        srcSet: '/Sahil-Ali-Portfolio/images/projects/Mahira_Portfolio_Web+AI/Project7_Cover-300w.webp 300w, /Sahil-Ali-Portfolio/images/projects/Mahira_Portfolio_Web+AI/Project7_Cover-600w.webp 600w',
         sizes: '(max-width: 640px) 300px, 600px'
       },
       {
-        src: '/Sahil_Ali-Portfolio/images/projects/Mahira_Portfolio_Web+AI/Project7_Cover-600w.webp',
+        src: '/Sahil-Ali-Portfolio/images/projects/Mahira_Portfolio_Web+AI/Project7_Cover-600w.webp',
         alt: 'Responsive Design',
         caption: 'Fully Responsive Layout',
-        srcSet: '/Sahil_Ali-Portfolio/images/projects/Mahira_Portfolio_Web+AI/Project7_Cover-300w.webp 300w, /Sahil_Ali-Portfolio/images/projects/Mahira_Portfolio_Web+AI/Project7_Cover-600w.webp 600w',
+        srcSet: '/Sahil-Ali-Portfolio/images/projects/Mahira_Portfolio_Web+AI/Project7_Cover-300w.webp 300w, /Sahil-Ali-Portfolio/images/projects/Mahira_Portfolio_Web+AI/Project7_Cover-600w.webp 600w',
         sizes: '(max-width: 640px) 300px, 600px'
       }
     ],

@@ -1,9 +1,9 @@
 {
-  "name": "Sahil_Ali-Portfolio",
+  "name": "Sahil-Ali-Portfolio",
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "homepage": "https://sahilthecoder.github.io/Sahil_Ali-Portfolio",
+  "homepage": "https://sahilthecoder.github.io/Sahil-Ali-Portfolio",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",

@@ -318,24 +318,24 @@ GROUP BY e.name;`}
     ],
     images: [
       {
-        src: '/Sahil_Ali-Portfolio/images/projects/Attendance_Project3/Attendance_before-600w.webp',
+        src: '/Sahil-Ali-Portfolio/images/projects/Attendance_Project3/Attendance_before-600w.webp',
         alt: 'Legacy Attendance System',
         caption: 'Manual attendance tracking system with potential for errors',
-        srcSet: '/Sahil_Ali-Portfolio/images/projects/Attendance_Project3/Attendance_before-300w.webp 300w, /Sahil_Ali-Portfolio/images/projects/Attendance_Project3/Attendance_before-600w.webp 600w',
+        srcSet: '/Sahil-Ali-Portfolio/images/projects/Attendance_Project3/Attendance_before-300w.webp 300w, /Sahil-Ali-Portfolio/images/projects/Attendance_Project3/Attendance_before-600w.webp 600w',
         sizes: '(max-width: 640px) 300px, 600px'
       },
       {
-        src: '/Sahil_Ali-Portfolio/images/projects/Attendance_Project3/Attendance_after-600w.webp',
+        src: '/Sahil-Ali-Portfolio/images/projects/Attendance_Project3/Attendance_after-600w.webp',
         alt: 'AI-Powered Attendance System',
         caption: 'Automated attendance system with real-time validation',
-        srcSet: '/Sahil_Ali-Portfolio/images/projects/Attendance_Project3/Attendance_after-300w.webp 300w, /Sahil_Ali-Portfolio/images/projects/Attendance_Project3/Attendance_after-600w.webp 600w',
+        srcSet: '/Sahil-Ali-Portfolio/images/projects/Attendance_Project3/Attendance_after-300w.webp 300w, /Sahil-Ali-Portfolio/images/projects/Attendance_Project3/Attendance_after-600w.webp 600w',
         sizes: '(max-width: 640px) 300px, 600px'
       },
       {
-        src: '/Sahil_Ali-Portfolio/images/projects/Attendance_Project3/Project3_Cover-600w.webp',
+        src: '/Sahil-Ali-Portfolio/images/projects/Attendance_Project3/Project3_Cover-600w.webp',
         alt: 'Dashboard Overview',
         caption: 'Comprehensive dashboard showing attendance analytics',
-        srcSet: '/Sahil_Ali-Portfolio/images/projects/Attendance_Project3/Project3_Cover-300w.webp 300w, /Sahil_Ali-Portfolio/images/projects/Attendance_Project3/Project3_Cover-600w.webp 600w',
+        srcSet: '/Sahil-Ali-Portfolio/images/projects/Attendance_Project3/Project3_Cover-300w.webp 300w, /Sahil-Ali-Portfolio/images/projects/Attendance_Project3/Project3_Cover-600w.webp 600w',
         sizes: '(max-width: 640px) 300px, 600px'
       },
     ],

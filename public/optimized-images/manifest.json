@@ -1,6 +1,32 @@
 {
-  "generated": "2025-08-12T21:06:00.464Z",
+  "generated": "2025-08-12T21:25:21.031Z",
   "images": [
+    {
+      "original": "public\\images\\portraits\\portrait1.jpg",
+      "optimized": "public\\optimized-images\\portraits\\portrait1.webp",
+      "responsive": [
+        {
+          "width": 640,
+          "path": "public\\optimized-images\\portraits\\portrait1-640w.webp"
+        },
+        {
+          "width": 768,
+          "path": "public\\optimized-images\\portraits\\portrait1-768w.webp"
+        },
+        {
+          "width": 1024,
+          "path": "public\\optimized-images\\portraits\\portrait1-1024w.webp"
+        },
+        {
+          "width": 1280,
+          "path": "public\\optimized-images\\portraits\\portrait1-1280w.webp"
+        },
+        {
+          "width": 1536,
+          "path": "public\\optimized-images\\portraits\\portrait1-1536w.webp"
+        }
+      ]
+    },
     {
       "original": "public\\images\\profile\\profile.webp",
       "optimized": "public\\optimized-images\\profile\\profile.webp",
@@ -80,32 +106,6 @@
       ]
     },
     {
-      "original": "public\\images\\portraits\\portrait1.jpg",
-      "optimized": "public\\optimized-images\\portraits\\portrait1.webp",
-      "responsive": [
-        {
-          "width": 640,
-          "path": "public\\optimized-images\\portraits\\portrait1-640w.webp"
-        },
-        {
-          "width": 768,
-          "path": "public\\optimized-images\\portraits\\portrait1-768w.webp"
-        },
-        {
-          "width": 1024,
-          "path": "public\\optimized-images\\portraits\\portrait1-1024w.webp"
-        },
-        {
-          "width": 1280,
-          "path": "public\\optimized-images\\portraits\\portrait1-1280w.webp"
-        },
-        {
-          "width": 1536,
-          "path": "public\\optimized-images\\portraits\\portrait1-1536w.webp"
-        }
-      ]
-    },
-    {
       "original": "public\\images\\certifications\\warehouse.webp",
       "optimized": "public\\optimized-images\\certifications\\warehouse.webp",
       "responsive": [
@@ -128,6 +128,292 @@
         {
           "width": 1536,
           "path": "public\\optimized-images\\certifications\\warehouse-1536w.webp"
+        }
+      ]
+    },
+    {
+      "original": "public\\images\\projects\\RetailCashFlow_Project4\\Project4_Cover.webp",
+      "optimized": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\Project4_Cover.webp",
+      "responsive": [
+        {
+          "width": 640,
+          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\Project4_Cover-640w.webp"
+        },
+        {
+          "width": 768,
+          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\Project4_Cover-768w.webp"
+        },
+        {
+          "width": 1024,
+          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\Project4_Cover-1024w.webp"
+        },
+        {
+          "width": 1280,
+          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\Project4_Cover-1280w.webp"
+        },
+        {
+          "width": 1536,
+          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\Project4_Cover-1536w.webp"
+        }
+      ]
+    },
+    {
+      "original": "public\\images\\projects\\RetailCashFlow_Project4\\Project4_Cover-600w.webp",
+      "optimized": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\Project4_Cover-600w.webp",
+      "responsive": [
+        {
+          "width": 640,
+          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\Project4_Cover-600w-640w.webp"
+        },
+        {
+          "width": 768,
+          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\Project4_Cover-600w-768w.webp"
+        },
+        {
+          "width": 1024,
+          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\Project4_Cover-600w-1024w.webp"
+        },
+        {
+          "width": 1280,
+          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\Project4_Cover-600w-1280w.webp"
+        },
+        {
+          "width": 1536,
+          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\Project4_Cover-600w-1536w.webp"
+        }
+      ]
+    },
+    {
+      "original": "public\\images\\projects\\RetailCashFlow_Project4\\Project4_Cover-300w.webp",
+      "optimized": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\Project4_Cover-300w.webp",
+      "responsive": [
+        {
+          "width": 640,
+          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\Project4_Cover-300w-640w.webp"
+        },
+        {
+          "width": 768,
+          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\Project4_Cover-300w-768w.webp"
+        },
+        {
+          "width": 1024,
+          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\Project4_Cover-300w-1024w.webp"
+        },
+        {
+          "width": 1280,
+          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\Project4_Cover-300w-1280w.webp"
+        },
+        {
+          "width": 1536,
+          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\Project4_Cover-300w-1536w.webp"
+        }
+      ]
+    },
+    {
+      "original": "public\\images\\projects\\RetailCashFlow_Project4\\Project4_Cover-1200w.webp",
+      "optimized": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\Project4_Cover-1200w.webp",
+      "responsive": [
+        {
+          "width": 640,
+          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\Project4_Cover-1200w-640w.webp"
+        },
+        {
+          "width": 768,
+          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\Project4_Cover-1200w-768w.webp"
+        },
+        {
+          "width": 1024,
+          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\Project4_Cover-1200w-1024w.webp"
+        },
+        {
+          "width": 1280,
+          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\Project4_Cover-1200w-1280w.webp"
+        },
+        {
+          "width": 1536,
+          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\Project4_Cover-1200w-1536w.webp"
+        }
+      ]
+    },
+    {
+      "original": "public\\images\\projects\\RetailCashFlow_Project4\\CashFlow2.webp",
+      "optimized": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow2.webp",
+      "responsive": [
+        {
+          "width": 640,
+          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow2-640w.webp"
+        },
+        {
+          "width": 768,
+          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow2-768w.webp"
+        },
+        {
+          "width": 1024,
+          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow2-1024w.webp"
+        },
+        {
+          "width": 1280,
+          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow2-1280w.webp"
+        },
+        {
+          "width": 1536,
+          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow2-1536w.webp"
+        }
+      ]
+    },
+    {
+      "original": "public\\images\\projects\\RetailCashFlow_Project4\\CashFlow2-600w.webp",
+      "optimized": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow2-600w.webp",
+      "responsive": [
+        {
+          "width": 640,
+          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow2-600w-640w.webp"
+        },
+        {
+          "width": 768,
+          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow2-600w-768w.webp"
+        },
+        {
+          "width": 1024,
+          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow2-600w-1024w.webp"
+        },
+        {
+          "width": 1280,
+          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow2-600w-1280w.webp"
+        },
+        {
+          "width": 1536,
+          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow2-600w-1536w.webp"
+        }
+      ]
+    },
+    {
+      "original": "public\\images\\projects\\RetailCashFlow_Project4\\CashFlow2-300w.webp",
+      "optimized": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow2-300w.webp",
+      "responsive": [
+        {
+          "width": 640,
+          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow2-300w-640w.webp"
+        },
+        {
+          "width": 768,
+          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow2-300w-768w.webp"
+        },
+        {
+          "width": 1024,
+          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow2-300w-1024w.webp"
+        },
+        {
+          "width": 1280,
+          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow2-300w-1280w.webp"
+        },
+        {
+          "width": 1536,
+          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow2-300w-1536w.webp"
+        }
+      ]
+    },
+    {
+      "original": "public\\images\\projects\\RetailCashFlow_Project4\\CashFlow1.webp",
+      "optimized": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow1.webp",
+      "responsive": [
+        {
+          "width": 640,
+          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow1-640w.webp"
+        },
+        {
+          "width": 768,
+          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow1-768w.webp"
+        },
+        {
+          "width": 1024,
+          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow1-1024w.webp"
+        },
+        {
+          "width": 1280,
+          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow1-1280w.webp"
+        },
+        {
+          "width": 1536,
+          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow1-1536w.webp"
+        }
+      ]
+    },
+    {
+      "original": "public\\images\\projects\\RetailCashFlow_Project4\\CashFlow1-600w.webp",
+      "optimized": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow1-600w.webp",
+      "responsive": [
+        {
+          "width": 640,
+          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow1-600w-640w.webp"
+        },
+        {
+          "width": 768,
+          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow1-600w-768w.webp"
+        },
+        {
+          "width": 1024,
+          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow1-600w-1024w.webp"
+        },
+        {
+          "width": 1280,
+          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow1-600w-1280w.webp"
+        },
+        {
+          "width": 1536,
+          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow1-600w-1536w.webp"
+        }
+      ]
+    },
+    {
+      "original": "public\\images\\projects\\RetailCashFlow_Project4\\CashFlow1-300w.webp",
+      "optimized": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow1-300w.webp",
+      "responsive": [
+        {
+          "width": 640,
+          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow1-300w-640w.webp"
+        },
+        {
+          "width": 768,
+          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow1-300w-768w.webp"
+        },
+        {
+          "width": 1024,
+          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow1-300w-1024w.webp"
+        },
+        {
+          "width": 1280,
+          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow1-300w-1280w.webp"
+        },
+        {
+          "width": 1536,
+          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow1-300w-1536w.webp"
+        }
+      ]
+    },
+    {
+      "original": "public\\images\\projects\\RetailCashFlow_Project4\\CashFlow1-1200w.webp",
+      "optimized": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow1-1200w.webp",
+      "responsive": [
+        {
+          "width": 640,
+          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow1-1200w-640w.webp"
+        },
+        {
+          "width": 768,
+          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow1-1200w-768w.webp"
+        },
+        {
+          "width": 1024,
+          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow1-1200w-1024w.webp"
+        },
+        {
+          "width": 1280,
+          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow1-1200w-1280w.webp"
+        },
+        {
+          "width": 1536,
+          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow1-1200w-1536w.webp"
         }
       ]
     },
@@ -1328,288 +1614,106 @@
       ]
     },
     {
-      "original": "public\\images\\projects\\RetailCashFlow_Project4\\Project4_Cover.webp",
-      "optimized": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\Project4_Cover.webp",
+      "original": "public\\images\\projects\\AIautomation_Project5\\Project5_Cover.webp",
+      "optimized": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover.webp",
       "responsive": [
         {
           "width": 640,
-          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\Project4_Cover-640w.webp"
+          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-640w.webp"
         },
         {
           "width": 768,
-          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\Project4_Cover-768w.webp"
+          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-768w.webp"
         },
         {
           "width": 1024,
-          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\Project4_Cover-1024w.webp"
+          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-1024w.webp"
         },
         {
           "width": 1280,
-          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\Project4_Cover-1280w.webp"
+          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-1280w.webp"
         },
         {
           "width": 1536,
-          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\Project4_Cover-1536w.webp"
+          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-1536w.webp"
         }
       ]
     },
     {
-      "original": "public\\images\\projects\\RetailCashFlow_Project4\\Project4_Cover-600w.webp",
-      "optimized": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\Project4_Cover-600w.webp",
+      "original": "public\\images\\projects\\AIautomation_Project5\\Project5_Cover-600w.webp",
+      "optimized": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-600w.webp",
       "responsive": [
         {
           "width": 640,
-          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\Project4_Cover-600w-640w.webp"
+          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-600w-640w.webp"
         },
         {
           "width": 768,
-          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\Project4_Cover-600w-768w.webp"
+          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-600w-768w.webp"
         },
         {
           "width": 1024,
-          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\Project4_Cover-600w-1024w.webp"
+          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-600w-1024w.webp"
         },
         {
           "width": 1280,
-          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\Project4_Cover-600w-1280w.webp"
+          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-600w-1280w.webp"
         },
         {
           "width": 1536,
-          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\Project4_Cover-600w-1536w.webp"
+          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-600w-1536w.webp"
         }
       ]
     },
     {
-      "original": "public\\images\\projects\\RetailCashFlow_Project4\\Project4_Cover-300w.webp",
-      "optimized": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\Project4_Cover-300w.webp",
+      "original": "public\\images\\projects\\AIautomation_Project5\\Project5_Cover-300w.webp",
+      "optimized": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-300w.webp",
       "responsive": [
         {
           "width": 640,
-          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\Project4_Cover-300w-640w.webp"
+          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-300w-640w.webp"
         },
         {
           "width": 768,
-          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\Project4_Cover-300w-768w.webp"
+          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-300w-768w.webp"
         },
         {
           "width": 1024,
-          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\Project4_Cover-300w-1024w.webp"
+          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-300w-1024w.webp"
         },
         {
           "width": 1280,
-          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\Project4_Cover-300w-1280w.webp"
+          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-300w-1280w.webp"
         },
         {
           "width": 1536,
-          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\Project4_Cover-300w-1536w.webp"
+          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-300w-1536w.webp"
         }
       ]
     },
     {
-      "original": "public\\images\\projects\\RetailCashFlow_Project4\\Project4_Cover-1200w.webp",
-      "optimized": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\Project4_Cover-1200w.webp",
+      "original": "public\\images\\projects\\AIautomation_Project5\\Project5_Cover-1200w.webp",
+      "optimized": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-1200w.webp",
       "responsive": [
         {
           "width": 640,
-          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\Project4_Cover-1200w-640w.webp"
+          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-1200w-640w.webp"
         },
         {
           "width": 768,
-          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\Project4_Cover-1200w-768w.webp"
+          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-1200w-768w.webp"
         },
         {
           "width": 1024,
-          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\Project4_Cover-1200w-1024w.webp"
+          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-1200w-1024w.webp"
         },
         {
           "width": 1280,
-          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\Project4_Cover-1200w-1280w.webp"
+          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-1200w-1280w.webp"
         },
         {
           "width": 1536,
-          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\Project4_Cover-1200w-1536w.webp"
-        }
-      ]
-    },
-    {
-      "original": "public\\images\\projects\\RetailCashFlow_Project4\\CashFlow2.webp",
-      "optimized": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow2.webp",
-      "responsive": [
-        {
-          "width": 640,
-          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow2-640w.webp"
-        },
-        {
-          "width": 768,
-          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow2-768w.webp"
-        },
-        {
-          "width": 1024,
-          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow2-1024w.webp"
-        },
-        {
-          "width": 1280,
-          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow2-1280w.webp"
-        },
-        {
-          "width": 1536,
-          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow2-1536w.webp"
-        }
-      ]
-    },
-    {
-      "original": "public\\images\\projects\\RetailCashFlow_Project4\\CashFlow2-600w.webp",
-      "optimized": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow2-600w.webp",
-      "responsive": [
-        {
-          "width": 640,
-          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow2-600w-640w.webp"
-        },
-        {
-          "width": 768,
-          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow2-600w-768w.webp"
-        },
-        {
-          "width": 1024,
-          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow2-600w-1024w.webp"
-        },
-        {
-          "width": 1280,
-          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow2-600w-1280w.webp"
-        },
-        {
-          "width": 1536,
-          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow2-600w-1536w.webp"
-        }
-      ]
-    },
-    {
-      "original": "public\\images\\projects\\RetailCashFlow_Project4\\CashFlow2-300w.webp",
-      "optimized": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow2-300w.webp",
-      "responsive": [
-        {
-          "width": 640,
-          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow2-300w-640w.webp"
-        },
-        {
-          "width": 768,
-          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow2-300w-768w.webp"
-        },
-        {
-          "width": 1024,
-          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow2-300w-1024w.webp"
-        },
-        {
-          "width": 1280,
-          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow2-300w-1280w.webp"
-        },
-        {
-          "width": 1536,
-          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow2-300w-1536w.webp"
-        }
-      ]
-    },
-    {
-      "original": "public\\images\\projects\\RetailCashFlow_Project4\\CashFlow1.webp",
-      "optimized": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow1.webp",
-      "responsive": [
-        {
-          "width": 640,
-          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow1-640w.webp"
-        },
-        {
-          "width": 768,
-          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow1-768w.webp"
-        },
-        {
-          "width": 1024,
-          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow1-1024w.webp"
-        },
-        {
-          "width": 1280,
-          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow1-1280w.webp"
-        },
-        {
-          "width": 1536,
-          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow1-1536w.webp"
-        }
-      ]
-    },
-    {
-      "original": "public\\images\\projects\\RetailCashFlow_Project4\\CashFlow1-600w.webp",
-      "optimized": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow1-600w.webp",
-      "responsive": [
-        {
-          "width": 640,
-          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow1-600w-640w.webp"
-        },
-        {
-          "width": 768,
-          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow1-600w-768w.webp"
-        },
-        {
-          "width": 1024,
-          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow1-600w-1024w.webp"
-        },
-        {
-          "width": 1280,
-          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow1-600w-1280w.webp"
-        },
-        {
-          "width": 1536,
-          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow1-600w-1536w.webp"
-        }
-      ]
-    },
-    {
-      "original": "public\\images\\projects\\RetailCashFlow_Project4\\CashFlow1-300w.webp",
-      "optimized": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow1-300w.webp",
-      "responsive": [
-        {
-          "width": 640,
-          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow1-300w-640w.webp"
-        },
-        {
-          "width": 768,
-          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow1-300w-768w.webp"
-        },
-        {
-          "width": 1024,
-          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow1-300w-1024w.webp"
-        },
-        {
-          "width": 1280,
-          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow1-300w-1280w.webp"
-        },
-        {
-          "width": 1536,
-          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow1-300w-1536w.webp"
-        }
-      ]
-    },
-    {
-      "original": "public\\images\\projects\\RetailCashFlow_Project4\\CashFlow1-1200w.webp",
-      "optimized": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow1-1200w.webp",
-      "responsive": [
-        {
-          "width": 640,
-          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow1-1200w-640w.webp"
-        },
-        {
-          "width": 768,
-          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow1-1200w-768w.webp"
-        },
-        {
-          "width": 1024,
-          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow1-1200w-1024w.webp"
-        },
-        {
-          "width": 1280,
-          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow1-1200w-1280w.webp"
-        },
-        {
-          "width": 1536,
-          "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow1-1200w-1536w.webp"
+          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-1200w-1536w.webp"
         }
       ]
     },
@@ -1922,110 +2026,6 @@
         {
           "width": 1536,
           "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_after-1200w-1536w.webp"
-        }
-      ]
-    },
-    {
-      "original": "public\\images\\projects\\AIautomation_Project5\\Project5_Cover.webp",
-      "optimized": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover.webp",
-      "responsive": [
-        {
-          "width": 640,
-          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-640w.webp"
-        },
-        {
-          "width": 768,
-          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-768w.webp"
-        },
-        {
-          "width": 1024,
-          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-1024w.webp"
-        },
-        {
-          "width": 1280,
-          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-1280w.webp"
-        },
-        {
-          "width": 1536,
-          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-1536w.webp"
-        }
-      ]
-    },
-    {
-      "original": "public\\images\\projects\\AIautomation_Project5\\Project5_Cover-600w.webp",
-      "optimized": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-600w.webp",
-      "responsive": [
-        {
-          "width": 640,
-          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-600w-640w.webp"
-        },
-        {
-          "width": 768,
-          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-600w-768w.webp"
-        },
-        {
-          "width": 1024,
-          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-600w-1024w.webp"
-        },
-        {
-          "width": 1280,
-          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-600w-1280w.webp"
-        },
-        {
-          "width": 1536,
-          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-600w-1536w.webp"
-        }
-      ]
-    },
-    {
-      "original": "public\\images\\projects\\AIautomation_Project5\\Project5_Cover-300w.webp",
-      "optimized": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-300w.webp",
-      "responsive": [
-        {
-          "width": 640,
-          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-300w-640w.webp"
-        },
-        {
-          "width": 768,
-          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-300w-768w.webp"
-        },
-        {
-          "width": 1024,
-          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-300w-1024w.webp"
-        },
-        {
-          "width": 1280,
-          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-300w-1280w.webp"
-        },
-        {
-          "width": 1536,
-          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-300w-1536w.webp"
-        }
-      ]
-    },
-    {
-      "original": "public\\images\\projects\\AIautomation_Project5\\Project5_Cover-1200w.webp",
-      "optimized": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-1200w.webp",
-      "responsive": [
-        {
-          "width": 640,
-          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-1200w-640w.webp"
-        },
-        {
-          "width": 768,
-          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-1200w-768w.webp"
-        },
-        {
-          "width": 1024,
-          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-1200w-1024w.webp"
-        },
-        {
-          "width": 1280,
-          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-1200w-1280w.webp"
-        },
-        {
-          "width": 1536,
-          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-1200w-1536w.webp"
         }
       ]
     }

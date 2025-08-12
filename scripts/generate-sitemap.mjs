@@ -7,7 +7,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 // Configuration
-const BASE_URL = 'https://sahilthecoder.github.io/Sahil_Ali-Portfolio';
+const BASE_URL = 'https://sahilthecoder.github.io/Sahil-Ali-Portfolio';
 const PAGES = [
   { url: '/', priority: '1.0', changefreq: 'daily' },
   { url: '/about', priority: '0.9', changefreq: 'weekly' },

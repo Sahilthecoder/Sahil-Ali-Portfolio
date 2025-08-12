@@ -93,7 +93,7 @@ const personalInfo: PersonalInfo = {
     availability: 'Open to freelance, part-time, and full-time work opportunities',
   },
   resume: {
-    cvDownloadLink: '/Sahil_Ali-Portfolio/assets/Sahil_Ali_Cv.pdf',
+    cvDownloadLink: '/Sahil-Ali-Portfolio/assets/Sahil_Ali_Cv.pdf',
     linkedinProfile: 'https://www.linkedin.com/in/sahil-ali-714867242/',
   },
   personalDetails: {

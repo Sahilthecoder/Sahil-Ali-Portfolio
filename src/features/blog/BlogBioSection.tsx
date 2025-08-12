@@ -5,12 +5,12 @@ const MiniBio = () => (
   <div className="bg-card rounded-xl p-6 shadow-sm border border-border hover:shadow-md transition-shadow duration-300">
     <div className="flex items-start space-x-4">
       <img
-        src="/Sahil_Ali-Portfolio/images/profile/profile-300w.webp"
+        src="/Sahil-Ali-Portfolio/images/profile/profile-300w.webp"
         alt="Sahil Ali"
         className="w-16 h-16 rounded-full object-cover border-2 border-primary/20"
         width={64}
         height={64}
-        srcSet="/Sahil_Ali-Portfolio/images/profile/profile-300w.webp 300w"
+        srcSet="/Sahil-Ali-Portfolio/images/profile/profile-300w.webp 300w"
         sizes="(max-width: 640px) 150px, 300px"
       />
       <div>
