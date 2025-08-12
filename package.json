@@ -3,10 +3,10 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "homepage": "https://sahilthecoder.github.io/Sahil-Ali-Portfolio",
+  "homepage": "https://sahilthecoder.github.io/Sahil_Ali-Portfolio",
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
+    "deploy": "node deploy.js",
     "dev": "vite",
     "build": "npm run optimize-images || echo 'Image optimization failed, continuing with build...' && npm run generate-sitemap && tsc --skipLibCheck && vite build",
     "preview": "vite preview --port 3000",
