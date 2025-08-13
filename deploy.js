@@ -2,7 +2,7 @@ import { publish } from 'gh-pages';
 
 const options = {
   branch: 'gh-pages',
-  repo: 'https://github.com/Sahilthecoder/Sahil-Ali-Portfolio.git',
+  repo: 'https://github.com/Sahilthecoder/Sahil_Ali-Portfolio.git',
   message: 'Auto-deployed by script',
   dotfiles: true,
   history: false,
