@@ -21,6 +21,17 @@ export const PasswordProtectionProvider = ({ children }: { children: ReactNode }
     if (isCorrect) {
       setIsAuthenticated(true);
       sessionStorage.setItem('certificateAuth', 'true');
+      
+      // Check if there's a redirect URL in session storage
+      const redirectUrl = sessionStorage.getItem('redirectAfterAuth');
+      if (redirectUrl) {
+        // Clear the redirect URL from session storage
+        sessionStorage.removeItem('redirectAfterAuth');
+        // Redirect to the stored URL after a small delay
+        setTimeout(() => {
+          window.location.href = `/#${redirectUrl}`;
+        }, 100);
+      }
     }
     return isCorrect;
   };

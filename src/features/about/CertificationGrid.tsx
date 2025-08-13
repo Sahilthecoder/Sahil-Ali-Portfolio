@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiAward, FiExternalLink, FiLock } from 'react-icons/fi';
 
@@ -18,6 +18,11 @@ type CertificationData = Omit<Education, 'degree'> & {
 const CertificationsGrid = () => {
   const [showPasswordModal, setShowPasswordModal] = useState(false);
   const { isAuthenticated, verifyPassword } = usePasswordProtection();
+  
+  // Debug logging
+  React.useEffect(() => {
+    console.log('CertificationGrid - isAuthenticated:', isAuthenticated);
+  }, [isAuthenticated]);
   
   // Process certifications data
   const certifications = useMemo<CertificationData[]>(() => 

@@ -37,8 +37,25 @@ export default function ProjectModal({
 }: ProjectModalProps) {
   const { isAuthenticated, verifyPassword } = usePasswordProtection();
   const [showPasswordModal, setShowPasswordModal] = React.useState(false);
-  const [isPortfolioProject] = React.useState(projectId === 'portfolio-creation');
+  // Debug logging
+  React.useEffect(() => {
+    console.log('ProjectModal - Project ID:', projectId);
+    console.log('ProjectModal - Project Title:', project?.title);
+    console.log('ProjectModal - isAuthenticated:', isAuthenticated);
+  }, [projectId, project, isAuthenticated]);
+
+  // Check if the project is the portfolio project (case-insensitive and handles different formats)
+  const [isPortfolioProject] = React.useState(
+    projectId?.toLowerCase().includes('portfolio') || 
+    project?.title?.toLowerCase().includes('portfolio')
+  );
   const shouldLock = isPortfolioProject && !isAuthenticated;
+  
+  // Log the lock state
+  React.useEffect(() => {
+    console.log('ProjectModal - isPortfolioProject:', isPortfolioProject);
+    console.log('ProjectModal - shouldLock:', shouldLock);
+  }, [isPortfolioProject, shouldLock]);
 
   // Detect RTL mode
   const isRTL = typeof document !== 'undefined' && document?.dir === 'rtl';
@@ -46,7 +63,12 @@ export default function ProjectModal({
   const handleExploreClick = (e: React.MouseEvent) => {
     if (shouldLock) {
       e.preventDefault();
+      // Store the target URL in session storage before showing the password modal
+      sessionStorage.setItem('redirectAfterAuth', `/projects/${projectId}`);
       setShowPasswordModal(true);
+    } else {
+      // If not locked, navigate directly
+      window.location.href = `/#/projects/${projectId}`;
     }
   };
 
@@ -54,7 +76,13 @@ export default function ProjectModal({
     const isVerified = verifyPassword(password);
     if (isVerified) {
       setShowPasswordModal(false);
-      window.location.hash = `#/projects/${projectId}`;
+      // Force a full page reload to ensure the authentication state is properly set
+      // and the project loads with the correct permissions
+      window.location.href = `/#/projects/${projectId}`;
+      // Small delay to ensure the hash is set after the page starts reloading
+      setTimeout(() => {
+        window.location.reload();
+      }, 100);
     }
     return isVerified;
   };
@@ -192,7 +220,7 @@ export default function ProjectModal({
                           <div className="absolute inset-0 flex items-center justify-center gap-2 bg-black/50 text-white rounded-md">
                             <FiLock className="h-4 w-4" />
                             <span>Locked</span>
-                          </div>
+                          </div> 
                         )}
                         <FiExternalLink className="h-4 w-4" />
                         {!shouldLock ? 'Explore Complete Project' : 'Project Locked'}
