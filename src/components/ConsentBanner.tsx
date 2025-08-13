@@ -3,21 +3,6 @@ import { useEffect, useState } from 'react';
 // Define the consent types for better type safety
 type ConsentType = 'granted' | 'denied' | null;
 
-declare global {
-  interface Window {
-    gtag: (
-      command: 'consent',
-      action: 'default' | 'update',
-      params: {
-        ad_storage?: 'granted' | 'denied';
-        analytics_storage?: 'granted' | 'denied';
-        region?: string[];
-        wait_for_update?: number;
-      }
-    ) => void;
-  }
-}
-
 // Check if user is in a region that requires consent (GDPR)
 const requiresConsent = (): boolean => {
   // This is a simple implementation. Consider using a more robust solution
@@ -71,13 +56,14 @@ export const ConsentBanner = () => {
     localStorage.setItem('cookie_consent', status);
     
     // Update Google Analytics consent
-    window.gtag?.('consent', 'update', {
-      ad_storage: status,
-      analytics_storage: status,
-      // Only include standard consent types
-      region: ['US', 'GB', 'IN'], // Add your target regions
-      wait_for_update: 500 // Wait up to 500ms for consent update
-    });
+    if (window.gtag) {
+      window.gtag('consent', 'update', {
+        ad_storage: status,
+        analytics_storage: status,
+        functionality_storage: status,
+        security_storage: status === 'granted' ? 'granted' : 'denied'
+      });
+    }
     
     // Log for debugging
     console.log(`Consent updated to: ${status}`);
