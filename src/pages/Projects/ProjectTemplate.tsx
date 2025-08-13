@@ -144,11 +144,17 @@ const ProjectTemplate: React.FC<ProjectTemplateProps> = ({
               </div>
             </div>
 
-            <div className="relative rounded-xl overflow-hidden shadow-2xl mb-12">
+            <div className="relative -mx-4 md:-mx-8 lg:-mx-12 rounded-none md:rounded-xl overflow-hidden shadow-2xl mb-12">
               <LazyImage
                 src={project.image.src}
                 alt={project.image.alt}
                 className="w-full h-auto object-cover"
+                style={{
+                  maxHeight: '70vh',
+                  width: '100%',
+                  objectFit: 'cover',
+                  objectPosition: 'center'
+                }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
             </div>

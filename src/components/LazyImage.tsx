@@ -10,6 +10,7 @@ interface LazyImageProps {
   width?: number | string;
   height?: number | string;
   placeholder?: string;
+  style?: React.CSSProperties;
   onClick?: (e: React.MouseEvent<HTMLImageElement>) => void;
 }
 

@@ -19,17 +19,19 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
     <article className="bg-white dark:bg-gray-800 rounded-xl shadow-sm sm:shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden border border-border h-full flex flex-col">
       <a
         href={`${baseUrl}/#/projects/${project.id}`}
-        className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+        className="h-full flex flex-col focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
         aria-label={`View details of project ${project.title}`}
       >
-          <img
-            src={project.image.src}
-            alt={project.image.alt}
-            className="w-full h-40 sm:h-48 object-cover"
-            loading="lazy"
-            decoding="async"
-            sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
-          />
+          <div className="flex-1 min-h-[200px] md:min-h-0 md:h-48 relative">
+            <img
+              src={project.image.src}
+              alt={project.image.alt}
+              className="w-full h-full object-cover"
+              loading="lazy"
+              decoding="async"
+              sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
+            />
+          </div>
           <div className="p-5 sm:p-6 flex-1 flex flex-col">
             <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
               {project.title}
@@ -83,7 +85,7 @@ const ProjectSection: React.FC = () => {
         />
       </div>
 
-      <div className="md:hidden">
+      <div className="md:hidden h-full">
         <Swiper
           modules={[Pagination, A11y]}
           spaceBetween={24}
@@ -97,8 +99,9 @@ const ProjectSection: React.FC = () => {
               return `<span class="${className}" role="button" aria-label="Go to project ${index + 1}" tabindex="0"></span>`;
             }
           }}
-          className="pb-16 px-1"
+          className="h-full pb-16 px-1"
           style={{
+            '--swiper-pagination-bottom': '32px',
             '--swiper-pagination-bullet-size': '12px',
             '--swiper-pagination-bullet-horizontal-gap': '8px',
             '--swiper-pagination-bullet-inactive-color': '#9CA3AF',
@@ -106,7 +109,8 @@ const ProjectSection: React.FC = () => {
             '--swiper-pagination-color': '#3B82F6',
             '--swiper-pagination-bullet-width': '24px',
             '--swiper-pagination-bullet-height': '6px',
-            '--swiper-pagination-bullet-border-radius': '3px'
+            '--swiper-pagination-bullet-border-radius': '3px',
+            height: '100%',
           } as React.CSSProperties}
         >
           {featuredProjects.map((project) => (

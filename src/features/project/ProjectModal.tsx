@@ -35,10 +35,10 @@ export default function ProjectModal({
   onClose,
   projectId
 }: ProjectModalProps) {
-  const { isAuthenticated } = usePasswordProtection();
+  const { isAuthenticated, verifyPassword } = usePasswordProtection();
   const [showPasswordModal, setShowPasswordModal] = React.useState(false);
-  const isPortfolioProject = projectId === 'portfolio-creation';
-  const shouldLock = !isAuthenticated || isPortfolioProject;
+  const [isPortfolioProject] = React.useState(projectId === 'portfolio-creation');
+  const shouldLock = isPortfolioProject && !isAuthenticated;
 
   // Detect RTL mode
   const isRTL = typeof document !== 'undefined' && document?.dir === 'rtl';
@@ -50,9 +50,13 @@ export default function ProjectModal({
     }
   };
 
-  const handlePasswordSuccess = () => {
-    setShowPasswordModal(false);
-    window.location.hash = `#/projects/${projectId}`;
+  const handlePasswordVerify = (password: string) => {
+    const isVerified = verifyPassword(password);
+    if (isVerified) {
+      setShowPasswordModal(false);
+      window.location.hash = `#/projects/${projectId}`;
+    }
+    return isVerified;
   };
 
   if (!isOpen || !project) return null;
@@ -203,9 +207,11 @@ export default function ProjectModal({
         </motion.div>
       )}
       
-      {showPasswordModal && (
-        <PasswordModal onClose={handlePasswordSuccess} />
-      )}
+      <PasswordModal
+        isOpen={showPasswordModal}
+        onClose={() => setShowPasswordModal(false)}
+        onVerify={handlePasswordVerify}
+      />
     </AnimatePresence>
   );
 }
