@@ -92,16 +92,16 @@ export default function ProjectModal({
             <div className={`flex flex-col ${isRTL ? 'lg:flex-row-reverse' : 'lg:flex-row'} h-full overflow-y-auto`}>
               
               {/* Image Section */}
-              <div className="relative w-full lg:w-1/2 h-64 sm:h-80 lg:h-auto overflow-hidden flex-shrink-0">
+              <div className="relative w-full lg:w-1/2 overflow-hidden flex-shrink-0 bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
                 <motion.img
                   key={project.image.src}
                   src={project.image.src}
                   alt={project.image.alt || project.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-auto max-h-[80vh] object-contain p-4"
                   style={{
                     objectPosition: isRTL ? 'right center' : 'left center'
                   }}
-                  initial={{ opacity: 0, scale: 1.05 }}
+                  initial={{ opacity: 0, scale: 1.02 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5, ease: 'easeOut' }}
                   loading="lazy"

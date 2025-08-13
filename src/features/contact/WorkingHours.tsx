@@ -134,15 +134,15 @@ const WorkingHours = () => {
                     )}
                   />
                   <span className={cn(
-                    isCurrentDay && 'font-medium',
-                    !day.isWorkingDay && 'text-gray-500 dark:text-gray-400'
+                    isCurrentDay ? 'font-medium' : '',
+                    !day.isWorkingDay && 'text-gray-700 dark:text-gray-300 opacity-90'
                   )}>
                     {day.day}
                   </span>
                 </div>
                 <span className={cn(
                   isCurrentDay ? 'font-medium' : '',
-                  !day.isWorkingDay && 'text-muted-foreground/70'
+                  !day.isWorkingDay ? 'text-foreground/80 dark:text-foreground/80' : 'text-foreground/90'
                 )}>
                   {day.hours}
                 </span>
@@ -153,13 +153,13 @@ const WorkingHours = () => {
 
         <div className="mt-5 pt-4 border-t border-border/50">
           <div className="flex items-center justify-between">
-            <div className="flex items-center text-xs text-muted-foreground">
+            <div className="flex items-center text-xs text-foreground/80 dark:text-foreground/80">
               <Watch className="w-3.5 h-3.5 mr-2 text-foreground/60" />
               <span>{timezone}</span>
             </div>
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-xs font-medium text-foreground/70 hover:text-foreground transition-colors flex items-center group"
+              className="text-xs font-medium text-foreground/90 hover:text-foreground transition-colors flex items-center group"
               aria-expanded={isOpen}
               aria-controls="working-hours-details"
             >
@@ -185,16 +185,16 @@ const WorkingHours = () => {
                 className="overflow-hidden"
               >
                 <div className="space-y-3">
-                  <div className="text-sm text-muted-foreground space-y-2">
+                  <div className="text-sm text-foreground/90 dark:text-foreground/90 space-y-2">
                     <p>
                       We&apos;re available during our working hours for meetings, calls, and support.
                       Feel free to reach out during these times, and we&apos;ll get back to you as soon as possible.
                     </p>
-                    <p className="text-xs text-muted-foreground/80">
+                    <p className="text-xs text-foreground/80 dark:text-foreground/80">
                       <span className="font-medium">Note:</span> Response times may vary during holidays and weekends.
                     </p>
                   </div>
-                  <div className="flex items-center text-sm text-muted-foreground pt-2 border-t border-border/20">
+                  <div className="flex items-center text-sm text-foreground/90 dark:text-foreground/90 pt-2 border-t border-border/20">
                     <span className="w-2 h-2 rounded-full bg-accent mr-2 animate-pulse"></span>
                     Current time: {currentTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                   </div>
