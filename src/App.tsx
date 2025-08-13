@@ -21,6 +21,7 @@ import PrivacyPolicy from './pages/privacy-policy';
 import { ErrorBoundary } from './components/common/ErrorBoundary';
 import ScrollToTop from './components/common/ScrollToTop';
 import Footer from './components/Navigation/Footer';
+import { ConsentBanner } from './components/ConsentBanner';
 
 // Wrapper component to handle page transitions
 const AnimatedRoutes = () => {
@@ -105,6 +106,7 @@ const App: React.FC = () => {
               <ThemeProvider>
                 <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
                   <GoogleAnalytics />
+                  <ConsentBanner />
                   <Navigation>
                     <ScrollToTop />
                     <main className="flex-grow">

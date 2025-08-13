@@ -1,13 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Google tag (gtag.js) -->
+    <!-- Google tag (gtag.js) with consent mode -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-10MNBLM0YM"></script>
     <script>
+      // Default consent mode settings (deny by default)
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
+      
+      // Set default consent to 'denied' as a default state
+      gtag('consent', 'default', {
+        'ad_storage': 'denied',
+        'analytics_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'personalization_storage': 'denied',
+        'functionality_storage': 'denied',
+        'security_storage': 'granted'
+      });
+      
+      // Initialize Google Analytics
       gtag('js', new Date());
-      gtag('config', 'G-10MNBLM0YM');
+      gtag('config', 'G-10MNBLM0YM', {
+        'anonymize_ip': true,
+        'allow_google_signals': false,
+        'allow_ad_personalization_signals': false
+      });
     </script>
     
     <meta charset="UTF-8" />
