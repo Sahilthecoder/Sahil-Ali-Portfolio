@@ -1,6 +1,7 @@
 import type { ContactInfo } from '../types/contact.types';
 
 export const CONTACT_INFO: ContactInfo = {
+  name: 'Sahil Ali',
   email: 'sahilkhan36985@gmail.com',
   phone: '+91 98757 71550',
   workingHours: 'Mon - Fri: 9:00 AM - 6:00 PM IST',
