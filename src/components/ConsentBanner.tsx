@@ -1,8 +1,17 @@
 import { useEffect, useState } from 'react';
 
+type GTagConsentParams = {
+  ad_storage: 'granted' | 'denied';
+  analytics_storage: 'granted' | 'denied';
+  ad_user_data?: 'granted' | 'denied';
+  ad_personalization?: 'granted' | 'denied';
+  personalization_storage?: 'granted' | 'denied';
+};
+
 declare global {
   interface Window {
-    gtag: (command: string, action: string, params?: Record<string, unknown>) => void;
+    gtag: (command: string, action: string, params?: GTagConsentParams) => void;
+    dataLayer: Array<Record<string, unknown>>;
   }
 }
 
@@ -12,42 +21,59 @@ export const ConsentBanner = () => {
   useEffect(() => {
     // Check if user has already given consent
     const consent = localStorage.getItem('cookie_consent');
+    
+    // Initialize dataLayer if it doesn't exist
+    window.dataLayer = window.dataLayer || [];
+    
     if (consent === null) {
       setShowBanner(true);
     } else if (consent === 'granted') {
       // If consent was previously given, update Google Analytics
       window.gtag('consent', 'update', {
         'ad_storage': 'granted',
-        'analytics_storage': 'granted'
+        'analytics_storage': 'granted',
+        'ad_user_data': 'granted',
+        'ad_personalization': 'granted',
+        'personalization_storage': 'granted'
+      });
+    } else {
+      // If consent was denied, update accordingly
+      window.gtag('consent', 'update', {
+        'ad_storage': 'denied',
+        'analytics_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'personalization_storage': 'denied'
       });
     }
   }, []);
 
-  const handleAccept = () => {
-    // Set consent in localStorage
-    localStorage.setItem('cookie_consent', 'granted');
+  const updateConsent = (granted: boolean) => {
+    const consentValue = granted ? 'granted' : 'denied';
+    localStorage.setItem('cookie_consent', consentValue);
     
-    // Update Google Tag Manager consent
-    window.gtag('consent', 'update', {
-      'ad_storage': 'granted',
-      'analytics_storage': 'granted'
-    });
-    
-    setShowBanner(false);
-  };
-
-  const handleDecline = () => {
-    // Set consent in localStorage
-    localStorage.setItem('cookie_consent', 'denied');
-    
-    // Update Google Tag Manager consent
-    window.gtag('consent', 'update', {
-      'ad_storage': 'denied',
-      'analytics_storage': 'denied'
-    });
+    // Update Google Analytics consent
+    if (window.gtag) {
+      window.gtag('consent', 'update', {
+        'ad_storage': consentValue,
+        'analytics_storage': consentValue,
+        'ad_user_data': consentValue,
+        'ad_personalization': consentValue,
+        'personalization_storage': consentValue
+      });
+      
+      // Send an event to record the consent update
+      window.gtag('event', 'consent_update', {
+        'event_category': 'consent',
+        'event_label': consentValue
+      });
+    }
     
     setShowBanner(false);
   };
+  
+  const handleAccept = () => updateConsent(true);
+  const handleDecline = () => updateConsent(false);
 
   if (!showBanner) return null;
 
