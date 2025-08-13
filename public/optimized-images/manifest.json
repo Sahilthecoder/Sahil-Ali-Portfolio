@@ -1,5 +1,5 @@
 {
-  "generated": "2025-08-12T21:29:53.857Z",
+  "generated": "2025-08-13T18:18:14.300Z",
   "images": [
     {
       "original": "public\\images\\profile\\profile.webp",
@@ -548,6 +548,110 @@
       ]
     },
     {
+      "original": "public\\images\\projects\\Mahira_Portfolio_Web+AI\\Project7_Cover.webp",
+      "optimized": "public\\optimized-images\\projects\\Mahira_Portfolio_Web+AI\\Project7_Cover.webp",
+      "responsive": [
+        {
+          "width": 640,
+          "path": "public\\optimized-images\\projects\\Mahira_Portfolio_Web+AI\\Project7_Cover-640w.webp"
+        },
+        {
+          "width": 768,
+          "path": "public\\optimized-images\\projects\\Mahira_Portfolio_Web+AI\\Project7_Cover-768w.webp"
+        },
+        {
+          "width": 1024,
+          "path": "public\\optimized-images\\projects\\Mahira_Portfolio_Web+AI\\Project7_Cover-1024w.webp"
+        },
+        {
+          "width": 1280,
+          "path": "public\\optimized-images\\projects\\Mahira_Portfolio_Web+AI\\Project7_Cover-1280w.webp"
+        },
+        {
+          "width": 1536,
+          "path": "public\\optimized-images\\projects\\Mahira_Portfolio_Web+AI\\Project7_Cover-1536w.webp"
+        }
+      ]
+    },
+    {
+      "original": "public\\images\\projects\\Mahira_Portfolio_Web+AI\\Project7_Cover-600w.webp",
+      "optimized": "public\\optimized-images\\projects\\Mahira_Portfolio_Web+AI\\Project7_Cover-600w.webp",
+      "responsive": [
+        {
+          "width": 640,
+          "path": "public\\optimized-images\\projects\\Mahira_Portfolio_Web+AI\\Project7_Cover-600w-640w.webp"
+        },
+        {
+          "width": 768,
+          "path": "public\\optimized-images\\projects\\Mahira_Portfolio_Web+AI\\Project7_Cover-600w-768w.webp"
+        },
+        {
+          "width": 1024,
+          "path": "public\\optimized-images\\projects\\Mahira_Portfolio_Web+AI\\Project7_Cover-600w-1024w.webp"
+        },
+        {
+          "width": 1280,
+          "path": "public\\optimized-images\\projects\\Mahira_Portfolio_Web+AI\\Project7_Cover-600w-1280w.webp"
+        },
+        {
+          "width": 1536,
+          "path": "public\\optimized-images\\projects\\Mahira_Portfolio_Web+AI\\Project7_Cover-600w-1536w.webp"
+        }
+      ]
+    },
+    {
+      "original": "public\\images\\projects\\Mahira_Portfolio_Web+AI\\Project7_Cover-300w.webp",
+      "optimized": "public\\optimized-images\\projects\\Mahira_Portfolio_Web+AI\\Project7_Cover-300w.webp",
+      "responsive": [
+        {
+          "width": 640,
+          "path": "public\\optimized-images\\projects\\Mahira_Portfolio_Web+AI\\Project7_Cover-300w-640w.webp"
+        },
+        {
+          "width": 768,
+          "path": "public\\optimized-images\\projects\\Mahira_Portfolio_Web+AI\\Project7_Cover-300w-768w.webp"
+        },
+        {
+          "width": 1024,
+          "path": "public\\optimized-images\\projects\\Mahira_Portfolio_Web+AI\\Project7_Cover-300w-1024w.webp"
+        },
+        {
+          "width": 1280,
+          "path": "public\\optimized-images\\projects\\Mahira_Portfolio_Web+AI\\Project7_Cover-300w-1280w.webp"
+        },
+        {
+          "width": 1536,
+          "path": "public\\optimized-images\\projects\\Mahira_Portfolio_Web+AI\\Project7_Cover-300w-1536w.webp"
+        }
+      ]
+    },
+    {
+      "original": "public\\images\\projects\\Mahira_Portfolio_Web+AI\\Project7_Cover-1200w.webp",
+      "optimized": "public\\optimized-images\\projects\\Mahira_Portfolio_Web+AI\\Project7_Cover-1200w.webp",
+      "responsive": [
+        {
+          "width": 640,
+          "path": "public\\optimized-images\\projects\\Mahira_Portfolio_Web+AI\\Project7_Cover-1200w-640w.webp"
+        },
+        {
+          "width": 768,
+          "path": "public\\optimized-images\\projects\\Mahira_Portfolio_Web+AI\\Project7_Cover-1200w-768w.webp"
+        },
+        {
+          "width": 1024,
+          "path": "public\\optimized-images\\projects\\Mahira_Portfolio_Web+AI\\Project7_Cover-1200w-1024w.webp"
+        },
+        {
+          "width": 1280,
+          "path": "public\\optimized-images\\projects\\Mahira_Portfolio_Web+AI\\Project7_Cover-1200w-1280w.webp"
+        },
+        {
+          "width": 1536,
+          "path": "public\\optimized-images\\projects\\Mahira_Portfolio_Web+AI\\Project7_Cover-1200w-1536w.webp"
+        }
+      ]
+    },
+    {
       "original": "public\\images\\projects\\RetailCashFlow_Project4\\Project4_Cover.webp",
       "optimized": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\Project4_Cover.webp",
       "responsive": [
@@ -830,110 +934,6 @@
         {
           "width": 1536,
           "path": "public\\optimized-images\\projects\\RetailCashFlow_Project4\\CashFlow1-1200w-1536w.webp"
-        }
-      ]
-    },
-    {
-      "original": "public\\images\\projects\\Mahira_Portfolio_Web+AI\\Project7_Cover.webp",
-      "optimized": "public\\optimized-images\\projects\\Mahira_Portfolio_Web+AI\\Project7_Cover.webp",
-      "responsive": [
-        {
-          "width": 640,
-          "path": "public\\optimized-images\\projects\\Mahira_Portfolio_Web+AI\\Project7_Cover-640w.webp"
-        },
-        {
-          "width": 768,
-          "path": "public\\optimized-images\\projects\\Mahira_Portfolio_Web+AI\\Project7_Cover-768w.webp"
-        },
-        {
-          "width": 1024,
-          "path": "public\\optimized-images\\projects\\Mahira_Portfolio_Web+AI\\Project7_Cover-1024w.webp"
-        },
-        {
-          "width": 1280,
-          "path": "public\\optimized-images\\projects\\Mahira_Portfolio_Web+AI\\Project7_Cover-1280w.webp"
-        },
-        {
-          "width": 1536,
-          "path": "public\\optimized-images\\projects\\Mahira_Portfolio_Web+AI\\Project7_Cover-1536w.webp"
-        }
-      ]
-    },
-    {
-      "original": "public\\images\\projects\\Mahira_Portfolio_Web+AI\\Project7_Cover-600w.webp",
-      "optimized": "public\\optimized-images\\projects\\Mahira_Portfolio_Web+AI\\Project7_Cover-600w.webp",
-      "responsive": [
-        {
-          "width": 640,
-          "path": "public\\optimized-images\\projects\\Mahira_Portfolio_Web+AI\\Project7_Cover-600w-640w.webp"
-        },
-        {
-          "width": 768,
-          "path": "public\\optimized-images\\projects\\Mahira_Portfolio_Web+AI\\Project7_Cover-600w-768w.webp"
-        },
-        {
-          "width": 1024,
-          "path": "public\\optimized-images\\projects\\Mahira_Portfolio_Web+AI\\Project7_Cover-600w-1024w.webp"
-        },
-        {
-          "width": 1280,
-          "path": "public\\optimized-images\\projects\\Mahira_Portfolio_Web+AI\\Project7_Cover-600w-1280w.webp"
-        },
-        {
-          "width": 1536,
-          "path": "public\\optimized-images\\projects\\Mahira_Portfolio_Web+AI\\Project7_Cover-600w-1536w.webp"
-        }
-      ]
-    },
-    {
-      "original": "public\\images\\projects\\Mahira_Portfolio_Web+AI\\Project7_Cover-300w.webp",
-      "optimized": "public\\optimized-images\\projects\\Mahira_Portfolio_Web+AI\\Project7_Cover-300w.webp",
-      "responsive": [
-        {
-          "width": 640,
-          "path": "public\\optimized-images\\projects\\Mahira_Portfolio_Web+AI\\Project7_Cover-300w-640w.webp"
-        },
-        {
-          "width": 768,
-          "path": "public\\optimized-images\\projects\\Mahira_Portfolio_Web+AI\\Project7_Cover-300w-768w.webp"
-        },
-        {
-          "width": 1024,
-          "path": "public\\optimized-images\\projects\\Mahira_Portfolio_Web+AI\\Project7_Cover-300w-1024w.webp"
-        },
-        {
-          "width": 1280,
-          "path": "public\\optimized-images\\projects\\Mahira_Portfolio_Web+AI\\Project7_Cover-300w-1280w.webp"
-        },
-        {
-          "width": 1536,
-          "path": "public\\optimized-images\\projects\\Mahira_Portfolio_Web+AI\\Project7_Cover-300w-1536w.webp"
-        }
-      ]
-    },
-    {
-      "original": "public\\images\\projects\\Mahira_Portfolio_Web+AI\\Project7_Cover-1200w.webp",
-      "optimized": "public\\optimized-images\\projects\\Mahira_Portfolio_Web+AI\\Project7_Cover-1200w.webp",
-      "responsive": [
-        {
-          "width": 640,
-          "path": "public\\optimized-images\\projects\\Mahira_Portfolio_Web+AI\\Project7_Cover-1200w-640w.webp"
-        },
-        {
-          "width": 768,
-          "path": "public\\optimized-images\\projects\\Mahira_Portfolio_Web+AI\\Project7_Cover-1200w-768w.webp"
-        },
-        {
-          "width": 1024,
-          "path": "public\\optimized-images\\projects\\Mahira_Portfolio_Web+AI\\Project7_Cover-1200w-1024w.webp"
-        },
-        {
-          "width": 1280,
-          "path": "public\\optimized-images\\projects\\Mahira_Portfolio_Web+AI\\Project7_Cover-1200w-1280w.webp"
-        },
-        {
-          "width": 1536,
-          "path": "public\\optimized-images\\projects\\Mahira_Portfolio_Web+AI\\Project7_Cover-1200w-1536w.webp"
         }
       ]
     },
@@ -1614,6 +1614,110 @@
       ]
     },
     {
+      "original": "public\\images\\projects\\AIautomation_Project5\\Project5_Cover.webp",
+      "optimized": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover.webp",
+      "responsive": [
+        {
+          "width": 640,
+          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-640w.webp"
+        },
+        {
+          "width": 768,
+          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-768w.webp"
+        },
+        {
+          "width": 1024,
+          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-1024w.webp"
+        },
+        {
+          "width": 1280,
+          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-1280w.webp"
+        },
+        {
+          "width": 1536,
+          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-1536w.webp"
+        }
+      ]
+    },
+    {
+      "original": "public\\images\\projects\\AIautomation_Project5\\Project5_Cover-600w.webp",
+      "optimized": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-600w.webp",
+      "responsive": [
+        {
+          "width": 640,
+          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-600w-640w.webp"
+        },
+        {
+          "width": 768,
+          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-600w-768w.webp"
+        },
+        {
+          "width": 1024,
+          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-600w-1024w.webp"
+        },
+        {
+          "width": 1280,
+          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-600w-1280w.webp"
+        },
+        {
+          "width": 1536,
+          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-600w-1536w.webp"
+        }
+      ]
+    },
+    {
+      "original": "public\\images\\projects\\AIautomation_Project5\\Project5_Cover-300w.webp",
+      "optimized": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-300w.webp",
+      "responsive": [
+        {
+          "width": 640,
+          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-300w-640w.webp"
+        },
+        {
+          "width": 768,
+          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-300w-768w.webp"
+        },
+        {
+          "width": 1024,
+          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-300w-1024w.webp"
+        },
+        {
+          "width": 1280,
+          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-300w-1280w.webp"
+        },
+        {
+          "width": 1536,
+          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-300w-1536w.webp"
+        }
+      ]
+    },
+    {
+      "original": "public\\images\\projects\\AIautomation_Project5\\Project5_Cover-1200w.webp",
+      "optimized": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-1200w.webp",
+      "responsive": [
+        {
+          "width": 640,
+          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-1200w-640w.webp"
+        },
+        {
+          "width": 768,
+          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-1200w-768w.webp"
+        },
+        {
+          "width": 1024,
+          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-1200w-1024w.webp"
+        },
+        {
+          "width": 1280,
+          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-1200w-1280w.webp"
+        },
+        {
+          "width": 1536,
+          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-1200w-1536w.webp"
+        }
+      ]
+    },
+    {
       "original": "public\\images\\projects\\Attendance_Project3\\Project3_Cover.webp",
       "optimized": "public\\optimized-images\\projects\\Attendance_Project3\\Project3_Cover.webp",
       "responsive": [
@@ -1922,110 +2026,6 @@
         {
           "width": 1536,
           "path": "public\\optimized-images\\projects\\Attendance_Project3\\Attendance_after-1200w-1536w.webp"
-        }
-      ]
-    },
-    {
-      "original": "public\\images\\projects\\AIautomation_Project5\\Project5_Cover.webp",
-      "optimized": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover.webp",
-      "responsive": [
-        {
-          "width": 640,
-          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-640w.webp"
-        },
-        {
-          "width": 768,
-          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-768w.webp"
-        },
-        {
-          "width": 1024,
-          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-1024w.webp"
-        },
-        {
-          "width": 1280,
-          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-1280w.webp"
-        },
-        {
-          "width": 1536,
-          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-1536w.webp"
-        }
-      ]
-    },
-    {
-      "original": "public\\images\\projects\\AIautomation_Project5\\Project5_Cover-600w.webp",
-      "optimized": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-600w.webp",
-      "responsive": [
-        {
-          "width": 640,
-          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-600w-640w.webp"
-        },
-        {
-          "width": 768,
-          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-600w-768w.webp"
-        },
-        {
-          "width": 1024,
-          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-600w-1024w.webp"
-        },
-        {
-          "width": 1280,
-          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-600w-1280w.webp"
-        },
-        {
-          "width": 1536,
-          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-600w-1536w.webp"
-        }
-      ]
-    },
-    {
-      "original": "public\\images\\projects\\AIautomation_Project5\\Project5_Cover-300w.webp",
-      "optimized": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-300w.webp",
-      "responsive": [
-        {
-          "width": 640,
-          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-300w-640w.webp"
-        },
-        {
-          "width": 768,
-          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-300w-768w.webp"
-        },
-        {
-          "width": 1024,
-          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-300w-1024w.webp"
-        },
-        {
-          "width": 1280,
-          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-300w-1280w.webp"
-        },
-        {
-          "width": 1536,
-          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-300w-1536w.webp"
-        }
-      ]
-    },
-    {
-      "original": "public\\images\\projects\\AIautomation_Project5\\Project5_Cover-1200w.webp",
-      "optimized": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-1200w.webp",
-      "responsive": [
-        {
-          "width": 640,
-          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-1200w-640w.webp"
-        },
-        {
-          "width": 768,
-          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-1200w-768w.webp"
-        },
-        {
-          "width": 1024,
-          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-1200w-1024w.webp"
-        },
-        {
-          "width": 1280,
-          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-1200w-1280w.webp"
-        },
-        {
-          "width": 1536,
-          "path": "public\\optimized-images\\projects\\AIautomation_Project5\\Project5_Cover-1200w-1536w.webp"
         }
       ]
     }
