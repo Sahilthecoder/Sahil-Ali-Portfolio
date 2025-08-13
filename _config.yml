@@ -1,0 +1,49 @@
+# Site settings
+title: Sahil Ali - Portfolio
+description: Personal portfolio of Sahil Ali, showcasing projects and experience
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://sahilthecoder.github.io" # the base hostname & protocol for your site
+
+# Build settings
+markdown: kramdown
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Performance optimizations
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  blanklines: false
+  profile: false
+  startings: []
+  ignore:
+    envs: development
+
+theme: jekyll-theme-minimal
+
+github: [metadata]
+
+# Exclude from processing.
+# The following items will not be processed, by default. Create a custom list
+# to override the default setting.
+# exclude:
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules
+#   - vendor
+
+# Performance headers
+include:
+  - _headers
+
+# Cache control for GitHub Pages
+# This is set in the _headers file instead
+
+# Enable Jekyll's asset compression
+sass:
+  style: compressed
+
+# Enable GZIP compression (handled by GitHub Pages)
+gzip: true

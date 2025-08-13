@@ -1,0 +1,50 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Disallow admin and private directories
+Disallow: /admin/
+Disallow: /api/
+Disallow: /private/
+Disallow: /tmp/
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+
+# Sitemap location
+Sitemap: https://sahilthecoder.github.io/Sahil-Ali-Portfolio/sitemap.xml
+
+# Crawl-delay: 10  # Uncomment if needed to limit crawl rate
+
+# Allow all web crawlers to index all pages
+# Block specific bots if needed
+# User-agent: BadBot
+# Disallow: /
+
+# Modern directives for search engines
+Host: https://sahilthecoder.github.io
+Clean-param: ref /search*  # Remove tracking parameters from URLs
+
+# Allow all search engines to crawl the website
+# No need to disallow anything specific for a portfolio site
+
+# Additional directives for specific search engines
+User-agent: Googlebot
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.gif$
+Allow: /*.svg$
+Allow: /*.webp$
+
+# Block AI crawlers
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+# Allow all other bots
+User-agent: *
+Allow: /

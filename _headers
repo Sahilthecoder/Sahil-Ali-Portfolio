@@ -1,0 +1,23 @@
+# Cache static assets for 1 year
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+  
+# Cache HTML for 1 hour (revalidate with service worker)
+/*.html
+  Cache-Control: public, max-age=3600, must-revalidate
+  
+# Security headers
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  X-XSS-Protection: 1; mode=block
+  Referrer-Policy: strict-origin-when-cross-origin
+  
+# Remove X-Powered-By header
+/*
+  X-Powered-By: 
+  
+# Enable HSTS preload (be careful with this in development)
+# Uncomment these lines after testing
+# /*
+#   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload

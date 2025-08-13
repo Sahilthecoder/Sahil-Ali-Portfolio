@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes backgroundAnimation {
+  0% { background-position: 0% 0%, 100% 0%, 50% 100%; }
+  100% { background-position: 100% 100%, 0% 100%, 50% 0%; }
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient 8s ease infinite;
+}
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 222 47% 11%;
+    --primary: 220 80% 50%;
+    --primary-foreground: 0 0% 100%;
+    --accent: 200 75% 45%;
+    --accent-foreground: 0 0% 100%;
+    --secondary: 215 25% 27%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 215 16% 90%;
+    --muted-foreground: 215 16% 35%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 215 15% 80%;
+    --input: 215 15% 95%;
+    --ring: 220 80% 50%;
+    --radius: 0.5rem;
+    --gradient-primary: linear-gradient(to right, hsl(220 80% 50%), hsl(200 75% 45%));
+    --gradient-secondary: linear-gradient(135deg, hsl(215 25% 27%), hsl(215 20% 20%));
+  }
+  
+  .dark {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+    --primary: 220 80% 60%;
+    --primary-foreground: 0 0% 100%;
+    --accent: 200 75% 55%;
+    --accent-foreground: 0 0% 100%;
+    --secondary: 215 25% 35%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 215 16% 25%;
+    --muted-foreground: 215 16% 75%;
+    --destructive: 0 62% 40%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 215 20% 30%;
+    --input: 215 20% 30%;
+    --ring: 220 80% 60%;
+    --gradient-primary: linear-gradient(to right, hsl(220 80% 60%), hsl(200 75% 55%));
+    --gradient-secondary: linear-gradient(135deg, hsl(215 25% 35%), hsl(215 20% 25%));
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  /* Enhanced contrast for text on light backgrounds */
+  .text-primary-contrast {
+    color: hsl(38 100% 35%);
+  }
+  
+  .dark .text-primary-contrast {
+    color: hsl(48 100% 60%);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  /* Smooth scrolling for anchor links */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Better text rendering */
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  
+  /* Custom focus styles that work with dark/light mode */
+  *:focus-visible {
+    outline: 2px solid hsl(38 100% 40%);
+    outline-offset: 2px;
+    border-radius: 0.25rem;
+  }
+  
+  .dark *:focus-visible {
+    outline-color: hsl(48 100% 50%);
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-background;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-muted-foreground/20 rounded-full hover:bg-muted-foreground/30;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection */
+::selection {
+  @apply bg-primary/40 text-primary-foreground;
+}
+
+/* Buttons */
+button {
+  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2;
+}
+
+/* Transition effects */
+* {
+  @apply transition-colors duration-200;
+}

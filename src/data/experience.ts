@@ -1,0 +1,160 @@
+import type { WorkExperience as Experience } from '@/types/experience.types';
+
+const experiences: Experience[] = [
+  {
+    id: 'exp1',
+    role: 'Field Executive & Accounts Assistant',
+    company: 'Deewakar Finance Pvt. Ltd.',
+    companyUrl: 'https://www.deewakargroup.com',
+    logo: '', // Using text-based company name instead of image
+    period: 'Dec 2017 – Nov 2020',
+    description: [
+      'Visited clients for EMI collections, loan follow-ups, and settlement discussions to ensure timely recoveries',
+      'Maintained daily transaction records and processed account entries using Tally and MS Excel',
+      'Verified loan application forms and collected KYC documents ensuring regulatory compliance',
+      'Provided post-loan customer support and addressed payment-related queries',
+      'Managed multiple client locations daily and submitted regular recovery reports',
+      'Supported reconciliation of ledgers and maintained accurate financial records',
+    ],
+    achievements: [
+      'Successfully recovered 95% of overdue EMIs through effective follow-up strategies',
+      'Reduced documentation errors by 30% by implementing a verification checklist',
+    ],
+    technologies: [
+      'Loan Recovery',
+      'Financial Services',
+      'Tally',
+      'MS Excel',
+      'Client Relationship Management',
+      'Regulatory Compliance',
+    ],
+    startDate: '2017-12-01',
+    endDate: '2020-11-30',
+    isCurrent: false,
+  },
+  {
+    id: 'exp2',
+    role: 'Inventory Specialist & Cash Flow',
+    company: 'Ekam Indian Groceries',
+    companyUrl: '#',
+    logo: '', // Using text-based company name instead of image
+    period: 'Dec 2023 – Present',
+    description: [
+      'Managed daily purchase entries, invoice verification, attendance tracking, and supplier coordination across dual store locations',
+      'Automated reporting processes and supported cash flow documentation during manager absence',
+      'Handled purchase data and fruit and vegetable invoices using ERP software and advanced Excel functions',
+      'Cross-checked supplier invoices and reconciled statements to prevent overbilling, ensuring financial accuracy',
+      'Maintained staff attendance and created daily cash reports',
+      'Collaborated with the team to support inventory accuracy and operational flow, reducing stock issues significantly',
+    ],
+    achievements: [
+      'Reduced stock discrepancies by 40% through improved inventory tracking',
+      'Automated daily reporting, saving 5+ hours per week',
+    ],
+    technologies: [
+      'Inventory Management',
+      'ERP Software',
+      'Excel',
+      'Data Analysis',
+      'Process Automation',
+      'Financial Reconciliation',
+    ],
+    startDate: '2023-12-01',
+    endDate: null,
+    isCurrent: true,
+  },
+  {
+    id: 'exp3',
+    role: 'GRN Officer',
+    company: 'Bansal Supermarket',
+    companyUrl: '#',
+    logo: '', // Using text-based company name instead of image
+    period: 'Dec 2022 – Nov 2023',
+    description: [
+      'Managed GRNs, MRP/offer changes, and 10-item register maintenance with precision',
+      'Conducted regular floor walks and enforced FIFO practices across departments to reduce waste',
+      'Handled PI management, rate updates, and price accuracy for fast-moving items',
+      'Maintained operational registers including Top 100/200 item reports',
+      'Reduced stock discrepancies by 30% through enhanced GRN practices',
+      'Improved offer accuracy and register organization across 500+ SKUs',
+    ],
+    achievements: [
+      'Reduced stock discrepancies by 30% through enhanced GRN practices',
+      'Improved offer accuracy and register organization across 500+ SKUs',
+    ],
+    technologies: [
+      'Goods Receipt',
+      'Inventory Control',
+      'FIFO Management',
+      'SKU Management',
+      'Process Improvement',
+    ],
+    startDate: '2022-12-01',
+    endDate: '2023-11-30',
+    isCurrent: false,
+  },
+  {
+    id: 'exp4',
+    role: 'Warehouse Supervisor',
+    company: 'Arzt Health & Private Limited',
+    companyUrl: '#',
+    logo: '', // Using text-based company name instead of image
+    period: 'June 2022 – Nov 2022',
+    description: [
+      'Oversaw stock control, warehouse documentation, and physical inventory across training material storage',
+      'Led day-to-day warehouse operations and staff coordination with a strong focus on efficiency',
+      'Maintained accurate bin cards, stock logs, and conducted warehouse audits',
+      'Implemented FIFO principles and organized material flow for training batches',
+      'Achieved 100% stock availability across training cycles',
+      'Streamlined warehouse layout and improved stock handling speed',
+    ],
+    achievements: [
+      'Achieved 100% stock availability across training cycles',
+      'Streamlined warehouse layout and improved stock handling speed by 20%',
+    ],
+    technologies: [
+      'Warehouse Management',
+      'Inventory Control',
+      'Team Leadership',
+      'Process Optimization',
+      'FIFO Implementation',
+    ],
+    startDate: '2022-06-01',
+    endDate: '2022-11-30',
+    isCurrent: false,
+  },
+  {
+    id: 'exp5',
+    role: 'Data Analyst & Automation Specialist',
+    company: 'Self-Employed',
+    companyUrl: '#',
+    logo: '', // Using text-based company name instead of image
+    period: '2024 – Present',
+    description: [
+      'Designed and developed a professional portfolio website to showcase data analytics, automation, and inventory management expertise',
+      'Leveraged AI tools for code generation, SQL query optimization, and automating routine analysis tasks',
+      'Utilized Perplexity AI for real-time data insights and research',
+      'Automated data processing workflows using Python, reducing manual work by 80%',
+      'Created interactive dashboards and visualizations to present complex data insights',
+      'Developed custom scripts to automate repetitive tasks and improve efficiency',
+    ],
+    achievements: [
+      'Automated data processing workflows, reducing manual work by 80%',
+      'Developed custom scripts that improved operational efficiency by 50%',
+    ],
+    technologies: [
+      'Data Analysis',
+      'Python',
+      'SQL',
+      'Automation',
+      'AI Tools',
+      'Data Visualization',
+    ],
+    startDate: '2024-01-01',
+    endDate: null,
+    isCurrent: true,
+  },
+];
+
+export default experiences;
+export { experiences };

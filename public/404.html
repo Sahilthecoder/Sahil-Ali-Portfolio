@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sahil Ali - Portfolio</title>
+  <meta name="description" content="Portfolio of Sahil Ali - Data Generalist">
+  <base href="/Sahil-Ali-Portfolio/" />
+  <link rel="icon" type="image/x-icon" href="/Sahil-Ali-Portfolio/favicon/favicon.ico">
+  <script>
+    // Set the base path for the application
+    const repoName = 'Sahil-Ali-Portfolio';
+    const isGitHubPages = window.location.hostname === 'sahilthecoder.github.io';
+    const basePath = isGitHubPages ? `/${repoName}/` : '/';
+    window.BASE_PATH = basePath;
+    
+    // Update base href
+    const base = document.querySelector('base');
+    if (base) base.href = basePath;
+  </script>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f8fafc;
+      color: #1e293b;
+    }
+    .container {
+      text-align: center;
+      padding: 2rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    h1 {
+      margin-bottom: 1rem;
+      color: #4f46e5;
+    }
+    p {
+      margin-bottom: 2rem;
+      color: #64748b;
+      line-height: 1.6;
+    }
+    .loader {
+      border: 4px solid #e2e8f0;
+      border-top: 4px solid #4f46e5;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 1.5rem;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    a {
+      color: #4f46e5;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: #0f172a;
+        color: #e2e8f0;
+      }
+      h1 {
+        color: #818cf8;
+      }
+      p {
+        color: #94a3b8;
+      }
+      .loader {
+        border-color: #334155;
+        border-top-color: #818cf8;
+      }
+      a {
+        color: #818cf8;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="loader"></div>
+    <h1>Loading Portfolio...</h1>
+    <p>If you're not redirected automatically, <a href="/Sahil-Ali-Portfolio/" id="redirect-link">click here</a>.</p>
+  </div>
+
+  <script>
+    // Single-page app (SPA) routing for GitHub Pages
+    (function() {
+      // Use the global BASE_PATH or default to '/'
+      const baseHref = window.BASE_PATH || '/';
+      
+      // Ensure base path starts and ends with a slash
+      const basePath = baseHref.endsWith('/') ? baseHref : baseHref + '/';
+      const basePathNoTrailingSlash = basePath.endsWith('/') ? basePath.slice(0, -1) : basePath;
+      
+      // Get the current path and remove the base path if present
+      let path = window.location.pathname;
+      if (path.startsWith(basePathNoTrailingSlash)) {
+        path = path.slice(basePathNoTrailingSlash.length);
+      }
+      
+      // Remove any leading slashes and the 404.html part if present
+      path = path.replace(/^\/+/, '').replace(/404\.html$/, '');
+      
+      // Build the new URL with the correct base path
+      const newPath = basePathNoTrailingSlash + 
+                    (path ? '/' + path : '') + 
+                    window.location.search + 
+                    window.location.hash;
+      
+      // Update the redirect link
+      document.getElementById('redirect-link').href = newPath;
+      
+      // If we're not already at the correct path, redirect
+      if (window.location.pathname !== newPath) {
+        window.history.replaceState({}, '', newPath);
+      }
+      
+      // Function to load the main application
+      function loadApp() {
+        // Try to load the main JavaScript bundle
+        const script = document.createElement('script');
+        script.src = basePath + 'assets/index.js';
+        
+        script.onerror = function() {
+          console.error('Failed to load script with base path, trying root path');
+          // If the script fails to load, try the non-base path as a fallback
+          script.src = '/assets/index.js';
+          script.onerror = function() {
+            // If both attempts fail, show an error message
+            document.querySelector('.container').innerHTML = `
+              <h1>Error Loading Application</h1>
+              <p>Failed to load the application. Please <a href="${window.location.href}">refresh the page</a> or try again later.</p>
+              <p>If the problem persists, please check your internet connection or contact support.</p>
+              <p>Debug info: ${window.location.href}</p>
+            `;
+          };
+          document.head.appendChild(script);
+        };
+        
+        script.onload = function() {
+          console.log('Application script loaded successfully');
+        };
+        
+        document.head.appendChild(script);
+      }
+      
+      // Load the application after a short delay to show the loading message
+      setTimeout(loadApp, 100);
+    })();
+  </script>
+</body>
+</html>

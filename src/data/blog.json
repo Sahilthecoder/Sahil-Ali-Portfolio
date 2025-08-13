@@ -1,0 +1,44 @@
+[
+  {
+    "id": "post-1",
+    "slug": "getting-started-with-nextjs",
+    "title": "Getting Started with Next.js",
+    "excerpt": "Learn how to build modern web applications with Next.js and React",
+    "content": "# Getting Started with Next.js\n\nNext.js is a React framework that enables server-side rendering and generating static websites.\n\n## Why Next.js?\n\n- Server-side rendering out of the box\n- File-system based routing\n- API routes for backend functionality\n- Built-in CSS and Sass support\n- Optimized image and font loading\n\n## Getting Started\n\n```bash\nnpx create-next-app@latest my-app\ncd my-app\nnpm run dev\n```\n\n## Key Features\n\n### Pages and Routing\n\nNext.js has a file-system based router built on the concept of pages.\n\n### API Routes\n\nCreate API endpoints as Node.js serverless functions.\n\n### Data Fetching\n\n- `getStaticProps` - Fetch data at build time\n- `getServerSideProps` - Fetch data on each request\n- `getStaticPaths` - Specify dynamic routes to pre-render\n\n## Conclusion\n\nNext.js makes it easy to build production-ready React applications with minimal configuration.",
+    "coverImage": "/images/blog/nextjs.jpg",
+    "author": {
+      "name": "Sahil",
+      "avatar": "/images/avatars/author.jpg",
+      "bio": "Full-stack developer passionate about React and modern web technologies"
+    },
+    "tags": ["nextjs", "react", "javascript", "webdev"],
+    "publishedAt": "2023-04-15T10:00:00.000Z",
+    "readingTime": "5 min read",
+    "seo": {
+      "title": "Getting Started with Next.js - A Complete Guide",
+      "description": "Learn how to build modern web applications with Next.js and React",
+      "keywords": ["nextjs", "react", "javascript", "web development"]
+    }
+  },
+  {
+    "id": "post-2",
+    "slug": "mastering-typescript",
+    "title": "Mastering TypeScript for React Developers",
+    "excerpt": "A comprehensive guide to using TypeScript with React",
+    "content": "# Mastering TypeScript for React Developers\n\nTypeScript brings type safety to your React applications, catching errors early and improving developer experience.\n\n## Why TypeScript?\n\n- Catch errors during development\n- Better code completion and IntelliSense\n- Makes code more maintainable\n- Great for large codebases\n\n## Setting Up TypeScript with React\n\n```bash\nnpx create-react-app my-app --template typescript\n```\n\n## TypeScript with React Components\n\n### Functional Components\n\n```tsx\ninterface UserProps {\n  name: string;\n  age?: number;\n  isAdmin?: boolean;\n}\n\nconst User: React.FC<UserProps> = ({ name, age = 25, isAdmin = false }) => (\n  <div>\n    <h1>{name}</h1>\n    <p>Age: {age}</p>\n    {isAdmin && <p>Admin User</p>}\n  </div>\n);\n```\n\n### Hooks with TypeScript\n\n```tsx\nconst [count, setCount] = useState<number>(0);\nconst [user, setUser] = useState<User | null>(null);\n```\n\n## Conclusion\n\nTypeScript helps you write more robust and maintainable React applications.",
+    "coverImage": "/images/blog/typescript.jpg",
+    "author": {
+      "name": "Sahil",
+      "avatar": "/images/avatars/author.jpg",
+      "bio": "Full-stack developer passionate about React and modern web technologies"
+    },
+    "tags": ["typescript", "react", "javascript", "webdev"],
+    "publishedAt": "2023-05-20T14:30:00.000Z",
+    "readingTime": "8 min read",
+    "seo": {
+      "title": "Mastering TypeScript for React Developers - Complete Guide",
+      "description": "A comprehensive guide to using TypeScript with React",
+      "keywords": ["typescript", "react", "javascript", "web development"]
+    }
+  }
+]
