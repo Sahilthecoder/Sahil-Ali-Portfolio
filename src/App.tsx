@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { useSmoothScroll } from './hooks/useSmoothScroll';
 import { ThemeProvider } from './components/ThemeProvider';
 import { PasswordProtectionProvider } from '@/contexts/PasswordProtectionContext';
+import GoogleAnalytics from './components/GoogleAnalytics';
 import Navigation from './components/Navigation/Navigation';
 import Home from './pages/Home';
 import About from './pages/About';
@@ -100,15 +101,22 @@ const App: React.FC = () => {
       <ErrorBoundary>
         <PasswordProtectionProvider>
           <HashRouter>
-          <div className="app-container flex flex-col min-h-screen">
-            <Navigation>
-              <ScrollToTop />
-              <main className="flex-grow">
-                <AnimatedRoutes />
-              </main>
-              <Footer className="mt-auto" />
-            </Navigation>
-          </div>
+            <div className="app-container flex flex-col min-h-screen">
+              <ThemeProvider>
+                <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
+                  <GoogleAnalytics />
+                  <Navigation>
+                    <ScrollToTop />
+                    <main className="flex-grow">
+                      <ErrorBoundary>
+                        <AnimatedRoutes />
+                      </ErrorBoundary>
+                    </main>
+                    <Footer className="mt-auto" />
+                  </Navigation>
+                </div>
+              </ThemeProvider>
+            </div>
           </HashRouter>
         </PasswordProtectionProvider>
       </ErrorBoundary>
