@@ -65,8 +65,6 @@ const WorkingHours = () => {
 
   const currentDayIndex = (currentTime.getDay() + 6) % 7; // Adjust to make Monday index 0
   const isCurrentlyOpen = isWorkingHours();
-  // Ensure we have a valid currentDay, default to Monday if not found
-  const currentDay = workingDays[currentDayIndex] || workingDays[0];
 
   return (
     <motion.div
@@ -92,8 +90,8 @@ const WorkingHours = () => {
             className={cn(
               'px-2.5 py-1 rounded-md text-xs font-medium flex items-center',
               isCurrentlyOpen
-                ? 'bg-green-500/10 text-green-600 dark:text-green-400'
-                : 'bg-muted text-muted-foreground'
+                ? 'bg-green-600/15 text-green-800 dark:text-green-100 dark:bg-green-500/20'
+                : 'bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-200'
             )}
           >
             {isCurrentlyOpen ? (
@@ -120,8 +118,8 @@ const WorkingHours = () => {
                   'flex items-center justify-between py-2 px-3 rounded-lg text-sm transition-colors',
                   isCurrentDay
                     ? 'bg-accent/10 text-foreground'
-                    : 'text-muted-foreground hover:bg-accent/5',
-                  !day.isWorkingDay && 'opacity-60'
+                    : 'text-gray-700 dark:text-gray-300 hover:bg-accent/5',
+                  !day.isWorkingDay && 'opacity-80'
                 )}
                 whileHover={!isCurrentDay ? { x: 2 } : {}}
               >
@@ -137,7 +135,7 @@ const WorkingHours = () => {
                   />
                   <span className={cn(
                     isCurrentDay && 'font-medium',
-                    !day.isWorkingDay && 'text-muted-foreground/70'
+                    !day.isWorkingDay && 'text-gray-500 dark:text-gray-400'
                   )}>
                     {day.day}
                   </span>
@@ -189,8 +187,8 @@ const WorkingHours = () => {
                 <div className="space-y-3">
                   <div className="text-sm text-muted-foreground space-y-2">
                     <p>
-                      We're available during our working hours for meetings, calls, and support.
-                      Feel free to reach out during these times, and we'll get back to you as soon as possible.
+                      We&apos;re available during our working hours for meetings, calls, and support.
+                      Feel free to reach out during these times, and we&apos;ll get back to you as soon as possible.
                     </p>
                     <p className="text-xs text-muted-foreground/80">
                       <span className="font-medium">Note:</span> Response times may vary during holidays and weekends.

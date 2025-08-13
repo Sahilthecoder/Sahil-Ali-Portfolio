@@ -12,17 +12,17 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick, className }
   const { title, subtitle, description, image, technologies = [], date } = project;
 
   return (
-    <article 
+    <article
       className={cn(
-        'backdrop-blur-md bg-white/10 dark:bg-gray-900/50 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 overflow-hidden',
-        'border border-white/30 dark:border-gray-600/70 hover:border-primary/70 group h-full flex flex-col',
+        'backdrop-blur-md bg-white/95 dark:bg-gray-900 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 overflow-hidden',
+        'border border-gray-200 dark:border-gray-700 hover:border-primary group h-full flex flex-col',
         'transform hover:-translate-y-0.5 hover:scale-[1.01] transition-transform duration-200',
         className
       )}
       onClick={onClick}
     >
-      <div 
-        className="block w-full h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+      <div
+        className="block w-full h-full focus:outline-none focus-visible:ring-4 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         role="button"
         tabIndex={0}
         aria-label={`View details for ${title} project`}
@@ -59,29 +59,29 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick, className }
           </picture>
         </div>
         <div className="p-4 sm:p-5 flex-1 flex flex-col">
-          <h3 className="text-lg sm:text-xl font-semibold text-foreground mb-1 sm:mb-1.5">
+          <h3 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-gray-100 mb-1 sm:mb-1.5">
             {title}
           </h3>
           {subtitle && (
-            <p className="text-muted-foreground mb-2 sm:mb-3 text-xs sm:text-sm">
+            <p className="text-gray-700 dark:text-gray-300 mb-2 sm:mb-3 text-xs sm:text-sm">
               {subtitle}
             </p>
           )}
-          <p className="text-sm sm:text-base text-gray-700 dark:text-gray-200 mb-3 sm:mb-4 line-clamp-3 leading-relaxed">
+          <p className="text-sm sm:text-base text-gray-800 dark:text-gray-200 mb-3 sm:mb-4 line-clamp-3 leading-relaxed">
             {description}
           </p>
           {technologies.length > 0 && (
             <div className="flex flex-wrap gap-2 mb-3">
-              {technologies.map((tech) => (
+              {technologies.slice(0, 3).map((tech) => (
                 <span
                   key={tech}
-                  className="bg-primary/15 text-primary dark:bg-primary/20 dark:text-primary-light px-2.5 py-1 sm:py-1.5 rounded-md text-xs sm:text-sm font-medium whitespace-nowrap"
+                  className="bg-primary text-white dark:bg-primary-600 px-2.5 py-1 sm:py-1.5 rounded-md text-xs sm:text-sm font-medium whitespace-nowrap"
                 >
                   {tech}
                 </span>
               ))}
               {technologies.length > 3 && (
-                <span className="bg-muted text-muted-foreground px-2.5 py-1 sm:py-1.5 rounded-md text-xs sm:text-sm font-medium">
+                <span className="bg-gray-300 text-gray-900 dark:bg-gray-600 dark:text-white px-2.5 py-1 sm:py-1.5 rounded-md text-xs sm:text-sm font-medium">
                   +{technologies.length - 3}
                 </span>
               )}
@@ -90,7 +90,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick, className }
           {date && (
             <time
               dateTime={date}
-              className="text-xs text-muted-foreground"
+              className="text-xs text-gray-700 dark:text-gray-400"
             >
               {new Date(date).toLocaleDateString(undefined, {
                 year: 'numeric',
@@ -121,7 +121,9 @@ export const ProjectList: React.FC<ProjectListProps> = ({
   if (!projects || projects.length === 0) {
     return (
       <div className="text-center py-12">
-        <p className="text-muted-foreground">No projects found. Try adjusting your filters.</p>
+        <p className="text-gray-700 dark:text-gray-300">
+          No projects found. Try adjusting your filters.
+        </p>
       </div>
     );
   }

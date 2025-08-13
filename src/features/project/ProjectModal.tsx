@@ -40,6 +40,9 @@ export default function ProjectModal({
   const isPortfolioProject = projectId === 'portfolio-creation';
   const shouldLock = !isAuthenticated || isPortfolioProject;
 
+  // Detect RTL mode
+  const isRTL = typeof document !== 'undefined' && document?.dir === 'rtl';
+
   const handleExploreClick = (e: React.MouseEvent) => {
     if (shouldLock) {
       e.preventDefault();
@@ -49,7 +52,6 @@ export default function ProjectModal({
 
   const handlePasswordSuccess = () => {
     setShowPasswordModal(false);
-    // Navigate to the project page using hash-based URL
     window.location.hash = `#/projects/${projectId}`;
   };
 
@@ -67,7 +69,10 @@ export default function ProjectModal({
           onClick={onClose}
         >
           <motion.div
-            className="relative w-[95vw] max-w-7xl max-h-[90vh] bg-white/80 dark:bg-gray-900/90 backdrop-blur-2xl rounded-3xl shadow-2xl overflow-hidden flex flex-col lg:flex-row border-2 border-white/40 dark:border-gray-700/50 lg:w-[90vw]"
+            className="relative w-[95vw] max-w-7xl max-h-[90vh] bg-white/80 dark:bg-gray-900/90 backdrop-blur-2xl rounded-3xl shadow-2xl overflow-hidden flex flex-col border-2 border-white/40 dark:border-gray-700/50 lg:w-[90vw]"
+            style={{
+              direction: isRTL ? 'rtl' : 'ltr'
+            }}
             initial="hidden"
             animate="visible"
             exit="exit"
@@ -77,21 +82,25 @@ export default function ProjectModal({
             {/* Close Button */}
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 p-2.5 rounded-full bg-white/60 hover:bg-white/80 dark:bg-gray-800/90 dark:hover:bg-gray-700/90 transition-all duration-200 shadow-lg z-20 backdrop-blur-md border border-white/30 dark:border-gray-600/50 hover:scale-110"
+              className={`absolute top-4 ${isRTL ? 'left-4' : 'right-4'} p-2.5 rounded-full bg-white/60 hover:bg-white/80 dark:bg-gray-800/90 dark:hover:bg-gray-700/90 transition-all duration-200 shadow-lg z-20 backdrop-blur-md border border-white/30 dark:border-gray-600/50 hover:scale-110`}
               aria-label="Close modal"
             >
               <FiX className="h-5 w-5" />
             </button>
 
             {/* Content Layout */}
-            <div className="flex flex-col lg:flex-row h-full overflow-y-auto">
-              {/* Left - Image */}
+            <div className={`flex flex-col ${isRTL ? 'lg:flex-row-reverse' : 'lg:flex-row'} h-full overflow-y-auto`}>
+              
+              {/* Image Section */}
               <div className="relative w-full lg:w-1/2 h-64 sm:h-80 lg:h-auto overflow-hidden flex-shrink-0">
                 <motion.img
                   key={project.image.src}
                   src={project.image.src}
                   alt={project.image.alt || project.title}
-                  className="w-full h-full object-cover object-top"
+                  className="w-full h-full object-cover"
+                  style={{
+                    objectPosition: isRTL ? 'right center' : 'left center'
+                  }}
                   initial={{ opacity: 0, scale: 1.05 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5, ease: 'easeOut' }}
@@ -101,10 +110,11 @@ export default function ProjectModal({
                 />
               </div>
 
-              {/* Right - Details */}
+              {/* Details Section */}
               <div className="flex-1 p-6 md:p-8 overflow-y-auto min-w-0">
                 <div className="space-y-6">
-                  {/* Title & Subtitle */}
+                  
+                  {/* Title */}
                   <div>
                     <h2 className="text-3xl font-bold leading-tight text-gray-900 dark:text-white">
                       {project.title}
@@ -177,6 +187,7 @@ export default function ProjectModal({
                       </Button>
                     </Link>
                   </div>
+
                 </div>
               </div>
             </div>

@@ -65,10 +65,10 @@ const CertificationsGrid = () => {
                         <div className="bg-white/10 dark:bg-black/20 p-4 rounded-full mb-3">
                           <FiLock className="w-8 h-8 text-gray-600 dark:text-gray-300" />
                         </div>
-                        <span className="text-sm font-medium text-gray-700 dark:text-gray-200">
+                        <span className="text-sm font-medium text-gray-900 dark:text-white">
                           Click to view certificate
                         </span>
-                        <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                        <p className="text-xs text-gray-700 dark:text-gray-300 mt-1">
                           Authentication required
                         </p>
                       </div>
