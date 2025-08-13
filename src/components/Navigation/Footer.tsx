@@ -52,7 +52,7 @@ const LinkList: React.FC<{ title: string; links: LinkItem[]; ariaLabel: string }
 );
 
 const SocialIcons: React.FC = () => (
-  <div className="flex flex-wrap justify-center sm:justify-start gap-4 sm:gap-5">
+  <div className="flex flex-nowrap justify-center sm:justify-start gap-2 sm:gap-3 md:gap-4 overflow-x-auto w-full py-1">
     {SOCIAL_LINKS.map(({ name, href, icon }) => (
       <motion.a
         key={name}
@@ -60,7 +60,7 @@ const SocialIcons: React.FC = () => (
         target="_blank"
         rel="noopener noreferrer"
         aria-label={name}
-        className="text-xl sm:text-2xl text-muted-foreground hover:text-primary transition-colors duration-200 p-1.5 sm:p-2 rounded-full hover:bg-primary/5"
+        className="flex-shrink-0 text-lg sm:text-xl md:text-2xl text-muted-foreground hover:text-primary transition-colors duration-200 p-1.5 sm:p-2 rounded-full hover:bg-primary/5"
         whileHover={{ y: -3, scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         title={name}

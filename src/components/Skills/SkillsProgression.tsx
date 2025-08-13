@@ -97,7 +97,7 @@ const SkillsProgression = () => {
                 </CardContent>
                 <div className="p-6 pt-0">
                   <div className="text-sm p-4 bg-muted/50 rounded-lg">
-                    <p className="italic">"{item.description}"</p>
+                    <p className="italic">&quot;{item.description}&quot;</p>
                   </div>
                 </div>
               </Card>

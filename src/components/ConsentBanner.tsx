@@ -1,79 +1,97 @@
 import { useEffect, useState } from 'react';
 
-type GTagConsentParams = {
-  ad_storage: 'granted' | 'denied';
-  analytics_storage: 'granted' | 'denied';
-  ad_user_data?: 'granted' | 'denied';
-  ad_personalization?: 'granted' | 'denied';
-  personalization_storage?: 'granted' | 'denied';
-};
+// Define the consent types for better type safety
+type ConsentType = 'granted' | 'denied' | null;
 
 declare global {
   interface Window {
-    gtag: (command: string, action: string, params?: GTagConsentParams) => void;
-    dataLayer: Array<Record<string, unknown>>;
+    gtag: (
+      command: 'consent',
+      action: 'default' | 'update',
+      params: {
+        ad_storage?: 'granted' | 'denied';
+        analytics_storage?: 'granted' | 'denied';
+        region?: string[];
+        wait_for_update?: number;
+      }
+    ) => void;
   }
 }
 
-export const ConsentBanner = () => {
-  const [showBanner, setShowBanner] = useState(false);
+// Check if user is in a region that requires consent (GDPR)
+const requiresConsent = (): boolean => {
+  // This is a simple implementation. Consider using a more robust solution
+  // like a geolocation service for production use.
+  const euCountries = [
+    'AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR',
+    'DE', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL',
+    'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE', 'GB', 'IS', 'LI', 'NO'
+  ];
+  
+  // Check if user's country is in the EU
+  // Note: This is a client-side check. For production, use a server-side solution
+  // or a dedicated geolocation service
+  const userCountry = ''; // You can implement geolocation here
+  
+  // Default to showing banner if we can't determine location
+  return !userCountry || euCountries.includes(userCountry);
+};
 
+export const ConsentBanner = () => {
+  const [showBanner, setShowBanner] = useState<boolean>(false);
+  // Removed unused isLoading state as it's not being used in the component
+
+  // Initialize consent on component mount
   useEffect(() => {
-    // Check if user has already given consent
-    const consent = localStorage.getItem('cookie_consent');
-    
-    // Initialize dataLayer if it doesn't exist
-    window.dataLayer = window.dataLayer || [];
-    
-    if (consent === null) {
-      setShowBanner(true);
-    } else if (consent === 'granted') {
-      // If consent was previously given, update Google Analytics
-      window.gtag('consent', 'update', {
-        'ad_storage': 'granted',
-        'analytics_storage': 'granted',
-        'ad_user_data': 'granted',
-        'ad_personalization': 'granted',
-        'personalization_storage': 'granted'
-      });
-    } else {
-      // If consent was denied, update accordingly
-      window.gtag('consent', 'update', {
-        'ad_storage': 'denied',
-        'analytics_storage': 'denied',
-        'ad_user_data': 'denied',
-        'ad_personalization': 'denied',
-        'personalization_storage': 'denied'
-      });
-    }
+    const initializeConsent = () => {
+      const consent = localStorage.getItem('cookie_consent') as ConsentType;
+      
+      if (consent === null && requiresConsent()) {
+        // Show banner if no consent and in a region that requires it
+        setShowBanner(true);
+      } else if (consent === 'granted') {
+        // If consent was previously given, update Google Analytics
+        updateConsent('granted');
+      } else {
+        // Default to denied if no consent
+        updateConsent('denied');
+      }
+      
+      // Removed setIsLoading as it's no longer needed
+    };
+
+    // Small delay to ensure gtag is loaded
+    const timer = setTimeout(initializeConsent, 500);
+    return () => clearTimeout(timer);
   }, []);
 
-  const updateConsent = (granted: boolean) => {
-    const consentValue = granted ? 'granted' : 'denied';
-    localStorage.setItem('cookie_consent', consentValue);
+  // Update consent in both localStorage and gtag
+  const updateConsent = (status: 'granted' | 'denied') => {
+    // Save to localStorage
+    localStorage.setItem('cookie_consent', status);
     
     // Update Google Analytics consent
-    if (window.gtag) {
-      window.gtag('consent', 'update', {
-        'ad_storage': consentValue,
-        'analytics_storage': consentValue,
-        'ad_user_data': consentValue,
-        'ad_personalization': consentValue,
-        'personalization_storage': consentValue
-      });
-      
-      // Send an event to record the consent update
-      window.gtag('event', 'consent_update', {
-        'event_category': 'consent',
-        'event_label': consentValue
-      });
-    }
+    window.gtag?.('consent', 'update', {
+      ad_storage: status,
+      analytics_storage: status,
+      // Only include standard consent types
+      region: ['US', 'GB', 'IN'], // Add your target regions
+      wait_for_update: 500 // Wait up to 500ms for consent update
+    });
     
+    // Log for debugging
+    console.log(`Consent updated to: ${status}`);
+  };
+
+  const handleAccept = () => {
+    updateConsent('granted');
     setShowBanner(false);
   };
-  
-  const handleAccept = () => updateConsent(true);
-  const handleDecline = () => updateConsent(false);
+
+  const handleDecline = () => {
+    updateConsent('denied');
+    setShowBanner(false);
+  };
 
   if (!showBanner) return null;
 

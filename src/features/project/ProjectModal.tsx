@@ -69,9 +69,12 @@ export default function ProjectModal({
           onClick={onClose}
         >
           <motion.div
-            className="relative w-[95vw] max-w-7xl max-h-[90vh] bg-white/80 dark:bg-gray-900/90 backdrop-blur-2xl rounded-3xl shadow-2xl overflow-hidden flex flex-col border-2 border-white/40 dark:border-gray-700/50 lg:w-[90vw]"
+            className="relative w-[98vw] max-w-7xl max-h-[95vh] bg-white/80 dark:bg-gray-900/90 backdrop-blur-2xl rounded-3xl shadow-2xl overflow-hidden flex flex-col border-2 border-white/40 dark:border-gray-700/50"
             style={{
-              direction: isRTL ? 'rtl' : 'ltr'
+              direction: isRTL ? 'rtl' : 'ltr',
+              width: '98vw',
+              maxWidth: 'min(95vw, 2000px)',
+              margin: '1vh auto'
             }}
             initial="hidden"
             animate="visible"
@@ -92,14 +95,19 @@ export default function ProjectModal({
             <div className={`flex flex-col ${isRTL ? 'lg:flex-row-reverse' : 'lg:flex-row'} h-full overflow-y-auto`}>
               
               {/* Image Section */}
-              <div className="relative w-full lg:w-1/2 overflow-hidden flex-shrink-0 bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
+              <div className="relative w-full lg:w-1/2 overflow-hidden flex-shrink-0 bg-gray-100 dark:bg-gray-800 flex items-center justify-center p-0">
                 <motion.img
                   key={project.image.src}
                   src={project.image.src}
                   alt={project.image.alt || project.title}
-                  className="w-full h-auto max-h-[80vh] object-contain p-4"
+                  className="w-full h-full max-h-[90vh] object-cover"
                   style={{
-                    objectPosition: isRTL ? 'right center' : 'left center'
+                    objectPosition: isRTL ? 'right center' : 'left center',
+                    width: '100%',
+                    height: '100%',
+                    minHeight: '300px',
+                    maxHeight: '90vh',
+                    objectFit: 'cover'
                   }}
                   initial={{ opacity: 0, scale: 1.02 }}
                   animate={{ opacity: 1, scale: 1 }}
