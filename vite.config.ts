@@ -4,9 +4,8 @@ import path from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
-  // Set base URL for GitHub Pages deployment
-  const isProduction = mode === 'production';
-  const base = isProduction ? '/Sahil-Ali-Portfolio/' : '/';
+  // Using root path for all environments since we're using a custom domain
+  const base = '/';
   
   console.log(`Running in ${mode} mode with base URL: ${base}`);
   
