@@ -109,7 +109,7 @@ export const RoleTimeline: React.FC<RoleTimelineProps> = ({
         }}
       />
 
-      <div className="space-y-8">
+      <div className="space-y-6 sm:space-y-8">
         {items.map((item, index) => {
           const isExpanded = expandedItem === item.id;
           const isLast = index === items.length - 1;
@@ -120,27 +120,28 @@ export const RoleTimeline: React.FC<RoleTimelineProps> = ({
               variants={animationVariants}
               custom={index}
               className={cn(
-                'relative pl-12 group',
-                !isLast && 'pb-8',
+                'relative pl-10 sm:pl-12 group',
+                !isLast && 'pb-6 sm:pb-8',
                 item.isCurrent && 'z-10'
               )}
             >
               {/* Timeline dot */}
               <motion.div 
                 className={cn(
-                  'absolute left-0 w-8 h-8 rounded-full flex items-center justify-center',
-                  'transition-all duration-300',
+                  'absolute left-0 w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center',
+                  'transition-all duration-300 cursor-pointer',
                   isExpanded 
                     ? 'bg-primary/10 scale-110' 
                     : 'bg-muted/50 scale-90 group-hover:scale-100 group-hover:bg-muted/70'
                 )}
                 whileHover={{ scale: 1.1 }}
                 onClick={() => toggleExpand(item.id)}
+                aria-label={isExpanded ? 'Collapse details' : 'Expand details'}
               >
                 <div className={cn(
-                  'w-3 h-3 rounded-full transition-all duration-300',
+                  'w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-all duration-300',
                   isExpanded 
-                    ? 'bg-primary w-3.5 h-3.5' 
+                    ? 'bg-primary w-3 h-3 sm:w-3.5 sm:h-3.5' 
                     : 'bg-muted-foreground/50 group-hover:bg-primary/80'
                 )} />
               </motion.div>
@@ -159,40 +160,40 @@ export const RoleTimeline: React.FC<RoleTimelineProps> = ({
                 }}
               >
                 <button
-                  className="w-full text-left p-6 focus:outline-none"
+                  className="w-full text-left p-4 sm:p-6 focus:outline-none"
                   onClick={() => toggleExpand(item.id)}
                   aria-expanded={isExpanded}
                   aria-controls={`timeline-content-${item.id}`}
                 >
-                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 sm:gap-4">
                     <div className="space-y-1">
-                      <div className="flex items-center gap-3">
-                        <h3 className="text-lg font-semibold text-foreground">
+                      <div className="flex flex-wrap items-center gap-x-2 gap-y-1 sm:gap-3">
+                        <h3 className="text-base sm:text-lg font-semibold text-foreground">
                           {item.role}
                         </h3>
                         {item.isCurrent && (
-                          <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-primary/10 text-primary">
-                            Current Role
+                          <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] sm:text-xs font-medium bg-primary/10 text-primary">
+                            Current
                           </span>
                         )}
                       </div>
-                      <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm">
+                      <div className="flex flex-wrap items-center gap-x-3 sm:gap-x-4 gap-y-1 text-xs sm:text-sm">
                         <span className="text-muted-foreground">{item.company}</span>
                         {item.location && (
-                          <span className="flex items-center text-muted-foreground/80">
-                            <FiMapPin className="mr-1 h-3.5 w-3.5 flex-shrink-0" />
-                            {item.location}
+                          <span className="hidden sm:flex items-center text-muted-foreground/80">
+                            <FiMapPin className="mr-1 h-3 w-3 sm:h-3.5 sm:w-3.5 flex-shrink-0" />
+                            <span className="truncate max-w-[100px]">{item.location}</span>
                           </span>
                         )}
                         {item.employmentType && (
-                          <span className="text-muted-foreground/60 text-sm">
+                          <span className="text-muted-foreground/60 text-xs sm:text-sm">
                             {item.employmentType}
                           </span>
                         )}
                       </div>
                     </div>
-                    <div className="flex items-center text-sm text-muted-foreground whitespace-nowrap">
-                      <FiCalendar className="mr-1.5 h-4 w-4 flex-shrink-0" />
+                    <div className="flex items-center text-xs sm:text-sm text-muted-foreground whitespace-nowrap mt-0.5 sm:mt-0">
+                      <FiCalendar className="mr-1.5 h-3.5 w-3.5 sm:h-4 sm:w-4 flex-shrink-0" />
                       <span>{item.period}</span>
                     </div>
                   </div>

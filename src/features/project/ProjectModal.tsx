@@ -83,27 +83,36 @@ export default function ProjectModal({
             <div className={`flex flex-col ${isRTL ? 'lg:flex-row-reverse' : 'lg:flex-row'} h-full overflow-y-auto`}>
               
               {/* Image Section */}
-              <div className="relative w-full lg:w-1/2 overflow-hidden flex-shrink-0 bg-gray-100 dark:bg-gray-800 flex items-center justify-center p-0">
-                <motion.img
-                  key={project.image.src}
-                  src={project.image.src}
-                  alt={project.image.alt || project.title}
-                  className="w-full h-full max-h-[90vh] object-cover"
-                  style={{
-                    objectPosition: isRTL ? 'right center' : 'left center',
-                    width: '100%',
-                    height: '100%',
-                    minHeight: '300px',
-                    maxHeight: '90vh',
-                    objectFit: 'cover'
-                  }}
-                  initial={{ opacity: 0, scale: 1.02 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5, ease: 'easeOut' }}
-                  loading="lazy"
-                  decoding="async"
-                  sizes="(max-width: 1023px) 100vw, 50vw"
-                />
+              <div className="relative w-full lg:w-1/2 overflow-hidden flex-shrink-0 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 flex items-center justify-center p-0">
+                <div className="relative w-full h-full flex items-center justify-center">
+                  <motion.img
+                    key={project.image.src}
+                    src={project.image.src}
+                    alt={project.image.alt || project.title}
+                    className="w-full h-auto max-h-[70vh] md:max-h-[80vh] object-contain p-4 md:p-8"
+                    style={{
+                      objectPosition: isRTL ? 'right center' : 'left center',
+                      maxWidth: '100%',
+                      maxHeight: 'calc(100vh - 4rem)',
+                      width: 'auto',
+                      height: 'auto',
+                      aspectRatio: '16/9',
+                    }}
+                    initial={{ opacity: 0, scale: 0.98 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.4, ease: 'easeOut' }}
+                    loading="lazy"
+                    decoding="async"
+                    sizes="(max-width: 1023px) 100vw, 50vw"
+                    onError={(e) => {
+                      // Fallback to a placeholder if image fails to load
+                      const target = e.target as HTMLImageElement;
+                      target.src = '/Sahil-Ali-Portfolio/images/placeholder-project.png';
+                    }}
+                  />
+                  {/* Loading skeleton */}
+                  <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 transition-opacity duration-300 ease-in-out" />
+                </div>
               </div>
 
               {/* Details Section */}

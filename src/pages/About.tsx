@@ -11,6 +11,8 @@ const About: React.FC = () => {
     <div className="min-h-screen">
       <AboutHero />
       <Divider />
+      <AboutSection />
+      <Divider />
       <PersonalStory />
       <Divider />
       <SkillShowCase />
@@ -18,8 +20,6 @@ const About: React.FC = () => {
       <CertificationGrid />
       <Divider />
       <EducationSection />
-      <Divider />
-      <AboutSection />
     </div>
   );
 };

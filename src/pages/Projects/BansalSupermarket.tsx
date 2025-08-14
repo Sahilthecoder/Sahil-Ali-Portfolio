@@ -43,7 +43,7 @@ const BansalSupermarket: React.FC<{
           <div className="space-y-4">
             <ul className="list-disc pl-5 space-y-2 text-gray-700 dark:text-gray-300">
               <li>
-                Collected and cleaned sales and inventory data from Bansal Supermarket's retail
+                Collected and cleaned sales and inventory data from Bansal Supermarket&apos;s retail
                 software.
               </li>
               <li>
@@ -158,21 +158,6 @@ const BansalSupermarket: React.FC<{
         caption: 'Visualization of stock turnover rates by product category to optimize inventory management.',
         srcSet: '/Sahil-Ali-Portfolio/images/projects/Bansal_Project2/bs-stockTO-300w.webp 300w, /Sahil-Ali-Portfolio/images/projects/Bansal_Project2/bs-stockTO-600w.webp 600w',
         sizes: '(max-width: 640px) 300px, 600px'
-      },
-      {
-        src: '/Sahil-Ali-Portfolio/images/projects/Bansal_Project2/bs-top10-600w.webp',
-        alt: 'Top 10 Products by Sales',
-        caption: 'Bar chart displaying the top 10 best-selling products by total sales value.',
-      },
-      {
-        src: '/Sahil-Ali-Portfolio/images/projects/Bansal_Project2/bs2-Dashboard.webp',
-        alt: 'Top 10 Products by Sales',
-        caption: 'Bar chart displaying the top 10 best-selling products by total sales value.',
-      },
-      {
-        src: '/images/projects/Bansal_Project2/bs3-Dashboard.webp',
-        alt: 'Top 10 Products by Sales',
-        caption: 'Bar chart displaying the top 10 best-selling products by total sales value.',
       },
     ],
   };

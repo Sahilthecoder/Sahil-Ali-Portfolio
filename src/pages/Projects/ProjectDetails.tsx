@@ -18,7 +18,8 @@ const projectComponentMap: { [key: string]: string } = {
   'bansal-dashboard': 'BansalSupermarket',
   'ekam-attendance': 'EkamAttendance',
   'powerbi-cashflow': 'RetailCashFlow',
-  'gpt-automation': 'SmartAutomation', // Updated to match the actual file name
+  'gpt-automation': 'SmartAutomation',
+  'ai-decision-system': 'AIDecisionSystem',
   'portfolio-creation': 'PortfolioCreation',
 };
 
@@ -73,6 +74,9 @@ const ProjectDetails: React.FC = () => {
             break;
           case 'PortfolioCreation':
             ProjectComponentModule = await import('./PortfolioCreation');
+            break;
+          case 'AIDecisionSystem':
+            ProjectComponentModule = await import('./AIDecisionSystem');
             break;
           default:
             throw new Error(`No component found for ${componentName}`);

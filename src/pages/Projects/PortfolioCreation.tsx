@@ -348,16 +348,6 @@ const PortfolioCreation: React.FC<{
         ),
       },
     ],
-    images: [
-      {
-        src: '/images/projects/Mahira_Portfolio_Web+AI/Project7_Cover-600w.webp',
-        alt: 'Portfolio Creation',
-        caption: 'Visualizing the AI-powered portfolio creation process',
-        srcSet: '/images/projects/Mahira_Portfolio_Web+AI/Project7_Cover-300w.webp 300w, /images/projects/Mahira_Portfolio_Web+AI/Project7_Cover-600w.webp 600w',
-        sizes: '(max-width: 640px) 300px, 600px'
-      },
-      
-    ],
   };
 
   return (

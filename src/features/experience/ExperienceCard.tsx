@@ -115,35 +115,37 @@ export const ExperienceCard: React.FC<ExperienceCardProps> = ({
         </div>
       )}
 
-      <div className="p-6 sm:p-7">
-        <motion.header variants={itemVariants} custom={0} className="flex items-start justify-between gap-4">
-          <div className="flex items-start space-x-4">
+      <div className="p-4 sm:p-6">
+        <motion.header variants={itemVariants} custom={0} className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 sm:gap-4">
+          <div className="flex items-start space-x-3 sm:space-x-4">
             {experience.logo ? (
-              <div className="flex-shrink-0 mt-1">
+              <div className="flex-shrink-0 mt-0.5 sm:mt-1">
                 <LazyImage
                   src={experience.logo}
                   alt={`${experience.company} logo`}
-                  width={52}
-                  height={52}
-                  className="w-13 h-13 rounded-lg object-cover border border-border/30"
+                  width={44}
+                  height={44}
+                  className="w-11 h-11 sm:w-13 sm:h-13 rounded-lg object-cover border border-border/30"
                 />
               </div>
             ) : (
-              <div className="flex-shrink-0 w-13 h-13 rounded-full bg-gradient-to-br from-primary/10 to-primary/5 border border-border/20 flex items-center justify-center">
-                <span className="text-xl font-semibold text-primary">
+              <div className="flex-shrink-0 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-gradient-to-br from-primary/10 to-primary/5 border border-border/20 flex items-center justify-center">
+                <span className="text-lg sm:text-xl font-semibold text-primary">
                   {experience.company.charAt(0).toUpperCase()}
                 </span>
               </div>
             )}
-            <div className="space-y-0.5">
-              <h3 className="text-xl font-semibold leading-tight text-foreground">{experience.role}</h3>
-              <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm">
-                <span className="flex items-center text-muted-foreground">
-                  <FiMapPin className="mr-1.5 h-3.5 w-3.5 flex-shrink-0" />
-                  {experience.location || 'Remote'}
-                </span>
+            <div className="space-y-0.5 flex-1">
+              <h3 className="text-lg sm:text-xl font-semibold leading-tight text-foreground">{experience.role}</h3>
+              <div className="flex flex-wrap items-center gap-x-3 sm:gap-x-4 gap-y-1 text-xs sm:text-sm">
+                {experience.location && (
+                  <span className="flex items-center text-muted-foreground">
+                    <FiMapPin className="mr-1 h-3 w-3 sm:h-3.5 sm:w-3.5 flex-shrink-0" />
+                    <span className="truncate max-w-[120px] sm:max-w-none">{experience.location}</span>
+                  </span>
+                )}
                 {experience.employmentType && (
-                  <span className="text-muted-foreground/80">
+                  <span className="text-muted-foreground/80 hidden sm:inline">
                     {experience.employmentType}
                   </span>
                 )}
@@ -154,14 +156,16 @@ export const ExperienceCard: React.FC<ExperienceCardProps> = ({
                     rel="noopener noreferrer"
                     className="text-primary hover:text-primary/80 transition-colors inline-flex items-center"
                   >
-                    <FiExternalLink className="mr-1 h-3.5 w-3.5" />
-                    Company
+                    <FiExternalLink className="mr-1 h-3 w-3 sm:h-3.5 sm:w-3.5" />
+                    <span className="hidden sm:inline">Company</span>
                   </a>
                 )}
               </div>
             </div>
           </div>
-          <div className="text-sm text-muted-foreground whitespace-nowrap">{experience.period}</div>
+          <div className="text-xs sm:text-sm text-muted-foreground whitespace-nowrap mt-1 sm:mt-0">
+            {experience.period}
+          </div>
         </motion.header>
 
         <motion.div 

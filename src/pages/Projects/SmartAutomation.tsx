@@ -363,25 +363,11 @@ def train_document_classifier(documents, labels):
     ],
     images: [
       {
-        src: '/images/projects/CommingSoon_Project6/Project6_Cover-600w.webp',
+        src: '/Sahil-Ali-Portfolio/images/projects/CommingSoon_Project6/Project6_Cover-600w.webp',
         alt: 'Smart Automation Platform Dashboard',
         caption: 'Dashboard showing automation workflows, performance metrics, and system health',
-        srcSet: '/images/projects/CommingSoon_Project6/Project6_Cover-300w.webp 300w, /images/projects/CommingSoon_Project6/Project6_Cover-600w.webp 600w, /images/projects/CommingSoon_Project6/Project6_Cover-1200w.webp 1200w',
+        srcSet: '/Sahil-Ali-Portfolio/images/projects/CommingSoon_Project6/Project6_Cover-300w.webp 300w, /Sahil-Ali-Portfolio/images/projects/CommingSoon_Project6/Project6_Cover-600w.webp 600w, /Sahil-Ali-Portfolio/images/projects/CommingSoon_Project6/Project6_Cover-1200w.webp 1200w',
         sizes: '(max-width: 640px) 300px, (max-width: 1024px) 600px, 1200px'
-      },
-      {
-        src: '/images/projects/CommingSoon_Project6/Project6_Cover-600w.webp',
-        alt: 'Automation Workflow Designer',
-        caption: 'Visual workflow designer for creating and managing automation processes',
-        srcSet: '/images/projects/CommingSoon_Project6/Project6_Cover-300w.webp 300w, /images/projects/CommingSoon_Project6/Project6_Cover-600w.webp 600w',
-        sizes: '(max-width: 640px) 300px, 600px'
-      },
-      {
-        src: '/images/projects/CommingSoon_Project6/Project6_Cover-600w.webp',
-        alt: 'AI-Powered Analytics',
-        caption: 'Advanced analytics and insights from automated processes',
-        srcSet: '/images/projects/CommingSoon_Project6/Project6_Cover-300w.webp 300w, /images/projects/CommingSoon_Project6/Project6_Cover-600w.webp 600w',
-        sizes: '(max-width: 640px) 300px, 600px'
       },
     ],
   };
