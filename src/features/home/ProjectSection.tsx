@@ -16,21 +16,22 @@ const baseUrl = process.env.NODE_ENV === 'production' ? '/Sahil-Ali-Portfolio' :
 
 const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
   return (
-    <article className="bg-white dark:bg-gray-800 rounded-xl shadow-sm sm:shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden border border-border h-full flex flex-col">
+    <article className="group bg-white dark:bg-gray-800 rounded-xl shadow-sm sm:shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden border border-border h-full flex flex-col">
       <a
         href={`${baseUrl}/#/projects/${project.id}`}
         className="h-full flex flex-col focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
         aria-label={`View details of project ${project.title}`}
       >
-          <div className="flex-1 min-h-[200px] md:min-h-0 md:h-48 relative">
+          <div className="relative aspect-video w-full overflow-hidden bg-gray-100 dark:bg-gray-700">
             <img
               src={project.image.src}
-              alt={project.image.alt}
-              className="w-full h-full object-cover"
+              alt={project.image.alt || project.title}
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               loading="lazy"
               decoding="async"
               sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </div>
           <div className="p-5 sm:p-6 flex-1 flex flex-col">
             <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">

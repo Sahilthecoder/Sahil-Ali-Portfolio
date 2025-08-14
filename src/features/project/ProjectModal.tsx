@@ -6,6 +6,9 @@ import { FaRegLightbulb } from 'react-icons/fa';
 import { FiExternalLink, FiX } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/Button';
+
+// Base URL for GitHub Pages deployment
+const baseUrl = process.env.NODE_ENV === 'production' ? '/Sahil-Ali-Portfolio' : '';
 import { TechnologyBadge } from './TechnologyBadge';
 import type { Project } from './types';
 
@@ -37,7 +40,7 @@ export default function ProjectModal({
   const isRTL = typeof document !== 'undefined' && document?.dir === 'rtl';
 
   const handleExploreClick = () => {
-    window.location.href = `/#/projects/${projectId}`;
+    window.location.href = `${baseUrl}/#/projects/${projectId}`;
   };
 
   if (!isOpen || !project) return null;
