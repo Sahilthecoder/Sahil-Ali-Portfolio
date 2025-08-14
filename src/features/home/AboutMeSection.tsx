@@ -5,16 +5,16 @@ import { FiCode, FiBriefcase, FiTrendingUp } from 'react-icons/fi';
 
 const AboutMeSection = () => {
   return (
-    <section id="about" className="py-10 sm:py-14 bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="w-full mb-16 lg:mb-20">
+    <section id="about" className="min-h-[calc(100vh-80px)] flex items-center py-16 sm:py-20 bg-background">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="w-full mb-12 sm:mb-16">
           <SectionHeader
             title="About Me"
             subtitle="Passionate about transforming data into actionable insights"
           />
         </div>
 
-        <div className="space-y-8">
+        <div className="flex flex-col items-center lg:items-start gap-8 sm:gap-10 lg:gap-12">
           {/* Professional Bio */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}

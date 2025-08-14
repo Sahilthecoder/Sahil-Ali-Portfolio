@@ -44,167 +44,170 @@ const stars = (count: number) => {
 };
 
 const TestimonialSection = () => {
+  // Swiper configuration
+  const swiperConfig = {
+    modules: [Pagination, A11y],
+    spaceBetween: 24,
+    slidesPerView: 1,
+    pagination: {
+      clickable: true,
+      dynamicBullets: true,
+      bulletClass: 'swiper-pagination-bullet',
+      bulletActiveClass: 'swiper-pagination-bullet-active',
+      renderBullet: function (index: number, className: string) {
+        return `<span class="${className}" role="button" aria-label="Go to slide ${index + 1}" tabindex="0"></span>`;
+      }
+    },
+    className: 'pb-16 px-1',
+    style: {
+      '--swiper-pagination-bullet-size': '12px',
+      '--swiper-pagination-bullet-horizontal-gap': '8px',
+      '--swiper-pagination-bullet-inactive-color': '#9CA3AF',
+      '--swiper-pagination-bullet-inactive-opacity': '0.8',
+      '--swiper-pagination-color': '#3B82F6',
+      '--swiper-pagination-bullet-width': '24px',
+      '--swiper-pagination-bullet-height': '6px',
+      '--swiper-pagination-bullet-border-radius': '3px'
+    } as React.CSSProperties
+  };
 
   return (
     <section
       id="testimonials"
       aria-label="Testimonials"
-      className="py-8 sm:py-12 bg-background relative overflow-hidden"
+      className="min-h-[calc(100vh-80px)] flex items-center py-16 sm:py-20 bg-background relative overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="w-full mb-12 sm:mb-16 lg:mb-20">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="w-full mb-12 sm:mb-16">
           <SectionHeader
             title="What People Say"
             subtitle="Client testimonials and feedback"
+            className="text-center lg:text-left"
           />
         </div>
-      </div>
 
-      {/* Mobile Carousel */}
-      <div className="md:hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <Swiper
-          modules={[Pagination, A11y]}
-          spaceBetween={24}
-          slidesPerView={1}
-          pagination={{
-            clickable: true,
-            dynamicBullets: true,
-            bulletClass: 'swiper-pagination-bullet',
-            bulletActiveClass: 'swiper-pagination-bullet-active',
-            renderBullet: function (index, className) {
-              return `<span class="${className}" role="button" aria-label="Go to slide ${index + 1}" tabindex="0"></span>`;
-            }
-          }}
-          className="pb-16 px-1"
-          style={{
-            '--swiper-pagination-bullet-size': '12px',
-            '--swiper-pagination-bullet-horizontal-gap': '8px',
-            '--swiper-pagination-bullet-inactive-color': '#9CA3AF',
-            '--swiper-pagination-bullet-inactive-opacity': '0.8',
-            '--swiper-pagination-color': '#3B82F6',
-            '--swiper-pagination-bullet-width': '24px',
-            '--swiper-pagination-bullet-height': '6px',
-            '--swiper-pagination-bullet-border-radius': '3px'
-          } as React.CSSProperties}
-        >
-          {testimonials.map(({ id, name, role, company, avatar, content, rating, date, project }) => (
-            <SwiperSlide key={id}>
-              <motion.article
-                variants={itemVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 h-full flex flex-col mx-2 sm:mx-0 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-900"
-                tabIndex={0}
-                aria-label={`Testimonial from ${name} about ${project || 'their experience'}`}
-              >
-                <p className="text-gray-800 dark:text-gray-200 mb-6 flex-grow leading-relaxed text-base">
-                  &ldquo;{content}&rdquo;
-                </p>
-                <div className="flex items-center mb-4">
-                  <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-primary flex-shrink-0">
-                    <LazyImage
-                      src={avatar}
-                      alt={`${name}'s avatar`}
-                      width={56}
-                      height={56}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="ml-3">
-                    <p className="font-semibold text-gray-900 dark:text-white">
-                      {name}
-                    </p>
-                    <p className="text-xs text-gray-500 dark:text-gray-400">
-                      {role} @ {company}
-                    </p>
-                  </div>
-                </div>
-                <div className="mb-3">
-                  <div aria-hidden="true" className="flex">
-                    {stars(rating)}
-                  </div>
-                  <div className="sr-only">Rating: {rating} out of 5 stars</div>
-                </div>
-                {project && (
-                  <p className="text-sm text-primary-700 dark:text-blue-400 font-medium mb-2">
-                    Project: <span className="italic">{project}</span>
-                  </p>
-                )}
-                <time
-                  dateTime={date}
-                  className="mt-auto text-xs text-gray-600 dark:text-gray-300"
+        {/* Mobile Carousel */}
+        <div className="md:hidden">
+          <Swiper {...swiperConfig}>
+            {testimonials.map(({ id, name, role, company, avatar, content, rating, date, project }) => (
+              <SwiperSlide key={id}>
+                <motion.article
+                  variants={itemVariants}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 h-full flex flex-col mx-2 sm:mx-0 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-900"
+                  tabIndex={0}
+                  aria-label={`Testimonial from ${name} about ${project || 'their experience'}`}
                 >
-                  {new Date(date).toLocaleDateString(undefined, {
-                    year: 'numeric',
-                    month: 'short',
-                    day: 'numeric',
-                  })}
-                </time>
-              </motion.article>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
+                  <p className="text-gray-800 dark:text-gray-200 mb-6 flex-grow leading-relaxed text-base">
+                    &ldquo;{content}&rdquo;
+                  </p>
+                  <div className="flex items-center mb-4">
+                    <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-primary flex-shrink-0">
+                      <LazyImage
+                        src={avatar}
+                        alt={`${name}'s avatar`}
+                        width={56}
+                        height={56}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="ml-3">
+                      <p className="font-semibold text-gray-900 dark:text-white">
+                        {name}
+                      </p>
+                      <p className="text-xs text-gray-500 dark:text-gray-400">
+                        {role} @ {company}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="mb-3">
+                    <div aria-hidden="true" className="flex">
+                      {stars(rating)}
+                    </div>
+                    <div className="sr-only">Rating: {rating} out of 5 stars</div>
+                  </div>
+                  {project && (
+                    <p className="text-sm text-primary-700 dark:text-blue-400 font-medium mb-2">
+                      Project: <span className="italic">{project}</span>
+                    </p>
+                  )}
+                  <time
+                    dateTime={date}
+                    className="mt-auto text-xs text-gray-600 dark:text-gray-300"
+                  >
+                    {new Date(date).toLocaleDateString(undefined, {
+                      year: 'numeric',
+                      month: 'short',
+                      day: 'numeric',
+                    })}
+                  </time>
+                </motion.article>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
 
-      {/* Desktop Grid */}
-      <div className="hidden md:grid gap-6 lg:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {testimonials.map(({ id, name, role, company, avatar, content, rating, date, project }) => (
-          <motion.article
-            key={id}
-            variants={itemVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-900"
-            tabIndex={0}
-            aria-label={`Testimonial from ${name} about ${project || 'their experience'}`}
-          >
-            <p className="text-gray-700 dark:text-gray-300 mb-6 flex-grow leading-relaxed">
-              &ldquo;{content}&rdquo;
-            </p>
-            <div className="flex items-center mb-4">
-              <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-primary flex-shrink-0">
-                <LazyImage
-                  src={avatar}
-                  alt={`${name}'s avatar`}
-                  width={56}
-                  height={56}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="ml-3">
-                <p className="font-semibold text-gray-900 dark:text-white">
-                  {name}
-                </p>
-                <p className="text-xs text-gray-500 dark:text-gray-400">
-                  {role} @ {company}
-                </p>
-              </div>
-            </div>
-            <div className="mb-3">
-              <div aria-hidden="true" className="flex">
-                {stars(rating)}
-              </div>
-              <div className="sr-only">Rating: {rating} out of 5 stars</div>
-            </div>
-            {project && (
-              <p className="text-xs text-primary dark:text-blue-400 font-medium mb-2">
-                Project: <span className="italic">{project}</span>
-              </p>
-            )}
-            <time
-              dateTime={date}
-              className="mt-auto text-xs text-gray-600 dark:text-gray-300"
+        {/* Desktop Grid */}
+        <div className="hidden md:grid gap-6 lg:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          {testimonials.map(({ id, name, role, company, avatar, content, rating, date, project }) => (
+            <motion.article
+              key={id}
+              variants={itemVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-900"
+              tabIndex={0}
+              aria-label={`Testimonial from ${name} about ${project || 'their experience'}`}
             >
-              {new Date(date).toLocaleDateString(undefined, {
-                year: 'numeric',
-                month: 'short',
-                day: 'numeric',
-              })}
-            </time>
-          </motion.article>
-        ))}
+              <p className="text-gray-700 dark:text-gray-300 mb-6 flex-grow leading-relaxed">
+                &ldquo;{content}&rdquo;
+              </p>
+              <div className="flex items-center mb-4">
+                <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-primary flex-shrink-0">
+                  <LazyImage
+                    src={avatar}
+                    alt={`${name}'s avatar`}
+                    width={56}
+                    height={56}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="ml-3">
+                  <p className="font-semibold text-gray-900 dark:text-white">
+                    {name}
+                  </p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400">
+                    {role} @ {company}
+                  </p>
+                </div>
+              </div>
+              <div className="mb-3">
+                <div aria-hidden="true" className="flex">
+                  {stars(rating)}
+                </div>
+                <div className="sr-only">Rating: {rating} out of 5 stars</div>
+              </div>
+              {project && (
+                <p className="text-xs text-primary dark:text-blue-400 font-medium mb-2">
+                  Project: <span className="italic">{project}</span>
+                </p>
+              )}
+              <time
+                dateTime={date}
+                className="mt-auto text-xs text-gray-600 dark:text-gray-300"
+              >
+                {new Date(date).toLocaleDateString(undefined, {
+                  year: 'numeric',
+                  month: 'short',
+                  day: 'numeric',
+                })}
+              </time>
+            </motion.article>
+          ))}
+        </div>
       </div>
     </section>
   );

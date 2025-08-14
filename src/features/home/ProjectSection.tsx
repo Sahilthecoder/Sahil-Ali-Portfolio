@@ -65,68 +65,84 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
   );
 };
 
+interface ProjectWithOrder extends Project {
+  order?: number;
+}
+
 const ProjectSection: React.FC = () => {
   // Show only top 3 featured projects on homepage
-  const featuredProjects = projects
+  const featuredProjects = (projects as ProjectWithOrder[])
     .filter((p) => p.featured)
+    .sort((a, b) => (a.order || 0) - (b.order || 0))
     .slice(0, 3); // Limit to 3 projects
+
+  const paginationConfig = {
+    clickable: true,
+    dynamicBullets: true,
+    bulletClass: 'swiper-pagination-bullet',
+    bulletActiveClass: 'swiper-pagination-bullet-active',
+    renderBullet: function (index: number, className: string) {
+      return `<span class="${className}" role="button" aria-label="Go to project ${index + 1}" tabindex="0"></span>`;
+    }
+  };
+
+  // Using type assertion for custom CSS variables
+  const swiperStyles = {
+    '--swiper-pagination-bottom': '32px',
+    '--swiper-pagination-bullet-size': '12px',
+    '--swiper-pagination-bullet-horizontal-gap': '8px',
+    '--swiper-pagination-bullet-inactive-color': '#9CA3AF',
+    '--swiper-pagination-bullet-inactive-opacity': '0.8',
+    '--swiper-pagination-color': '#3B82F6',
+    '--swiper-pagination-bullet-width': '24px',
+    '--swiper-pagination-bullet-height': '6px',
+    '--swiper-pagination-bullet-border-radius': '3px',
+    height: '100%',
+  } as React.CSSProperties;
 
   return (
     <section
       id="projects"
       aria-labelledby="projects-heading"
-      className="py-8 sm:py-12 px-4 sm:px-6 max-w-7xl mx-auto scroll-mt-16"
+      className="min-h-[calc(100vh-80px)] flex items-center py-16 sm:py-20 bg-background"
     >
-      <div className="w-full mb-12 sm:mb-16 lg:mb-20">
-        <SectionHeader
-          title="Featured Projects"
-          subtitle="Showcasing my best work and technical capabilities"
-          className="text-left"
-        />
-      </div>
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="w-full mb-12 sm:mb-16">
+          <SectionHeader
+            title="Featured Projects"
+            subtitle="Showcasing my best work and technical capabilities"
+            className="text-center lg:text-left"
+          />
+        </div>
 
-      <div className="md:hidden h-full">
-        <Swiper
-          modules={[Pagination, A11y]}
-          spaceBetween={24}
-          slidesPerView={1}
-          pagination={{
-            clickable: true,
-            dynamicBullets: true,
-            bulletClass: 'swiper-pagination-bullet',
-            bulletActiveClass: 'swiper-pagination-bullet-active',
-            renderBullet: function (index, className) {
-              return `<span class="${className}" role="button" aria-label="Go to project ${index + 1}" tabindex="0"></span>`;
-            }
-          }}
-          className="h-full pb-16 px-1"
-          style={{
-            '--swiper-pagination-bottom': '32px',
-            '--swiper-pagination-bullet-size': '12px',
-            '--swiper-pagination-bullet-horizontal-gap': '8px',
-            '--swiper-pagination-bullet-inactive-color': '#9CA3AF',
-            '--swiper-pagination-bullet-inactive-opacity': '0.8',
-            '--swiper-pagination-color': '#3B82F6',
-            '--swiper-pagination-bullet-width': '24px',
-            '--swiper-pagination-bullet-height': '6px',
-            '--swiper-pagination-bullet-border-radius': '3px',
-            height: '100%',
-          } as React.CSSProperties}
-        >
-          {featuredProjects.map((project) => (
-            <SwiperSlide key={project.id}>
-              <div className="h-full px-2 py-1">
-                <ProjectCard project={project} />
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
-      
-      <div className="hidden md:grid gap-6 sm:gap-8 lg:gap-10 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-        {featuredProjects.map((project) => (
-          <ProjectCard key={project.id} project={project} />
-        ))}
+        <div className="relative">
+          {/* Mobile View */}
+          <div className="md:hidden h-full">
+            <Swiper
+              modules={[Pagination, A11y]}
+              spaceBetween={24}
+              slidesPerView={1}
+              pagination={paginationConfig}
+              className="h-full pb-16 px-1"
+              style={swiperStyles}
+            >
+              {featuredProjects.map((project) => (
+                <SwiperSlide key={project.id}>
+                  <div className="h-full px-2 py-1">
+                    <ProjectCard project={project} />
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+          
+          {/* Desktop View */}
+          <div className="hidden md:grid gap-6 sm:gap-8 lg:gap-10 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+            {featuredProjects.map((project) => (
+              <ProjectCard key={project.id} project={project} />
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

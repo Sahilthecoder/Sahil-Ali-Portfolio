@@ -3,11 +3,9 @@
 import React from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { FaRegLightbulb } from 'react-icons/fa';
-import { FiExternalLink, FiX, FiLock } from 'react-icons/fi';
+import { FiExternalLink, FiX } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
-import { usePasswordProtection } from '@/contexts/PasswordProtectionContext';
 import { Button } from '@/components/ui/Button';
-import { PasswordModal } from '@/components/ui/PasswordModal';
 import { TechnologyBadge } from './TechnologyBadge';
 import type { Project } from './types';
 
@@ -35,56 +33,11 @@ export default function ProjectModal({
   onClose,
   projectId
 }: ProjectModalProps) {
-  const { isAuthenticated, verifyPassword } = usePasswordProtection();
-  const [showPasswordModal, setShowPasswordModal] = React.useState(false);
-  // Debug logging
-  React.useEffect(() => {
-    console.log('ProjectModal - Project ID:', projectId);
-    console.log('ProjectModal - Project Title:', project?.title);
-    console.log('ProjectModal - isAuthenticated:', isAuthenticated);
-  }, [projectId, project, isAuthenticated]);
-
-  // Check if the project is the portfolio project (case-insensitive and handles different formats)
-  const [isPortfolioProject] = React.useState(
-    projectId?.toLowerCase().includes('portfolio') || 
-    project?.title?.toLowerCase().includes('portfolio')
-  );
-  const shouldLock = isPortfolioProject && !isAuthenticated;
-  
-  // Log the lock state
-  React.useEffect(() => {
-    console.log('ProjectModal - isPortfolioProject:', isPortfolioProject);
-    console.log('ProjectModal - shouldLock:', shouldLock);
-  }, [isPortfolioProject, shouldLock]);
-
   // Detect RTL mode
   const isRTL = typeof document !== 'undefined' && document?.dir === 'rtl';
 
-  const handleExploreClick = (e: React.MouseEvent) => {
-    if (shouldLock) {
-      e.preventDefault();
-      // Store the target URL in session storage before showing the password modal
-      sessionStorage.setItem('redirectAfterAuth', `/projects/${projectId}`);
-      setShowPasswordModal(true);
-    } else {
-      // If not locked, navigate directly
-      window.location.href = `/#/projects/${projectId}`;
-    }
-  };
-
-  const handlePasswordVerify = (password: string) => {
-    const isVerified = verifyPassword(password);
-    if (isVerified) {
-      setShowPasswordModal(false);
-      // Force a full page reload to ensure the authentication state is properly set
-      // and the project loads with the correct permissions
-      window.location.href = `/#/projects/${projectId}`;
-      // Small delay to ensure the hash is set after the page starts reloading
-      setTimeout(() => {
-        window.location.reload();
-      }, 100);
-    }
-    return isVerified;
+  const handleExploreClick = () => {
+    window.location.href = `/#/projects/${projectId}`;
   };
 
   if (!isOpen || !project) return null;
@@ -208,22 +161,16 @@ export default function ProjectModal({
                   {/* Explore Button */}
                   <div className="pt-4">
                     <Link 
-                      to={!shouldLock ? `/projects/${projectId}` : '#'}
+                      to={`/projects/${projectId}`}
                       onClick={handleExploreClick}
-                      className={`inline-block w-full sm:w-auto ${shouldLock ? 'opacity-70' : ''}`}
+                      className="inline-block w-full sm:w-auto"
                     >
                       <Button
                         variant="outline"
-                        className="w-full sm:w-auto hover:scale-105 transition-transform gap-2 bg-white/70 hover:bg-white/90 text-gray-900 dark:bg-gray-800/80 dark:hover:bg-gray-700/90 dark:text-white border border-gray-300/50 dark:border-gray-600/50 shadow-md hover:shadow-lg relative"
+                        className="w-full sm:w-auto hover:scale-105 transition-transform gap-2 bg-white/70 hover:bg-white/90 text-gray-900 dark:bg-gray-800/80 dark:hover:bg-gray-700/90 dark:text-white border border-gray-300/50 dark:border-gray-600/50 shadow-md hover:shadow-lg"
                       >
-                        {shouldLock && (
-                          <div className="absolute inset-0 flex items-center justify-center gap-2 bg-black/50 text-white rounded-md">
-                            <FiLock className="h-4 w-4" />
-                            <span>Locked</span>
-                          </div> 
-                        )}
                         <FiExternalLink className="h-4 w-4" />
-                        {!shouldLock ? 'Explore Complete Project' : 'Project Locked'}
+                        Explore Complete Project
                       </Button>
                     </Link>
                   </div>
@@ -235,11 +182,7 @@ export default function ProjectModal({
         </motion.div>
       )}
       
-      <PasswordModal
-        isOpen={showPasswordModal}
-        onClose={() => setShowPasswordModal(false)}
-        onVerify={handlePasswordVerify}
-      />
+
     </AnimatePresence>
   );
 }

@@ -63,24 +63,21 @@ const SkillsSection = () => {
   }, []);
 
   return (
-    <section id="skills" className="py-12 sm:py-16 bg-background">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-left">
+    <section id="skills" className="min-h-[calc(100vh-80px)] flex items-center py-16 sm:py-20 bg-background">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="w-full mb-12 sm:mb-16">
           <SectionHeader
-            title="Professional Skills"
-            subtitle="A comprehensive overview of my core competencies and areas of expertise"
-            className="max-w-3xl"
+            title="Skills & Expertise"
+            subtitle="Technologies I work with"
           />
         </div>
 
-        {/* Skills by Category */}
-        <motion.div 
-          className="space-y-8"
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-12"
+          variants={fadeIn}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true }}
-          variants={fadeIn}
+          viewport={{ once: true, margin: '-100px 0px -100px 0px' }}
         >
           {skillsByCategory.map((category) => (
             <motion.div 

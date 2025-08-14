@@ -4,7 +4,6 @@ import { Routes, Route, useLocation, HashRouter } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useSmoothScroll } from './hooks/useSmoothScroll';
 import { ThemeProvider } from './components/ThemeProvider';
-import { PasswordProtectionProvider } from '@/contexts/PasswordProtectionContext';
 import GoogleAnalytics from './components/GoogleAnalytics';
 import Navigation from './components/Navigation/Navigation';
 import Home from './pages/Home';
@@ -100,8 +99,7 @@ const App: React.FC = () => {
   return (
     <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme" enableSystem={true}>
       <ErrorBoundary>
-        <PasswordProtectionProvider>
-          <HashRouter>
+        <HashRouter>
             <div className="app-container flex flex-col min-h-screen">
               <ThemeProvider>
                 <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
@@ -120,7 +118,6 @@ const App: React.FC = () => {
               </ThemeProvider>
             </div>
           </HashRouter>
-        </PasswordProtectionProvider>
       </ErrorBoundary>
     </ThemeProvider>
   );
