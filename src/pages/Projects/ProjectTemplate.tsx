@@ -96,74 +96,71 @@ const ProjectTemplate: React.FC<ProjectTemplateProps> = ({
     <div className="min-h-screen bg-background text-foreground">
   
 
-      {/* Hero Section */}
-      <section className="py-12">
-        <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto bg-card/50 backdrop-blur-sm p-8 md:p-12 rounded-2xl border border-border shadow-2xl 
-                    transition-all duration-300 hover:shadow-3xl hover:shadow-primary/20
-                    relative overflow-hidden group">
-            {/* Subtle gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            
-            {/* 3D effect elements */}
-            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-accent to-transparent" />
-            <div className="absolute top-0 right-0 w-1 h-full bg-gradient-to-b from-primary via-accent to-transparent" />
-            <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-accent to-primary" />
-            <div className="absolute bottom-0 left-0 w-1 h-full bg-gradient-to-t from-primary via-accent to-transparent" />
-            
-            <div className="relative z-10">
-              <h1 className="text-4xl md:text-6xl font-bold text-primary mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                {project.title}
-              </h1>
-              <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-6 rounded-full" />
-              <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">{project.subtitle}</p>
-            </div>
+     {/* Hero Section */}
+<section className="relative py-16">
+  <div className="container mx-auto px-4">
+    <div className="max-w-5xl mx-auto relative overflow-hidden group rounded-3xl border border-border bg-card/60 backdrop-blur-md shadow-2xl transition-all duration-500 hover:shadow-primary/30 hover:shadow-3xl">
 
-            <div className="flex flex-wrap justify-center gap-4 mb-8">
-              <div className="flex items-center text-muted-foreground">
-                <FiCalendar className="mr-2" />
-                <span>
-                  {formatDate(project.date, 'en-US', {
-                    year: 'numeric',
-                    month: 'long',
-                  })}
+      {/* Animated gradient background overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+
+      {/* Decorative floating shapes */}
+      <div className="absolute -top-10 -left-10 w-40 h-40 bg-primary/10 blur-3xl rounded-full animate-pulse" />
+      <div className="absolute -bottom-12 -right-12 w-48 h-48 bg-accent/10 blur-3xl rounded-full animate-pulse delay-150" />
+
+      {/* Top + side gradient lines */}
+      <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-primary via-accent to-transparent animate-gradient" />
+      <div className="absolute top-0 right-0 w-[3px] h-full bg-gradient-to-b from-primary via-accent to-transparent animate-gradient" />
+
+      <div className="relative z-10 text-center p-8 md:p-14">
+        {/* Title */}
+        <h1 className="text-4xl md:text-6xl font-extrabold mb-4 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-text">
+          {project.title}
+        </h1>
+
+        {/* Accent underline */}
+        <div className="w-28 h-[3px] mx-auto mb-6 rounded-full bg-gradient-to-r from-primary via-accent to-primary animate-pulse" />
+
+        {/* Subtitle */}
+        <p className="text-lg md:text-2xl text-muted-foreground mb-10 max-w-3xl mx-auto leading-relaxed">
+          {project.subtitle}
+        </p>
+
+        {/* Meta info */}
+        <div className="flex flex-wrap justify-center gap-6 mb-10 text-muted-foreground">
+          <div className="flex items-center gap-2">
+            <FiCalendar className="text-primary" />
+            {formatDate(project.date, 'en-US', { year: 'numeric', month: 'long' })}
+          </div>
+          <div className="flex items-center gap-2">
+            <FiTag className="text-accent" />
+            <div className="flex flex-wrap gap-2">
+              {project.technologies.map((tech, i) => (
+                <span
+                  key={i}
+                  className="px-3 py-1 rounded-full bg-primary/10 text-primary text-sm hover:bg-primary/20 transition-colors"
+                >
+                  {tech}
                 </span>
-              </div>
-              <div className="flex items-center text-muted-foreground">
-                <FiTag className="mr-2" />
-                <div className="flex flex-wrap gap-2">
-                  {project.technologies.map((tech, index) => (
-                    <span
-                      key={index}
-                      className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            <div className="relative w-full max-w-6xl mx-auto rounded-xl overflow-hidden shadow-2xl mb-12 border border-border/50 bg-background/50 group/image-container">
-              <div className="relative w-full h-auto">
-                <LazyImage
-                  src={project.image.src}
-                  alt={project.image.alt || project.title}
-                  className="w-full h-auto max-h-[70vh] object-contain mx-auto transition-transform duration-500 group-hover/image-container:scale-105"
-                  style={{
-                    display: 'block',
-                    maxWidth: '100%',
-                    height: 'auto',
-                    objectFit: 'contain',
-                    objectPosition: 'center',
-                  }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent opacity-0 group-hover/image-container:opacity-100 transition-opacity duration-300 pointer-events-none" />
-              </div>
+              ))}
             </div>
           </div>
         </div>
-      </section>
+
+        {/* Project image */}
+        <div className="relative w-full max-w-5xl mx-auto rounded-2xl overflow-hidden border border-border/40 shadow-xl group/image">
+          <LazyImage
+            src={project.image.src}
+            alt={project.image.alt || project.title}
+            className="w-full h-auto max-h-[70vh] object-contain transition-transform duration-700 group-hover/image:scale-105"
+          />
+          {/* Spotlight glow on hover */}
+          <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/10 to-transparent opacity-0 group-hover/image:opacity-100 transition-opacity duration-500" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* Project Content */}
       <section className="py-16 bg-muted/30">

@@ -84,12 +84,12 @@ const RetailCashFlow: React.FC<{
                 </h4>
                 <p className="text-gray-700 dark:text-gray-300 mt-2">
                   At the beginning of each day, the cashier starts with an Opening Balance from the
-                  previous day's closing balance. This amount is carried over and represents the
-                  cash available to begin the day's operations.
+                  previous day&apos;s closing balance. This amount is carried over and represents the
+                  cash available to begin the day&apos;s operations.
                 </p>
                 <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
-                  <span className="font-medium">Example:</span> If yesterday's closing balance was
-                  ₹5,000, this becomes today's opening balance.
+                  <span className="font-medium">Example:</span> If yesterday&apos;s closing balance was
+                  ₹5,000, this becomes today&apos;s opening balance.
                 </p>
               </div>
 
@@ -103,7 +103,7 @@ const RetailCashFlow: React.FC<{
                   available for the day.
                 </p>
                 <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
-                  <span className="font-medium">Example:</span> If today's cash sales total ₹8,000,
+                  <span className="font-medium">Example:</span> If today&apos;s cash sales total ₹8,000,
                   then the total cash available becomes ₹5,000 (opening) + ₹8,000 (sales) = ₹13,000.
                 </p>
               </div>
@@ -128,7 +128,7 @@ const RetailCashFlow: React.FC<{
                 </h4>
                 <p className="text-gray-700 dark:text-gray-300 mt-2">
                   After all expenses, the remaining cash is the Closing Balance — the final amount
-                  at day's end, ready for deposit or carryover.
+                  at day&apos;s end, ready for deposit or carryover.
                 </p>
                 <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
                   <span className="font-medium">Example:</span> If, after deducting ₹5,000 in
@@ -139,7 +139,7 @@ const RetailCashFlow: React.FC<{
               <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
                 <h4 className="font-semibold text-lg text-gray-900 dark:text-white">5. Deposit</h4>
                 <p className="text-gray-700 dark:text-gray-300 mt-2">
-                  At day's end, a portion of the closing balance is deposited into the store's bank
+                  At day&apos;s end, a portion of the closing balance is deposited into the store&apos;s bank
                   account to minimize overnight cash holding.
                 </p>
                 <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
@@ -150,14 +150,14 @@ const RetailCashFlow: React.FC<{
 
               <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
                 <h4 className="font-semibold text-lg text-gray-900 dark:text-white">
-                  6. Next Day's Opening Balance
+                  6. Next Day&apos;s Opening Balance
                 </h4>
                 <p className="text-gray-700 dark:text-gray-300 mt-2">
                   The Opening Balance for the next day is the remaining amount after the deposit.
                 </p>
                 <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
                   <span className="font-medium">Example:</span> If closing balance was ₹8,000 and
-                  ₹6,000 was deposited, the next day's opening balance will be ₹2,000.
+                  ₹6,000 was deposited, the next day&apos;s opening balance will be ₹2,000.
                 </p>
               </div>
             </div>
