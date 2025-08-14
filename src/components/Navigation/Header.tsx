@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
 import { FiSun, FiMoon, FiMenu } from 'react-icons/fi';
+import { useNavigate } from 'react-router-dom';
 import Navbar from './Navbar';
 import LazyImage from '../LazyImage';
 
@@ -14,6 +15,7 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ onMenuToggle, isScrolled = false }) => {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
+  const navigate = useNavigate();
 
   useEffect(() => {
     setMounted(true);
@@ -34,15 +36,26 @@ const Header: React.FC<HeaderProps> = ({ onMenuToggle, isScrolled = false }) => 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-14 md:h-16">
           {/* Logo & Title */}
-          <div className="flex items-center space-x-4">
+          <div
+            className="flex items-center space-x-4 cursor-pointer group"
+            onClick={() => navigate('/')}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                navigate('/');
+              }
+            }}
+            role="button"
+            tabIndex={0}
+            aria-label="Go to home page"
+          >
             <LazyImage
               src="/Sahil-Ali-Portfolio/logo/logo192.webp"
               alt="Logo"
               width={40}
               height={40}
-              className="h-10 w-10 object-contain rounded-md shadow-sm"
+              className="h-10 w-10 object-contain rounded-md shadow-sm transition-transform duration-300 group-hover:scale-105"
             />
-            <div>
+            <div className="transition-colors duration-300 group-hover:text-primary dark:group-hover:text-primary-300">
               <h1 className="text-xl sm:text-2xl font-extrabold text-gray-900 dark:text-white select-none leading-tight">
                 Sahil Ali
               </h1>

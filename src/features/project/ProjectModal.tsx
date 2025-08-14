@@ -1,200 +1,188 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { FaRegLightbulb } from 'react-icons/fa';
 import { FiExternalLink, FiX } from 'react-icons/fi';
-import { Link } from 'react-router-dom';
+// Using standard img tag instead of Next.js Image
 import { Button } from '@/components/ui/Button';
+import { useNavigate } from 'react-router-dom';
 
-// Base URL for GitHub Pages deployment
-const baseUrl = process.env.NODE_ENV === 'production' ? '/Sahil-Ali-Portfolio' : '';
-import { TechnologyBadge } from './TechnologyBadge';
-import type { Project } from './types';
+interface ProjectImage {
+  src: string;
+  alt?: string;
+}
 
 interface ProjectModalProps {
   isOpen: boolean;
-  project: Project;
   onClose: () => void;
+  project: {
+    id: string;
+    title: string;
+    description: string;
+    technologies: string[];
+    image: ProjectImage;
+    liveUrl?: string;
+    githubUrl?: string;
+  };
   projectId: string;
 }
 
-const modalVariants = {
-  hidden: { opacity: 0, scale: 0.95, y: 20 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    y: 0,
-    transition: { type: 'spring', stiffness: 120, damping: 16 }
-  },
-  exit: { opacity: 0, scale: 0.9, y: 15, transition: { duration: 0.25 } }
-};
+const ProjectModal: React.FC<ProjectModalProps> = ({ 
+  isOpen, 
+  onClose, 
+  project 
+}) => {
+  const navigate = useNavigate();
+  const baseUrl = process.env.NODE_ENV === 'production' ? '/Sahil-Ali-Portfolio' : '';
+  // Close modal on Escape key press
+  useEffect(() => {
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', handleEsc);
+    return () => window.removeEventListener('keydown', handleEsc);
+  }, [onClose]);
 
-export default function ProjectModal({
-  isOpen,
-  project,
-  onClose,
-  projectId
-}: ProjectModalProps) {
-  // Detect RTL mode
-  const isRTL = typeof document !== 'undefined' && document?.dir === 'rtl';
+  // Prevent background scroll when modal is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [isOpen]);
 
-  const handleExploreClick = () => {
-    window.location.href = `${baseUrl}/#/projects/${projectId}`;
-  };
-
-  if (!isOpen || !project) return null;
+  if (!isOpen) return null;
 
   return (
     <AnimatePresence>
-      {isOpen && (
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+        onClick={onClose}
+      >
         <motion.div
-          key="modal-overlay"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 bg-black/50 dark:bg-black/80 backdrop-blur-lg"
-          onClick={onClose}
+          initial={{ scale: 0.9, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          exit={{ scale: 0.9, opacity: 0 }}
+          transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+          className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-white dark:bg-gray-900 rounded-xl shadow-2xl"
+          onClick={(e) => e.stopPropagation()}
         >
-          <motion.div
-            className="relative w-[98vw] max-w-7xl max-h-[95vh] bg-white/80 dark:bg-gray-900/90 backdrop-blur-2xl rounded-3xl shadow-2xl overflow-hidden flex flex-col border-2 border-white/40 dark:border-gray-700/50"
-            style={{
-              direction: isRTL ? 'rtl' : 'ltr',
-              width: '98vw',
-              maxWidth: 'min(95vw, 2000px)',
-              margin: '1vh auto'
-            }}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            variants={modalVariants}
-            onClick={(e) => e.stopPropagation()}
+          {/* Close Button */}
+          <button
+            onClick={onClose}
+            className="absolute top-4 right-4 p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors z-10"
+            aria-label="Close modal"
           >
-            {/* Close Button */}
-            <button
-              onClick={onClose}
-              className={`absolute top-4 ${isRTL ? 'left-4' : 'right-4'} p-2.5 rounded-full bg-white/60 hover:bg-white/80 dark:bg-gray-800/90 dark:hover:bg-gray-700/90 transition-all duration-200 shadow-lg z-20 backdrop-blur-md border border-white/30 dark:border-gray-600/50 hover:scale-110`}
-              aria-label="Close modal"
-            >
-              <FiX className="h-5 w-5" />
-            </button>
+            <FiX className="w-5 h-5" />
+          </button>
 
-            {/* Content Layout */}
-            <div className={`flex flex-col ${isRTL ? 'lg:flex-row-reverse' : 'lg:flex-row'} h-full overflow-y-auto`}>
-              
-              {/* Image Section */}
-              <div className="relative w-full lg:w-1/2 overflow-hidden flex-shrink-0 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 flex items-center justify-center p-0">
-                <div className="relative w-full h-full flex items-center justify-center">
-                  <motion.img
-                    key={project.image.src}
-                    src={project.image.src}
-                    alt={project.image.alt || project.title}
-                    className="w-full h-auto max-h-[70vh] md:max-h-[80vh] object-contain p-4 md:p-8"
-                    style={{
-                      objectPosition: isRTL ? 'right center' : 'left center',
-                      maxWidth: '100%',
-                      maxHeight: 'calc(100vh - 4rem)',
-                      width: 'auto',
-                      height: 'auto',
-                      aspectRatio: '16/9',
-                    }}
-                    initial={{ opacity: 0, scale: 0.98 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.4, ease: 'easeOut' }}
-                    loading="lazy"
-                    decoding="async"
-                    sizes="(max-width: 1023px) 100vw, 50vw"
-                    onError={(e) => {
-                      // Fallback to a placeholder if image fails to load
-                      const target = e.target as HTMLImageElement;
-                      target.src = '/Sahil-Ali-Portfolio/images/placeholder-project.png';
-                    }}
-                  />
-                  {/* Loading skeleton */}
-                  <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 transition-opacity duration-300 ease-in-out" />
-                </div>
-              </div>
+          {/* Project Image */}
+          <div className="relative w-full h-64 md:h-80 lg:h-96 bg-gray-100 dark:bg-gray-800">
+            {project.image && (
+              <img
+                src={project.image.src}
+                alt={project.image.alt || `${project.title} screenshot`}
+                width={800}
+                height={450}
+                className="rounded-lg object-cover w-full h-full"
+                loading="lazy"
+              />
+            )}
+          </div>
 
-              {/* Details Section */}
-              <div className="flex-1 p-6 md:p-8 overflow-y-auto min-w-0">
-                <div className="space-y-6">
-                  
-                  {/* Title */}
-                  <div>
-                    <h2 className="text-3xl font-bold leading-tight text-gray-900 dark:text-white">
-                      {project.title}
-                    </h2>
-                    {project.subtitle && (
-                      <p className="mt-2 text-base text-gray-700 dark:text-gray-300">
-                        {project.subtitle}
-                      </p>
-                    )}
-                  </div>
+          {/* Project Content */}
+          <div className="p-6 md:p-8">
+            <h2 className="text-2xl md:text-3xl font-bold mb-2">{project.title}</h2>
+            
+            <p className="text-gray-600 dark:text-gray-300 mb-6">
+              {project.description}
+            </p>
 
-                  {/* Technologies */}
-                  {project.technologies?.length > 0 && (
-                    <div className="flex flex-wrap gap-2 overflow-x-auto pb-1 -mx-1 px-1">
-                      {project.technologies.map((tech) => (
-                        <TechnologyBadge key={tech} name={tech} />
-                      ))}
-                    </div>
-                  )}
-
-                  {/* Overview */}
-                  <section>
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                      Project Overview
-                    </h3>
-                    <p className="text-gray-800 dark:text-gray-200 text-base leading-relaxed">
-                      {project.description}
-                    </p>
-                  </section>
-
-                  {/* Highlights */}
-                  {project.highlights?.length > 0 && (
-                    <section>
-                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                        Key Highlights
-                      </h3>
-                      <ul className="space-y-3">
-                        {project.highlights.map((highlight, idx) => (
-                          <li 
-                            key={idx} 
-                            className="flex items-start gap-3 text-gray-700 dark:text-gray-200 text-base"
-                          >
-                            <FaRegLightbulb className="mt-0.5 h-4 w-4 text-yellow-400 flex-shrink-0" />
-                            <span>{highlight}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </section>
-                  )}
-
-                  {/* Explore Button */}
-                  <div className="pt-4">
-                    <Link 
-                      to={`/projects/${projectId}`}
-                      onClick={handleExploreClick}
-                      className="inline-block w-full sm:w-auto"
-                    >
-                      <Button
-                        variant="outline"
-                        className="w-full sm:w-auto hover:scale-105 transition-transform gap-2 bg-white/70 hover:bg-white/90 text-gray-900 dark:bg-gray-800/80 dark:hover:bg-gray-700/90 dark:text-white border border-gray-300/50 dark:border-gray-600/50 shadow-md hover:shadow-lg"
-                      >
-                        <FiExternalLink className="h-4 w-4" />
-                        Explore Complete Project
-                      </Button>
-                    </Link>
-                  </div>
-
-                </div>
+            {/* Technologies */}
+            <div className="mb-6">
+              <h3 className="text-lg font-semibold mb-2 flex items-center">
+                <FaRegLightbulb className="mr-2" /> Technologies Used
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {project.technologies.map((tech, index) => (
+                  <span
+                    key={index}
+                    className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 text-sm rounded-full"
+                  >
+                    {tech}
+                  </span>
+                ))}
               </div>
             </div>
-          </motion.div>
-        </motion.div>
-      )}
-      
 
+            {/* Action Buttons */}
+            <div className="flex flex-wrap gap-4 mt-8 [&_button:focus-visible]:outline [&_button:focus-visible]:outline-2 [&_button:focus-visible]:outline-primary [&_button:focus-visible]:outline-offset-2">
+              {project.liveUrl && (
+                <Button
+                  variant="primary"
+                  className="flex-1 sm:flex-none py-3 px-6 rounded-lg bg-primary hover:bg-primary/90 transition-colors duration-200 text-white font-medium text-lg"
+                >
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2"
+                  >
+                    Live Demo <FiExternalLink />
+                  </a>
+                </Button>
+              )}
+              {project.githubUrl && (
+                <Button
+                  variant="outline"
+                  className="flex-1 sm:flex-none"
+                >
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2"
+                  >
+                    View Code <FiExternalLink />
+                  </a>
+                </Button>
+              )}
+              <Button
+                variant="outline"
+                className="flex-1 sm:flex-none border-primary/40 text-primary hover:bg-primary/5 hover:border-primary/60 hover:text-primary/90 transition-colors duration-200 group relative overflow-hidden"
+                onClick={() => {
+                  onClose();
+                  navigate(`${baseUrl}/#/projects/${project.id}`);
+                }}
+              >
+                <span className="relative z-10 flex items-center justify-center gap-2">
+                  View Full Project
+                  <motion.span
+                    className="inline-block"
+                    initial={{ x: 0 }}
+                    whileHover={{ x: 4 }}
+                    transition={{ type: 'spring', stiffness: 500, damping: 30 }}
+                  >
+                    →
+                  </motion.span>
+                </span>
+                <span className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </Button>
+            </div>
+          </div>
+        </motion.div>
+      </motion.div>
     </AnimatePresence>
   );
-}
+};
+
+export { ProjectModal };
+export default ProjectModal;

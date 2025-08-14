@@ -11,27 +11,36 @@ interface ProjectCardProps {
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick, className }) => {
   const { title, subtitle, description, image, technologies = [], date } = project;
 
+  const handleClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    onClick?.();
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      onClick?.();
+    }
+  };
+
   return (
     <article
       className={cn(
         'backdrop-blur-md bg-white/95 dark:bg-gray-900 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 overflow-hidden',
         'border border-gray-200 dark:border-gray-700 hover:border-primary group h-full flex flex-col',
         'transform hover:-translate-y-0.5 hover:scale-[1.01] transition-transform duration-200',
+        'cursor-pointer',
         className
       )}
-      onClick={onClick}
+      onClick={handleClick}
+      onKeyDown={handleKeyDown}
+      role="button"
+      tabIndex={0}
+      aria-label={`View details for ${title} project`}
     >
       <div
         className="block w-full h-full focus:outline-none focus-visible:ring-4 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-        role="button"
-        tabIndex={0}
-        aria-label={`View details for ${title} project`}
-        onKeyDown={(e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            onClick?.();
-          }
-        }}
       >
         <div className="relative w-full h-48 sm:h-56 md:h-64 overflow-hidden">
           <picture>
