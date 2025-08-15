@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import ProjectsDropdown from './ProjectsDropdown';
 
 interface NavItem {
   label: string;
@@ -11,7 +12,6 @@ const navItems: NavItem[] = [
   { label: 'Home', path: '/' },
   { label: 'About', path: '/about' },
   { label: 'Experience', path: '/experience' },
-  { label: 'Projects', path: '/projects' },
   { label: 'Contact', path: '/contact' },
 ];
 
@@ -56,6 +56,9 @@ const Navbar: React.FC = () => {
           </motion.div>
         );
       })}
+      
+      {/* Projects Dropdown */}
+      <ProjectsDropdown className="group relative" />
     </nav>
   );
 };

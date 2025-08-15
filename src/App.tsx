@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { Routes, Route, useLocation, HashRouter } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useSmoothScroll } from './hooks/useSmoothScroll';
@@ -21,6 +21,10 @@ import { ErrorBoundary } from './components/common/ErrorBoundary';
 import ScrollToTop from './components/common/ScrollToTop';
 import Footer from './components/Navigation/Footer';
 import { ConsentBanner } from './components/ConsentBanner';
+import EnhancedPageTransition from './components/animations/EnhancedPageTransition';
+import SmoothScrollSystem from './components/common/SmoothScrollSystem';
+import CustomCursor from './components/common/CustomCursor';
+import { PageSkeleton } from './components/common/LoadingSkeletons';
 
 // Wrapper component to handle page transitions
 const AnimatedRoutes = () => {
@@ -45,46 +49,36 @@ const AnimatedRoutes = () => {
   return (
     <AnimatePresence mode="wait" initial={false}>
       <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<PageTransition><Home /></PageTransition>} />
-        <Route path="/about" element={<PageTransition><About /></PageTransition>} />
-        <Route path="/experience" element={<PageTransition><Experience /></PageTransition>} />
-        <Route path="/projects" element={<PageTransition><Projects /></PageTransition>} />
-        <Route path="/projects/:id" element={<PageTransition><ProjectDetails /></PageTransition>} />
-        <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
-        <Route path="/blog" element={<PageTransition><Blog /></PageTransition>} />
-        <Route path="/terms-of-service" element={<PageTransition><TermsOfService /></PageTransition>} />
-        <Route path="/privacy-policy" element={<PageTransition><PrivacyPolicy /></PageTransition>} />
-        <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
+        <Route path="/" element={<EnhancedPageTransition><Home /></EnhancedPageTransition>} />
+        <Route path="/about" element={<EnhancedPageTransition><About /></EnhancedPageTransition>} />
+        <Route path="/experience" element={<EnhancedPageTransition><Experience /></EnhancedPageTransition>} />
+        <Route path="/projects" element={<EnhancedPageTransition><Projects /></EnhancedPageTransition>} />
+        <Route path="/projects/:id" element={<EnhancedPageTransition><LazyLoadingWrapper><ProjectDetails /></LazyLoadingWrapper></EnhancedPageTransition>} />
+        <Route path="/contact" element={<EnhancedPageTransition><Contact /></EnhancedPageTransition>} />
+        <Route path="/blog" element={<EnhancedPageTransition><Blog /></EnhancedPageTransition>} />
+        <Route path="/terms-of-service" element={<EnhancedPageTransition><TermsOfService /></EnhancedPageTransition>} />
+        <Route path="/privacy-policy" element={<EnhancedPageTransition><PrivacyPolicy /></EnhancedPageTransition>} />
+        <Route path="*" element={<EnhancedPageTransition><NotFound /></EnhancedPageTransition>} />
       </Routes>
     </AnimatePresence>
   );
 };
 
-// Page transition component with smooth swiper effect
-const PageTransition: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+// Enhanced loading wrapper for lazy components
+const LazyLoadingWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
-    <motion.div
-      initial={{ x: '30px', opacity: 0 }}
-      animate={{ 
-        x: 0, 
-        opacity: 1,
-        transition: {
-          duration: 0.4,
-          ease: [0.4, 0, 0.2, 1]
-        }
-      }}
-      exit={{ 
-        x: '-30px',
-        opacity: 0,
-        transition: {
-          duration: 0.3,
-          ease: [0.4, 0, 0.2, 1]
-        }
-      }}
-      className="w-full"
-    >
+    <Suspense fallback={
+      <motion.div 
+        initial={{ opacity: 0 }} 
+        animate={{ opacity: 1 }} 
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.3 }}
+      >
+        <PageSkeleton />
+      </motion.div>
+    }>
       {children}
-    </motion.div>
+    </Suspense>
   );
 };
 
@@ -102,9 +96,11 @@ const App: React.FC = () => {
         <HashRouter>
             <div className="app-container flex flex-col min-h-screen">
               <ThemeProvider>
-                <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
+                <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-500">
                   <GoogleAnalytics />
                   <ConsentBanner />
+                  <CustomCursor />
+                  <SmoothScrollSystem />
                   <Navigation>
                     <ScrollToTop />
                     <main className="flex-grow">
