@@ -81,16 +81,36 @@
     @apply border-border;
   }
   
-  /* Smooth scrolling for anchor links */
+  /* Prevent layout shifts and improve stability */
   html {
     scroll-behavior: smooth;
+    height: 100%;
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
   }
   
-  /* Better text rendering */
+  /* Better text rendering and mobile stability */
   body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    height: 100%;
+    overflow-x: hidden;
+    position: relative;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Prevent zoom on mobile */
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+  
+  /* Fix iOS Safari viewport issues */
+  @supports (-webkit-touch-callout: none) {
+    body {
+      min-height: -webkit-fill-available;
+    }
   }
   
   /* Custom focus styles that work with dark/light mode */
@@ -135,6 +155,33 @@ html {
 /* Buttons */
 button {
   @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2;
+}
+
+/* Mobile stability utilities */
+.mobile-stable {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  transform: translateZ(0);
+}
+
+.prevent-zoom {
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Viewport height fix for mobile */
+.min-h-screen-mobile {
+  min-height: 100vh;
+  min-height: calc(var(--vh, 1vh) * 100);
+}
+
+/* Prevent layout shifts during animations */
+.stable-layout {
+  contain: layout style paint;
+  will-change: auto;
 }
 
 /* Transition effects */

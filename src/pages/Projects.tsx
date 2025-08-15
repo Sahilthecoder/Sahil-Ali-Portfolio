@@ -2,8 +2,9 @@ import React, { Suspense, lazy, useCallback } from 'react';
 import { ProjectProvider } from '@/features/project/context';
 import { projects as projectData } from '@/data/projects';
 import { useProjectFilters } from '@/features/project/hooks/useProjectFilters';
-import { useProjectModal } from '@/features/project/hooks/useProjectModal';
-import type { Project } from '@/features/project/types';
+
+// Base URL for GitHub Pages deployment
+const baseUrl = process.env.NODE_ENV === 'production' ? '/Sahil-Ali-Portfolio' : '';
 
 import { SectionHeader } from '@/components/ui/AnimatedSection';
 import { ProjectList } from '@/features/project/ProjectCard';
@@ -11,15 +12,12 @@ import ProjectFilters from '@/features/project/ProjectFilters';
 
 // Lazy load large components for better performance
 const ProjectHero = lazy(() => import('@/features/project/ProjectHero'));
-const ProjectModal = lazy(() => import('@/features/project/ProjectModal'));
 
 interface ProjectPageProps {
   className?: string;
 }
 
 export const Projects: React.FC<ProjectPageProps> = ({ className }) => {
-  const { isOpen, selectedProject, openModal, closeModal } = useProjectModal();
-
   const {
     search,
     setSearch,
@@ -31,10 +29,6 @@ export const Projects: React.FC<ProjectPageProps> = ({ className }) => {
     filteredProjects,
     clearFilters,
   } = useProjectFilters(projectData);
-
-  const handleProjectClick = useCallback((project: Project) => {
-    openModal(project);
-  }, [openModal]);
 
   const handleSortChange = useCallback(
     (value: string) => setSort(value as 'newest' | 'oldest' | 'name'),
@@ -77,23 +71,14 @@ export const Projects: React.FC<ProjectPageProps> = ({ className }) => {
               <ProjectList
                 id="projects-grid"
                 projects={filteredProjects}
-                onProjectClick={handleProjectClick}
+                onProjectClick={(project) => {
+                  // Navigate to the project details page with base URL for GitHub Pages
+                  window.location.href = `${baseUrl}/#/projects/${project.id}`;
+                }}
                 className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
               />
             </div>
           </main>
-
-          {/* Modal */}
-          <Suspense fallback={null}>
-            {selectedProject && (
-              <ProjectModal
-                isOpen={isOpen}
-                project={selectedProject}
-                onClose={closeModal}
-                projectId={selectedProject.id}
-              />
-            )}
-          </Suspense>
         </Suspense>
       </div>
     </ProjectProvider>

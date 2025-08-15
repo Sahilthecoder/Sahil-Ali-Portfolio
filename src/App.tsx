@@ -24,6 +24,7 @@ import { ConsentBanner } from './components/ConsentBanner';
 import EnhancedPageTransition from './components/animations/EnhancedPageTransition';
 import SmoothScrollSystem from './components/common/SmoothScrollSystem';
 import CustomCursor from './components/common/CustomCursor';
+import MobileStabilizer from './components/common/MobileStabilizer';
 import { PageSkeleton } from './components/common/LoadingSkeletons';
 
 // Wrapper component to handle page transitions
@@ -34,15 +35,22 @@ const AnimatedRoutes = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsFirstRender(false);
-    }, 100);
+    }, 50); // Reduced delay for faster initial render
     return () => clearTimeout(timer);
   }, []);
 
+  // Scroll to top on route change
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }, [location.pathname]);
+
   if (isFirstRender) {
     return (
-      <Routes>
-        <Route path="*" element={<Home />} />
-      </Routes>
+      <div className="min-h-screen">
+        <Routes>
+          <Route path="*" element={<Home />} />
+        </Routes>
+      </div>
     );
   }
 
@@ -100,6 +108,7 @@ const App: React.FC = () => {
                   <GoogleAnalytics />
                   <ConsentBanner />
                   <CustomCursor />
+                  <MobileStabilizer />
                   <SmoothScrollSystem />
                   <Navigation>
                     <ScrollToTop />

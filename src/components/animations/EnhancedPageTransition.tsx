@@ -9,30 +9,24 @@ interface EnhancedPageTransitionProps {
 const pageTransitionVariants = {
   initial: {
     opacity: 0,
-    scale: 0.98,
-    y: 20,
-    filter: 'blur(4px)'
+    y: 10
   },
   in: {
     opacity: 1,
-    scale: 1,
     y: 0,
-    filter: 'blur(0px)',
     transition: {
-      duration: 0.6,
-      ease: [0.22, 1, 0.36, 1],
-      staggerChildren: 0.1,
-      delayChildren: 0.2
+      duration: 0.3,
+      ease: [0.25, 0.46, 0.45, 0.94],
+      staggerChildren: 0.05,
+      delayChildren: 0.1
     }
   },
   out: {
     opacity: 0,
-    scale: 1.02,
-    y: -20,
-    filter: 'blur(4px)',
+    y: -10,
     transition: {
-      duration: 0.4,
-      ease: [0.22, 1, 0.36, 1]
+      duration: 0.2,
+      ease: [0.25, 0.46, 0.45, 0.94]
     }
   }
 };
