@@ -1,7 +1,8 @@
-import React, { Suspense, lazy, useCallback, useState } from 'react';
+import React, { Suspense, lazy, useCallback } from 'react';
 import { ProjectProvider } from '@/features/project/context';
 import { projects as projectData } from '@/data/projects';
 import { useProjectFilters } from '@/features/project/hooks/useProjectFilters';
+import { useProjectModal } from '@/features/project/hooks/useProjectModal';
 import type { Project } from '@/features/project/types';
 
 import { SectionHeader } from '@/components/ui/AnimatedSection';
@@ -17,7 +18,7 @@ interface ProjectPageProps {
 }
 
 export const Projects: React.FC<ProjectPageProps> = ({ className }) => {
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const { isOpen, selectedProject, openModal, closeModal } = useProjectModal();
 
   const {
     search,
@@ -32,8 +33,8 @@ export const Projects: React.FC<ProjectPageProps> = ({ className }) => {
   } = useProjectFilters(projectData);
 
   const handleProjectClick = useCallback((project: Project) => {
-    setSelectedProject(project);
-  }, []);
+    openModal(project);
+  }, [openModal]);
 
   const handleSortChange = useCallback(
     (value: string) => setSort(value as 'newest' | 'oldest' | 'name'),
@@ -86,9 +87,9 @@ export const Projects: React.FC<ProjectPageProps> = ({ className }) => {
           <Suspense fallback={null}>
             {selectedProject && (
               <ProjectModal
-                isOpen={!!selectedProject}
+                isOpen={isOpen}
                 project={selectedProject}
-                onClose={() => setSelectedProject(null)}
+                onClose={closeModal}
                 projectId={selectedProject.id}
               />
             )}
