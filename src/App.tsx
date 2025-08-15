@@ -1,8 +1,5 @@
-
-import React, { useState, useEffect, Suspense } from 'react';
-import { Routes, Route, useLocation, HashRouter } from 'react-router-dom';
-import { AnimatePresence, motion } from 'framer-motion';
-import { useSmoothScroll } from './hooks/useSmoothScroll';
+import React, { Suspense, lazy } from 'react';
+import { Routes, Route, HashRouter } from 'react-router-dom';
 import { ThemeProvider } from './components/ThemeProvider';
 import GoogleAnalytics from './components/GoogleAnalytics';
 import Navigation from './components/Navigation/Navigation';
@@ -13,7 +10,6 @@ import { Projects } from './pages/Projects';
 import Contact from './pages/Contact';
 import Blog from './pages/Blog';
 import NotFound from './pages/NotFound';
-import { lazy } from 'react'; 
 const ProjectDetails = lazy(() => import('./pages/Projects/ProjectDetails'));
 import TermsOfService from './pages/terms-of-service';
 import PrivacyPolicy from './pages/privacy-policy';
@@ -21,131 +17,59 @@ import { ErrorBoundary } from './components/common/ErrorBoundary';
 import ScrollToTop from './components/common/ScrollToTop';
 import Footer from './components/Navigation/Footer';
 import { ConsentBanner } from './components/ConsentBanner';
-import EnhancedPageTransition from './components/animations/EnhancedPageTransition';
-import SmoothScrollSystem from './components/common/SmoothScrollSystem';
 import CustomCursor from './components/common/CustomCursor';
-import MobileStabilizer from './components/common/MobileStabilizer';
-import { PageSkeleton } from './components/common/LoadingSkeletons';
 
-// Wrapper component to handle page transitions
-const AnimatedRoutes = () => {
-  const location = useLocation();
-  const [isFirstRender, setIsFirstRender] = useState(true);
-  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsFirstRender(false);
-    }, isMobile ? 30 : 50); // Faster initial render on mobile
-    return () => clearTimeout(timer);
-  }, []);
-
-  // Scroll to top on route change with improved mobile behavior
-  useEffect(() => {
-    // Use smooth scroll for mobile, instant for desktop
-    window.scrollTo({ 
-      top: 0, 
-      left: 0, 
-      behavior: isMobile ? 'smooth' : 'instant' 
-    });
-    
-    // Force reflow to prevent mobile rendering issues
-    document.body.style.overflow = 'hidden';
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        document.body.style.overflow = '';
-      });
-    });
-  }, [location.pathname]);
-
-  if (isFirstRender) {
-    return (
-      <div className="min-h-screen">
-        <Routes>
-          <Route path="*" element={<Home />} />
-        </Routes>
-      </div>
-    );
-  }
-
+// Simple Routes component without animations
+const AppRoutes = () => {
   return (
-    <AnimatePresence 
-      mode="wait" 
-      initial={false}
-      onExitComplete={() => {
-        // Ensure scroll is reset after exit animation
-        if (window.scrollY > 0) {
-          window.scrollTo(0, 0);
-        }
-      }}
-    >
-      <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<EnhancedPageTransition><Home /></EnhancedPageTransition>} />
-        <Route path="/about" element={<EnhancedPageTransition><About /></EnhancedPageTransition>} />
-        <Route path="/experience" element={<EnhancedPageTransition><Experience /></EnhancedPageTransition>} />
-        <Route path="/projects" element={<EnhancedPageTransition><Projects /></EnhancedPageTransition>} />
-        <Route path="/projects/:id" element={<EnhancedPageTransition><LazyLoadingWrapper><ProjectDetails /></LazyLoadingWrapper></EnhancedPageTransition>} />
-        <Route path="/contact" element={<EnhancedPageTransition><Contact /></EnhancedPageTransition>} />
-        <Route path="/blog" element={<EnhancedPageTransition><Blog /></EnhancedPageTransition>} />
-        <Route path="/terms-of-service" element={<EnhancedPageTransition><TermsOfService /></EnhancedPageTransition>} />
-        <Route path="/privacy-policy" element={<EnhancedPageTransition><PrivacyPolicy /></EnhancedPageTransition>} />
-        <Route path="*" element={<EnhancedPageTransition><NotFound /></EnhancedPageTransition>} />
-      </Routes>
-    </AnimatePresence>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/experience" element={<Experience />} />
+      <Route path="/projects" element={<Projects />} />
+      <Route path="/projects/:id" element={<LazyLoadingWrapper><ProjectDetails /></LazyLoadingWrapper>} />
+      <Route path="/contact" element={<Contact />} />
+      <Route path="/blog" element={<Blog />} />
+      <Route path="/terms-of-service" element={<TermsOfService />} />
+      <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
   );
 };
 
-// Enhanced loading wrapper for lazy components
+// Simple loading wrapper for lazy components
 const LazyLoadingWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
-    <Suspense fallback={
-      <motion.div 
-        initial={{ opacity: 0 }} 
-        animate={{ opacity: 1 }} 
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.3 }}
-      >
-        <PageSkeleton />
-      </motion.div>
-    }>
+    <Suspense fallback={<div className="min-h-screen" />}>
       {children}
     </Suspense>
   );
 };
 
 const App: React.FC = () => {
-  // Enable smooth scrolling for all anchor links in the app
-  useSmoothScroll();
-
-  // Using HashRouter for GitHub Pages compatibility
-  // No need for basename with HashRouter
-  console.log('Using HashRouter for GitHub Pages');
-
   return (
     <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme" enableSystem={true}>
       <ErrorBoundary>
         <HashRouter>
-            <div className="app-container flex flex-col min-h-screen">
-              <ThemeProvider>
-                <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-500">
-                  <GoogleAnalytics />
-                  <ConsentBanner />
-                  <CustomCursor />
-                  <MobileStabilizer />
-                  <SmoothScrollSystem />
-                  <Navigation>
-                    <ScrollToTop />
-                    <main className="flex-grow">
-                      <ErrorBoundary>
-                        <AnimatedRoutes />
-                      </ErrorBoundary>
-                    </main>
-                    <Footer className="mt-auto" />
-                  </Navigation>
-                </div>
-              </ThemeProvider>
-            </div>
-          </HashRouter>
+          <div className="app-container flex flex-col min-h-screen">
+            <ThemeProvider>
+              <div className="min-h-screen bg-white dark:bg-gray-900">
+                <GoogleAnalytics />
+                <ConsentBanner />
+                <CustomCursor />
+                <Navigation>
+                  <ScrollToTop />
+                  <main className="flex-grow">
+                    <ErrorBoundary>
+                      <AppRoutes />
+                    </ErrorBoundary>
+                  </main>
+                  <Footer className="mt-auto" />
+                </Navigation>
+              </div>
+            </ThemeProvider>
+          </div>
+        </HashRouter>
       </ErrorBoundary>
     </ThemeProvider>
   );
