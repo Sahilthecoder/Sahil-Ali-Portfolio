@@ -1,57 +1,92 @@
 import React, { useEffect } from 'react';
 
+// Add mobile-specific styles to prevent layout shifts
+export const mobileStyles = `
+  @media (max-width: 768px) {
+    html, body {
+      position: fixed;
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+      overscroll-behavior-y: contain;
+    }
+    
+    #root {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+    }
+    
+    .page-transition-container {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior-y: contain;
+    }
+  }
+`;
+
 /**
  * MobileStabilizer - Prevents mobile rendering flicker and layout shifts
  * This component applies mobile-specific optimizations to prevent screen rendering issues
  */
 const MobileStabilizer: React.FC = () => {
   useEffect(() => {
+    // Add mobile styles
+    const styleElement = document.createElement('style');
+    styleElement.innerHTML = mobileStyles;
+    document.head.appendChild(styleElement);
+
     // Prevent iOS Safari viewport jumping
     const handleViewportChange = () => {
       // Set viewport height variable for consistent mobile viewport
       const vh = window.innerHeight * 0.01;
       document.documentElement.style.setProperty('--vh', `${vh}px`);
+      
+      // Ensure the app fills the viewport
+      const appElement = document.getElementById('root');
+      if (appElement) {
+        appElement.style.height = '100%';
+        appElement.style.width = '100%';
+      }
     };
 
     // Initial viewport setup
     handleViewportChange();
 
     // Handle viewport changes on mobile
-    window.addEventListener('resize', handleViewportChange);
-    window.addEventListener('orientationchange', () => {
-      // Small delay to let orientation change complete
-      setTimeout(handleViewportChange, 100);
-    });
-
-    // Prevent rubber band scrolling on iOS
-    const preventOverscroll = (e: TouchEvent) => {
-      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-      const scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
-      const height = window.innerHeight;
-      
-      // For touch events, we'll prevent default on the first touchmove when at the top or bottom
-      if (e.type === 'touchmove') {
-        if ((scrollTop <= 0 && e.touches[0].clientY > 0) || 
-            (scrollTop + height >= scrollHeight && e.touches[0].clientY < 0)) {
-          e.preventDefault();
-        }
+    const handleResize = () => {
+      handleViewportChange();
+      // Force reflow to prevent layout shifts
+      if (document.documentElement) {
+        document.documentElement.style.overflow = 'hidden';
+        // Small delay to ensure the layout is stable
+        setTimeout(() => {
+          if (document.documentElement) {
+            document.documentElement.style.overflow = '';
+          }
+        }, 50);
       }
     };
 
-    // Add touch event listeners for iOS
-    if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
-      document.addEventListener('touchstart', preventOverscroll, { passive: false });
-      document.addEventListener('touchmove', preventOverscroll, { passive: false });
-    }
+    window.addEventListener('resize', handleResize, { passive: true });
+    
+    const handleOrientationChange = () => {
+      // Small delay to let orientation change complete
+      setTimeout(handleResize, 150);
+    };
+    
+    window.addEventListener('orientationchange', handleOrientationChange, { passive: true });
 
     // Cleanup
     return () => {
-      window.removeEventListener('resize', handleViewportChange);
-      window.removeEventListener('orientationchange', handleViewportChange);
-      if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
-        document.removeEventListener('touchstart', preventOverscroll);
-        document.removeEventListener('touchmove', preventOverscroll);
-      }
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('orientationchange', handleOrientationChange);
+      document.head.removeChild(styleElement);
     };
   }, []);
 

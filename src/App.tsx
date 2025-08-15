@@ -98,31 +98,47 @@ const App: React.FC = () => {
   // No need for basename with HashRouter
   console.log('Using HashRouter for GitHub Pages');
 
+  // Add mobile-specific styles
+  useEffect(() => {
+    // Prevent double-tap zoom on mobile
+    const preventDoubleTapZoom = (e: TouchEvent) => {
+      if (e.touches.length > 1) {
+        e.preventDefault();
+      }
+    };
+
+    document.addEventListener('touchmove', preventDoubleTapZoom, { passive: false });
+    
+    return () => {
+      document.removeEventListener('touchmove', preventDoubleTapZoom);
+    };
+  }, []);
+
   return (
     <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme" enableSystem={true}>
       <ErrorBoundary>
         <HashRouter>
-            <div className="app-container flex flex-col min-h-screen">
-              <ThemeProvider>
-                <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-500">
-                  <GoogleAnalytics />
-                  <ConsentBanner />
-                  <CustomCursor />
-                  <MobileStabilizer />
-                  <SmoothScrollSystem />
-                  <Navigation>
-                    <ScrollToTop />
-                    <main className="flex-grow">
-                      <ErrorBoundary>
-                        <AnimatedRoutes />
-                      </ErrorBoundary>
-                    </main>
-                    <Footer className="mt-auto" />
-                  </Navigation>
-                </div>
-              </ThemeProvider>
-            </div>
-          </HashRouter>
+          <div className="app-container flex flex-col min-h-screen">
+            <ThemeProvider>
+              <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-500">
+                <GoogleAnalytics />
+                <ConsentBanner />
+                <CustomCursor />
+                <MobileStabilizer />
+                <SmoothScrollSystem />
+                <Navigation>
+                  <ScrollToTop />
+                  <main className="flex-grow relative">
+                    <ErrorBoundary>
+                      <AnimatedRoutes />
+                    </ErrorBoundary>
+                  </main>
+                  <Footer className="mt-auto" />
+                </Navigation>
+              </div>
+            </ThemeProvider>
+          </div>
+        </HashRouter>
       </ErrorBoundary>
     </ThemeProvider>
   );

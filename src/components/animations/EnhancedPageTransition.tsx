@@ -64,34 +64,66 @@ const EnhancedPageTransition: React.FC<EnhancedPageTransitionProps> = ({ childre
     return () => clearTimeout(timer);
   }, [location.pathname]);
 
+  // Check if mobile device
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  
+  // Simplified transitions for mobile
+  const mobileVariants = {
+    initial: { opacity: 0 },
+    in: { 
+      opacity: 1,
+      transition: {
+        duration: 0.2,
+        ease: 'easeInOut'
+      }
+    },
+    out: { 
+      opacity: 0,
+      transition: {
+        duration: 0.15,
+        ease: 'easeInOut'
+      }
+    }
+  };
+
   return (
-    <>
-      {/* Loading Bar */}
-      <AnimatePresence>
-        {isLoading && (
-          <motion.div
-            className="fixed top-0 left-0 right-0 z-50 h-1 bg-gradient-to-r from-primary to-primary/60"
-            variants={loadingBarVariants}
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            style={{ transformOrigin: 'left' }}
-          />
-        )}
-      </AnimatePresence>
+    <div className="page-transition-container">
+      {/* Loading Bar - Only show on desktop */}
+      {!isMobile && (
+        <AnimatePresence>
+          {isLoading && (
+            <motion.div
+              className="fixed top-0 left-0 right-0 z-50 h-1 bg-gradient-to-r from-primary to-primary/60"
+              variants={loadingBarVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              style={{ transformOrigin: 'left' }}
+            />
+          )}
+        </AnimatePresence>
+      )}
 
       {/* Page Content */}
       <motion.div
         key={location.pathname}
-        variants={pageTransitionVariants}
+        variants={isMobile ? mobileVariants : pageTransitionVariants}
         initial="initial"
         animate="in"
         exit="out"
-        className="min-h-screen"
+        className="min-h-screen w-full"
+        style={{
+          // Prevent layout shifts during transitions
+          position: 'relative',
+          backfaceVisibility: 'hidden',
+          transform: 'translateZ(0)',
+          WebkitBackfaceVisibility: 'hidden',
+          WebkitTransform: 'translateZ(0)'
+        }}
       >
         {children}
       </motion.div>
-    </>
+    </div>
   );
 };
 
