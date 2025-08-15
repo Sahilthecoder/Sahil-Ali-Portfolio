@@ -25,15 +25,16 @@ const MobileStabilizer: React.FC = () => {
 
     // Prevent rubber band scrolling on iOS
     const preventOverscroll = (e: TouchEvent) => {
-      const target = e.target as Element;
       const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
       const scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
       const height = window.innerHeight;
       
-      // Prevent overscroll at top and bottom
-      if ((scrollTop === 0 && e.deltaY < 0) || 
-          (scrollTop + height >= scrollHeight && e.deltaY > 0)) {
-        e.preventDefault();
+      // For touch events, we'll prevent default on the first touchmove when at the top or bottom
+      if (e.type === 'touchmove') {
+        if ((scrollTop <= 0 && e.touches[0].clientY > 0) || 
+            (scrollTop + height >= scrollHeight && e.touches[0].clientY < 0)) {
+          e.preventDefault();
+        }
       }
     };
 
