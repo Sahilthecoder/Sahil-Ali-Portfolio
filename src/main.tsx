@@ -4,7 +4,6 @@ import App from './App';
 import { ThemeProvider } from './components/ThemeProvider';
 import { registerServiceWorker, unregisterServiceWorker, clearServiceWorkerCache } from './utils/registerServiceWorker';
 import './styles/base/globals.css';
-import './styles/smooth-effects.css';
 
 // Handle service worker registration
 if (import.meta.env.PROD) {
