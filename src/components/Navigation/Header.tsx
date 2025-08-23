@@ -35,7 +35,7 @@ const Header: React.FC<HeaderProps> = ({ onMenuToggle, isScrolled = false }) => 
         border-b border-white/30 dark:border-gray-700/50
         before:content-[''] before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] 
         before:from-primary-500/5 before:to-transparent before:opacity-0 hover:before:opacity-100
-        before:transition-opacity before:duration-500 before:ease-out
+        before:transition-opacity before:duration-500 before:ease-out before:pointer-events-none
       `}
       style={{
         '--tw-gradient-stops': 'var(--tw-gradient-from), var(--tw-gradient-to, rgba(255, 255, 255, 0))',
