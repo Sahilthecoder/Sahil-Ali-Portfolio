@@ -5,6 +5,8 @@ import { FiGithub, FiLinkedin, FiMail, FiArrowRight } from 'react-icons/fi';
 import { FaWhatsapp } from 'react-icons/fa';
 import { Button } from '../../components/ui/Button';
 import { useEffect, useState } from 'react';
+import { calculateTotalExperience } from '@/utils/experience';
+import experiences from '@/data/experience';
 
 // Animation variants
 const containerVariants: Variants = {
@@ -43,8 +45,11 @@ const floatingVariants = {
   }
 };
 const roles = [
-  "AI Generalist",
-  "Inventory Specialist",
+  "E-commerce Specialist",
+  "Digital Marketer",
+  "AI Tools Expert",
+  "Inventory Management Pro",
+  "Data Analyst",
   "Data Analyst"
 ];
 
@@ -499,10 +504,10 @@ const HomeHeroSection = () => {
               </motion.div>
               <motion.div variants={itemVariants} className="mb-8 sm:mb-10">
                 <p className="text-lg sm:text-2xl text-gray-700 dark:text-cyan-100 font-medium leading-relaxed">
-                  Sahil Ali | AI-Powered Solutions, Inventory Ops, Data Mastery.
+                  Sahil Ali | E-commerce Strategist | Digital Marketing Expert | AI Tools Specialist
                   <br />
                   <span className="text-[1.1em] font-semibold text-fuchsia-700 dark:text-fuchsia-300/90 tracking-wide">
-                    I make businesses smarter, leaner, and future-ready.
+                    Transforming businesses with data-driven strategies and AI-powered solutions
                   </span>
                 </p>
               </motion.div>
@@ -513,30 +518,63 @@ const HomeHeroSection = () => {
                 transition={{ delay: 0.4 }}
               >
                 <motion.div
-                  whileHover={{ scale: 1.045 }}
+                  whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.98 }}
-                  transition={{ type: 'spring', stiffness: 300, damping: 15 }}
+                  transition={{ type: 'spring', stiffness: 400, damping: 15 }}
+                  className="relative group"
                 >
+                  <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-fuchsia-500 rounded-lg blur opacity-30 group-hover:opacity-80 transition duration-300 group-hover:duration-200" />
                   <Button
                     variant="primary"
                     size="lg"
-                    className="w-full sm:w-auto group relative overflow-hidden shadow-lg shadow-cyan-500/20"
-                    aria-label="Contact Sahil Ali"
-                    onClick={() => {
+                    className="w-full sm:w-auto relative overflow-hidden shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/30 transition-all duration-300"
+                    aria-label="Contact Sahil Ali for collaboration"
+                    onClick={(e) => {
+                      e.preventDefault();
                       const contactSection = document.getElementById('contact');
-                      if (contactSection) contactSection.scrollIntoView({ behavior: 'smooth' });
+                      if (contactSection) {
+                        const headerOffset = 100;
+                        const elementPosition = contactSection.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                        
+                        // Add ripple effect
+                        const button = e.currentTarget;
+                        const ripple = document.createElement('span');
+                        const rect = button.getBoundingClientRect();
+                        const size = Math.max(rect.width, rect.height);
+                        
+                        ripple.style.width = ripple.style.height = `${size}px`;
+                        ripple.style.left = `${e.clientX - rect.left - size/2}px`;
+                        ripple.style.top = `${e.clientY - rect.top - size/2}px`;
+                        ripple.classList.add('absolute', 'bg-white/30', 'rounded-full', 'scale-0', 'animate-ripple');
+                        
+                        button.appendChild(ripple);
+                        
+                        // Scroll to contact section
+                        window.scrollTo({
+                          top: offsetPosition,
+                          behavior: 'smooth'
+                        });
+                        
+                        // Remove ripple after animation
+                        setTimeout(() => {
+                          ripple.remove();
+                        }, 1000);
+                      }
                     }}
                   >
-                    <span className="relative z-10 flex items-center gap-2">
-                      Let&apos;s Collaborate
-                      <FiArrowRight className="group-hover:translate-x-1 transition-transform duration-300" />
+                    <span className="relative z-10 flex items-center gap-2 font-medium tracking-wide">
+                      <span className="group-hover:animate-bounce">👋</span>
+                      <span>Let&apos;s Collaborate</span>
+                      <FiArrowRight className="group-hover:translate-x-1 transition-transform duration-300 ease-out" />
                     </span>
                     <motion.span
-                      className="absolute inset-0 bg-gradient-to-r from-cyan-400/60 to-fuchsia-300/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      className="absolute inset-0 bg-gradient-to-r from-cyan-500/50 to-fuchsia-500/50 opacity-0 group-hover:opacity-100 transition-all duration-500"
                       initial={{ x: '-100%' }}
-                      animate={{ x: 0 }}
-                      transition={{ duration: 0.6, ease: 'easeOut' }}
+                      whileHover={{ x: '100%' }}
+                      transition={{ duration: 0.8, ease: 'easeInOut' }}
                     />
+                    <span className="absolute inset-0 border-2 border-transparent group-hover:border-white/30 rounded-md transition-all duration-300 pointer-events-none" />
                   </Button>
                 </motion.div>
                 <motion.div
@@ -577,7 +615,7 @@ const HomeHeroSection = () => {
                   Available for opportunities
                 </span>
                 <span className="hidden sm:inline text-sm">•</span>
-                <span className="tracking-wide font-medium">4+ Years Experience</span>
+                <span className="tracking-wide font-medium">{Math.floor(calculateTotalExperience(experiences))}+ Years Experience</span>
               </motion.div>
               <div className="mt-8"><SocialIcons /></div>
             </motion.div>

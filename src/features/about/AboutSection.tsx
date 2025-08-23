@@ -1,30 +1,30 @@
 import { motion } from 'framer-motion';
-import { FiAward, FiBriefcase, FiCode, FiUsers } from 'react-icons/fi';
+import { FiBriefcase, FiShoppingBag, FiCpu, FiBox } from 'react-icons/fi';
 
 import { AnimatedSection } from '@/components/ui/AnimatedSection';
 import { SkillBadge } from '@/components/ui/SkillBadge';
 import { ThemeCard } from '@/components/ui/ThemeCard';
 
 const stats = [
-  { id: 1, name: 'Years of Experience', value: '4+', icon: FiBriefcase },
-  { id: 2, name: 'Projects Completed', value: '15+', icon: FiCode },
-  { id: 3, name: 'Clients Served', value: '10+', icon: FiUsers },
-  { id: 4, name: 'Certifications', value: '5+', icon: FiAward },
+  { id: 1, name: 'Years in E-commerce & Digital', value: '7+', icon: FiBriefcase },
+  { id: 2, name: 'E-commerce Platforms', value: '3+', icon: FiShoppingBag },
+  { id: 3, name: 'AI Tools Mastered', value: '20+', icon: FiCpu },
+  { id: 4, name: 'Inventory Managed', value: '10,000+ SKUs', icon: FiBox },
 ];
 
 const skills = [
-  'Data Analysis',
-  'Power BI',
-  'SQL',
-  'Python',
-  'Inventory Optimization',
-  'AI Research',
-  'Machine Learning',
-  'Data Visualization',
-  'Excel',
-  'Looker Studio',
-  'Tableau',
+  'E-commerce Strategy',
+  'Digital Marketing',
+  'Inventory Management',
+  'AI Implementation',
+  'Data Analysis (Excel, SQL, Python)',
   'Process Automation',
+  'Google Analytics',
+  'Vendor Coordination',
+  'Business Intelligence',
+  'Market Research',
+  'Customer Experience',
+  'Supply Chain Optimization'
 ];
 
 const AboutSection = () => {
@@ -37,7 +37,7 @@ const AboutSection = () => {
               About Me
             </h2>
             <p className="mt-3 text-muted-foreground max-w-2xl">
-              A passionate professional with expertise in data analysis, inventory management, and AI research
+E-commerce & Digital Marketing Specialist | Inventory Management Expert | AI Implementation Specialist | Data Analyst
             </p>
           </div>
 
@@ -52,17 +52,13 @@ const AboutSection = () => {
           >
             <div className="prose prose-lg dark:prose-invert max-w-none">
               <p>
-                Hey there! I&apos;m a multi-disciplinary professional with expertise in Data Analysis,
-                Inventory Management, and Artificial Intelligence research.
+I am a multi-skilled professional with expertise in E-commerce operations, Digital Marketing, and Inventory Management, complemented by strong analytical skills as a Data Analyst and advanced knowledge as an AI Generalist. Over the years, I have successfully managed inventory systems, optimized supply chain processes, and developed strategies to improve online sales and digital visibility.
               </p>
               <p>
-                With over 4+ years of experience, I&apos;ve optimized inventory systems, delivered
-                insights through data, and explored cutting-edge AI applications to streamline
-                operations across industries.
+                With 7+ years of hands-on experience, I&apos;ve helped businesses scale their e-commerce operations, implement data-driven marketing strategies, and optimize inventory management. My expertise in AI tools and automation has enabled companies to reduce operational costs by up to 30% while improving efficiency and accuracy.
               </p>
               <p>
-                I&apos;m a lifelong learner who thrives on solving real-world problems. Outside of work,
-                I enjoy tech blogging, nerdy podcasts, and the occasional game of chess.
+                I specialize in Excel-based reporting, dashboard creation, and data-driven decision making, with foundational knowledge in SQL and Python to support analytical work. My diverse background allows me to integrate technology, operations, and strategy—helping businesses grow with smarter processes and stronger customer engagement.
               </p>
             </div>
 
@@ -121,15 +117,15 @@ const AboutSection = () => {
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-start">
                     <span className="text-primary mr-2">•</span>
-                    <span>Data Analysis & Visualization</span>
+                    <span>E-commerce Strategy & Store Management</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-primary mr-2">•</span>
-                    <span>Inventory Optimization</span>
+                    <span>Digital Marketing & Sales Growth</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-primary mr-2">•</span>
-                    <span>Process Automation</span>
+                    <span>AI Implementation & Automation</span>
                   </li>
                 </ul>
               </div>
@@ -138,15 +134,15 @@ const AboutSection = () => {
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-start">
                     <span className="text-primary mr-2">•</span>
-                    <span>Data-Driven Decision Making</span>
+                    <span>Data Analysis & Excel Dashboards</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-primary mr-2">•</span>
-                    <span>Continuous Learning</span>
+                    <span>Inventory Management & Control</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-primary mr-2">•</span>
-                    <span>Collaborative Problem Solving</span>
+                    <span>Process Automation & AI Tools</span>
                   </li>
                 </ul>
               </div>

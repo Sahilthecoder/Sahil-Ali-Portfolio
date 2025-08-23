@@ -4,6 +4,8 @@ import React from 'react';
 import { FiAward, FiBookOpen, FiBriefcase, FiCode, FiTrendingUp } from 'react-icons/fi';
 import { SectionHeader } from '@/components/ui/AnimatedSection';
 import { useExperienceAnimations } from '@/features/experience/hooks/useExperienceAnimations';
+import { calculateTotalExperience, getTotalProjects, getTotalTechnologies } from '@/utils/experience';
+import experiences from '@/data/experience';
 
 export interface MetricItem {
   id: string;
@@ -17,21 +19,21 @@ export interface MetricItem {
 export const defaultImpactMetrics: MetricItem[] = [
   {
     id: '1',
-    value: '4+',
+    value: `${Math.floor(calculateTotalExperience(experiences))}+`,
     label: 'Years of Experience',
     description: 'Building scalable web applications',
     icon: <FiBriefcase className="h-6 w-6" />,
   },
   {
     id: '2',
-    value: '15+',
+    value: `${getTotalProjects()}+`,
     label: 'Projects Completed',
     description: 'For clients across various industries',
     icon: <FiCode className="h-6 w-6" />,
   },
   {
     id: '3',
-    value: '20+',
+    value: `${getTotalTechnologies()}+`,
     label: 'Technologies',
     description: 'In my development stack',
     icon: <FiTrendingUp className="h-6 w-6" />,

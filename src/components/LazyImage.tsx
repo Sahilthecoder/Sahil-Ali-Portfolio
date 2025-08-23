@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { FiLoader } from 'react-icons/fi';
+import { cn } from '@/utils/cn';
 
 interface LazyImageProps {
   src: string;
@@ -9,9 +10,11 @@ interface LazyImageProps {
   background?: boolean;
   width?: number | string;
   height?: number | string;
+  fill?: boolean;
   placeholder?: string;
   style?: React.CSSProperties;
   onClick?: (e: React.MouseEvent<HTMLImageElement>) => void;
+  sizes?: string;
 }
 
 const Loader = () => (
@@ -27,6 +30,9 @@ const LazyImage: React.FC<LazyImageProps> = ({
   background = false,
   width,
   height,
+  fill = false,
+  sizes,
+  style = {},
   onClick
 }) => {
   const [isVisible, setIsVisible] = useState(false);
@@ -91,23 +97,59 @@ const LazyImage: React.FC<LazyImageProps> = ({
 
   // Background image variant
   if (background) {
+    const backgroundStyle: React.CSSProperties = {
+      backgroundImage: `url(${isVisible ? src : fallbackSrc})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat',
+      width: width || '100%',
+      height: height || '100%',
+      ...style,
+    };
+
     return (
       <div
         ref={imageRef}
-        role="img"
-        aria-label={alt}
-        className={`relative overflow-hidden ${className}`}
-        style={{
-          width: width || '100%',
-          height: height || '100%',
-          backgroundImage: `url(${isVisible && !error ? src : fallbackSrc})`,
-          backgroundColor: isVisible && !error ? 'transparent' : '#f3f4f6',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}
+        className={className}
+        style={backgroundStyle}
+        onClick={onClick}
       >
         {!hasLoaded && isVisible && !error && <Loader />}
+      </div>
+    );
+  }
+
+  // If using fill prop
+  if (fill) {
+    return (
+      <div
+        ref={imageRef}
+        className={cn('relative w-full h-full', className)}
+        style={{
+          width: '100%',
+          height: '100%',
+          ...style
+        }}
+      >
+        {isVisible && !error ? (
+          <>
+            <img
+              src={src}
+              alt={alt}
+              className={cn('absolute inset-0 w-full h-full object-cover', className)}
+              onLoad={() => setHasLoaded(true)}
+              onError={() => setError(true)}
+              loading="lazy"
+              sizes={sizes}
+              onClick={onClick}
+            />
+            {!hasLoaded && <Loader />}
+          </>
+        ) : (
+          <div className="absolute inset-0 flex items-center justify-center bg-gray-100 dark:bg-gray-800">
+            <FiLoader className="w-6 h-6 text-gray-400 animate-spin" />
+          </div>
+        )}
       </div>
     );
   }

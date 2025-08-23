@@ -1,10 +1,18 @@
 import { motion } from 'framer-motion';
+import { calculateTotalExperience, getTotalProjects, getTotalClients, getTotalTechnologies } from '@/utils/experience';
+import experiences from '@/data/experience';
+
+// Calculate stats dynamically
+const totalExperience = Math.floor(calculateTotalExperience(experiences));
+const totalProjects = getTotalProjects();
+const totalClients = getTotalClients();
+const totalTechnologies = getTotalTechnologies();
 
 const stats = [
-  { value: '4+', label: 'Years Experience' },
-  { value: '15+', label: 'Projects' },
-  { value: '10+', label: 'Happy Clients' },
-  { value: '20+', label: 'Technologies' },
+  { value: `${totalExperience}+`, label: 'Years Experience' },
+  { value: `${totalProjects}+`, label: 'Projects' },
+  { value: `${totalClients}+`, label: 'Happy Clients' },
+  { value: `${totalTechnologies}+`, label: 'Technologies' },
 ];
 
 // Animation variants

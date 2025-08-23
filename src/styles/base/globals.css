@@ -18,6 +18,17 @@
   animation: gradient 8s ease infinite;
 }
 
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+.animate-ripple {
+  animation: ripple 0.6s ease-out;
+}
+
 @layer base {
   :root {
     --background: 210 20% 98%;

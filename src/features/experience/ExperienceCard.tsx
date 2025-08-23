@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 import React, { useRef, memo } from "react";
+import { SectionHeader } from "@/components/ui/AnimatedSection";
 import { cn } from "@/utils/cn";
 import LazyImage from "@/components/LazyImage";
 import { useExperienceAnimations } from "@/features/experience/hooks/useExperienceAnimations";
 import {
-  FiExternalLink,
   FiAward,
   FiTrendingUp,
   FiMapPin,
@@ -54,14 +54,23 @@ export const formatExperiences = (): Experience[] => {
 export const ExperienceList: React.FC = () => {
   const formattedExperiences = formatExperiences();
   return (
-    <div className="space-y-6 sm:space-y-8">
-      {formattedExperiences.map((experience) => (
-        <ExperienceCard
-          key={experience.id}
-          experience={experience}
-          isCurrent={experience.isCurrent}
+    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div id="experience-section" className="w-full mb-12 sm:mb-16">
+        <SectionHeader
+          title="Work Experience"
+          subtitle="My professional journey and key achievements"
+          className="text-center lg:text-left"
         />
-      ))}
+      </div>
+      <div className="space-y-6 sm:space-y-8">
+        {formattedExperiences.map((experience) => (
+          <ExperienceCard
+            key={experience.id}
+            experience={experience}
+            isCurrent={experience.isCurrent}
+          />
+        ))}
+      </div>
     </div>
   );
 };
@@ -116,27 +125,50 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
         >
           <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2">
             <div className="flex items-start gap-3 sm:gap-4">
-              <div className="w-12 h-12 sm:w-14 sm:h-14 flex-shrink-0 flex items-center justify-center bg-white/50 rounded-md p-1.5 shadow-sm">
-                {experience.logo ? (
-                  <LazyImage
-                    src={experience.logo}
-                    alt={`${experience.company} logo`}
-                    width={56}
-                    height={56}
-                    className="w-full h-full object-contain"
-                  />
-                ) : (
-                  <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary/10 to-primary/5">
-                    <span className="text-sm sm:text-base font-semibold text-primary">
-                      {experience.company.charAt(0).toUpperCase()}
-                    </span>
-                  </div>
-                )}
+              <div className={`relative group/logo -mt-1 w-full max-w-[160px] sm:max-w-[180px] md:max-w-[200px] ${
+                ['Deewakar Finance Pvt. Ltd.', 'Ekam Indian Groceries'].includes(experience.company) ? 'h-[100px]' : ''
+              }`}>
+                <div className={`w-full ${
+                  ['Deewakar Finance Pvt. Ltd.', 'Ekam Indian Groceries'].includes(experience.company) 
+                    ? 'h-full aspect-[2/1.5]' 
+                    : 'aspect-[5/2]'
+                } flex items-center justify-center bg-white dark:bg-gray-800 rounded-xl p-2 shadow-sm border border-gray-100 dark:border-gray-700/80 transition-all duration-300 group-hover/logo:shadow-md group-hover/logo:border-primary/40 group-hover/logo:scale-[1.02] overflow-hidden`}>
+                  {experience.logo ? (
+                    <div className="relative w-full h-full flex items-center justify-center">
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/15 opacity-0 group-hover/logo:opacity-100 transition-opacity duration-300 z-10" />
+                      <LazyImage
+                        src={experience.logo}
+                        alt={`${experience.company} logo`}
+                        width={['Deewakar Finance Pvt. Ltd.', 'Ekam Indian Groceries'].includes(experience.company) ? 150 : 180}
+                        height={['Deewakar Finance Pvt. Ltd.', 'Ekam Indian Groceries'].includes(experience.company) ? 112 : 72}
+                        className="max-w-full max-h-full object-contain transition-transform duration-300 group-hover/logo:scale-105"
+                        style={{
+                          width: 'auto',
+                          height: 'auto',
+                          maxWidth: '100%',
+                          maxHeight: '100%',
+                          objectFit: 'contain'
+                        }}
+                      />
+                    </div>
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary/10 to-primary/15 rounded-lg">
+                      <span className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
+                        {experience.company.split(' ').map(word => word[0]).join('').toUpperCase()}
+                      </span>
+                    </div>
+                  )}
+                </div>
               </div>
               <div className="space-y-0.5">
-                <h3 className="text-base sm:text-lg font-semibold leading-tight text-foreground">
-                  {experience.role}
-                </h3>
+                <div className="space-y-1">
+                  <h3 className="text-base sm:text-lg font-medium leading-tight text-foreground/90">
+                    {experience.role}
+                  </h3>
+                  <h4 className="text-sm sm:text-base font-bold text-primary">
+                    {experience.company}
+                  </h4>
+                </div>
                 <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs sm:text-sm">
                   {experience.location && (
                     <span className="flex items-center text-muted-foreground">
@@ -150,17 +182,6 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
                     <span className="text-muted-foreground/80 hidden sm:inline">
                       {experience.employmentType}
                     </span>
-                  )}
-                  {experience.companyUrl && (
-                    <a
-                      href={experience.companyUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-primary hover:text-primary/80 inline-flex items-center"
-                    >
-                      <FiExternalLink className="mr-1 h-3.5 w-3.5" />
-                      <span className="hidden sm:inline">Company</span>
-                    </a>
                   )}
                 </div>
               </div>

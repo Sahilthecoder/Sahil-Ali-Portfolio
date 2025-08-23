@@ -18,9 +18,16 @@ const ExperienceHero: React.FC = () => {
         size="lg"
         className="w-full xs:w-auto px-4 sm:px-6 py-2.5 sm:py-3 text-base sm:text-lg font-medium transition-all duration-200 ease-out hover:scale-[1.02] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary/50"
         onClick={() => {
-          const target = document.getElementById('experience-timeline');
+          const target = document.getElementById('experience-section');
           if (target) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            const headerOffset = 100; // Adjust this value based on your header height
+            const elementPosition = target.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            });
           }
         }}
       >

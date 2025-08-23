@@ -1,11 +1,11 @@
 import { motion } from 'framer-motion';
-import { FiBarChart2, FiBox, FiCpu } from 'react-icons/fi';
+import { FiBarChart2, FiBox, FiCpu, FiShoppingBag } from 'react-icons/fi';
 
 import { AnimatedSection, SectionHeader } from '@/components/ui/AnimatedSection';
 import { SkillBadge } from '@/components/ui/SkillBadge';
 import { ThemeCard } from '@/components/ui/ThemeCard';
 
-type CategoryKey = 'inventory' | 'data' | 'ai';
+type CategoryKey = 'ecommerce' | 'inventory' | 'ai' | 'data';
 
 interface SkillCategory {
   id: CategoryKey;
@@ -19,56 +19,73 @@ interface SkillCategory {
 const SkillsShowcase = () => {
   const categories: SkillCategory[] = [
     {
-      id: 'inventory',
-      title: 'Inventory Specialist',
+      id: 'ecommerce',
+      title: 'E-commerce & Digital Marketing',
       description:
-        'End-to-end inventory and warehouse management, ensuring optimal stock levels, reduced wastage, and efficient vendor coordination.',
-      icon: FiBox,
+        'Expert in managing online stores, driving sales growth, and executing data-driven digital marketing strategies.',
+      icon: FiShoppingBag,
       skills: [
-        'Stock Level Monitoring',
-        'FIFO/LIFO Strategies',
-        'Vendor Management',
-        'ERP Tools (Zoho, Marg)',
-        'Excel Automation',
-        'Barcode Scanning Systems',
-        'Supply Chain Coordination',
+        'E-commerce Strategy & Management',
+        'Digital Marketing Campaigns',
+        'SEO & Content Strategy',
+        'Social Media & Email Marketing',
+        'Conversion Rate Optimization',
+        'Customer Experience',
+        'Sales Growth Planning'
       ],
       accentColor: 'bg-blue-500',
     },
     {
-      id: 'data',
-      title: 'Data Analyst',
+      id: 'inventory',
+      title: 'Inventory & Operations',
       description:
-        'Transforming raw data into dashboards, reports, and business intelligence using modern tools for informed decision-making.',
-      icon: FiBarChart2,
+        'Specialized in inventory control, supply chain optimization, and operational efficiency.',
+      icon: FiBox,
       skills: [
-        'Excel + Advanced Formulas',
-        'Looker Studio / Google Sheets',
-        'Power BI / Tableau',
-        'SQL & Relational Databases',
-        'Dashboarding & Reporting',
-        'Statistical Trend Analysis',
-        'KPI Tracking & Optimization',
+        'Inventory Management',
+        'Vendor Coordination',
+        'Purchase Order Processing',
+        'Stock Reconciliation',
+        'Warehouse Operations',
+        'Supply Chain Optimization',
+        'Process Improvement'
+      ],
+      accentColor: 'bg-emerald-500',
+    },
+    {
+      id: 'ai',
+      title: 'AI & Automation',
+      description:
+        'Implementing AI solutions and automation to streamline business processes and enhance productivity.',
+      icon: FiCpu,
+      skills: [
+        'AI Tool Implementation',
+        'Workflow Automation',
+        'ChatGPT & AI Assistants',
+        'No-code Automation',
+        'AI-Powered Reporting',
+        'Process Optimization',
+        'Custom AI Solutions'
       ],
       accentColor: 'bg-purple-500',
     },
     {
-      id: 'ai',
-      title: 'AI Generalist',
+      id: 'data',
+      title: 'Data & Analytics',
       description:
-        'Applying AI and automation to solve real business problems, streamline workflows, and integrate smart tools with operations.',
-      icon: FiCpu,
+        'Transforming raw data into actionable business insights and strategic recommendations.',
+      icon: FiBarChart2,
       skills: [
-        'AI Workflow Automation',
-        'ChatGPT + Prompt Engineering',
-        'No-Code AI Tools (Zapier, Pabbly)',
-        'OpenAI API Integration',
-        'Custom AI Dashboards',
-        'Data Mining & Forecasting',
-        'Machine Learning (Basic Models)',
+        'Advanced Excel & VBA',
+        'Data Visualization',
+        'Business Intelligence',
+        'KPI Dashboards',
+        'Basic SQL & Python',
+        'Market Research',
+        'Performance Analysis'
       ],
-      accentColor: 'bg-emerald-500',
-    },
+      accentColor: 'bg-amber-500',
+    }
   ];
 
   const container = {
@@ -126,16 +143,11 @@ const SkillsShowcase = () => {
                   <div className="mt-4 pt-4 border-t border-border">
                     <h4 className="text-sm font-medium text-muted-foreground mb-3">Key Skills:</h4>
                     <div className="flex flex-wrap gap-2">
-                      {category.skills.slice(0, 5).map((skill) => (
+                      {category.skills.map((skill) => (
                         <SkillBadge key={skill} name={skill} variant="outline" size="sm" className="text-xs">
                           {skill}
                         </SkillBadge>
                       ))}
-                      {category.skills.length > 5 && (
-                        <span className="text-xs text-muted-foreground self-center">
-                          +{category.skills.length - 5} more
-                        </span>
-                      )}
                     </div>
                   </div>
                 </ThemeCard>
