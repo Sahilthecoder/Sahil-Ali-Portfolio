@@ -77,7 +77,18 @@ interface FooterProps {
 
 const Footer: React.FC<FooterProps> = ({ className = '' }) => {
   return (
-    <footer className={`bg-background/95 backdrop-blur-sm border-t border-border/30 pt-12 sm:pt-16 ${className}`}>
+    <footer className={`
+      backdrop-blur-xl bg-gradient-to-r from-white/70 to-white/50 dark:from-gray-900/80 dark:to-gray-800/60
+      border-t border-white/30 dark:border-gray-700/50
+      pt-12 sm:pt-16 relative overflow-hidden
+      before:content-[''] before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] 
+      before:from-primary-500/5 before:to-transparent before:opacity-0 hover:before:opacity-100
+      before:transition-opacity before:duration-500 before:ease-out before:pointer-events-none
+      ${className}
+    `} style={{
+      '--tw-gradient-stops': 'var(--tw-gradient-from), var(--tw-gradient-to, rgba(255, 255, 255, 0))',
+      '--tw-gradient-from': 'hsl(var(--primary) / 0.1)'
+    } as React.CSSProperties}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main footer grid */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-12 gap-8 sm:gap-10">

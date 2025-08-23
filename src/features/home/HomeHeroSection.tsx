@@ -45,12 +45,12 @@ const floatingVariants = {
   }
 };
 const roles = [
-  "E-commerce Specialist",
+  "E-commerce",
   "Digital Marketer",
   "AI Tools Expert",
-  "Inventory Management Pro",
+  "Inventory Management",
   "Data Analyst",
-  "Data Analyst"
+  "AI Generalist"
 ];
 
 const SocialIcons = () => {
@@ -144,7 +144,7 @@ const FloatingParticles = () => {
   const particles = Array.from({ length: 20 }, (_, i) => i);
   
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+    <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10">
       {particles.map((i) => (
         <motion.div
           key={i}
@@ -172,7 +172,7 @@ const FloatingParticles = () => {
 
 const GeometricShapes = () => {
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+    <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10">
       {/* Rotating hexagon */}
       <motion.div
         className="absolute top-20 right-10 w-20 h-20 border border-cyan-300/20 dark:border-cyan-400/10"
@@ -198,39 +198,11 @@ const GeometricShapes = () => {
         }}
         animate={{
           y: [0, -20, 0],
-          rotate: [0, 180, 360]
+          opacity: [0.5, 1, 0.5],
+          scale: [1, 1.1, 1]
         }}
         transition={{
-          duration: 15,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-      />
-      
-      {/* Pulsing circle */}
-      <motion.div
-        className="absolute top-1/3 left-1/4 w-8 h-8 border border-fuchsia-300/20 dark:border-fuchsia-400/10 rounded-full"
-        animate={{
-          scale: [1, 1.5, 1],
-          opacity: [0.3, 0.6, 0.3]
-        }}
-        transition={{
-          duration: 4,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-      />
-      
-      {/* Morphing square */}
-      <motion.div
-        className="absolute bottom-20 right-1/4 w-12 h-12 bg-gradient-to-br from-cyan-400/10 to-purple-400/10 dark:from-cyan-400/5 dark:to-purple-400/5"
-        animate={{
-          borderRadius: ['0%', '50%', '0%'],
-          rotate: [0, 90, 180, 270, 360],
-          scale: [1, 0.8, 1.2, 1]
-        }}
-        transition={{
-          duration: 12,
+          duration: 5,
           repeat: Infinity,
           ease: "easeInOut"
         }}
@@ -312,6 +284,7 @@ const LightBeams = () => {
 };
 
 const HomeHeroSection = () => {
+  // Background gradient colors
   // Cycling roles with animated typewriter
   const [roleIndex, setRoleIndex] = useState(0);
   const [currentText, setCurrentText] = useState('');
@@ -339,125 +312,92 @@ const HomeHeroSection = () => {
   }, [currentText, typing, roleIndex]);
 
   return (
-    <section
-      className="
-        relative min-h-[calc(100vh-80px)] flex items-center pt-16 pb-8 sm:pt-20 px-4 sm:px-6
-        bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50
-        dark:from-slate-900 dark:via-gray-900 dark:to-indigo-900/30
-        text-gray-900 dark:text-white font-['Inter',_'Space_Grotesk',_sans-serif]
-        overflow-hidden transition-colors duration-500
-      "
-    >
-      {/* Professional Animated Background */}
-      <div className="absolute inset-0 -z-10 overflow-hidden">
-        {/* Base gradient overlay with Tailwind */}
-        <motion.div 
-          className="absolute inset-0 bg-gradient-to-br from-blue-100/20 via-purple-50/30 to-pink-100/20 dark:from-blue-900/10 dark:via-purple-900/15 dark:to-pink-900/10"
-          animate={{
-            opacity: [0.3, 0.6, 0.3]
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
-        
-        {/* Animated gradient orbs using Tailwind classes */}
-        <motion.div
-          className="absolute -left-32 -top-16 w-96 h-96 bg-gradient-to-br from-cyan-300/30 to-blue-400/20 dark:from-cyan-400/20 dark:to-blue-500/15 rounded-full blur-3xl pointer-events-none"
-          animate={{
-            x: [0, 100, 0],
-            y: [0, -80, 0],
-            scale: [1, 1.2, 1]
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
-        
-        <motion.div
-          className="absolute -right-32 top-1/4 w-80 h-80 bg-gradient-to-bl from-purple-300/25 to-pink-400/20 dark:from-purple-400/15 dark:to-pink-500/12 rounded-full blur-3xl pointer-events-none"
-          animate={{
-            x: [0, -80, 0],
-            y: [0, 100, 0],
-            scale: [1, 1.3, 1]
-          }}
-          transition={{
-            duration: 25,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 2
-          }}
-        />
-        
-        <motion.div
-          className="absolute left-1/3 -bottom-20 w-72 h-72 bg-gradient-to-t from-indigo-300/20 to-cyan-300/15 dark:from-indigo-400/12 dark:to-cyan-400/10 rounded-full blur-3xl pointer-events-none"
-          animate={{
-            x: [0, 60, 0],
-            y: [0, -60, 0],
-            scale: [1, 1.4, 1]
-          }}
-          transition={{
-            duration: 18,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 4
-          }}
-        />
-        
-        {/* Additional smaller accent blobs */}
-        <motion.div
-          className="absolute right-1/4 bottom-1/3 w-40 h-40 bg-gradient-to-br from-rose-200/20 to-purple-200/15 dark:from-rose-300/10 dark:to-purple-300/8 rounded-full blur-2xl pointer-events-none"
-          animate={{
-            x: [0, -30, 0],
-            y: [0, 30, 0],
-            scale: [1, 1.1, 1]
-          }}
-          transition={{
-            duration: 12,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 1
-          }}
-        />
-        
-        <motion.div
-          className="absolute left-1/5 top-1/3 w-32 h-32 bg-gradient-to-br from-blue-200/25 to-cyan-200/20 dark:from-blue-300/12 dark:to-cyan-300/10 rounded-full blur-2xl pointer-events-none"
-          animate={{
-            x: [0, 40, 0],
-            y: [0, -40, 0],
-            scale: [1, 1.2, 1]
-          }}
-          transition={{
-            duration: 15,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 3
-          }}
-        />
-        
-        {/* Overlay patterns */}
-        <GridPattern />
-        <GeometricShapes />
-        <LightBeams />
-        <FloatingParticles />
-        
-        {/* Subtle noise texture */}
-        <div 
-          className="absolute inset-0 opacity-[0.015] dark:opacity-[0.025] mix-blend-overlay"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`
-          }}
-        />
-        
-        {/* Radial overlay for depth */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.02)_70%)] dark:bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.01)_0%,rgba(0,0,0,0.1)_70%)]" />
-      </div>
-      <div className="container mx-auto max-w-7xl relative px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-between gap-8 sm:gap-10 lg:gap-12">
+    <div className="relative min-h-[calc(100vh-80px)] flex items-center justify-center">
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-slate-900 dark:via-gray-900 dark:to-indigo-900" />
+      
+      {/* Animated background elements */}
+      <motion.div
+        className="absolute -right-32 top-1/4 w-80 h-80 bg-gradient-to-bl from-purple-300/25 to-pink-400/20 dark:from-purple-400/15 dark:to-pink-500/12 rounded-full blur-3xl pointer-events-none"
+        animate={{
+          x: [0, -80, 0],
+          y: [0, 100, 0],
+          scale: [1, 1.3, 1]
+        }}
+        transition={{
+          duration: 25,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 2
+        }}
+      />
+      
+      <motion.div
+        className="absolute left-1/3 -bottom-20 w-72 h-72 bg-gradient-to-t from-indigo-300/20 to-cyan-300/15 dark:from-indigo-400/12 dark:to-cyan-400/10 rounded-full blur-3xl pointer-events-none"
+        animate={{
+          x: [0, 60, 0],
+          y: [0, -60, 0],
+          scale: [1, 1.4, 1]
+        }}
+        transition={{
+          duration: 18,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 4
+        }}
+      />
+      
+      {/* Additional smaller accent blobs */}
+      <motion.div
+        className="absolute right-1/4 bottom-1/3 w-40 h-40 bg-gradient-to-br from-rose-200/20 to-purple-200/15 dark:from-rose-300/10 dark:to-purple-300/8 rounded-full blur-2xl pointer-events-none"
+        animate={{
+          x: [0, -30, 0],
+          y: [0, 30, 0],
+          scale: [1, 1.1, 1]
+        }}
+        transition={{
+          duration: 12,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1
+        }}
+      />
+      
+      <motion.div
+        className="absolute left-1/5 top-1/3 w-32 h-32 bg-gradient-to-br from-blue-200/25 to-cyan-200/20 dark:from-blue-300/12 dark:to-cyan-300/10 rounded-full blur-2xl pointer-events-none"
+        animate={{
+          x: [0, 40, 0],
+          y: [0, -40, 0],
+          scale: [1, 1.2, 1]
+        }}
+        transition={{
+          duration: 15,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 3
+        }}
+      />
+      
+      {/* Overlay patterns */}
+      <GridPattern />
+      <GeometricShapes />
+      <LightBeams />
+      <FloatingParticles />
+      
+      {/* Subtle noise texture */}
+      <div 
+        className="absolute inset-0 opacity-[0.015] dark:opacity-[0.025] mix-blend-overlay pointer-events-none"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`
+        }}
+      />
+      
+      {/* Radial overlay for depth */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.02)_70%)] dark:bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.01)_0%,rgba(0,0,0,0.1)_70%)] pointer-events-none" />
+      
+      {/* Main Content */}
+      <div className="container mx-auto px-4 sm:px-6 relative z-10 py-16 sm:pt-20">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
           {/* Text Content */}
           <motion.div
             className="w-full lg:w-1/2 text-center md:text-left max-w-2xl mx-auto lg:mx-0"
@@ -676,14 +616,13 @@ const HomeHeroSection = () => {
                   duration: 10,
                   repeat: Infinity,
                   ease: 'easeInOut',
-                  delay: 1,
                 }}
               />
             </div>
           </motion.div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

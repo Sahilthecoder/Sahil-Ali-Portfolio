@@ -142,21 +142,29 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
           {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
-            animate={{ opacity: 0.9 }}
+            animate={{ opacity: 0.8 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-gray-900"
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm"
           />
 
           {/* Menu Container */}
           <div
             ref={menuRef}
             tabIndex={-1}
-            className="fixed inset-y-0 right-0 w-full max-w-sm bg-white dark:bg-gray-900 border-l border-gray-200 dark:border-gray-800 shadow-2xl overflow-y-auto focus:outline-none"
+            className={`
+              fixed inset-y-0 right-0 w-full max-w-sm overflow-y-auto focus:outline-none
+              backdrop-blur-sm bg-white/95 dark:bg-gray-900/98
+              border-l border-white/30 dark:border-gray-700/50 shadow-2xl
+            `}
+            style={{
+              '--tw-gradient-stops': 'var(--tw-gradient-from), var(--tw-gradient-to, rgba(255, 255, 255, 0))',
+              '--tw-gradient-from': 'hsl(var(--primary) / 0.1)'
+            } as React.CSSProperties}
           >
             <div className="flex flex-col h-full">
               {/* Header */}
-              <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-800">
+              <div className="flex items-center justify-between p-6 border-b border-white/30 dark:border-gray-700/50 bg-white/40 dark:bg-gray-900/50">
                 <h2 className="text-xl font-bold text-gray-900 dark:text-white">Menu</h2>
                 <button
                   onClick={onClose}
