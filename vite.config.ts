@@ -4,9 +4,8 @@ import path from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
-  // Set base URL for GitHub Pages deployment
-  const isProduction = mode === 'production';
-  const base = isProduction ? '/Sahil-Ali-Portfolio/' : '/';
+  // Use Vercel's environment variable for base path, fallback to empty string for root
+  const base = process.env.VERCEL_ENV === 'production' ? '/Sahil-Ali-Portfolio/' : '/';
   
   console.log(`Running in ${mode} mode with base URL: ${base}`);
   
