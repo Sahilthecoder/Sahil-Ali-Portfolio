@@ -39,13 +39,11 @@ export default defineConfig(({ mode, command }) => {
       },
       rollupOptions: {
         output: {
-          manualChunks: (id) => {
-            if (id.includes('node_modules')) {
-              if (id.includes('@react-three') || id.includes('three')) {
-                return 'three-vendor';
-              }
-              return 'vendor';
-            }
+          manualChunks: {
+            'react-vendor': ['react', 'react-dom', 'react-router-dom'],
+            'three-vendor': ['three', '@react-three/fiber', '@react-three/drei'],
+            'framer': ['framer-motion'],
+            'icons': ['react-icons']
           },
           entryFileNames: 'assets/[name].[hash].js',
           chunkFileNames: 'assets/[name].[hash].js',
