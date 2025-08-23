@@ -57,7 +57,7 @@ const TermsOfService: React.FC = () => {
           <section>
             <h2>6. Contact</h2>
             <p>
-              If you have any questions or concerns regarding these Terms of Service, please feel free to <a href="mailto:sahilkhan36985@gmail.com" className="text-blue-600 hover:underline dark:text-blue-400">contact me</a>.
+              If you have any questions or concerns regarding these Terms of Service, please feel free to <a href="mailto:sahilkhan36985@gmail.com" className="text-primary hover:underline dark:text-primary">contact me</a>.
             </p>
           </section>
         </article>

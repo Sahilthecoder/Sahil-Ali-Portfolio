@@ -1,4 +1,5 @@
 import React, { useState, useCallback, FC, ReactNode, useEffect, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import Header from './Header';
 import MobileMenu from './MobileMenu';
@@ -13,6 +14,7 @@ const Navigation: FC<NavigationProps> = ({ children }) => {
   const [scrollDirection, setScrollDirection] = useState<'up' | 'down'>('up');
   const lastScrollY = useRef<number>(0);
   const headerRef = useRef<HTMLDivElement>(null);
+  const location = useLocation();
   
   const toggleMobileMenu = useCallback((): void => {
     setMobileMenuOpen(prevState => !prevState);
@@ -97,7 +99,7 @@ const Navigation: FC<NavigationProps> = ({ children }) => {
       </AnimatePresence>
       
       {children && (
-        <div className="pt-16">
+        <div className={location.pathname === '/terms-of-service' || location.pathname === '/privacy-policy' ? '' : 'pt-16'}>
           {children}
         </div>
       )}

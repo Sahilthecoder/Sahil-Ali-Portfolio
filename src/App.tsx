@@ -1,5 +1,6 @@
 import React, { Suspense, lazy } from 'react';
 import { Routes, Route, HashRouter } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import { ThemeProvider } from './components/ThemeProvider';
 import GoogleAnalytics from './components/GoogleAnalytics';
 import Navigation from './components/Navigation/Navigation';
@@ -11,8 +12,8 @@ import Contact from './pages/Contact';
 import Blog from './pages/Blog';
 import NotFound from './pages/NotFound';
 const ProjectDetails = lazy(() => import('./pages/Projects/ProjectDetails'));
-import TermsOfService from './pages/terms-of-service';
-import PrivacyPolicy from './pages/privacy-policy';
+const TermsOfService = lazy(() => import('./pages/terms-of-service'));
+const PrivacyPolicy = lazy(() => import('./pages/privacy-policy'));
 import { ErrorBoundary } from './components/common/ErrorBoundary';
 import ScrollToTop from './components/common/ScrollToTop';
 import Footer from './components/Navigation/Footer';
@@ -30,8 +31,8 @@ const AppRoutes = () => {
       <Route path="/projects/:id" element={<LazyLoadingWrapper><ProjectDetails /></LazyLoadingWrapper>} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/blog" element={<Blog />} />
-      <Route path="/terms-of-service" element={<TermsOfService />} />
-      <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+      <Route path="/terms-of-service" element={<LazyLoadingWrapper><TermsOfService /></LazyLoadingWrapper>} />
+      <Route path="/privacy-policy" element={<LazyLoadingWrapper><PrivacyPolicy /></LazyLoadingWrapper>} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
@@ -50,6 +51,7 @@ const App: React.FC = () => {
   return (
     <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme" enableSystem={true}>
       <ErrorBoundary>
+        <HelmetProvider>
         <HashRouter>
           <div className="app-container flex flex-col min-h-screen">
             <ThemeProvider>
@@ -70,6 +72,7 @@ const App: React.FC = () => {
             </ThemeProvider>
           </div>
         </HashRouter>
+        </HelmetProvider>
       </ErrorBoundary>
     </ThemeProvider>
   );
