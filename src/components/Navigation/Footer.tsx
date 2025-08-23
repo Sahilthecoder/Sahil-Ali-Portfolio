@@ -16,8 +16,8 @@ const NAV_LINKS: LinkItem[] = [
 ];
 
 const LEGAL_LINKS: LinkItem[] = [
-  { name: 'Terms of Service', href: '/terms-of-service' },
-  { name: 'Privacy Policy', href: '/privacy-policy' },
+  { name: 'Terms of Service', href: '#/terms-of-service' },
+  { name: 'Privacy Policy', href: '#/privacy-policy' },
 ];
 
 const SOCIAL_LINKS: SocialLink[] = [

@@ -174,7 +174,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 *Data Analyst | Inventory Specialist | AI Generalist*  
 📍 Rajasthan, India
 
-- 🌐 [Portfolio](https://sahilthecoder.github.io/Sahil_Ali-Portfolio/)
+- 🌐 [Portfolio](https://sahilthecoder.github.io/Sahil-Ali-Portfolio/#/)
 - 💼 [LinkedIn](https://www.linkedin.com/in/sahil-ali-714867242/)
 - 📧 [sahilkhan36985@gmail.com](mailto:sahilkhan36985@gmail.com)
 - 📞 +91 9875771550
