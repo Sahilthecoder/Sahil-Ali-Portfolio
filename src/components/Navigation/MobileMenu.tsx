@@ -102,6 +102,7 @@ function useFocusTrap(isActive: boolean, containerRef: React.RefObject<HTMLEleme
 }
 
 const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
+  const [isNewsletterOpen, setIsNewsletterOpen] = useState(false);
   const location = useLocation();
   const menuRef = useRef<HTMLDivElement>(null);
   const [projectsExpanded, setProjectsExpanded] = useState(false);
@@ -321,21 +322,70 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
               </motion.nav>
 
               {/* Newsletter Section */}
-              <div className="p-6 border-t border-gray-200 dark:border-gray-800">
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 }}
-                  className="space-y-4"
+              <div className="border-t border-gray-200 dark:border-gray-800 overflow-hidden">
+                <button
+                  onClick={() => setIsNewsletterOpen(!isNewsletterOpen)}
+                  className="w-full px-6 py-4 flex items-center justify-between focus:outline-none focus:ring-2 focus:ring-primary/20 rounded-lg"
+                  aria-expanded={isNewsletterOpen}
+                  aria-controls="newsletter-content"
                 >
-                  <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
-                    Stay Updated
-                  </h3>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">
-                    Subscribe to my newsletter for the latest updates and insights.
-                  </p>
-                  <Newsletter className="w-full" compact />
-                </motion.div>
+                  <div className="flex items-center space-x-3">
+                    <div className="w-8 h-8 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center">
+                      <FiMail className="w-4 h-4 text-primary" />
+                    </div>
+                    <div className="text-left">
+                      <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-300">
+                        Stay Updated
+                      </h3>
+                      <p className="text-xs text-gray-500 dark:text-gray-400">
+                        Get the latest updates and insights
+                      </p>
+                    </div>
+                  </div>
+                  <motion.div
+                    animate={{ rotate: isNewsletterOpen ? 180 : 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <FiChevronDown className="w-5 h-5 text-gray-400" />
+                  </motion.div>
+                </button>
+
+                <AnimatePresence>
+                  {isNewsletterOpen && (
+                    <motion.div
+                      id="newsletter-content"
+                      initial="collapsed"
+                      animate="open"
+                      exit="collapsed"
+                      variants={{
+                        open: { 
+                          opacity: 1, 
+                          height: 'auto',
+                          transition: { 
+                            opacity: { duration: 0.2 },
+                            height: { duration: 0.3, ease: [0.04, 0.62, 0.23, 0.98] }
+                          }
+                        },
+                        collapsed: { 
+                          opacity: 0, 
+                          height: 0,
+                          transition: { 
+                            opacity: { duration: 0.1 },
+                            height: { duration: 0.2, ease: [0.04, 0.62, 0.23, 0.98] }
+                          }
+                        }
+                      }}
+                      className="px-6 pb-4 -mt-2"
+                    >
+                      <div className="space-y-4 pt-2">
+                        <p className="text-sm text-gray-500 dark:text-gray-400">
+                          Subscribe to my newsletter for the latest updates and insights.
+                        </p>
+                        <Newsletter className="w-full" compact />
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
             </div>
           </div>

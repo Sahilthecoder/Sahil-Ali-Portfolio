@@ -17,7 +17,6 @@ const PrivacyPolicy = lazy(() => import('./pages/privacy-policy'));
 import { ErrorBoundary } from './components/common/ErrorBoundary';
 import ScrollToTop from './components/common/ScrollToTop';
 import Footer from './components/Navigation/Footer';
-import { ConsentBanner } from './components/ConsentBanner';
 import CustomCursor from './components/common/CustomCursor';
 
 // Simple Routes component without animations
@@ -57,7 +56,6 @@ const App: React.FC = () => {
             <ThemeProvider>
               <div className="min-h-screen bg-white dark:bg-gray-900">
                 <GoogleAnalytics />
-                <ConsentBanner />
                 <CustomCursor />
                 <Navigation>
                   <ScrollToTop />
