@@ -30,15 +30,6 @@ export default defineConfig(({ mode, command }) => {
       outDir: 'dist',
       assetsDir: 'assets',
       emptyOutDir: true,
-      rollupOptions: {
-        output: {
-          manualChunks: {
-            'react-vendor': ['react', 'react-dom', 'react-router-dom'],
-            'three-vendor': ['three', '@react-three/fiber', '@react-three/drei'],
-          },
-        },
-      },
-      outDir: 'dist',
       sourcemap: mode === 'development',
       minify: 'terser',
       terserOptions: {
@@ -49,9 +40,11 @@ export default defineConfig(({ mode, command }) => {
       rollupOptions: {
         output: {
           manualChunks: {
-            react: ['react', 'react-dom'],
-            framer: ['framer-motion'],
-            icons: ['react-icons']
+            'react-vendor': ['react', 'react-dom', 'react-router-dom'],
+            'three-vendor': ['three', '@react-three/fiber', '@react-three/drei'],
+            'react': ['react', 'react-dom'],
+            'framer': ['framer-motion'],
+            'icons': ['react-icons']
           },
           entryFileNames: 'assets/[name].[hash].js',
           chunkFileNames: 'assets/[name].[hash].js',
