@@ -1,6 +1,47 @@
 import type { Skill } from '../types/experience.types';
 
 export const skills: Skill[] = [
+  // E-commerce & Marketplace Management
+  {
+    id: 'ecom1',
+    name: 'E-commerce Operations',
+    level: 85,
+    category: 'other',
+    icon: 'ShoppingCartIcon',
+    iconClass: 'text-primary',
+  },
+  {
+    id: 'ecom2',
+    name: 'Marketplace Management',
+    level: 85,
+    category: 'other',
+    icon: 'GlobeAltIcon',
+    iconClass: 'text-accent',
+  },
+  {
+    id: 'ecom3',
+    name: 'Product Catalog Management',
+    level: 90,
+    category: 'other',
+    icon: 'RectangleStackIcon',
+    iconClass: 'text-secondary',
+  },
+  {
+    id: 'ecom4',
+    name: 'Order Fulfillment',
+    level: 90,
+    category: 'other',
+    icon: 'TruckIcon',
+    iconClass: 'text-primary',
+  },
+  {
+    id: 'ecom5',
+    name: 'Vendor Management',
+    level: 85,
+    category: 'other',
+    icon: 'UsersIcon',
+    iconClass: 'text-accent',
+  },
   // Inventory & Operations Management (using 'other' category for inventory-related skills)
   {
     id: 'skill1',
@@ -43,10 +84,18 @@ export const skills: Skill[] = [
     iconClass: 'text-accent',
   },
 
-  // Data Analysis
+  // Data Analysis & E-commerce Analytics
   {
     id: 'skill6',
-    name: 'Data Analysis',
+    name: 'E-commerce Analytics',
+    level: 90,
+    category: 'analytics',
+    icon: 'ChartBarIcon',
+    iconClass: 'text-primary',
+  },
+  {
+    id: 'skill7',
+    name: 'Sales Performance Analysis',
     level: 90,
     category: 'database',
     icon: 'ChartBarIcon',
