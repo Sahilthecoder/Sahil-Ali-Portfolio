@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
 import { FiSun, FiMoon, FiMenu } from 'react-icons/fi';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from './Navbar';
 import LazyImage from '../LazyImage';
@@ -18,7 +18,6 @@ const Header: React.FC<HeaderProps> = ({ onMenuToggle, isScrolled = false }) => 
   const [isHovered, setIsHovered] = useState(false);
   const { theme, setTheme } = useTheme();
   const navigate = useNavigate();
-  const location = useLocation();
 
   useEffect(() => {
     setMounted(true);
@@ -30,11 +29,18 @@ const Header: React.FC<HeaderProps> = ({ onMenuToggle, isScrolled = false }) => 
     <motion.header
       className={`
         fixed top-0 left-0 right-0 z-50
-        backdrop-blur-md bg-white/70 dark:bg-gray-900/70
+        backdrop-blur-xl bg-gradient-to-r from-white/70 to-white/50 dark:from-gray-900/80 dark:to-gray-800/60
         transition-all duration-500 ease-out
-        ${isScrolled ? 'py-0 shadow-lg shadow-gray-200/20 dark:shadow-gray-900/20' : 'py-2'}
-        border-b border-gray-200/50 dark:border-gray-700/50
+        ${isScrolled ? 'py-0 shadow-lg shadow-gray-200/20 dark:shadow-gray-900/30' : 'py-2'}
+        border-b border-white/30 dark:border-gray-700/50
+        before:content-[''] before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] 
+        before:from-primary-500/5 before:to-transparent before:opacity-0 hover:before:opacity-100
+        before:transition-opacity before:duration-500 before:ease-out
       `}
+      style={{
+        '--tw-gradient-stops': 'var(--tw-gradient-from), var(--tw-gradient-to, rgba(255, 255, 255, 0))',
+        '--tw-gradient-from': 'hsl(var(--primary) / 0.1)'
+      } as React.CSSProperties}
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ 

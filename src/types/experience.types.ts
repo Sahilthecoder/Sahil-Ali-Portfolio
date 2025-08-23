@@ -38,7 +38,6 @@ export interface Certification extends Omit<Education, 'degree'> {
 export interface Skill {
   id: string;
   name: string;
-  level: number;
   category: string;
   icon: string;
   iconClass?: string;
