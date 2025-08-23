@@ -3,10 +3,9 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode }) => {
-  // Set base URL for GitHub Pages deployment
-  const isProduction = mode === 'production';
-  const base = isProduction ? '/Sahil-Ali-Portfolio/' : '/';
+export default defineConfig(({ mode, command }) => {
+  // Set base URL based on environment
+  const base = command === 'build' ? '/' : '/';
   
   console.log(`Running in ${mode} mode with base URL: ${base}`);
   
@@ -28,6 +27,17 @@ export default defineConfig(({ mode }) => {
       }
     },
     build: {
+      outDir: 'dist',
+      assetsDir: 'assets',
+      emptyOutDir: true,
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            'react-vendor': ['react', 'react-dom', 'react-router-dom'],
+            'three-vendor': ['three', '@react-three/fiber', '@react-three/drei'],
+          },
+        },
+      },
       outDir: 'dist',
       sourcemap: mode === 'development',
       minify: 'terser',
@@ -73,6 +83,9 @@ export default defineConfig(({ mode }) => {
       copyPublicDir: true
     },
     server: {
+      headers: {
+        'Content-Type': 'application/javascript',
+      },
       port: 3000,
       open: true,
       fs: {
