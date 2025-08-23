@@ -4,18 +4,19 @@ import path from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
-  // Use Vercel's environment variable for base path, fallback to empty string for root
-  const base = process.env.VERCEL_ENV === 'production' ? '/Sahil-Ali-Portfolio/' : '/';
+  // Set base URL for GitHub Pages deployment
+  const isProduction = mode === 'production';
+  const base = isProduction ? '/Sahil-Ali-Portfolio/' : '/';
   
   console.log(`Running in ${mode} mode with base URL: ${base}`);
   
   return {
-    base,
+    base: '/Sahil-Ali-Portfolio/', // Force base URL for GitHub Pages
     plugins: [react()],
     define: {
       'process.env.NODE_ENV': JSON.stringify(mode),
-      'process.env.BASE_URL': JSON.stringify(base),
-      'import.meta.env.BASE_URL': JSON.stringify(base)
+      'process.env.BASE_URL': JSON.stringify('/Sahil-Ali-Portfolio/'),
+      'import.meta.env.BASE_URL': JSON.stringify('/Sahil-Ali-Portfolio/')
     },
     resolve: {
       alias: {
@@ -30,6 +31,8 @@ export default defineConfig(({ mode }) => {
       outDir: 'dist',
       sourcemap: mode === 'development',
       minify: 'terser',
+      emptyOutDir: true,
+      assetsDir: 'assets',
       terserOptions: {
         compress: {
           drop_console: mode === 'production',
