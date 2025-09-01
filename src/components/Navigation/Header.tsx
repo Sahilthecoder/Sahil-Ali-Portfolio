@@ -86,11 +86,12 @@ const Header: React.FC<HeaderProps> = ({ onMenuToggle, isScrolled = false }) => 
             </motion.div>
             <div className="transition-colors duration-300 group-hover:text-primary dark:group-hover:text-primary-300">
               <motion.h1 
-                className="text-xl sm:text-2xl font-extrabold text-gray-900 dark:text-white select-none leading-tight"
+                className="text-xl sm:text-2xl font-extrabold text-gray-900 dark:text-gray-100 select-none leading-tight"
                 animate={{ 
                   color: isHovered ? 'var(--primary)' : undefined 
                 }}
                 transition={{ duration: 0.2 }}
+                style={isHovered ? {} : { color: '' }}
               >
                 Sahil Ali
               </motion.h1>

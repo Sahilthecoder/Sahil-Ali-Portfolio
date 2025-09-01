@@ -17,10 +17,10 @@ interface NavItem {
 }
 
 const navItems: NavItem[] = [
-  { label: 'Home', path: '/', icon: <FiHome aria-hidden="true" className="w-5 h-5" /> },
-  { label: 'About', path: '/about', icon: <FiUser aria-hidden="true" className="w-5 h-5" /> },
-  { label: 'Experience', path: '/experience', icon: <FiBriefcase aria-hidden="true" className="w-5 h-5" /> },
-  { label: 'Contact', path: '/contact', icon: <FiMail aria-hidden="true" className="w-5 h-5" /> },
+  { label: 'Home', path: '/', icon: <FiHome aria-hidden="true" className="w-6 h-6" /> },
+  { label: 'About', path: '/about', icon: <FiUser aria-hidden="true" className="w-6 h-6" /> },
+  { label: 'Experience', path: '/experience', icon: <FiBriefcase aria-hidden="true" className="w-6 h-6" /> },
+  { label: 'Contact', path: '/contact', icon: <FiMail aria-hidden="true" className="w-6 h-6" /> },
 ];
 
 const menuVariants = {
@@ -154,8 +154,8 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
             tabIndex={-1}
             className={`
               fixed inset-y-0 right-0 w-full max-w-sm overflow-y-auto focus:outline-none
-              backdrop-blur-sm bg-white/95 dark:bg-gray-900/98
-              border-l border-white/30 dark:border-gray-700/50 shadow-2xl
+              backdrop-blur-lg bg-white/98 dark:bg-gray-900/99
+              border-l border-gray-200 dark:border-gray-800 shadow-2xl
             `}
             style={{
               '--tw-gradient-stops': 'var(--tw-gradient-from), var(--tw-gradient-to, rgba(255, 255, 255, 0))',
@@ -164,14 +164,14 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
           >
             <div className="flex flex-col h-full">
               {/* Header */}
-              <div className="flex items-center justify-between p-6 border-b border-white/30 dark:border-gray-700/50 bg-white/40 dark:bg-gray-900/50">
-                <h2 className="text-xl font-bold text-gray-900 dark:text-white">Menu</h2>
+              <div className="flex items-center justify-between p-6 border-b border-gray-100 dark:border-gray-800 bg-white/95 dark:bg-gray-900/95">
+                <h2 className="text-2xl font-extrabold text-gray-900 dark:text-white">Menu</h2>
                 <button
                   onClick={onClose}
                   className="p-2 rounded-full text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900"
                   aria-label="Close menu"
                 >
-                  <FiX className="w-6 h-6" />
+                  <FiX className="w-7 h-7 text-gray-700 dark:text-gray-200" />
                 </button>
               </div>
 
@@ -194,12 +194,12 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                         onClick={onClose}
                         className={`flex items-center px-4 py-3 rounded-lg text-base font-medium transition-colors duration-200 ${
                           isActive
-                            ? 'bg-blue-100 text-blue-700 dark:bg-blue-600/20 dark:text-blue-400'
-                            : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-white'
+                            ? 'bg-blue-600 text-white font-semibold dark:bg-blue-700 dark:text-white'
+                            : 'text-gray-900 font-medium hover:bg-gray-100 dark:text-gray-100 dark:hover:bg-gray-800'
                         }`}
                         aria-current={isActive ? 'page' : undefined}
                       >
-                        <span className="mr-3 text-gray-500 dark:text-gray-400">{icon}</span>
+                        <span className="mr-4 text-gray-700 dark:text-gray-100">{icon}</span>
                         {label}
                       </Link>
                     </motion.div>
@@ -212,15 +212,15 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                     {/* Projects Header */}
                     <button
                       onClick={() => setProjectsExpanded(!projectsExpanded)}
-                      className={`w-full flex items-center justify-between px-4 py-3 rounded-lg text-base font-medium transition-colors duration-200 ${
+                      className={`w-full flex items-center justify-between px-6 py-3.5 rounded-lg text-base font-semibold transition-colors duration-200 ${
                         location.pathname.startsWith('/projects')
-                          ? 'bg-blue-100 text-blue-700 dark:bg-blue-600/20 dark:text-blue-400'
-                          : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-white'
+                          ? 'bg-blue-600/10 text-blue-700 dark:bg-blue-600/20 dark:text-blue-300'
+                          : 'text-gray-800 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-800 dark:hover:text-white'
                       }`}
                       aria-expanded={projectsExpanded}
                     >
                       <div className="flex items-center">
-                        <span className="mr-3 text-gray-500 dark:text-gray-400">
+                        <span className="mr-4 text-gray-600 dark:text-gray-300">
                           <FiCode aria-hidden="true" className="w-5 h-5" />
                         </span>
                         Projects
@@ -229,7 +229,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                         animate={{ rotate: projectsExpanded ? 180 : 0 }}
                         transition={{ duration: 0.2 }}
                       >
-                        <FiChevronDown className="w-4 h-4" />
+                        <FiChevronDown className="w-4 h-4 text-gray-600 dark:text-gray-300" />
                       </motion.div>
                     </button>
                     
@@ -241,30 +241,30 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                           animate={{ opacity: 1, height: 'auto' }}
                           exit={{ opacity: 0, height: 0 }}
                           transition={{ duration: 0.2 }}
-                          className="pl-12 space-y-1 overflow-hidden"
+                          className="pl-8 pr-4 space-y-2 overflow-hidden"
                         >
                           {/* All Projects Link */}
                           <Link
                             to="/projects"
                             onClick={onClose}
-                            className="flex items-center justify-between px-4 py-3 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-white transition-colors duration-200 group mb-2"
+                            className="flex items-center w-full px-6 py-3 text-base font-medium text-gray-800 transition-colors duration-150 rounded-lg group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-800"
                           >
                             <div className="flex items-center space-x-3">
-                              <div className="w-8 h-8 bg-gradient-to-br from-primary/10 to-primary/20 rounded-lg flex items-center justify-center">
-                                <FiFolder className="w-4 h-4 text-primary" />
+                              <div className="w-8 h-8 bg-gradient-to-br from-primary/15 to-primary/25 rounded-lg flex items-center justify-center">
+                                <FiFolder className="w-4 h-4 text-primary dark:text-primary-400" />
                               </div>
                               <div>
-                                <div className="font-semibold group-hover:text-primary transition-colors text-gray-900 dark:text-white">All Projects</div>
-                                <div className="text-xs text-gray-500 dark:text-gray-400">{projects.length} projects</div>
+                                <div className="font-semibold group-hover:text-primary transition-colors text-gray-900 dark:text-gray-100">All Projects</div>
+                                <div className="text-xs font-medium text-gray-700 dark:text-gray-300">{projects.length} projects</div>
                               </div>
                             </div>
                             <FiArrowRight className="w-4 h-4 text-gray-400 group-hover:text-primary group-hover:translate-x-0.5 transition-all" />
                           </Link>
                           
                           {/* Featured Projects Header */}
-                          <div className="px-4 py-2 flex items-center space-x-2">
-                            <FiStar className="w-3 h-3 text-amber-500" />
-                            <span className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider">
+                          <div className="px-4 py-3 -mx-2 my-2 bg-gray-50 dark:bg-gray-800/80 rounded-lg flex items-center space-x-2">
+                            <FiStar className="w-4 h-4 text-amber-500" />
+                            <span className="text-xs font-bold text-gray-800 dark:text-gray-200 uppercase tracking-wider">
                               Featured Projects
                             </span>
                           </div>
@@ -275,17 +275,17 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                               key={project.id}
                               to={`/projects/${project.id}`}
                               onClick={onClose}
-                              className="block px-4 py-2.5 rounded-lg text-sm text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-white transition-colors duration-200 group"
+                              className="block px-6 py-2.5 text-base font-medium text-gray-800 transition-colors duration-150 rounded-lg hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-800"
                             >
                               <div className="flex items-center space-x-3">
-                                <div className="w-7 h-7 bg-gradient-to-br from-primary/10 to-primary/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                                  <FiCode className="w-3.5 h-3.5 text-primary" />
+                                <div className="w-7 h-7 bg-gradient-to-br from-primary/15 to-primary/25 rounded-lg flex items-center justify-center flex-shrink-0">
+                                  <FiCode className="w-3.5 h-3.5 text-primary dark:text-primary-400" />
                                 </div>
                                 <div className="flex-1 min-w-0">
-                                  <div className="font-medium group-hover:text-primary dark:group-hover:text-primary-foreground transition-colors text-gray-900 dark:text-white">
+                                  <div className="font-medium group-hover:text-primary dark:group-hover:text-primary-300 transition-colors text-gray-900 dark:text-gray-100">
                                     <span className="truncate">{project.title}</span>
                                   </div>
-                                  <div className="text-xs text-gray-500 dark:text-gray-400 mt-0.5 truncate">
+                                  <div className="text-xs font-medium text-gray-700 dark:text-gray-300 mt-0.5 truncate">
                                     {project.subtitle}
                                   </div>
                                   <div className="flex items-center mt-1 space-x-1">

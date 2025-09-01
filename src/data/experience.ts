@@ -43,7 +43,7 @@ const experiences: Experience[] = [
     company: 'Ekam Indian Groceries',
     companyUrl: '#',
     logo: '/Sahil-Ali-Portfolio/Company/Ekam_logo.png',
-    period: 'Dec 2023 – Present',
+    period: 'Dec 2023 – Jun 2025',
     description: [
       'Spearheaded digital transformation of e-commerce operations, implementing AI-driven inventory optimization that reduced carrying costs by 28%',
       'Developed and deployed machine learning models for demand forecasting, achieving 92% forecast accuracy',
@@ -69,8 +69,8 @@ const experiences: Experience[] = [
       'Python (Pandas, Scikit-learn)'
     ],
     startDate: '2023-12-01',
-    endDate: null,
-    isCurrent: true,
+    endDate: '2025-06-30',
+    isCurrent: false,
   },
   {
     id: 'exp3',

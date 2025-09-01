@@ -31,24 +31,36 @@ interface ExperienceCardProps {
 }
 
 export const formatExperiences = (): Experience[] => {
-  return workExperiences.map<Experience>((exp) => {
-    const typedExp = exp as WorkExperience & { employmentType?: string };
-    return {
-      ...exp,
-      achievements: (exp.achievements || []).map(achievement => ({
-        title: achievement,
-        impact: '',
-        metrics: ''
-      })),
-      logo: exp.logo || "",
-      companyUrl: exp.companyUrl || "",
-      startDate: exp.startDate || "",
-      endDate: exp.endDate || undefined,
-      isCurrent: exp.isCurrent || false,
-      location: exp.location || "",
-      employmentType: typedExp.employmentType
-    };
-  });
+  return workExperiences
+    .map<Experience>((exp) => {
+      const typedExp = exp as WorkExperience & { employmentType?: string };
+      return {
+        ...exp,
+        achievements: (exp.achievements || []).map(achievement => ({
+          title: achievement,
+          impact: '',
+          metrics: ''
+        })),
+        logo: exp.logo || "",
+        companyUrl: exp.companyUrl || "",
+        startDate: exp.startDate || "",
+        endDate: exp.endDate || undefined,
+        isCurrent: exp.isCurrent || false,
+        location: exp.location || "",
+        employmentType: typedExp.employmentType
+      };
+    })
+    .sort((a, b) => {
+      // Put current experiences first
+      if (a.isCurrent && !b.isCurrent) return -1;
+      if (!a.isCurrent && b.isCurrent) return 1;
+      
+      // Then sort by end date (most recent first)
+      const dateA = a.endDate ? new Date(a.endDate).getTime() : new Date().getTime();
+      const dateB = b.endDate ? new Date(b.endDate).getTime() : new Date().getTime();
+      
+      return dateB - dateA;
+    });
 };
 
 export const ExperienceList: React.FC = () => {

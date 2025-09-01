@@ -463,11 +463,11 @@ const HomeHeroSection = () => {
                   transition={{ type: 'spring', stiffness: 400, damping: 15 }}
                   className="relative group"
                 >
-                  <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-fuchsia-500 rounded-lg blur opacity-30 group-hover:opacity-80 transition duration-300 group-hover:duration-200" />
+                  <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-fuchsia-500 rounded-lg blur opacity-30 group-hover:opacity-80 transition duration-300 group-hover:duration-200 dark:hidden" />
                   <Button
                     variant="primary"
                     size="lg"
-                    className="w-full sm:w-auto relative overflow-hidden shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/30 transition-all duration-300"
+                    className="w-full sm:w-auto relative overflow-hidden shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/30 dark:shadow-none dark:hover:shadow-none transition-all duration-300"
                     aria-label="Contact Sahil Ali for collaboration"
                     onClick={(e) => {
                       e.preventDefault();
@@ -509,7 +509,7 @@ const HomeHeroSection = () => {
                       <FiArrowRight className="group-hover:translate-x-1 transition-transform duration-300 ease-out" />
                     </span>
                     <motion.span
-                      className="absolute inset-0 bg-gradient-to-r from-cyan-500/50 to-fuchsia-500/50 opacity-0 group-hover:opacity-100 transition-all duration-500"
+                      className="absolute inset-0 bg-gradient-to-r from-cyan-500/50 to-fuchsia-500/50 opacity-0 group-hover:opacity-100 transition-all duration-500 dark:hidden"
                       initial={{ x: '-100%' }}
                       whileHover={{ x: '100%' }}
                       transition={{ duration: 0.8, ease: 'easeInOut' }}
