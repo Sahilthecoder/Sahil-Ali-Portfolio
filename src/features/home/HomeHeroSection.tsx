@@ -312,7 +312,7 @@ const HomeHeroSection = () => {
   }, [currentText, typing, roleIndex]);
 
   return (
-    <div className="relative min-h-[calc(100vh-80px)] flex items-center justify-center">
+    <div className="relative min-h-[calc(100vh-80px)] w-full flex items-center justify-center overflow-x-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-slate-900 dark:via-gray-900 dark:to-indigo-900" />
       
