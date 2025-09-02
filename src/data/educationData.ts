@@ -8,6 +8,8 @@ const educationData: Education[] = [
     institution: 'MDSU University',
     institutionUrl: 'https://www.mdsuajmer.ac.in/',
     period: 'January 2018 – January 2021',
+    startDate: '2018-01-01',
+    endDate: '2021-01-31',
     fieldOfStudy: 'Physics, Chemistry, Mathematics',
     location: 'Rajasthan, India',
     imageUrl: `${getPath('/images/education/mdsu-university.jpg')}`,
@@ -21,6 +23,8 @@ const educationData: Education[] = [
     degree: 'Self-Learning & Professional Skill Development',
     institution: 'Online Learning Platforms',
     period: '2023 – Present',
+    startDate: '2023-01-01',
+    endDate: new Date().toISOString().split('T')[0], // Current date in YYYY-MM-DD format
     fieldOfStudy: 'AI, Automation & Data Analysis',
     imageUrl: `${getPath('/images/education/online-learning.jpg')}`,
     description: [

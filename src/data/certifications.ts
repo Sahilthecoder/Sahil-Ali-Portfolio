@@ -5,6 +5,8 @@ const certifications: Omit<Education, 'degree'>[] = [
     id: 'cert1',
     institution: 'Aayna Agrifarm Pvt. Ltd. (Under DDUGKY)',
     period: 'June 2021 – November 2021',
+    startDate: '2021-06-01',
+    endDate: '2021-11-30',
     fieldOfStudy: 'Warehouse Operations & Logistics Management',
     imageUrl: '/Sahil-Ali-Portfolio/images/certifications/warehouse.webp',
     description: [
