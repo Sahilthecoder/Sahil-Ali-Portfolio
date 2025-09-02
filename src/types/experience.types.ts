@@ -1,4 +1,6 @@
 export interface Education {
+  startDate: unknown;
+  endDate: string;
   id: string;
   institution: string;
   institutionUrl?: string;
@@ -29,6 +31,7 @@ export interface WorkExperience {
 }
 
 export interface Certification extends Omit<Education, 'degree'> {
+  year: string;
   credentialUrl?: string;
   issuer?: string;
   issueDate?: string;

@@ -10,6 +10,7 @@ import Experience from './pages/Experience';
 import { Projects } from './pages/Projects';
 import Contact from './pages/Contact';
 import Blog from './pages/Blog';
+import Resume from './pages/Resume';
 import NotFound from './pages/NotFound';
 
 // Lazy load components with preload hints
@@ -99,6 +100,7 @@ const AppRoutes = memo(function AppRoutes() {
       />
       <Route path="/contact" element={<Contact />} />
       <Route path="/blog" element={<Blog />} />
+      <Route path="/resume" element={<Resume />} />
       <Route 
         path="/terms-of-service" 
         element={renderWithSuspense(TermsOfService)} 

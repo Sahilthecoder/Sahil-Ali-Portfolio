@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { FiDownload } from 'react-icons/fi';
 import ProjectsDropdown from './ProjectsDropdown';
 
 interface NavItem {
@@ -12,6 +13,7 @@ const navItems: NavItem[] = [
   { label: 'Home', path: '/' },
   { label: 'About', path: '/about' },
   { label: 'Experience', path: '/experience' },
+  { label: 'Resume', path: '/resume' },
   { label: 'Contact', path: '/contact' },
 ];
 
@@ -44,7 +46,14 @@ const Navbar: React.FC = () => {
               `}
               aria-current={isActive ? 'page' : undefined}
             >
-              {label}
+              {label === 'Resume' ? (
+                <span className="flex items-center gap-1">
+                  {label}
+                  <FiDownload className="w-3.5 h-3.5" />
+                </span>
+              ) : (
+                label
+              )}
               <span
                 className={`
                   absolute bottom-0 left-0 h-0.5 bg-primary dark:bg-primary-foreground

@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiAward, FiBriefcase, FiChevronDown, FiCode, FiMapPin, FiBarChart2, FiTrendingUp } from 'react-icons/fi';
+import { FiAward, FiBriefcase, FiChevronDown, FiCode, FiMapPin, FiTrendingUp } from 'react-icons/fi';
 import { TbChartLine, TbTargetArrow } from 'react-icons/tb';
 
 import { AnimatedSection, SectionHeader } from '@/components/ui/AnimatedSection';
@@ -37,21 +37,13 @@ const PersonalStory = () => {
     {
       id: 1,
       year: '2017',
-      title: 'Field Executive & Accounts Assistant',
-      subtitle: 'Financial Operations & Client Management',
-      description: 'Managed end-to-end financial operations including client visits for EMI collections, KYC verification, and financial ledger reconciliation. Streamlined transaction processing using Tally and Excel, reducing processing time by 30%.',
+      title: 'Accounts Assistant',
+      subtitle: 'Financial Operations',
+      description: 'Managed financial operations and client interactions, focusing on efficient transaction processing and documentation.',
       icon: FiBriefcase,
       location: 'Deewakar Finance Pvt. Ltd., India',
       type: 'work',
-      tags: ['Tally', 'MS Excel', 'Financial Reporting', 'Compliance', 'Client Relations'],
-      achievements: [
-        'Reduced outstanding receivables by 25% through efficient collection strategies',
-        'Implemented a digital documentation system that decreased processing time by 35%'
-      ],
-      metrics: [
-        { label: 'Transactions Processed', value: '500+', icon: FiBarChart2 },
-        { label: 'Client Satisfaction', value: '95%', icon: TbTargetArrow }
-      ]
+      tags: ['Financial Operations', 'Transaction Processing', 'Client Relations']
     },
     {
       id: 2,
@@ -101,36 +93,24 @@ const PersonalStory = () => {
     {
       id: 5,
       year: '2023–Present',
-      title: 'Inventory & Financial Specialist',
-      subtitle: 'Operations & Process Automation',
-      description: 'Spearhead inventory management and financial operations across multiple locations. Developed automated reporting systems that reduced manual work by 60% and improved data accuracy.',
+      title: 'Operations Specialist',
+      subtitle: 'Process Optimization',
+      description: 'Overseeing operations and implementing process improvements to enhance efficiency and productivity.',
       icon: FiBriefcase,
       location: 'Ekam Indian Groceries, Australia',
       type: 'work',
-      tags: ['ERP Systems', 'Financial Analysis', 'Process Automation', 'Data Management', 'Reporting'],
-      metrics: [
-        { label: 'Process Automation', value: '60%', icon: TbChartLine },
-        { label: 'Reporting Time Saved', value: '15h/Week', icon: FiTrendingUp }
-      ]
+      tags: ['Process Optimization', 'Operations Management', 'Efficiency Improvement']
     },
     {
       id: 6,
       year: '2024–Present',
-      title: 'Data Analyst & Automation Specialist',
+      title: 'Automation Specialist',
       subtitle: 'Freelance Professional',
-      description: 'Leveraging data analytics and automation to solve complex business challenges. Specializing in Python, SQL, and modern data visualization tools to transform raw data into actionable insights and automated workflows.',
+      description: 'Developing automated solutions to improve business processes and operational efficiency.',
       icon: FiCode,
       location: 'Self-Employed',
       type: 'project',
-      tags: ['Python', 'SQL', 'Data Visualization', 'Process Automation', 'AI Integration'],
-      achievements: [
-        'Developed custom data pipelines that process 10,000+ records daily',
-        'Created interactive dashboards that improved decision-making speed by 50%'
-      ],
-      metrics: [
-        { label: 'Data Volume', value: '10K+ Records/Day', icon: FiBarChart2 },
-        { label: 'Efficiency Gain', value: '50%', icon: TbChartLine }
-      ]
+      tags: ['Process Automation', 'Workflow Optimization', 'Business Process Improvement']
     }
   ];
 

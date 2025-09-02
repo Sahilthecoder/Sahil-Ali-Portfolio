@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiX, FiHome, FiUser, FiBriefcase, FiCode, FiMail, FiChevronDown, FiFolder, FiStar, FiArrowRight } from 'react-icons/fi';
+import { FiX, FiHome, FiUser, FiBriefcase, FiCode, FiMail, FiChevronDown, FiFolder, FiStar, FiArrowRight, FiDownload } from 'react-icons/fi';
 import Newsletter from '@/components/Newsletter';
 import { projects } from '@/data/projects';
 
@@ -20,6 +20,7 @@ const navItems: NavItem[] = [
   { label: 'Home', path: '/', icon: <FiHome aria-hidden="true" className="w-6 h-6" /> },
   { label: 'About', path: '/about', icon: <FiUser aria-hidden="true" className="w-6 h-6" /> },
   { label: 'Experience', path: '/experience', icon: <FiBriefcase aria-hidden="true" className="w-6 h-6" /> },
+  { label: 'Resume', path: '/resume', icon: <FiDownload aria-hidden="true" className="w-6 h-6" /> },
   { label: 'Contact', path: '/contact', icon: <FiMail aria-hidden="true" className="w-6 h-6" /> },
 ];
 
@@ -152,19 +153,15 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
           <div
             ref={menuRef}
             tabIndex={-1}
-            className={`
+            className="
               fixed inset-y-0 right-0 w-full max-w-sm overflow-y-auto focus:outline-none
-              backdrop-blur-lg bg-white/98 dark:bg-gray-900/99
+              bg-white dark:bg-gray-900
               border-l border-gray-200 dark:border-gray-800 shadow-2xl
-            `}
-            style={{
-              '--tw-gradient-stops': 'var(--tw-gradient-from), var(--tw-gradient-to, rgba(255, 255, 255, 0))',
-              '--tw-gradient-from': 'hsl(var(--primary) / 0.1)'
-            } as React.CSSProperties}
+            "
           >
             <div className="flex flex-col h-full">
               {/* Header */}
-              <div className="flex items-center justify-between p-6 border-b border-gray-100 dark:border-gray-800 bg-white/95 dark:bg-gray-900/95">
+              <div className="flex items-center justify-between p-6 border-b border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900">
                 <h2 className="text-2xl font-extrabold text-gray-900 dark:text-white">Menu</h2>
                 <button
                   onClick={onClose}
@@ -287,21 +284,6 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                                   </div>
                                   <div className="text-xs font-medium text-gray-700 dark:text-gray-300 mt-0.5 truncate">
                                     {project.subtitle}
-                                  </div>
-                                  <div className="flex items-center mt-1 space-x-1">
-                                    {project.technologies.slice(0, 2).map((tech) => (
-                                      <span
-                                        key={tech}
-                                        className="px-1.5 py-0.5 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded font-medium"
-                                      >
-                                        {tech}
-                                      </span>
-                                    ))}
-                                    {project.technologies.length > 2 && (
-                                      <span className="text-xs text-gray-400">
-                                        +{project.technologies.length - 2}
-                                      </span>
-                                    )}
                                   </div>
                                 </div>
                                 <FiArrowRight className="w-3 h-3 text-gray-300 group-hover:text-primary group-hover:translate-x-0.5 transition-all flex-shrink-0" />
